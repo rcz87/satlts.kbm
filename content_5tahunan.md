@@ -29,10 +29,15 @@ Perpanjangan STNK 5 tahunan memerlukan penggantian STNK dan plat nomor kendaraan
 
 ## 💰 Estimasi Biaya
 
-### Biaya Tetap:
-- **Penggantian STNK**: Rp 200.000
-- **Penggantian TNKB/Plat**: Rp 100.000
-- **Administrasi**: Rp 50.000
+### Biaya Tetap (PNBP Resmi PP 76/2020):
+
+**Untuk Motor (Roda 2/3):**
+- **Penerbitan STNK**: Rp 100.000
+- **Penerbitan TNKB/Plat**: Rp 60.000
+
+**Untuk Mobil (Roda 4 atau lebih):**
+- **Penerbitan STNK**: Rp 200.000
+- **Penerbitan TNKB/Plat**: Rp 100.000
 
 ### Biaya Variabel:
 - **PKB (Pajak Kendaraan Bermotor)**: Tergantung jenis kendaraan
@@ -41,12 +46,20 @@ Perpanjangan STNK 5 tahunan memerlukan penggantian STNK dan plat nomor kendaraan
   - Mobil: Rp 143.000
 
 ### Contoh Total Biaya:
+
 **Motor 150cc:**
 - PKB: Rp 300.000
 - SWDKLLJ: Rp 35.000
+- STNK baru: Rp 100.000
+- Plat baru: Rp 60.000
+- **Total: Rp 495.000**
+
+**Mobil:**
+- PKB: Rp 1.500.000
+- SWDKLLJ: Rp 143.000
 - STNK baru: Rp 200.000
 - Plat baru: Rp 100.000
-- **Total: Rp 635.000**
+- **Total: Rp 1.943.000**
 
 ---
 

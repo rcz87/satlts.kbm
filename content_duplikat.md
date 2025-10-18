@@ -46,12 +46,19 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 
 ## 💰 Rincian Biaya
 
-### Biaya Duplikat STNK:
+### Biaya Duplikat STNK (PNBP Resmi PP 76/2020):
+
+**Untuk Motor (Roda 2/3):**
 | Jenis | Biaya |
 |-------|-------|
-| Penggantian STNK | Rp 200.000 - Rp 350.000 |
+| Penerbitan STNK | Rp 100.000 |
 | Cek Fisik | Rp 50.000 |
-| PNBP (Pajak Non-Pajak Negara) | Rp 100.000 |
+
+**Untuk Mobil (Roda 4 atau lebih):**
+| Jenis | Biaya |
+|-------|-------|
+| Penerbitan STNK | Rp 200.000 |
+| Cek Fisik | Rp 50.000 |
 
 ### Biaya Tambahan (jika ada):
 - **Tunggakan Pajak**: Harus dilunasi
@@ -60,10 +67,14 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 
 ### Contoh Total:
 **Motor dengan pajak lunas:**
-- Duplikat STNK: Rp 250.000
+- Penerbitan STNK: Rp 100.000
 - Cek Fisik: Rp 50.000
-- PNBP: Rp 100.000
-- **Total: Rp 400.000**
+- **Total: Rp 150.000**
+
+**Mobil dengan pajak lunas:**
+- Penerbitan STNK: Rp 200.000
+- Cek Fisik: Rp 50.000
+- **Total: Rp 250.000**
 
 ---
 

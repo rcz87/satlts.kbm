@@ -80,22 +80,26 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 - **SWDKLLJ**: 
   - Motor: Rp 35.000
   - Mobil: Rp 143.000
-- **Penerbitan STNK & TNKB baru**: Rp 300.000 - Rp 500.000
+- **Penerbitan STNK & TNKB baru** (PNBP PP 76/2020):
+  - Motor (Roda 2/3): STNK Rp 100.000 + TNKB Rp 60.000 = Rp 160.000
+  - Mobil (Roda 4+): STNK Rp 200.000 + TNKB Rp 100.000 = Rp 300.000
 
 #### Contoh Perhitungan:
 **Motor Tahun 2020, NJKB Rp 15.000.000:**
 - BPNKB (10%): Rp 1.500.000
 - PKB (2%): Rp 300.000
 - SWDKLLJ: Rp 35.000
-- STNK & Plat Baru: Rp 400.000
-- **Total: Rp 2.235.000**
+- STNK Baru: Rp 100.000
+- Plat Baru: Rp 60.000
+- **Total: Rp 1.995.000**
 
 **Mobil Tahun 2019, NJKB Rp 150.000.000:**
 - BPNKB (10%): Rp 15.000.000
 - PKB (2%): Rp 3.000.000
 - SWDKLLJ: Rp 143.000
-- STNK & Plat Baru: Rp 500.000
-- **Total: Rp 18.643.000**
+- STNK Baru: Rp 200.000
+- Plat Baru: Rp 100.000
+- **Total: Rp 18.443.000**
 
 ---
 

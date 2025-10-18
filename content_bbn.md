@@ -28,9 +28,11 @@ Harga Motor: Rp 25.000.000
 BBN 1 (10%): Rp 2.500.000
 PKB Tahun 1: Rp 500.000
 SWDKLLJ: Rp 35.000
-Plat & STNK: Rp 300.000
+STNK (PNBP): Rp 100.000
+TNKB/Plat (PNBP): Rp 60.000
+BPKB (PNBP): Rp 225.000
 ─────────────────────────
-Total: Rp 3.335.000
+Total: Rp 3.420.000
 ```
 
 #### Mobil Baru:
@@ -39,9 +41,11 @@ Harga Mobil: Rp 250.000.000
 BBN 1 (10%): Rp 25.000.000
 PKB Tahun 1: Rp 5.000.000
 SWDKLLJ: Rp 143.000
-Plat & STNK: Rp 500.000
+STNK (PNBP): Rp 200.000
+TNKB/Plat (PNBP): Rp 100.000
+BPKB (PNBP): Rp 375.000
 ─────────────────────────
-Total: Rp 30.643.000
+Total: Rp 30.818.000
 ```
 
 ### Siapa yang Mengurus?
