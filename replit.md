@@ -43,9 +43,10 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ### 1. Multi-Page Architecture
 - Halaman terpisah untuk setiap kategori layanan
-- 5 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2
+- 6 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2, Perpol 7/2021
 - Navigasi menu sticky dengan active state highlighting (golden border)
 - Setiap halaman memuat konten Markdown yang spesifik
+- Menu Perpol 7/2021 menampilkan PDF embedded viewer untuk peraturan resmi
 
 ### 2. Markdown to HTML Rendering
 - Membaca file Markdown terpisah untuk setiap halaman
@@ -66,7 +67,18 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - Option untuk custom URL
 - High error correction level
 
+### 5. PDF Viewer untuk Perpol 7/2021
+- Embedded PDF viewer menggunakan iframe
+- Menampilkan Peraturan Kepolisian No. 7/2021 tentang Regident Ranmor
+- Opsi download PDF untuk akses offline
+- File PDF disimpan di static/documents/
+
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Tambah Menu Perpol 7/2021
+  - ✅ Tambahkan menu baru "Perpol 7/2021" dengan embedded PDF viewer
+  - ✅ Upload dan integrasikan Peraturan Kepolisian No. 7/2021 tentang Regident Ranmor
+  - ✅ Buat route /perpol dengan tampilan PDF viewer dan tombol download
+  - ✅ File PDF tersimpan di static/documents/ untuk akses publik
 - **18 Oktober 2025**: Update Tarif PNBP sesuai PP 76/2020 (Final)
   - ✅ Update tarif Mutasi Keluar: Motor Rp 150.000, Mobil Rp 250.000
   - ✅ Tambah informasi Pengesahan STNK Tahunan di halaman 5 Tahunan: Motor Rp 25.000/tahun, Mobil Rp 50.000/tahun
