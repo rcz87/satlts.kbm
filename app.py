@@ -106,5 +106,15 @@ def lihat_uu_lalulintas():
     ''')
     return render_template('index.html', content=content, current_page='dasarhukum')
 
+@app.route('/galery')
+def galery():
+    content = load_markdown('content_galery.md')
+    return render_template('index.html', content=content, current_page='galery')
+
+@app.route('/ikm')
+def ikm():
+    content = load_markdown('content_ikm.md')
+    return render_template('index.html', content=content, current_page='ikm')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
