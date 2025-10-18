@@ -21,7 +21,8 @@ Jalan Tentara Pelajar No. 54, Kebumen
 |------|----------|-----------|
 | Senin - Kamis | 08.00 WIB | 15.00 WIB |
 | Jumat | 08.00 WIB | 15.30 WIB |
-| Sabtu - Minggu | TUTUP | TUTUP |
+| Sabtu | 08.00 WIB | 12.00 WIB |
+| Minggu | TUTUP | TUTUP |
 
 **Catatan:** Libur pada hari besar nasional dan cuti bersama
 
