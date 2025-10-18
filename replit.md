@@ -47,7 +47,41 @@ The application is built using Flask, serving content dynamically rendered from 
 - **Markdown Parser**: python-markdown with extensions (tables, fenced_code, nl2br)
 - **QR Code Generation**: qrcode + Pillow
 - **Frontend Interactivity**: Vanilla JavaScript (for star rating, AJAX)
+- **Security**: Flask-WTF (CSRF protection), Flask-Limiter (rate limiting)
+
+## 🔒 Security Features
+Website ini mengikuti standar keamanan OWASP Top 10 2021 dan persyaratan keamanan pemerintah Indonesia (BSSN):
+
+### Protection Mechanisms:
+- **CSRF Protection**: Flask-WTF dengan token validation di semua form submissions
+- **SQL Injection Prevention**: Parameterized queries dengan psycopg2
+- **XSS Prevention**: Jinja2 auto-escaping + CSP headers
+- **Rate Limiting**: 200 requests/day umum, 10 requests/hour untuk IKM submit
+- **Input Validation**: Whitelist validation untuk jenis layanan (8 tipe yang diizinkan)
+- **Security Headers**:
+  - X-Frame-Options: SAMEORIGIN (anti-clickjacking)
+  - X-Content-Type-Options: nosniff (anti-MIME sniffing)
+  - X-XSS-Protection: 1; mode=block
+  - Content-Security-Policy: Strict CSP rules
+  - Referrer-Policy: strict-origin-when-cross-origin
+  - Strict-Transport-Security (HSTS) untuk production
+- **Secure Session**: HttpOnly, Secure, SameSite cookies
+- **HTTPS Enforcement**: HSTS headers di production mode
+
 ## 📝 Recent Changes
+
+### **18 Oktober 2025 - Implementasi Keamanan Komprehensif**
+**Perlindungan Maksimal dari Serangan Hacker sesuai OWASP Top 10 & BSSN Standards**
+
+#### Security Enhancements:
+- ✅ CSRF Protection menggunakan Flask-WTF dengan token validation
+- ✅ Rate Limiting untuk mencegah DDoS dan spam (Flask-Limiter)
+- ✅ Security Headers lengkap (X-Frame-Options, CSP, HSTS, X-Content-Type, Referrer-Policy)
+- ✅ Input validation whitelist untuk dropdown jenis_layanan
+- ✅ CSRF token integration di templates dan JavaScript AJAX
+- ✅ Secure session configuration (HttpOnly, Secure, SameSite flags)
+- ✅ HTTPS enforcement configuration untuk deployment
+- ✅ Tested dan verified semua security features aktif
 
 ### **18 Oktober 2025 - Implementasi Lengkap Sistem IKM**
 **Sistem Survei Kepuasan Masyarakat Fully Functional dengan Database PostgreSQL**

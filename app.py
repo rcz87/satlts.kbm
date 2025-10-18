@@ -165,10 +165,10 @@ def add_security_headers(response):
     # Enable browser XSS protection
     response.headers['X-XSS-Protection'] = '1; mode=block'
     
-    # Content Security Policy - prevent XSS attacks
+    # Content Security Policy - prevent XSS attacks (strict mode, no inline scripts)
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline'; "
+        "script-src 'self'; "
         "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; "
         "font-src 'self'; "
