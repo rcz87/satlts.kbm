@@ -1,10 +1,16 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, jsonify
 from markupsafe import Markup
 import markdown
 import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SESSION_SECRET', 'dev-secret-key-change-in-production')
+
+def get_db_connection():
+    conn = psycopg2.connect(os.environ['DATABASE_URL'])
+    return conn
 
 def load_markdown(filename):
     try:
@@ -115,6 +121,16 @@ def galery():
 def ikm():
     content = load_markdown('content_ikm.md')
     return render_template('index.html', content=content, current_page='ikm')
+
+@app.route('/ikm/submit', methods=['POST'])
+def ikm_submit():
+    from app_ikm import ikm_submit_route
+    return ikm_submit_route()
+
+@app.route('/ikm/hasil')
+def ikm_hasil():
+    from app_ikm import ikm_hasil_route
+    return ikm_hasil_route()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

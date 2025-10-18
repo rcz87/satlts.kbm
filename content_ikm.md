@@ -6,7 +6,200 @@ Indeks Kepuasan Masyarakat (IKM) adalah data dan informasi tentang tingkat kepua
 
 ---
 
-## 🎯 Tujuan IKM
+<div class="ikm-intro">
+  <h2>✍️ Berikan Penilaian Anda</h2>
+  <p>Bantu kami meningkatkan kualitas pelayanan dengan mengisi survei kepuasan di bawah ini. Penilaian Anda sangat berharga bagi kami!</p>
+</div>
+
+<div id="ikm-form-container">
+  <form id="ikm-survey-form" class="ikm-form">
+    <div class="form-group">
+      <label class="form-label">Jenis Layanan yang Anda Gunakan:</label>
+      <select name="jenis_layanan" required class="form-select">
+        <option value="">-- Pilih Layanan --</option>
+        <option value="Pembayaran Pajak Tahunan">Pembayaran Pajak Tahunan</option>
+        <option value="Perpanjangan STNK 5 Tahunan">Perpanjangan STNK 5 Tahunan</option>
+        <option value="Duplikat STNK">Duplikat STNK</option>
+        <option value="Mutasi Kendaraan">Mutasi Kendaraan</option>
+        <option value="Balik Nama (BBN 1/BBN 2)">Balik Nama (BBN 1/BBN 2)</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+    </div>
+
+    <div class="rating-container">
+      <h3 class="rating-title">Berikan Penilaian untuk 9 Aspek Pelayanan</h3>
+      <p class="rating-subtitle">Klik bintang untuk memberikan nilai (1 = Tidak Baik, 4 = Sangat Baik)</p>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">1.</span>
+          <div>
+            <strong>Persyaratan</strong>
+            <p class="rating-desc">Kemudahan dan kejelasan persyaratan pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="persyaratan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">2.</span>
+          <div>
+            <strong>Prosedur</strong>
+            <p class="rating-desc">Kemudahan dan kejelasan prosedur pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="prosedur">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">3.</span>
+          <div>
+            <strong>Waktu Pelayanan</strong>
+            <p class="rating-desc">Kecepatan waktu dalam memberikan pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="waktu_pelayanan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">4.</span>
+          <div>
+            <strong>Biaya/Tarif</strong>
+            <p class="rating-desc">Kewajaran dan kejelasan biaya/tarif pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="biaya_tarif">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">5.</span>
+          <div>
+            <strong>Produk Layanan</strong>
+            <p class="rating-desc">Kualitas hasil pelayanan yang diberikan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="produk_layanan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">6.</span>
+          <div>
+            <strong>Kompetensi Petugas</strong>
+            <p class="rating-desc">Kemampuan dan keahlian petugas dalam memberikan pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="kompetensi_petugas">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">7.</span>
+          <div>
+            <strong>Perilaku Petugas</strong>
+            <p class="rating-desc">Kesopanan dan keramahan petugas dalam memberikan pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="perilaku_petugas">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">8.</span>
+          <div>
+            <strong>Sarana/Prasarana</strong>
+            <p class="rating-desc">Kualitas sarana dan prasarana pelayanan</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="maklumat_pelayanan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-label">
+          <span class="rating-number">9.</span>
+          <div>
+            <strong>Penanganan Pengaduan</strong>
+            <p class="rating-desc">Kemudahan dan kecepatan penanganan pengaduan masyarakat</p>
+          </div>
+        </div>
+        <div class="star-rating" data-rating="0" data-name="penanganan_pengaduan">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">💬 Saran & Komentar (Opsional):</label>
+      <textarea name="komentar" rows="4" placeholder="Tuliskan saran, kritik, atau komentar Anda untuk peningkatan pelayanan..." class="form-textarea"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">✅ Kirim Penilaian</button>
+    </div>
+
+    <div id="form-message" class="form-message"></div>
+  </form>
+</div>
+
+---
+
+## 📊 Lihat Hasil Survei
+
+<div class="ikm-results-link">
+  <p>Ingin melihat hasil survei kepuasan masyarakat?</p>
+  <a href="/ikm/hasil" class="btn-view-results">📈 Lihat Hasil IKM</a>
+</div>
+
+---
+
+## 🎯 Tentang IKM
 
 IKM bertujuan untuk:
 
@@ -17,66 +210,8 @@ IKM bertujuan untuk:
 
 ---
 
-## 📋 Aspek Penilaian
-
-Penilaian IKM mencakup beberapa aspek pelayanan:
-
-| No | Aspek Pelayanan | Keterangan |
-|----|----------------|------------|
-| 1  | Persyaratan    | Kemudahan dan kejelasan persyaratan pelayanan |
-| 2  | Prosedur       | Kemudahan dan kejelasan prosedur pelayanan |
-| 3  | Waktu Pelayanan | Kecepatan waktu dalam memberikan pelayanan |
-| 4  | Biaya/Tarif    | Kewajaran dan kejelasan biaya/tarif pelayanan |
-| 5  | Produk Layanan | Kualitas hasil pelayanan yang diberikan |
-| 6  | Kompetensi Petugas | Kemampuan dan keahlian petugas dalam memberikan pelayanan |
-| 7  | Perilaku Petugas | Kesopanan dan keramahan petugas dalam memberikan pelayanan |
-| 8  | Sarana/Prasarana | Kualitas sarana dan prasarana pelayanan |
-| 9  | Penanganan Pengaduan | Kemudahan dan kecepatan penanganan pengaduan masyarakat |
-
----
-
-## 🚀 Modul Survei IKM
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: center;">
-  <h3 style="color: white; margin-top: 0;">📝 Modul Survei Dalam Pengembangan</h3>
-  <p style="font-size: 1.1em; line-height: 1.6;">
-    Saat ini kami sedang mengembangkan <strong>modul survei IKM interaktif</strong> yang memungkinkan masyarakat untuk memberikan penilaian dan feedback secara online.
-  </p>
-  <p style="font-size: 1em; opacity: 0.9; margin-bottom: 0;">
-    ⏳ Modul ini akan segera tersedia untuk Anda gunakan.
-  </p>
-</div>
-
----
-
-## 💡 Fitur yang Akan Datang
-
-Modul IKM yang sedang dikembangkan akan memiliki fitur:
-
-- ✅ **Formulir Survei Online** - Isi survei langsung dari website
-- 📊 **Dashboard Hasil IKM** - Lihat hasil survei secara real-time
-- 📈 **Grafik & Statistik** - Visualisasi data kepuasan masyarakat
-- 💬 **Kotak Saran** - Sampaikan saran dan kritik untuk perbaikan layanan
-- 🔒 **Data Anonim** - Privasi terjaga, identitas tidak dipublikasikan
-- 📱 **Mobile Friendly** - Isi survei dari HP dengan mudah
-
----
-
-## 📞 Hubungi Kami
-
-Untuk saat ini, Anda dapat menyampaikan saran, kritik, atau feedback melalui:
-
-**📱 WhatsApp:** [0877-2555-8787](https://wa.me/6287725558787)  
-**📍 Alamat:** Jl. Tentara Pelajar No. 54, Kebumen  
-
-Atau kunjungi langsung kantor SAMSAT Kebumen pada:
-- **Senin - Jumat:** 08:00 - 14:00 WIB  
-- **Sabtu:** 08:00 - 12:00 WIB
-
----
-
 <div style="background: #f0f9ff; padding: 20px; border-left: 4px solid #3b82f6; border-radius: 8px; margin: 20px 0;">
   <p style="margin: 0; color: #1e40af; font-size: 1em;">
-    <strong>ℹ️ Informasi:</strong> Kepuasan Anda adalah prioritas kami. Masukan Anda sangat berharga untuk meningkatkan kualitas pelayanan SAMSAT Kebumen.
+    <strong>ℹ️ Informasi:</strong> Kepuasan Anda adalah prioritas kami. Masukan Anda sangat berharga untuk meningkatkan kualitas pelayanan SAMSAT Kebumen. Data survei bersifat anonim dan hanya digunakan untuk peningkatan layanan.
   </p>
 </div>
