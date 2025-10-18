@@ -6,22 +6,46 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get('SESSION_SECRET', 'dev-secret-key-change-in-production')
 
-@app.route('/')
-def index():
+def load_markdown(filename):
     try:
-        with open('samsat_infoboard.md', 'r', encoding='utf-8') as f:
+        with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
         
         html = markdown.markdown(
             content, 
-            extensions=['tables', 'fenced_code', 'nl2br', 'toc', 'attr_list']
+            extensions=['tables', 'fenced_code', 'nl2br']
         )
         
-        return render_template('index.html', content=Markup(html))
+        return Markup(html)
     except FileNotFoundError:
-        return render_template('index.html', content=Markup('<p>File samsat_infoboard.md tidak ditemukan.</p>'))
+        return Markup(f'<p>File {filename} tidak ditemukan.</p>')
     except Exception as e:
-        return render_template('index.html', content=Markup(f'<p>Error: {str(e)}</p>'))
+        return Markup(f'<p>Error: {str(e)}</p>')
+
+@app.route('/')
+def index():
+    content = load_markdown('content_home.md')
+    return render_template('index.html', content=content, current_page='home')
+
+@app.route('/5tahunan')
+def tahunan():
+    content = load_markdown('content_5tahunan.md')
+    return render_template('index.html', content=content, current_page='5tahunan')
+
+@app.route('/duplikat')
+def duplikat():
+    content = load_markdown('content_duplikat.md')
+    return render_template('index.html', content=content, current_page='duplikat')
+
+@app.route('/mutasi')
+def mutasi():
+    content = load_markdown('content_mutasi.md')
+    return render_template('index.html', content=content, current_page='mutasi')
+
+@app.route('/bbn')
+def bbn():
+    content = load_markdown('content_bbn.md')
+    return render_template('index.html', content=content, current_page='bbn')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

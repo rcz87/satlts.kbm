@@ -1,0 +1,93 @@
+# 📋 Syarat Pembayaran 5 Tahunan
+
+Perpanjangan STNK 5 tahunan memerlukan penggantian STNK dan plat nomor kendaraan.
+
+---
+
+## 📄 Persyaratan Lengkap
+
+1. **KTP Asli** pemilik kendaraan (sesuai nama di STNK)
+2. **STNK Asli** (yang akan diganti)
+3. **BPKB Asli** (dibawa untuk pengecekan)
+4. **Kendaraan** (harus dibawa untuk cek fisik)
+5. **Surat Kuasa** bermaterai (jika diwakilkan)
+6. **Bukti Pelunasan Pajak** tahun berjalan
+
+---
+
+## 🔄 Proses Perpanjangan
+
+| Tahap | Keterangan |
+|-------|-----------|
+| 1️⃣ Cek Fisik | Pemeriksaan nomor rangka & mesin kendaraan |
+| 2️⃣ Pembayaran PKB | Pajak Kendaraan Bermotor + SWDKLLJ |
+| 3️⃣ Biaya Ganti | Pembayaran penggantian STNK & TNKB |
+| 4️⃣ Penerbitan | Cetak STNK dan plat nomor baru |
+| 5️⃣ Selesai | Proses selesai dalam 1 hari kerja |
+
+---
+
+## 💰 Estimasi Biaya
+
+### Biaya Tetap:
+- **Penggantian STNK**: Rp 200.000
+- **Penggantian TNKB/Plat**: Rp 100.000
+- **Administrasi**: Rp 50.000
+
+### Biaya Variabel:
+- **PKB (Pajak Kendaraan Bermotor)**: Tergantung jenis kendaraan
+- **SWDKLLJ**: 
+  - Motor: Rp 35.000
+  - Mobil: Rp 143.000
+
+### Contoh Total Biaya:
+**Motor 150cc:**
+- PKB: Rp 300.000
+- SWDKLLJ: Rp 35.000
+- STNK baru: Rp 200.000
+- Plat baru: Rp 100.000
+- **Total: Rp 635.000**
+
+---
+
+## ⏱️ Waktu Proses
+
+- **Normal**: 1 hari kerja (jika datang pagi)
+- **Ramai**: Bisa sampai sore hari
+- **Rekomendasikan**: Datang jam 08.00 - 09.00 WIB
+
+---
+
+## ⚠️ Catatan Penting
+
+### ✅ Sebelum Datang:
+1. Pastikan kendaraan dalam kondisi baik untuk cek fisik
+2. Bersihkan nomor rangka dan mesin agar mudah terbaca
+3. Periksa kelengkapan dokumen
+4. Cek info tunggakan pajak terlebih dahulu
+
+### ❌ Yang Harus Dihindari:
+1. STNK sudah mati lebih dari 2 tahun (proses lebih lama)
+2. Nomor rangka/mesin tidak terbaca (harus di-blasting dulu)
+3. Ada tilang yang belum diselesaikan
+4. Dokumen tidak lengkap
+
+### 📌 Tips Hemat Waktu:
+- Datang hari Senin-Rabu (tidak terlalu ramai)
+- Hindari akhir bulan (biasanya ramai)
+- Siapkan uang pas untuk mempercepat transaksi
+- Gunakan aplikasi e-Samsat untuk cek info awal
+
+---
+
+## 📞 Butuh Bantuan?
+
+**SAMSAT KEBUMEN**  
+📍 Jalan Tentara Pelajar No. 54, Kebumen  
+☎️ Telepon: (0287) 381234  
+✉️ Email: samsat.kebumen@jatengprov.go.id
+
+**Jam Operasional:**
+- Senin - Kamis: 08.00 - 15.00 WIB
+- Jumat: 08.00 - 15.30 WIB
+- Sabtu - Minggu: TUTUP
