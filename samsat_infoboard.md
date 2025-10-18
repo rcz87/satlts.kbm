@@ -1,0 +1,142 @@
+# 📘 INFORMASI UNIT STNK KEBUMEN
+
+## 📋 Informasi Umum
+
+**SAMSAT KEBUMEN**  
+Jalan Tentara Pelajar No. 54, Kebumen  
+Telepon: (0287) 381234  
+Email: samsat.kebumen@jatengprov.go.id
+
+---
+
+## ⏰ Jam Operasional
+
+| Hari | Jam Buka | Jam Tutup |
+|------|----------|-----------|
+| Senin - Kamis | 08.00 WIB | 15.00 WIB |
+| Jumat | 08.00 WIB | 15.30 WIB |
+| Sabtu - Minggu | TUTUP | TUTUP |
+
+**Catatan:** Libur pada hari besar nasional dan cuti bersama
+
+---
+
+## 📝 Layanan SAMSAT Kebumen
+
+### 1. Pendaftaran Kendaraan Bermotor Baru
+- Registrasi kendaraan baru
+- Penerbitan STNK dan TNKB pertama kali
+- Persyaratan: KTP, Bukti Kepemilikan, BPKB
+
+### 2. Perpanjangan STNK Tahunan
+- Pembayaran Pajak Kendaraan Bermotor (PKB)
+- Pembayaran Sumbangan Wajib Dana Kecelakaan Lalu Lintas Jalan (SWDKLLJ)
+- Pengesahan STNK tahunan
+
+### 3. Perpanjangan STNK 5 Tahunan
+- Ganti STNK (masa berlaku 5 tahun)
+- Ganti TNKB (plat nomor)
+- Cek fisik kendaraan diperlukan
+
+### 4. Balik Nama Kendaraan
+- Mutasi kepemilikan kendaraan
+- Penerbitan STNK dan BPKB atas nama pemilik baru
+- Persyaratan: KTP, BPKB, Surat Jual Beli, STNK lama
+
+### 5. Mutasi Keluar/Masuk Daerah
+- Pindah domisili kendaraan antar kabupaten/provinsi
+- Pengurusan dokumen mutasi
+
+---
+
+## 💰 Informasi Pembayaran
+
+### Metode Pembayaran:
+- ✅ Tunai
+- ✅ Debit (BCA, Mandiri, BNI, BRI)
+- ✅ QRIS
+- ✅ Transfer Bank
+
+### Loket Pembayaran:
+- **Bank Jateng** (Loket 1-3)
+- **Kasir Samsat** (Loket 4-5)
+
+---
+
+## 📄 Dokumen yang Diperlukan
+
+### Perpanjangan STNK Tahunan:
+1. KTP Asli pemilik kendaraan
+2. STNK Asli
+3. BPKB (untuk pengecekan, tidak ditahan)
+
+### Perpanjangan STNK 5 Tahunan:
+1. KTP Asli pemilik kendaraan
+2. STNK Asli (akan diganti)
+3. BPKB Asli
+4. Kendaraan (untuk cek fisik)
+
+### Balik Nama:
+1. KTP Asli pembeli & penjual
+2. BPKB Asli
+3. STNK Asli
+4. Surat Jual Beli bermaterai
+5. Kendaraan (untuk cek fisik)
+
+---
+
+## 🚗 Estimasi Biaya PKB (Contoh)
+
+| Jenis Kendaraan | Estimasi PKB/Tahun |
+|-----------------|-------------------|
+| Motor 110cc | Rp 150.000 - Rp 250.000 |
+| Motor 150cc | Rp 250.000 - Rp 400.000 |
+| Mobil 1000cc | Rp 800.000 - Rp 1.500.000 |
+| Mobil 1500cc | Rp 1.500.000 - Rp 3.000.000 |
+
+*Catatan: Biaya bersifat estimasi, tergantung nilai jual kendaraan dan tahun pembuatan*
+
+---
+
+## ℹ️ Tips & Informasi Penting
+
+### ✅ Untuk Perpanjangan yang Lancar:
+1. Datang pagi hari (08.00-09.00) untuk menghindari antrean panjang
+2. Siapkan dokumen lengkap sebelum datang
+3. Pastikan tidak ada tilang yang belum diselesaikan
+4. Cek info pajak kendaraan melalui aplikasi e-Samsat terlebih dahulu
+
+### ⚠️ Denda Keterlambatan:
+- Terlambat 1-12 bulan: Denda 25% dari PKB
+- Terlambat >12 bulan: Denda bertambah sesuai durasi keterlambatan
+- SWDKLLJ tetap dibayar per tahun tertunggak
+
+### 📱 Layanan Digital:
+- **e-Samsat**: Pembayaran pajak kendaraan online (untuk wilayah Jawa Tengah)
+- **Samsat Keliling**: Cek jadwal di website resmi Samsat Jateng
+- **Info Pajak Online**: Cek via SMS atau aplikasi
+
+---
+
+## 📞 Kontak & Informasi Lebih Lanjut
+
+**SAMSAT KEBUMEN**  
+📍 Jalan Tentara Pelajar No. 54, Kebumen  
+☎️ Telepon: (0287) 381234  
+✉️ Email: samsat.kebumen@jatengprov.go.id  
+🌐 Website: [www.bapenda.jatengprov.go.id](http://www.bapenda.jatengprov.go.id)
+
+**Media Sosial:**
+- Instagram: @samsat_jateng
+- Twitter: @SamsatJateng
+
+---
+
+## 🏢 Mitra Layanan
+
+**CV Cakra Pamungkas Mandiri**  
+Mitra resmi untuk layanan administrasi dan konsultasi STNK di SAMSAT Kebumen
+
+---
+
+*Terakhir diperbarui: Oktober 2025*
