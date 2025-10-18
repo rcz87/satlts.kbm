@@ -11,7 +11,7 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 ## 🏢 Identitas Portal
 - **Nama**: SAMSAT Kebumen
 - **Alamat**: Jalan Tentara Pelajar No. 54, Kebumen
-- **Mitra**: SATLANTAS POLRES KEBUMEN
+- **Petugas Pelayanan**: SATLANTAS POLRES KEBUMEN
 
 ## 🏗️ Project Architecture
 

@@ -38,10 +38,10 @@ Silakan pilih menu sesuai kebutuhan Anda:
 
 ---
 
-## 🏢 Mitra Layanan
+## 👮 Petugas Pelayanan STNK
 
 **SATLANTAS POLRES KEBUMEN**  
-Mitra resmi untuk layanan administrasi dan konsultasi STNK di SAMSAT Kebumen
+Petugas pelayanan STNK di SAMSAT Kebumen siap membantu Anda
 
 ---
 
