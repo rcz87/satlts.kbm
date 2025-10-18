@@ -134,7 +134,7 @@ Email: samsat.kebumen@jatengprov.go.id
 
 ## 🏢 Mitra Layanan
 
-**CV Cakra Pamungkas Mandiri**  
+**SATLANTAS POLRES KEBUMEN**  
 Mitra resmi untuk layanan administrasi dan konsultasi STNK di SAMSAT Kebumen
 
 ---
