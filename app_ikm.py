@@ -34,9 +34,25 @@ def ikm_submit_route():
         komentar = data.get('komentar', '')
         jenis_layanan = data.get('jenis_layanan', '').strip()
         
+        # Security: Whitelist validation for jenis_layanan
+        ALLOWED_JENIS_LAYANAN = [
+            'Pembayaran Pajak Tahunan',
+            'Pembayaran Pajak 5 Tahunan',
+            'Duplikat STNK',
+            'Mutasi Masuk',
+            'Mutasi Keluar',
+            'BBN 1 (Kendaraan Baru)',
+            'BBN 2 (Balik Nama)',
+            'Lainnya'
+        ]
+        
         if not jenis_layanan:
             logger.info("IKM submit: Missing jenis_layanan")
             return jsonify({'success': False, 'message': 'Mohon pilih jenis layanan'}), 400
+        
+        if jenis_layanan not in ALLOWED_JENIS_LAYANAN:
+            logger.warning(f"IKM submit: Invalid jenis_layanan '{jenis_layanan}'")
+            return jsonify({'success': False, 'message': 'Jenis layanan tidak valid'}), 400
         
         if any(r < 1 or r > 4 for r in [persyaratan, prosedur, waktu_pelayanan, biaya_tarif, 
                                          produk_layanan, kompetensi_petugas, perilaku_petugas, 

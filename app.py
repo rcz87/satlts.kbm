@@ -4,9 +4,29 @@ import markdown
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from flask_wtf.csrf import CSRFProtect
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SESSION_SECRET', 'dev-secret-key-change-in-production')
+
+# Security: CSRF Protection
+csrf = CSRFProtect(app)
+
+# Security: Rate Limiting (prevent DDoS/spam)
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
+
+# Security: Secure session cookies
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+if not app.debug:
+    app.config['SESSION_COOKIE_SECURE'] = True
 
 def get_db_connection():
     conn = psycopg2.connect(os.environ['DATABASE_URL'])
@@ -123,6 +143,7 @@ def ikm():
     return render_template('index.html', content=content, current_page='ikm')
 
 @app.route('/ikm/submit', methods=['POST'])
+@limiter.limit("10 per hour")  # Security: Max 10 submissions per hour per IP
 def ikm_submit():
     from app_ikm import ikm_submit_route
     return ikm_submit_route()
@@ -131,6 +152,37 @@ def ikm_submit():
 def ikm_hasil():
     from app_ikm import ikm_hasil_route
     return ikm_hasil_route()
+
+# Security: Add security headers to all responses
+@app.after_request
+def add_security_headers(response):
+    # Prevent clickjacking attacks
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    
+    # Prevent MIME type sniffing
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    
+    # Enable browser XSS protection
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    
+    # Content Security Policy - prevent XSS attacks
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data:; "
+        "font-src 'self'; "
+        "frame-ancestors 'self';"
+    )
+    
+    # Referrer Policy - control referrer information
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    
+    # HTTPS enforcement (HSTS) - only in production
+    if not app.debug:
+        response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
 dependencies = [
+    "flask-wtf>=1.2.2",
     "flask>=3.1.2",
     "gunicorn>=23.0.0",
     "markdown>=3.9",
@@ -12,4 +13,5 @@ dependencies = [
     "psycopg2-binary>=2.9.11",
     "python-dotenv>=1.1.1",
     "qrcode>=8.2",
+    "flask-limiter>=4.0.0",
 ]

@@ -72,11 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         submitButton.textContent = 'Mengirim...';
         
+        // Security: Get CSRF token from meta tag
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        
         try {
             const response = await fetch('/ikm/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken  // Security: Include CSRF token
                 },
                 body: JSON.stringify({
                     ...ratings,
