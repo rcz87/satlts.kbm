@@ -27,7 +27,9 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 ├── templates/
 │   └── index.html           # Template HTML dengan navigasi menu
 ├── static/
-│   └── style.css            # Styling CSS profesional dengan active state
+│   ├── style.css            # Styling CSS profesional dengan active state
+│   └── documents/
+│       └── perpol-7-2021-regident.pdf  # Peraturan Kepolisian No. 7/2021
 ├── .gitignore               # Git ignore file
 └── replit.md                # Dokumentasi proyek
 ```
