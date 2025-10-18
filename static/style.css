@@ -118,6 +118,7 @@ main h2 {
   margin: 25px 0 15px 0;
   padding-left: 10px;
   border-left: 5px solid #764ba2;
+  scroll-margin-top: 80px;
 }
 
 main h3 {
