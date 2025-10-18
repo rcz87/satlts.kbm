@@ -45,10 +45,13 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ### 1. Multi-Page Architecture
 - Halaman terpisah untuk setiap kategori layanan
-- 6 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2, Perpol 7/2021
+- 6 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2, Dasar Hukum
 - Navigasi menu sticky dengan active state highlighting (golden border)
 - Setiap halaman memuat konten Markdown yang spesifik
-- Menu Perpol 7/2021 menampilkan PDF embedded viewer untuk peraturan resmi
+- Menu Dasar Hukum menampilkan daftar peraturan dengan PDF embedded viewer:
+  - UU No. 22/2009 tentang Lalu Lintas dan Angkutan Jalan
+  - Perpol No. 7/2021 tentang Regident Ranmor
+  - Peraturan pendukung lainnya (PP 76/2020, UU 1/2022)
 
 ### 2. Markdown to HTML Rendering
 - Membaca file Markdown terpisah untuk setiap halaman
@@ -70,13 +73,22 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - Option untuk custom URL
 - High error correction level
 
-### 5. PDF Viewer untuk Perpol 7/2021
-- Embedded PDF viewer menggunakan iframe
-- Menampilkan Peraturan Kepolisian No. 7/2021 tentang Regident Ranmor
-- Opsi download PDF untuk akses offline
-- File PDF disimpan di static/documents/
+### 5. Halaman Dasar Hukum dengan PDF Viewer
+- Halaman khusus untuk menampilkan berbagai peraturan perundangan
+- Daftar peraturan: UU 22/2009, Perpol 7/2021, PP 76/2020, UU 1/2022
+- Setiap peraturan bisa dibaca langsung (embedded PDF viewer) atau didownload
+- Embedded PDF viewer menggunakan iframe untuk UU Lalu Lintas dan Perpol
+- File PDF tersimpan di static/documents/
+- Mudah untuk menambah peraturan baru di masa depan
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Ubah Menu Perpol 7/2021 menjadi Dasar Hukum
+  - ✅ Ganti nama menu dari "Perpol 7/2021" menjadi "Dasar Hukum"
+  - ✅ Tambahkan file UU No. 22/2009 tentang Lalu Lintas (420 KB PDF)
+  - ✅ Buat halaman daftar peraturan dengan akses ke semua dokumen hukum
+  - ✅ Setiap peraturan bisa dibaca online atau didownload PDF
+  - ✅ Route baru: /dasarhukum, /lihat-uu-lalulintas, /lihat-perpol
+  - ✅ Mudah menambah peraturan baru di masa depan
 - **18 Oktober 2025**: Tambah Logo SAMSAT Resmi di Header
   - ✅ Logo resmi SAMSAT dengan lambang Garuda Pancasila dan sayap emas
   - ✅ Posisi di header sebelah kiri sebelum judul
