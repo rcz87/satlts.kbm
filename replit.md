@@ -80,7 +80,7 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - **18 Oktober 2025**: Tambah Logo SAMSAT Resmi di Header
   - ✅ Logo resmi SAMSAT dengan lambang Garuda Pancasila dan sayap emas
   - ✅ Posisi di header sebelah kiri sebelum judul
-  - ✅ Ukuran 120px (desktop) dan 80px (mobile) dengan responsive design
+  - ✅ Ukuran 140px (desktop) dan 110px (mobile) dengan responsive design
   - ✅ Efek hover dengan zoom scale 1.05
   - ✅ Shadow effect untuk depth visual
   - ✅ Logo tampil di semua halaman website
