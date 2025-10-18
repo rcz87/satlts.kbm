@@ -1,10 +1,10 @@
-import qrcode
+import qrcode  # type: ignore
 import os
 
 def generate_qr_code(url, filename='qr_code.png'):
-    qr = qrcode.QRCode(
+    qr = qrcode.QRCode(  # type: ignore
         version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,  # type: ignore
         box_size=10,
         border=4,
     )
