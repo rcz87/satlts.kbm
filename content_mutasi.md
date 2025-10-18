@@ -66,11 +66,13 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 ## 💰 Rincian Biaya Mutasi
 
 ### A. Mutasi Keluar (Dari Kebumen):
-| Item | Biaya |
+
+**Tarif PNBP (PP 76/2020):**
+| Jenis Kendaraan | Biaya Surat Mutasi |
 |------|-------|
-| Surat Mutasi | Rp 50.000 - Rp 100.000 |
+| Motor (Roda 2/3) | Rp 150.000 |
+| Mobil (Roda 4+) | Rp 250.000 |
 | Pajak (jika ada tunggakan) | Sesuai PKB |
-| **Total Estimasi** | **Rp 50.000 - Rp 100.000** |
 
 ### B. Mutasi Masuk (Ke Kebumen):
 
