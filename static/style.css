@@ -125,12 +125,67 @@ header hr {
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
 }
 
+.back-button-container {
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  max-width: fit-content;
+}
+
+.back-button:hover {
+  background: rgba(255, 215, 0, 0.25);
+  border-color: #ffd700;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:active {
+  transform: translateX(-3px);
+}
+
+.back-arrow {
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
+.back-text {
+  font-size: 1em;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   background: white;
   padding: 40px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container.full-page {
+  min-height: calc(100vh - 300px);
+  padding: 30px 40px;
 }
 
 main h1 {
