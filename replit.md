@@ -23,13 +23,20 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 ├── content_duplikat.md       # Konten duplikat STNK
 ├── content_mutasi.md         # Konten mutasi antar daerah
 ├── content_bbn.md            # Konten BBN 1 dan BBN 2
+├── content_dasarhukum.md     # Konten dasar hukum dan peraturan
+├── content_galery.md         # Konten galeri foto kegiatan SAMSAT
+├── content_ikm.md            # Konten Indeks Kepuasan Masyarakat
 ├── qr_generator.py           # Script generator QR Code
 ├── templates/
 │   └── index.html           # Template HTML dengan navigasi menu
 ├── static/
 │   ├── style.css            # Styling CSS profesional dengan active state
+│   ├── images/
+│   │   ├── logo-samsat.png  # Logo resmi SAMSAT
+│   │   └── galery/          # Folder untuk foto-foto kegiatan
 │   └── documents/
-│       └── perpol-7-2021-regident.pdf  # Peraturan Kepolisian No. 7/2021
+│       ├── perpol-7-2021-regident.pdf  # Peraturan Kepolisian No. 7/2021
+│       └── uu-22-2009-lalulintas.pdf   # UU No. 22/2009 Lalu Lintas
 ├── .gitignore               # Git ignore file
 └── replit.md                # Dokumentasi proyek
 ```
@@ -45,13 +52,15 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ### 1. Multi-Page Architecture
 - Halaman terpisah untuk setiap kategori layanan
-- 6 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2, Dasar Hukum
+- 8 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2, Dasar Hukum, Galery, IKM
 - Navigasi menu sticky dengan active state highlighting (golden border)
 - Setiap halaman memuat konten Markdown yang spesifik
 - Menu Dasar Hukum menampilkan daftar peraturan dengan PDF embedded viewer:
   - UU No. 22/2009 tentang Lalu Lintas dan Angkutan Jalan
   - Perpol No. 7/2021 tentang Regident Ranmor
   - Peraturan pendukung lainnya (PP 76/2020, UU 1/2022)
+- Menu Galery untuk menampilkan foto-foto kegiatan pelayanan SAMSAT
+- Menu IKM (Indeks Kepuasan Masyarakat) untuk survei kepuasan masyarakat
 
 ### 2. Markdown to HTML Rendering
 - Membaca file Markdown terpisah untuk setiap halaman
@@ -81,7 +90,39 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF tersimpan di static/documents/
 - Mudah untuk menambah peraturan baru di masa depan
 
+### 6. Halaman Galeri Foto Kegiatan
+- Halaman untuk menampilkan dokumentasi kegiatan pelayanan SAMSAT Kebumen
+- Folder static/images/galery/ untuk menyimpan foto-foto kegiatan
+- Placeholder konten yang informatif menjelaskan tujuan galeri
+- Siap untuk diisi dengan foto-foto kegiatan seperti:
+  - Pelayanan harian di loket
+  - Kegiatan cek fisik kendaraan
+  - Sosialisasi kepada masyarakat
+  - Event dan kegiatan khusus
+  - SAMSAT keliling
+  - Layanan digital dan inovasi
+
+### 7. Halaman Indeks Kepuasan Masyarakat (IKM)
+- Halaman untuk survei kepuasan pelayanan publik
+- Menjelaskan tujuan dan aspek penilaian IKM (9 aspek pelayanan)
+- Placeholder untuk modul survei yang sedang dalam pengembangan
+- Informasi lengkap tentang:
+  - Tujuan IKM untuk peningkatan kualitas layanan
+  - Aspek penilaian (persyaratan, prosedur, waktu, biaya, dll)
+  - Fitur yang akan datang (formulir online, dashboard, grafik, dll)
+- Masyarakat tetap bisa memberikan feedback via WhatsApp
+
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Tambah Menu Galery dan IKM
+  - ✅ Tambahkan menu "📸 Galery" untuk dokumentasi foto kegiatan SAMSAT
+  - ✅ Tambahkan menu "📊 IKM" (Indeks Kepuasan Masyarakat) untuk survei pelayanan
+  - ✅ Buat file content_galery.md dengan placeholder konten untuk foto kegiatan
+  - ✅ Buat file content_ikm.md dengan informasi lengkap tentang survei IKM
+  - ✅ Buat folder static/images/galery/ untuk menyimpan foto-foto di masa depan
+  - ✅ Routes baru: /galery dan /ikm
+  - ✅ Total menu sekarang: 8 menu (Beranda, 5 Tahunan, Duplikat, Mutasi, BBN, Dasar Hukum, Galery, IKM)
+  - ✅ Halaman IKM menjelaskan 9 aspek penilaian dan fitur survei yang akan datang
+  - ✅ Siap untuk integrasi modul survei IKM di masa depan
 - **18 Oktober 2025**: Ubah Menu Perpol 7/2021 menjadi Dasar Hukum
   - ✅ Ganti nama menu dari "Perpol 7/2021" menjadi "Dasar Hukum"
   - ✅ Tambahkan file UU No. 22/2009 tentang Lalu Lintas (420 KB PDF)
