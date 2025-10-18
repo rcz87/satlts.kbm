@@ -52,7 +52,6 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 | Penggantian STNK | Rp 200.000 - Rp 350.000 |
 | Cek Fisik | Rp 50.000 |
 | PNBP (Pajak Non-Pajak Negara) | Rp 100.000 |
-| Administrasi | Rp 25.000 - Rp 50.000 |
 
 ### Biaya Tambahan (jika ada):
 - **Tunggakan Pajak**: Harus dilunasi

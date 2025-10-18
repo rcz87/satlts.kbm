@@ -69,9 +69,8 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 | Item | Biaya |
 |------|-------|
 | Surat Mutasi | Rp 50.000 - Rp 100.000 |
-| Administrasi | Rp 50.000 |
 | Pajak (jika ada tunggakan) | Sesuai PKB |
-| **Total Estimasi** | **Rp 100.000 - Rp 200.000** |
+| **Total Estimasi** | **Rp 50.000 - Rp 100.000** |
 
 ### B. Mutasi Masuk (Ke Kebumen):
 
@@ -82,7 +81,6 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
   - Motor: Rp 35.000
   - Mobil: Rp 143.000
 - **Penerbitan STNK & TNKB baru**: Rp 300.000 - Rp 500.000
-- **Administrasi**: Rp 100.000 - Rp 200.000
 
 #### Contoh Perhitungan:
 **Motor Tahun 2020, NJKB Rp 15.000.000:**
@@ -90,16 +88,14 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 - PKB (2%): Rp 300.000
 - SWDKLLJ: Rp 35.000
 - STNK & Plat Baru: Rp 400.000
-- Administrasi: Rp 150.000
-- **Total: Rp 2.385.000**
+- **Total: Rp 2.235.000**
 
 **Mobil Tahun 2019, NJKB Rp 150.000.000:**
 - BPNKB (10%): Rp 15.000.000
 - PKB (2%): Rp 3.000.000
 - SWDKLLJ: Rp 143.000
 - STNK & Plat Baru: Rp 500.000
-- Administrasi: Rp 200.000
-- **Total: Rp 18.843.000**
+- **Total: Rp 18.643.000**
 
 ---
 

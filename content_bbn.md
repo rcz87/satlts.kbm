@@ -111,9 +111,8 @@ NJKB Motor: Rp 15.000.000
 BBN 2 (10%): Rp 1.500.000
 PKB (2%): Rp 300.000
 SWDKLLJ: Rp 35.000
-Administrasi: Rp 50.000
 ─────────────────────────
-TOTAL: Rp 1.885.000
+TOTAL: Rp 1.835.000
 ```
 
 ### Motor Bekas Tahun 2018:
@@ -123,9 +122,8 @@ NJKB Motor: Rp 12.000.000
 BBN 2 (10%): Rp 1.200.000
 PKB (2%): Rp 240.000
 SWDKLLJ: Rp 35.000
-Administrasi: Rp 50.000
 ─────────────────────────
-TOTAL: Rp 1.525.000
+TOTAL: Rp 1.475.000
 ```
 
 ### Mobil Bekas Tahun 2019:
@@ -135,9 +133,8 @@ NJKB Mobil: Rp 180.000.000
 BBN 2 (10%): Rp 18.000.000
 PKB (2%): Rp 3.600.000
 SWDKLLJ: Rp 143.000
-Administrasi: Rp 100.000
 ─────────────────────────
-TOTAL: Rp 21.843.000
+TOTAL: Rp 21.743.000
 ```
 
 ### Mobil Bekas Tahun 2015:
@@ -147,9 +144,8 @@ NJKB Mobil: Rp 120.000.000
 BBN 2 (10%): Rp 12.000.000
 PKB (2%): Rp 2.400.000
 SWDKLLJ: Rp 143.000
-Administrasi: Rp 100.000
 ─────────────────────────
-TOTAL: Rp 14.643.000
+TOTAL: Rp 14.543.000
 ```
 
 ---
