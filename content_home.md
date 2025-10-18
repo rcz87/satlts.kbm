@@ -28,6 +28,33 @@ Jalan Tentara Pelajar No. 54, Kebumen
 
 ---
 
+## ⚠️ INFO PENTING: OPSEN Pajak 2025
+
+**Mulai 5 Januari 2025**, ada **tambahan pajak OPSEN** yang dibebankan kepada pemilik kendaraan.
+
+### Apa itu OPSEN?
+OPSEN adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bukan provinsi) sebesar **66% dari PKB** yang terutang.
+
+**Dasar Hukum:** UU No. 1 Tahun 2022 tentang HKPD (Hubungan Keuangan Pusat dan Daerah)
+
+### Kenapa Nominalnya Berbeda-beda?
+- Berdasarkan **domisili** (NIK & alamat) pemilik kendaraan
+- Tergantung **tarif PKB provinsi** yang berlaku
+- Setiap kabupaten/kota punya nominal berbeda
+
+### Cara Menghitung OPSEN:
+**OPSEN = 66% × PKB yang terutang**
+
+**Contoh:**
+- PKB Motor Rp 300.000 → OPSEN Rp 198.000
+- PKB Mobil Rp 2.000.000 → OPSEN Rp 1.320.000
+
+**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ + Pengesahan
+
+💡 *Lihat detail perhitungan di menu "Syarat 5 Tahunan"*
+
+---
+
 ## 📋 Pilih Menu di Atas
 
 Silakan pilih menu sesuai kebutuhan Anda:

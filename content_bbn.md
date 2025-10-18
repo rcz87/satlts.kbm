@@ -22,30 +22,32 @@ Pajak yang dikenakan saat **kendaraan baru pertama kali diserahkan** oleh dealer
 
 ### Contoh Perhitungan BBN 1:
 
-#### Motor Baru:
+#### Motor Baru (Termasuk OPSEN 2025):
 ```
 Harga Motor: Rp 25.000.000
 BBN 1 (10%): Rp 2.500.000
 PKB Tahun 1: Rp 500.000
+OPSEN (66% dari PKB): Rp 330.000
 SWDKLLJ: Rp 35.000
 STNK (PNBP): Rp 100.000
 TNKB/Plat (PNBP): Rp 60.000
 BPKB (PNBP): Rp 225.000
 ─────────────────────────
-Total: Rp 3.420.000
+Total: Rp 3.750.000
 ```
 
-#### Mobil Baru:
+#### Mobil Baru (Termasuk OPSEN 2025):
 ```
 Harga Mobil: Rp 250.000.000
 BBN 1 (10%): Rp 25.000.000
 PKB Tahun 1: Rp 5.000.000
+OPSEN (66% dari PKB): Rp 3.300.000
 SWDKLLJ: Rp 143.000
 STNK (PNBP): Rp 200.000
 TNKB/Plat (PNBP): Rp 100.000
 BPKB (PNBP): Rp 375.000
 ─────────────────────────
-Total: Rp 30.818.000
+Total: Rp 34.118.000
 ```
 
 ### Siapa yang Mengurus?
@@ -106,7 +108,7 @@ Pajak yang dikenakan saat **kendaraan bekas berpindah kepemilikan** (balik nama)
 
 ---
 
-## 💰 Contoh Perhitungan BBN 2
+## 💰 Contoh Perhitungan BBN 2 (Termasuk OPSEN 2025)
 
 ### Motor Bekas Tahun 2020:
 ```
@@ -114,9 +116,10 @@ NJKB Motor: Rp 15.000.000
 ─────────────────────────
 BBN 2 (10%): Rp 1.500.000
 PKB (2%): Rp 300.000
+OPSEN (66% dari PKB): Rp 198.000
 SWDKLLJ: Rp 35.000
 ─────────────────────────
-TOTAL: Rp 1.835.000
+TOTAL: Rp 2.033.000
 ```
 
 ### Motor Bekas Tahun 2018:
@@ -125,9 +128,10 @@ NJKB Motor: Rp 12.000.000
 ─────────────────────────
 BBN 2 (10%): Rp 1.200.000
 PKB (2%): Rp 240.000
+OPSEN (66% dari PKB): Rp 158.400
 SWDKLLJ: Rp 35.000
 ─────────────────────────
-TOTAL: Rp 1.475.000
+TOTAL: Rp 1.633.400
 ```
 
 ### Mobil Bekas Tahun 2019:
@@ -136,9 +140,10 @@ NJKB Mobil: Rp 180.000.000
 ─────────────────────────
 BBN 2 (10%): Rp 18.000.000
 PKB (2%): Rp 3.600.000
+OPSEN (66% dari PKB): Rp 2.376.000
 SWDKLLJ: Rp 143.000
 ─────────────────────────
-TOTAL: Rp 21.743.000
+TOTAL: Rp 24.119.000
 ```
 
 ### Mobil Bekas Tahun 2015:
@@ -147,10 +152,31 @@ NJKB Mobil: Rp 120.000.000
 ─────────────────────────
 BBN 2 (10%): Rp 12.000.000
 PKB (2%): Rp 2.400.000
+OPSEN (66% dari PKB): Rp 1.584.000
 SWDKLLJ: Rp 143.000
 ─────────────────────────
-TOTAL: Rp 14.543.000
+TOTAL: Rp 16.127.000
 ```
+
+### 💡 Informasi OPSEN Pajak 2025
+
+**Mulai 5 Januari 2025**, ada tambahan pajak **OPSEN** yang dibebankan pada semua pajak kendaraan.
+
+**Apa itu OPSEN?**
+- Pajak tambahan dipungut oleh **Pemerintah Kabupaten/Kota**
+- Tarif: **66% dari PKB** yang terutang
+- Dasar Hukum: UU No. 1 Tahun 2022 tentang HKPD
+
+**Kenapa Nominalnya Berbeda-beda?**
+1. Berdasarkan **domisili** (NIK & alamat) pemilik kendaraan
+2. **Tarif PKB provinsi** yang berbeda di setiap daerah
+3. **Kebijakan kabupaten/kota** tempat domisili pemilik
+
+💡 **Perhitungan OPSEN:** OPSEN = 66% × PKB yang terutang
+
+**Catatan Penting:**
+- OPSEN berlaku untuk BBN 1 (kendaraan baru) dan BBN 2 (balik nama bekas)
+- Semua contoh perhitungan di atas sudah termasuk OPSEN
 
 ---
 

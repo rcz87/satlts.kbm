@@ -77,6 +77,13 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF disimpan di static/documents/
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Tambah Informasi OPSEN Pajak 2025
+  - ✅ Tambahkan penjelasan OPSEN di halaman Beranda (info umum tentang OPSEN)
+  - ✅ Tambahkan section OPSEN lengkap di halaman 5 Tahunan (cara hitung, contoh)
+  - ✅ Update semua contoh perhitungan biaya termasuk OPSEN (66% dari PKB)
+  - ✅ Tambahkan OPSEN di halaman Mutasi (contoh perhitungan mutasi masuk)
+  - ✅ Tambahkan OPSEN di halaman BBN 1 & BBN 2 (semua contoh perhitungan)
+  - ✅ Jelaskan kenapa nominal OPSEN berbeda-beda (domisili & tarif provinsi)
 - **18 Oktober 2025**: Hapus Biaya Cek Fisik
   - ✅ Hapus biaya Cek Fisik Rp 50.000 dari halaman Duplikat STNK (tidak ada biaya tersebut)
   - ✅ Update total biaya duplikat: Motor Rp 100.000, Mobil Rp 200.000

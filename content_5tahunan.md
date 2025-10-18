@@ -13,8 +13,8 @@ Perpanjangan pajak kendaraan bermotor tanpa ganti STNK/plat, hanya pengesahan (s
 - **Motor (Roda 2/3)**: Rp 25.000
 - **Mobil (Roda 4+)**: Rp 50.000
 
-**Total Biaya Tahunan** = PKB + SWDKLLJ + Pengesahan  
-*Contoh Motor: PKB Rp 300.000 + SWDKLLJ Rp 35.000 + Pengesahan Rp 25.000 = **Rp 360.000***
+**Total Biaya Tahunan** = PKB + **OPSEN** + SWDKLLJ + Pengesahan  
+*Contoh Motor: PKB Rp 300.000 + OPSEN Rp 198.000 + SWDKLLJ Rp 35.000 + Pengesahan Rp 25.000 = **Rp 558.000***
 
 ---
 
@@ -25,8 +25,8 @@ Perpanjangan dengan **ganti STNK dan plat nomor baru**.
 - **Motor (Roda 2/3)**: STNK Rp 100.000 + Plat Rp 60.000 = **Rp 160.000**
 - **Mobil (Roda 4+)**: STNK Rp 200.000 + Plat Rp 100.000 = **Rp 300.000**
 
-**Total Biaya 5 Tahunan** = PKB + SWDKLLJ + STNK Baru + Plat Baru  
-*Contoh Motor: PKB Rp 300.000 + SWDKLLJ Rp 35.000 + STNK Rp 100.000 + Plat Rp 60.000 = **Rp 495.000***
+**Total Biaya 5 Tahunan** = PKB + **OPSEN** + SWDKLLJ + STNK Baru + Plat Baru  
+*Contoh Motor: PKB Rp 300.000 + OPSEN Rp 198.000 + SWDKLLJ Rp 35.000 + STNK Rp 100.000 + Plat Rp 60.000 = **Rp 693.000***
 
 ---
 
@@ -67,25 +67,65 @@ Perpanjangan dengan **ganti STNK dan plat nomor baru**.
 
 ### Biaya Variabel:
 - **PKB (Pajak Kendaraan Bermotor)**: Tergantung jenis kendaraan
+- **OPSEN PKB (66% dari PKB)**: Pajak tambahan mulai 2025
 - **SWDKLLJ**: 
   - Motor: Rp 35.000
   - Mobil: Rp 143.000
 
-### Contoh Total Biaya:
+### Contoh Total Biaya (Termasuk OPSEN 2025):
 
 **Motor 150cc:**
 - PKB: Rp 300.000
+- OPSEN (66% dari PKB): Rp 198.000
 - SWDKLLJ: Rp 35.000
 - STNK baru: Rp 100.000
 - Plat baru: Rp 60.000
-- **Total: Rp 495.000**
+- **Total: Rp 693.000**
 
 **Mobil:**
 - PKB: Rp 1.500.000
+- OPSEN (66% dari PKB): Rp 990.000
 - SWDKLLJ: Rp 143.000
 - STNK baru: Rp 200.000
 - Plat baru: Rp 100.000
-- **Total: Rp 1.943.000**
+- **Total: Rp 2.933.000**
+
+---
+
+## 💡 Informasi OPSEN Pajak 2025
+
+### Apa itu OPSEN?
+**OPSEN** adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bukan provinsi) yang berlaku mulai **5 Januari 2025**.
+
+### Tarif OPSEN:
+- **66% dari PKB** yang terutang
+- Berdasarkan UU No. 1 Tahun 2022 tentang HKPD
+
+### Kenapa Nominalnya Berbeda-beda?
+1. **Berdasarkan domisili** (NIK & alamat) pemilik kendaraan
+2. **Tarif PKB provinsi** yang berbeda di setiap daerah
+3. **Kebijakan kabupaten/kota** tempat domisili pemilik
+
+### Cara Menghitung OPSEN:
+```
+OPSEN = 66% × PKB yang terutang
+```
+
+**Contoh Perhitungan:**
+
+**Motor dengan PKB Rp 400.000:**
+- OPSEN = 66% × Rp 400.000 = **Rp 264.000**
+
+**Mobil dengan PKB Rp 2.500.000:**
+- OPSEN = 66% × Rp 2.500.000 = **Rp 1.650.000**
+
+### Komponen Pajak Lengkap 2025:
+1. **PKB** (Pajak Kendaraan Bermotor) - Ditetapkan provinsi
+2. **OPSEN PKB** (66% dari PKB) - Dipungut kabupaten/kota
+3. **SWDKLLJ** (Asuransi Jasa Raharja) - Tarif tetap
+4. **Pengesahan/STNK** - Biaya administrasi
+
+💡 **Total pajak yang dibayar = PKB + OPSEN + SWDKLLJ + Pengesahan/STNK**
 
 ---
 

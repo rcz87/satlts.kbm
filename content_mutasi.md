@@ -86,22 +86,40 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
   - Motor (Roda 2/3): STNK Rp 100.000 + TNKB Rp 60.000 = Rp 160.000
   - Mobil (Roda 4+): STNK Rp 200.000 + TNKB Rp 100.000 = Rp 300.000
 
-#### Contoh Perhitungan:
+#### Contoh Perhitungan (Termasuk OPSEN 2025):
 **Motor Tahun 2020, NJKB Rp 15.000.000:**
 - BPNKB (10%): Rp 1.500.000
 - PKB (2%): Rp 300.000
+- OPSEN (66% dari PKB): Rp 198.000
 - SWDKLLJ: Rp 35.000
 - STNK Baru: Rp 100.000
 - Plat Baru: Rp 60.000
-- **Total: Rp 1.995.000**
+- **Total: Rp 2.193.000**
 
 **Mobil Tahun 2019, NJKB Rp 150.000.000:**
 - BPNKB (10%): Rp 15.000.000
 - PKB (2%): Rp 3.000.000
+- OPSEN (66% dari PKB): Rp 1.980.000
 - SWDKLLJ: Rp 143.000
 - STNK Baru: Rp 200.000
 - Plat Baru: Rp 100.000
-- **Total: Rp 18.443.000**
+- **Total: Rp 20.423.000**
+
+### 💡 Informasi OPSEN Pajak 2025
+
+**Mulai 5 Januari 2025**, ada tambahan pajak **OPSEN** yang dibebankan pada semua pajak kendaraan.
+
+**Apa itu OPSEN?**
+- Pajak tambahan dipungut oleh **Pemerintah Kabupaten/Kota**
+- Tarif: **66% dari PKB** yang terutang
+- Dasar Hukum: UU No. 1 Tahun 2022 tentang HKPD
+
+**Kenapa Nominalnya Berbeda-beda?**
+1. Berdasarkan **domisili** (NIK & alamat) pemilik kendaraan
+2. **Tarif PKB provinsi** yang berbeda di setiap daerah
+3. **Kebijakan kabupaten/kota** tempat domisili pemilik
+
+💡 **Perhitungan OPSEN:** OPSEN = 66% × PKB yang terutang
 
 ---
 
