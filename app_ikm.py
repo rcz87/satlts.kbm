@@ -149,11 +149,12 @@ def ikm_hasil_route():
         ]
         
         for label, nilai in aspects:
-            width = (nilai / 4.0) * 100 if nilai else 0
+            nilai_float = float(nilai) if nilai else 0
+            width = (nilai_float / 4.0) * 100
             html_parts.append(f'<div class="ikm-aspect-item"><div class="ikm-aspect-label">{label}</div>')
             html_parts.append(f'<div class="ikm-aspect-rating"><div class="ikm-progress-bar">')
             html_parts.append(f'<div class="ikm-progress-fill" style="width: {width}%;"></div></div>')
-            html_parts.append(f'<span class="ikm-aspect-value">{nilai:.2f} / 4</span></div></div>')
+            html_parts.append(f'<span class="ikm-aspect-value">{nilai_float:.2f} / 4</span></div></div>')
         
         html_parts.append('</div></div>')
         
