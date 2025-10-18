@@ -14,7 +14,7 @@ def index():
         
         html = markdown.markdown(
             content, 
-            extensions=['tables', 'fenced_code', 'nl2br']
+            extensions=['tables', 'fenced_code', 'nl2br', 'toc', 'attr_list']
         )
         
         return render_template('index.html', content=Markup(html))
