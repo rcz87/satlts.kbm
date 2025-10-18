@@ -11,8 +11,16 @@ def get_db_connection():
 
 def ikm_submit_route():
     from flask import request
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
     try:
         data = request.json
+        
+        if not data:
+            logger.warning("IKM submit: Empty request data")
+            return jsonify({'success': False, 'message': 'Data tidak valid'}), 400
         
         persyaratan = int(data.get('persyaratan', 0))
         prosedur = int(data.get('prosedur', 0))
@@ -24,11 +32,16 @@ def ikm_submit_route():
         maklumat_pelayanan = int(data.get('maklumat_pelayanan', 0))
         penanganan_pengaduan = int(data.get('penanganan_pengaduan', 0))
         komentar = data.get('komentar', '')
-        jenis_layanan = data.get('jenis_layanan', '')
+        jenis_layanan = data.get('jenis_layanan', '').strip()
+        
+        if not jenis_layanan:
+            logger.info("IKM submit: Missing jenis_layanan")
+            return jsonify({'success': False, 'message': 'Mohon pilih jenis layanan'}), 400
         
         if any(r < 1 or r > 4 for r in [persyaratan, prosedur, waktu_pelayanan, biaya_tarif, 
                                          produk_layanan, kompetensi_petugas, perilaku_petugas, 
                                          maklumat_pelayanan, penanganan_pengaduan]):
+            logger.info("IKM submit: Invalid rating values")
             return jsonify({'success': False, 'message': 'Mohon berikan penilaian untuk semua aspek (1-4 bintang)'}), 400
         
         rata_rata = (persyaratan + prosedur + waktu_pelayanan + biaya_tarif + produk_layanan + 
@@ -49,11 +62,18 @@ def ikm_submit_route():
         cur.close()
         conn.close()
         
+        logger.info(f"IKM submit success: jenis_layanan={jenis_layanan}, rata_rata={rata_rata:.2f}")
         return jsonify({'success': True, 'message': 'Terima kasih! Penilaian Anda telah berhasil disimpan.'})
     
+    except ValueError as e:
+        logger.error(f"IKM submit ValueError: {str(e)}")
+        return jsonify({'success': False, 'message': 'Format data tidak valid'}), 400
+    except psycopg2.Error as e:
+        logger.error(f"IKM submit Database error: {str(e)}")
+        return jsonify({'success': False, 'message': 'Terjadi kesalahan saat menyimpan data'}), 500
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return jsonify({'success': False, 'message': f'Terjadi kesalahan: {str(e)}'}), 500
+        logger.error(f"IKM submit Unexpected error: {str(e)}", exc_info=True)
+        return jsonify({'success': False, 'message': 'Terjadi kesalahan sistem'}), 500
 
 def ikm_hasil_route():
     try:
