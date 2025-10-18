@@ -1,7 +1,7 @@
 # SAMSAT SMART INFOBOARD - Kebumen Edition
 
 ## 📌 Overview
-Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT Kebumen. Website membaca file Markdown (`samsat_infoboard.md`) dan menampilkannya dalam format HTML yang rapi dengan styling profesional.
+Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT Kebumen. Website membaca file Markdown terpisah untuk setiap kategori layanan dan menampilkannya dalam format HTML yang rapi dengan styling profesional.
 
 **Tujuan Proyek:**
 - Menyediakan informasi layanan STNK dan pajak kendaraan yang mudah diakses
@@ -17,13 +17,17 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ### Struktur Folder
 ```
-├── app.py                    # Flask application utama
-├── samsat_infoboard.md       # Konten informasi dalam format Markdown
+├── app.py                    # Flask application utama dengan multi-page routes
+├── content_home.md           # Konten halaman beranda
+├── content_5tahunan.md       # Konten syarat pembayaran 5 tahunan
+├── content_duplikat.md       # Konten duplikat STNK
+├── content_mutasi.md         # Konten mutasi antar daerah
+├── content_bbn.md            # Konten BBN 1 dan BBN 2
 ├── qr_generator.py           # Script generator QR Code
 ├── templates/
-│   └── index.html           # Template HTML utama
+│   └── index.html           # Template HTML dengan navigasi menu
 ├── static/
-│   └── style.css            # Styling CSS profesional
+│   └── style.css            # Styling CSS profesional dengan active state
 ├── .gitignore               # Git ignore file
 └── replit.md                # Dokumentasi proyek
 ```
@@ -37,24 +41,39 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ## 🎨 Fitur
 
-### 1. Markdown to HTML Rendering
-- Membaca `samsat_infoboard.md` dan mengkonversi ke HTML
+### 1. Multi-Page Architecture
+- Halaman terpisah untuk setiap kategori layanan
+- 5 menu utama: Beranda, Syarat 5 Tahunan, Duplikat STNK, Mutasi Antar Daerah, BBN 1 & 2
+- Navigasi menu sticky dengan active state highlighting (golden border)
+- Setiap halaman memuat konten Markdown yang spesifik
+
+### 2. Markdown to HTML Rendering
+- Membaca file Markdown terpisah untuk setiap halaman
 - Support untuk tabel, heading, lists, dan formatting
 - Error handling untuk file tidak ditemukan
+- Helper function untuk load dan render Markdown
 
-### 2. Professional UI/UX
+### 3. Professional UI/UX
 - Header dengan gradient biru (identitas Samsat)
+- Navigasi menu responsif dengan hover dan active state
 - Tabel informasi yang rapi dan mudah dibaca
 - Responsive design untuk mobile dan desktop
 - Print-friendly styling
 
-### 3. QR Code Generator
+### 4. QR Code Generator
 - Script terpisah untuk generate QR Code
 - Otomatis detect URL dari Replit environment
 - Option untuk custom URL
 - High error correction level
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Implementasi multi-page architecture
+  - Pisahkan konten ke 5 file Markdown terpisah (home, 5tahunan, duplikat, mutasi, BBN)
+  - Buat routes Flask terpisah untuk setiap halaman (/,  /5tahunan, /duplikat, /mutasi, /bbn)
+  - Implementasi navigasi menu dengan active state highlighting
+  - Update branding dari "CV Cakra Pamungkas Mandiri" ke "SATLANTAS POLRES KEBUMEN"
+  - Tambahkan helper function load_markdown untuk DRY code
+  - Setup styling CSS untuk active menu dengan golden border
 - **18 Oktober 2025**: Inisialisasi proyek
   - Setup Flask application dengan Markdown rendering
   - Buat konten informasi SAMSAT Kebumen lengkap
@@ -77,16 +96,36 @@ Script akan menanyakan URL target dan nama file output.
 
 ## 📊 Konten Informasi
 
-File `samsat_infoboard.md` berisi:
-- Informasi umum dan kontak
-- Jam operasional
-- Daftar layanan (pendaftaran, perpanjangan, balik nama, mutasi)
+Konten dibagi ke dalam 5 file Markdown terpisah:
+
+### content_home.md (Beranda)
+- Informasi umum SAMSAT Kebumen dan kontak
+- Jam operasional dan hari kerja
+- Daftar layanan yang tersedia
 - Metode pembayaran
-- Persyaratan dokumen
 - Estimasi biaya PKB
 - Tips dan informasi penting
 - Info denda keterlambatan
-- Layanan digital
+
+### content_5tahunan.md
+- Persyaratan pembayaran pajak 5 tahunan
+- Dokumen yang diperlukan untuk penggantian STNK dan plat nomor
+- Prosedur dan langkah-langkah
+
+### content_duplikat.md
+- Syarat dan prosedur duplikat STNK hilang
+- Dokumen yang diperlukan
+- Langkah-langkah pengurusan
+
+### content_mutasi.md
+- Prosedur mutasi kendaraan masuk dan keluar daerah
+- Persyaratan dokumen lengkap
+- Langkah-langkah balik nama
+
+### content_bbn.md
+- BBN 1 (penyerahan pertama) untuk kendaraan baru
+- BBN 2 (penyerahan kedua) untuk balik nama
+- Persyaratan dokumen masing-masing
 
 ## 🎯 User Preferences
 - Bahasa Indonesia untuk semua konten dan komentar
