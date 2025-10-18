@@ -77,6 +77,14 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF disimpan di static/documents/
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Tambah Logo SAMSAT Resmi di Header
+  - ✅ Logo resmi SAMSAT dengan lambang Garuda Pancasila dan sayap emas
+  - ✅ Posisi di header sebelah kiri sebelum judul
+  - ✅ Ukuran 120px (desktop) dan 80px (mobile) dengan responsive design
+  - ✅ Efek hover dengan zoom scale 1.05
+  - ✅ Shadow effect untuk depth visual
+  - ✅ Logo tampil di semua halaman website
+  - ✅ File tersimpan di static/images/logo-samsat.png
 - **18 Oktober 2025**: Update Tombol WhatsApp di Footer
   - ✅ Tambahkan tombol WhatsApp hijau dengan logo 💬
   - ✅ Tombol bisa diklik langsung menuju chat WhatsApp
