@@ -77,6 +77,10 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF disimpan di static/documents/
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Hapus Biaya Cek Fisik
+  - ✅ Hapus biaya Cek Fisik Rp 50.000 dari halaman Duplikat STNK (tidak ada biaya tersebut)
+  - ✅ Update total biaya duplikat: Motor Rp 100.000, Mobil Rp 200.000
+  - ✅ Biaya yang berlaku hanya Penerbitan STNK sesuai PNBP resmi
 - **18 Oktober 2025**: Tambah Footer Kontak & Media Sosial
   - ✅ Tambahkan section kontak dengan WhatsApp (+62 877-2555-8787) dan alamat kantor
   - ✅ WhatsApp link langsung buka chat di wa.me

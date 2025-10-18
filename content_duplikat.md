@@ -52,13 +52,11 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 | Jenis | Biaya |
 |-------|-------|
 | Penerbitan STNK | Rp 100.000 |
-| Cek Fisik | Rp 50.000 |
 
 **Untuk Mobil (Roda 4 atau lebih):**
 | Jenis | Biaya |
 |-------|-------|
 | Penerbitan STNK | Rp 200.000 |
-| Cek Fisik | Rp 50.000 |
 
 ### Biaya Tambahan (jika ada):
 - **Tunggakan Pajak**: Harus dilunasi
@@ -68,13 +66,11 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 ### Contoh Total:
 **Motor dengan pajak lunas:**
 - Penerbitan STNK: Rp 100.000
-- Cek Fisik: Rp 50.000
-- **Total: Rp 150.000**
+- **Total: Rp 100.000**
 
 **Mobil dengan pajak lunas:**
 - Penerbitan STNK: Rp 200.000
-- Cek Fisik: Rp 50.000
-- **Total: Rp 250.000**
+- **Total: Rp 200.000**
 
 ---
 
