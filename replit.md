@@ -78,7 +78,8 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 
 ## 📝 Recent Changes
 - **18 Oktober 2025**: Tambah Footer Kontak & Media Sosial
-  - ✅ Tambahkan section kontak dengan nomor aduan (0823-2691-5609) dan alamat kantor
+  - ✅ Tambahkan section kontak dengan WhatsApp (+62 877-2555-8787) dan alamat kantor
+  - ✅ WhatsApp link langsung buka chat di wa.me
   - ✅ Tambahkan link media sosial: Instagram, Facebook, X (Twitter), TikTok
   - ✅ Styling interaktif dengan hover effects untuk setiap platform
   - ✅ Responsive design untuk mobile dan desktop
