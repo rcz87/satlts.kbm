@@ -62,6 +62,7 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - Tabel informasi yang rapi dan mudah dibaca
 - Responsive design untuk mobile dan desktop
 - Print-friendly styling
+- Footer dengan informasi kontak dan link media sosial (Instagram, Facebook, X/Twitter, TikTok)
 
 ### 4. QR Code Generator
 - Script terpisah untuk generate QR Code
@@ -76,6 +77,12 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF disimpan di static/documents/
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Tambah Footer Kontak & Media Sosial
+  - ✅ Tambahkan section kontak dengan nomor aduan (0823-2691-5609) dan alamat kantor
+  - ✅ Tambahkan link media sosial: Instagram, Facebook, X (Twitter), TikTok
+  - ✅ Styling interaktif dengan hover effects untuk setiap platform
+  - ✅ Responsive design untuk mobile dan desktop
+  - ✅ Footer muncul di semua halaman website
 - **18 Oktober 2025**: Tambah Menu Perpol 7/2021
   - ✅ Tambahkan menu baru "Perpol 7/2021" dengan embedded PDF viewer
   - ✅ Upload dan integrasikan Peraturan Kepolisian No. 7/2021 tentang Regident Ranmor
