@@ -22,13 +22,35 @@ header {
 }
 
 .header-container {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo-samsat {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.logo-samsat:hover {
+  transform: scale(1.05);
+}
+
+.header-text {
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -344,6 +366,14 @@ footer hr {
   
   header h2 {
     font-size: 1.4em;
+  }
+  
+  .logo-samsat {
+    height: 80px;
+  }
+  
+  .header-container {
+    gap: 15px;
   }
   
   .nav-container {
