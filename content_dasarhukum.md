@@ -20,11 +20,11 @@ Undang-Undang yang mengatur tentang Lalu Lintas dan Angkutan Jalan (LLAJ) di Ind
 
 **Akses Dokumen:**
 
-<div style="text-align: center; margin: 20px 0;">
-  <a href="/lihat-uu-lalulintas" style="display: inline-block; background: #2a5298; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-right: 10px;">
+<div style="text-align: center; margin: 30px 0;">
+  <a href="/lihat-uu-lalulintas" style="display: inline-block; background: #2a5298; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 10px 15px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
     📖 Baca UU 22/2009
   </a>
-  <a href="/static/documents/uu-22-2009-lalulintas.pdf" download style="display: inline-block; background: #1e3c72; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600;">
+  <a href="/static/documents/uu-22-2009-lalulintas.pdf" download style="display: inline-block; background: #1e3c72; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 10px 15px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
     ⬇️ Download PDF
   </a>
 </div>
@@ -45,11 +45,11 @@ Peraturan Kepolisian yang mengatur tentang Registrasi dan Identifikasi Kendaraan
 
 **Akses Dokumen:**
 
-<div style="text-align: center; margin: 20px 0;">
-  <a href="/lihat-perpol" style="display: inline-block; background: #2a5298; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-right: 10px;">
+<div style="text-align: center; margin: 30px 0;">
+  <a href="/lihat-perpol" style="display: inline-block; background: #2a5298; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 10px 15px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
     📖 Baca Perpol 7/2021
   </a>
-  <a href="/static/documents/perpol-7-2021-regident.pdf" download style="display: inline-block; background: #1e3c72; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600;">
+  <a href="/static/documents/perpol-7-2021-regident.pdf" download style="display: inline-block; background: #1e3c72; color: white; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 10px 15px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
     ⬇️ Download PDF
   </a>
 </div>
