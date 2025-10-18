@@ -99,13 +99,11 @@ Script akan menanyakan URL target dan nama file output.
 Konten dibagi ke dalam 5 file Markdown terpisah:
 
 ### content_home.md (Beranda)
-- Informasi umum SAMSAT Kebumen dan kontak
-- Jam operasional dan hari kerja
-- Daftar layanan yang tersedia
-- Metode pembayaran
-- Estimasi biaya PKB
-- Tips dan informasi penting
-- Info denda keterlambatan
+- Sambutan singkat dan welcome message
+- Lokasi dan kontak SAMSAT Kebumen
+- Jam operasional
+- Petunjuk untuk memilih menu sesuai kebutuhan
+- Halaman simple karena semua info detail sudah ada di menu masing-masing
 
 ### content_5tahunan.md
 - Persyaratan pembayaran pajak 5 tahunan

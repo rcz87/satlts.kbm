@@ -1,11 +1,17 @@
-# 📘 INFORMASI UNIT STNK KEBUMEN
+# 🏠 Selamat Datang di SAMSAT Kebumen
 
-## 📋 Informasi Umum
+## Informasi Layanan STNK & Pajak Kendaraan
+
+Selamat datang di portal informasi SAMSAT Kebumen. Gunakan menu di atas untuk melihat informasi lengkap tentang layanan yang Anda butuhkan.
+
+---
+
+## 📍 Lokasi & Kontak
 
 **SAMSAT KEBUMEN**  
 Jalan Tentara Pelajar No. 54, Kebumen  
-Telepon: (0287) 381234  
-Email: samsat.kebumen@jatengprov.go.id
+☎️ Telepon: (0287) 381234  
+✉️ Email: samsat.kebumen@jatengprov.go.id
 
 ---
 
@@ -21,79 +27,14 @@ Email: samsat.kebumen@jatengprov.go.id
 
 ---
 
-## 📝 Layanan SAMSAT Kebumen
+## 📋 Pilih Menu di Atas
 
-### 1. Pendaftaran Kendaraan Bermotor Baru
-- Registrasi kendaraan baru
-- Penerbitan STNK dan TNKB pertama kali
-- Persyaratan: KTP, Bukti Kepemilikan, BPKB
+Silakan pilih menu sesuai kebutuhan Anda:
 
-### 2. Perpanjangan STNK Tahunan
-- Pembayaran Pajak Kendaraan Bermotor (PKB)
-- Pembayaran Sumbangan Wajib Dana Kecelakaan Lalu Lintas Jalan (SWDKLLJ)
-- Pengesahan STNK tahunan
-
-### 3. Perpanjangan STNK 5 Tahunan
-- Ganti STNK (masa berlaku 5 tahun)
-- Ganti TNKB (plat nomor)
-- Cek fisik kendaraan diperlukan
-
-### 4. Balik Nama Kendaraan
-- Mutasi kepemilikan kendaraan
-- Penerbitan STNK dan BPKB atas nama pemilik baru
-- Persyaratan: KTP, BPKB, Surat Jual Beli, STNK lama
-
-### 5. Mutasi Keluar/Masuk Daerah
-- Pindah domisili kendaraan antar kabupaten/provinsi
-- Pengurusan dokumen mutasi
-
----
-
-## 💰 Informasi Pembayaran
-
-### Metode Pembayaran:
-- ✅ Tunai
-- ✅ Debit (BCA, Mandiri, BNI, BRI)
-- ✅ QRIS
-- ✅ Transfer Bank
-
-### Loket Pembayaran:
-- **Bank Jateng** (Loket 1-3)
-- **Kasir Samsat** (Loket 4-5)
-
----
-
-## ℹ️ Tips & Informasi Penting
-
-### ✅ Untuk Pelayanan yang Lancar:
-1. Datang pagi hari (08.00-09.00) untuk menghindari antrean panjang
-2. Siapkan dokumen lengkap sebelum datang
-3. Pastikan tidak ada tilang yang belum diselesaikan
-4. Cek info pajak kendaraan melalui aplikasi e-Samsat terlebih dahulu
-
-### ⚠️ Denda Keterlambatan:
-- Terlambat 1-12 bulan: Denda 25% dari PKB
-- Terlambat >12 bulan: Denda bertambah sesuai durasi keterlambatan
-- SWDKLLJ tetap dibayar per tahun tertunggak
-
-### 📱 Layanan Digital:
-- **e-Samsat**: Pembayaran pajak kendaraan online (untuk wilayah Jawa Tengah)
-- **Samsat Keliling**: Cek jadwal di website resmi Samsat Jateng
-- **Info Pajak Online**: Cek via SMS atau aplikasi
-
----
-
-## 📞 Kontak & Informasi Lebih Lanjut
-
-**SAMSAT KEBUMEN**  
-📍 Jalan Tentara Pelajar No. 54, Kebumen  
-☎️ Telepon: (0287) 381234  
-✉️ Email: samsat.kebumen@jatengprov.go.id  
-🌐 Website: [www.bapenda.jatengprov.go.id](http://www.bapenda.jatengprov.go.id)
-
-**Media Sosial:**
-- Instagram: @samsat_jateng
-- Twitter: @SamsatJateng
+- **📋 Syarat 5 Tahunan** - Informasi perpanjangan STNK 5 tahun
+- **🔄 Duplikat STNK** - Prosedur STNK hilang/rusak
+- **🚗 Mutasi Antar Daerah** - Pindah domisili kendaraan
+- **💼 BBN 1 & 2** - Balik nama kendaraan baru & bekas
 
 ---
 
