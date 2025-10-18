@@ -247,6 +247,28 @@ footer hr {
   text-decoration: underline;
 }
 
+.whatsapp-button {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.whatsapp-button:hover {
+  background: #128C7E;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(37, 211, 102, 0.5);
+  color: white;
+}
+
 .social-media-section {
   margin-bottom: 25px;
 }

@@ -77,6 +77,12 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - File PDF disimpan di static/documents/
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Update Tombol WhatsApp di Footer
+  - ✅ Tambahkan tombol WhatsApp hijau dengan logo 💬
+  - ✅ Tombol bisa diklik langsung menuju chat WhatsApp
+  - ✅ Styling dengan warna hijau khas WhatsApp (#25D366)
+  - ✅ Efek hover dengan animasi (warna berubah dan naik sedikit)
+  - ✅ Link aman dengan target="_blank" dan rel="noopener noreferrer"
 - **18 Oktober 2025**: Tambah Informasi OPSEN Pajak 2025
   - ✅ Tambahkan penjelasan OPSEN di halaman Beranda (info umum tentang OPSEN)
   - ✅ Tambahkan section OPSEN lengkap di halaman 5 Tahunan (cara hitung, contoh)
