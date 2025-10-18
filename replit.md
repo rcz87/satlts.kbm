@@ -138,9 +138,10 @@ Konten dibagi ke dalam 5 file Markdown terpisah:
 - Secret key: Menggunakan SESSION_SECRET dari environment
 
 ## 📱 Deployment Notes
-- Aplikasi siap di-deploy via Replit Deployments
-- QR Code dapat di-generate dengan URL production
-- Print-friendly untuk buat poster/banner fisik
+- ✅ Deployment config sudah disiapkan (autoscale)
+- ✅ Aplikasi siap di-publish dengan klik tombol "Deploy"
+- QR Code dapat di-generate dengan `python qr_generator.py` setelah website live
+- QR Code bisa dicetak untuk poster/banner fisik agar pengunjung mudah akses website
 
 ## 🔐 Environment Variables
 - `SESSION_SECRET`: Secret key untuk Flask session (sudah tersedia)
