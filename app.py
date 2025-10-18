@@ -47,8 +47,13 @@ def bbn():
     content = load_markdown('content_bbn.md')
     return render_template('index.html', content=content, current_page='bbn')
 
-@app.route('/perpol')
-def perpol():
+@app.route('/dasarhukum')
+def dasarhukum():
+    content = load_markdown('content_dasarhukum.md')
+    return render_template('index.html', content=content, current_page='dasarhukum')
+
+@app.route('/lihat-perpol')
+def lihat_perpol():
     pdf_url = url_for('static', filename='documents/perpol-7-2021-regident.pdf')
     content = Markup(f'''
         <div class="pdf-container">
@@ -72,7 +77,34 @@ def perpol():
             </p>
         </div>
     ''')
-    return render_template('index.html', content=content, current_page='perpol')
+    return render_template('index.html', content=content, current_page='dasarhukum')
+
+@app.route('/lihat-uu-lalulintas')
+def lihat_uu_lalulintas():
+    pdf_url = url_for('static', filename='documents/uu-22-2009-lalulintas.pdf')
+    content = Markup(f'''
+        <div class="pdf-container">
+            <h2>📜 UU No. 22 Tahun 2009</h2>
+            <h3>Tentang Lalu Lintas dan Angkutan Jalan</h3>
+            <p>Undang-undang yang mengatur tentang lalu lintas dan angkutan jalan di Indonesia.</p>
+            <hr>
+            <div class="pdf-viewer">
+                <iframe src="{pdf_url}" 
+                        width="100%" 
+                        height="800px" 
+                        style="border: 1px solid #ddd; border-radius: 8px;">
+                </iframe>
+            </div>
+            <p class="download-link">
+                <a href="{pdf_url}" 
+                   download 
+                   style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #1e5aa8; color: white; text-decoration: none; border-radius: 5px;">
+                   📥 Download PDF
+                </a>
+            </p>
+        </div>
+    ''')
+    return render_template('index.html', content=content, current_page='dasarhukum')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
