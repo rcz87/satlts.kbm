@@ -19,10 +19,11 @@
 
   <nav class="navigation-menu">
     <div class="nav-container">
-      <a href="#syarat-pembayaran-5-tahunan" class="nav-item">📋 Syarat 5 Tahunan</a>
-      <a href="#pembuatan-duplikat-stnk" class="nav-item">🔄 Duplikat STNK</a>
-      <a href="#mutasi-antar-daerah" class="nav-item">🚚 Mutasi Antar Daerah</a>
-      <a href="#bbn-1-dan-bbn-2" class="nav-item">💳 BBN 1 & 2</a>
+      <a href="{{ url_for('index') }}" class="nav-item {% if current_page == 'home' %}active{% endif %}">🏠 Beranda</a>
+      <a href="{{ url_for('tahunan') }}" class="nav-item {% if current_page == '5tahunan' %}active{% endif %}">📋 Syarat 5 Tahunan</a>
+      <a href="{{ url_for('duplikat') }}" class="nav-item {% if current_page == 'duplikat' %}active{% endif %}">🔄 Duplikat STNK</a>
+      <a href="{{ url_for('mutasi') }}" class="nav-item {% if current_page == 'mutasi' %}active{% endif %}">🚚 Mutasi Daerah</a>
+      <a href="{{ url_for('bbn') }}" class="nav-item {% if current_page == 'bbn' %}active{% endif %}">💳 BBN 1 & 2</a>
     </div>
   </nav>
 

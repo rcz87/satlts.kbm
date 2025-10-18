@@ -96,6 +96,13 @@ header hr {
   transform: translateY(0);
 }
 
+.nav-item.active {
+  background: rgba(255, 215, 0, 0.3);
+  border-color: #ffd700;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
