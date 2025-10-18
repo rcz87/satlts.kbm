@@ -67,6 +67,12 @@ Aplikasi web interaktif berbasis Flask untuk menampilkan informasi publik SAMSAT
 - High error correction level
 
 ## 📝 Recent Changes
+- **18 Oktober 2025**: Update Tarif PNBP sesuai PP 76/2020 (Final)
+  - ✅ Update tarif Mutasi Keluar: Motor Rp 150.000, Mobil Rp 250.000
+  - ✅ Tambah informasi Pengesahan STNK Tahunan di halaman 5 Tahunan: Motor Rp 25.000/tahun, Mobil Rp 50.000/tahun
+  - ✅ Semua tarif sudah terverifikasi sesuai PP 76/2020 oleh architect
+  - ✅ Hapus semua biaya administrasi dari semua halaman
+  - ✅ Update jam operasional Sabtu menjadi 08:00-12:00 WIB
 - **18 Oktober 2025**: Implementasi multi-page architecture
   - Pisahkan konten ke 5 file Markdown terpisah (home, 5tahunan, duplikat, mutasi, BBN)
   - Buat routes Flask terpisah untuk setiap halaman (/,  /5tahunan, /duplikat, /mutasi, /bbn)
