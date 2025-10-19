@@ -2,32 +2,77 @@
 
 ## Dokumentasi Aktivitas Pelayanan
 
-Berikut adalah dokumentasi kegiatan dan pelayanan di SAMSAT Kebumen. Galeri ini akan terus diperbarui dengan foto-foto terbaru dari berbagai kegiatan kami.
+Berikut adalah dokumentasi kegiatan dan pelayanan di SAMSAT Kebumen. Galeri ini menampilkan berbagai aktivitas pelayanan kepada masyarakat, kegiatan sosialisasi, dan pelayanan SAMSAT keliling.
 
 ---
 
-## 🎯 Foto Kegiatan
+## 🎯 Foto Kegiatan Pelayanan
 
-<div class="gallery-container">
-  <div class="gallery-info">
-    <p style="text-align: center; color: #666; padding: 40px 20px; font-size: 1.1em;">
-      📷 <strong>Galeri foto sedang dalam proses pengisian</strong><br><br>
-      Foto-foto kegiatan pelayanan SAMSAT Kebumen akan segera ditampilkan di halaman ini.
-    </p>
+<div class="gallery-grid">
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-01.jpg" alt="Kegiatan SAMSAT Kebumen 1">
+    <div class="gallery-caption">Pelayanan SAMSAT Kebumen</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-02.jpg" alt="Kegiatan SAMSAT Kebumen 2">
+    <div class="gallery-caption">Aktivitas Pelayanan Masyarakat</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-03.jpg" alt="Kegiatan SAMSAT Kebumen 3">
+    <div class="gallery-caption">Layanan SAMSAT Keliling</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-04.jpg" alt="Kegiatan SAMSAT Kebumen 4">
+    <div class="gallery-caption">Sosialisasi Kepada Masyarakat</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-05.jpg" alt="Kegiatan SAMSAT Kebumen 5">
+    <div class="gallery-caption">Pelayanan Administrasi Kendaraan</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-06.jpg" alt="Kegiatan SAMSAT Kebumen 6">
+    <div class="gallery-caption">Cek Fisik Kendaraan</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-07.jpg" alt="Kegiatan SAMSAT Kebumen 7">
+    <div class="gallery-caption">Event Khusus SAMSAT</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-08.jpg" alt="Kegiatan SAMSAT Kebumen 8">
+    <div class="gallery-caption">Pelayanan Prima SAMSAT</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-09.jpg" alt="Petugas SAMSAT Kebumen">
+    <div class="gallery-caption">Petugas Satlantas Melayani dengan Senyum</div>
+  </div>
+  
+  <div class="gallery-item">
+    <img src="/static/images/galery/foto-10.jpg" alt="Kegiatan SAMSAT Kebumen 10">
+    <div class="gallery-caption">Dokumentasi Kegiatan SAMSAT</div>
   </div>
 </div>
 
 ---
 
-## 🔄 Update Berkala
+## 🔄 Jenis Kegiatan yang Didokumentasikan
 
-Galeri ini akan diisi dengan foto-foto kegiatan seperti:
-- ✅ Pelayanan harian di loket SAMSAT
-- 🚗 Kegiatan cek fisik kendaraan
-- 📋 Sosialisasi kepada masyarakat
-- 🎉 Event dan kegiatan khusus
-- 👥 Pelayanan SAMSAT keliling
-- 📱 Layanan digital dan inovasi
+<div class="gallery-info">
+  <strong>📋 Galeri ini menampilkan berbagai kegiatan:</strong><br><br>
+  ✅ Pelayanan harian di loket SAMSAT<br>
+  ✅ Kegiatan cek fisik kendaraan<br>
+  ✅ Sosialisasi kepada masyarakat<br>
+  ✅ Event dan kegiatan khusus<br>
+  ✅ Pelayanan SAMSAT keliling (SAMKEL/SAMDES)<br>
+  ✅ Layanan digital dan inovasi
+</div>
 
 ---
 
