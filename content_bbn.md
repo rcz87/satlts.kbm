@@ -215,12 +215,21 @@ TOTAL: Rp 4.427.000
 
 ## ⚠️ Catatan Penting BBN 2
 
+### 🎉 KABAR BAIK - Aturan Baru BBN 2 (2025):
+**BBN 2 sekarang TIDAK LAGI dikenakan BPNKB 10% dari NJKB!**
+
+Perubahan ini membuat biaya balik nama kendaraan bekas **jauh lebih murah**:
+- Motor: Hemat Rp 1-2 juta
+- Mobil: Hemat Rp 10-20 juta
+
+Yang dibayar sekarang hanya: **PKB + OPSEN + SWDKLLJ + Biaya Administrasi**
+
 ### ✅ Yang Harus Diketahui:
-1. **BBN 2 wajib dibayar** saat balik nama
-2. **Tidak ada keringanan** atau pembebasan BBN 2
-3. **Pajak harus lunas** sebelum balik nama diproses
-4. **BPKB asli** harus ada (tidak boleh foto copy)
-5. **Pembeli dan penjual** harus hadir (atau surat kuasa)
+1. **Aturan baru berlaku untuk semua BBN 2** mulai 2025
+2. **Pajak harus lunas** sebelum balik nama diproses
+3. **BPKB asli** harus ada (tidak boleh foto copy)
+4. **Pembeli dan penjual** harus hadir (atau surat kuasa)
+5. **BBN 1 tetap kena BPNKB 10%** - hanya BBN 2 yang tidak kena
 
 ### ❌ Kesalahan yang Sering Terjadi:
 1. ❌ Tidak balik nama setelah beli (berisiko hukum)
@@ -229,9 +238,9 @@ TOTAL: Rp 4.427.000
 4. ❌ BPKB masih di leasing/bank
 5. ❌ Data tidak cocok antara fisik dan dokumen
 
-### 💡 Tips Membeli Motor/Mobil Bekas:
+### 💡 Tips Membeli Motor/Mobil Bekas (Update Aturan Baru):
 - ✅ Cek NJKB di aplikasi e-Samsat sebelum nego harga
-- ✅ Siapkan budget BBN 2 sekitar 12-15% dari harga beli
+- ✅ **Siapkan budget BBN 2 lebih sedikit** - sekarang cukup sekitar 3-5% dari NJKB saja!
 - ✅ Pastikan pajak lunas dan tidak ada tunggakan
 - ✅ Cek fisik kendaraan (nomor rangka & mesin jelas)
 - ✅ Minta penjual tanda tangan di BPKB
@@ -239,16 +248,23 @@ TOTAL: Rp 4.427.000
 
 ---
 
-## 🆚 Perbedaan BBN 1 dan BBN 2
+## 🆚 Perbedaan BBN 1 dan BBN 2 (PENTING!)
 
-| Aspek | BBN 1 | BBN 2 |
+| Aspek | BBN 1 (Kendaraan Baru) | BBN 2 (Kendaraan Bekas) |
 |-------|-------|-------|
-| **Kapan** | Kendaraan baru | Kendaraan bekas |
-| **Dasar** | Harga jual dari dealer | NJKB dari Dispenda |
-| **Tarif** | 10% dari harga | 10% dari NJKB |
+| **Kapan** | Kendaraan baru dari dealer | Kendaraan bekas (balik nama) |
+| **BPNKB 10%** | ✅ **TETAP KENA** BPNKB 10% dari harga | ❌ **TIDAK KENA** BPNKB 10% (Aturan Baru 2025) |
+| **Biaya yang Dibayar** | BPNKB + PKB + OPSEN + Admin | PKB + OPSEN + Admin saja |
+| **Estimasi Biaya Motor** | Rp 3-4 juta (motor 25 juta) | Rp 500-700 ribu saja! |
+| **Estimasi Biaya Mobil** | Rp 30-35 juta (mobil 250 juta) | Rp 4-7 juta saja! |
 | **Frekuensi** | Sekali seumur hidup | Setiap balik nama |
 | **Diurus** | Dealer | Pembeli sendiri |
 | **Sudah Termasuk** | Harga OTR | Tidak |
+
+**🔥 POIN PENTING:**
+- BBN 1 (kendaraan baru) = **TETAP** kena BPNKB 10% dari harga jual
+- BBN 2 (kendaraan bekas) = **TIDAK** kena BPNKB 10% lagi (aturan baru)
+- Ini membuat beli kendaraan bekas **jauh lebih hemat** untuk biaya balik nama!
 
 ---
 
