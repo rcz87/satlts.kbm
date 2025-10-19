@@ -10,6 +10,10 @@
 </head>
 <body>
   <header>
+    <div class="datetime-display" id="datetime-display">
+      <div class="date-display"></div>
+      <div class="time-display"></div>
+    </div>
     <div class="header-container">
       <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo SAMSAT" class="logo-samsat">
       <div class="header-text">
@@ -95,5 +99,6 @@
     </div>
   </footer>
   <script src="{{ url_for('static', filename='ikm.js') }}"></script>
+  <script src="{{ url_for('static', filename='datetime.js') }}"></script>
 </body>
 </html>

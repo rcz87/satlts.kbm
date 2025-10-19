@@ -19,6 +19,57 @@ header {
   padding: 30px 20px;
   border-radius: 15px 15px 0 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* ========================================
+   JAM DAN TANGGAL REAL-TIME
+   ======================================== */
+
+.datetime-display {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 200px;
+}
+
+.date-display {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.time-display {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: white;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .datetime-display {
+    position: static;
+    margin: 0 auto 15px;
+    max-width: 280px;
+  }
+  
+  .date-display {
+    font-size: 0.85em;
+  }
+  
+  .time-display {
+    font-size: 1.2em;
+  }
 }
 
 .header-container {
