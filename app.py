@@ -153,6 +153,18 @@ def ikm_hasil():
     from app_ikm import ikm_hasil_route
     return ikm_hasil_route()
 
+# Feedback routes
+@app.route('/feedback/submit', methods=['POST'])
+@limiter.limit("20 per hour")  # Security: Rate limit feedback submissions
+def feedback_submit():
+    from app_feedback import feedback_submit_route
+    return feedback_submit_route()
+
+@app.route('/feedback/daftar')
+def feedback_daftar():
+    from app_feedback import feedback_daftar_route
+    return feedback_daftar_route()
+
 # Security: Add security headers to all responses
 @app.after_request
 def add_security_headers(response):

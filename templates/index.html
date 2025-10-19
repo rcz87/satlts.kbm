@@ -99,7 +99,50 @@
       </div>
     </div>
   </footer>
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="feedback-modal">
+    <div class="feedback-modal-content">
+      <span id="close-modal" class="feedback-close">&times;</span>
+      <h2 style="color: #1e3c72; margin-bottom: 20px;">📬 Kirim Feedback & Saran</h2>
+      
+      <form id="feedback-form" class="feedback-form-container">
+        <div class="feedback-form-group">
+          <label>Nama (Opsional):</label>
+          <input type="text" name="nama" placeholder="Nama Anda" maxlength="100">
+        </div>
+        
+        <div class="feedback-form-group">
+          <label>Email (Opsional):</label>
+          <input type="email" name="email" placeholder="email@example.com" maxlength="100">
+        </div>
+        
+        <div class="feedback-form-group">
+          <label>Kategori: <span style="color: red;">*</span></label>
+          <select name="kategori" required>
+            <option value="">-- Pilih Kategori --</option>
+            <option value="Saran Fitur Baru">💡 Saran Fitur Baru</option>
+            <option value="Perbaikan Bug/Error">🐛 Perbaikan Bug/Error</option>
+            <option value="Peningkatan Tampilan">🎨 Peningkatan Tampilan</option>
+            <option value="Konten & Informasi">📝 Konten & Informasi</option>
+            <option value="Lainnya">📋 Lainnya</option>
+          </select>
+        </div>
+        
+        <div class="feedback-form-group">
+          <label>Pesan/Saran: <span style="color: red;">*</span></label>
+          <textarea name="pesan" rows="6" placeholder="Tulis saran atau feedback Anda di sini (minimal 10 karakter)" required minlength="10" maxlength="1000"></textarea>
+          <small style="color: #666;">Maksimal 1000 karakter</small>
+        </div>
+        
+        <div id="feedback-message" class="feedback-form-message" style="display: none;"></div>
+        
+        <button type="submit" class="feedback-submit-btn">📤 Kirim Feedback</button>
+      </form>
+    </div>
+  </div>
+
   <script src="{{ url_for('static', filename='ikm.js') }}"></script>
   <script src="{{ url_for('static', filename='datetime.js') }}"></script>
+  <script src="{{ url_for('static', filename='feedback.js') }}"></script>
 </body>
 </html>

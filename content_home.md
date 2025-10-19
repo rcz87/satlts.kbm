@@ -191,6 +191,18 @@ Silakan pilih menu sesuai kebutuhan Anda:
 
 ---
 
+## 💬 Berikan Feedback & Saran Anda
+
+<div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
+  <h3 style="color: white; margin-bottom: 15px;">📬 Bantu Kami Tingkatkan Website Ini!</h3>
+  <p style="color: white; margin-bottom: 20px;">Punya saran untuk fitur baru, perbaikan, atau peningkatan? Kami sangat menghargai masukan Anda!</p>
+  <button id="btn-feedback" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+    📝 Kirim Feedback & Saran
+  </button>
+</div>
+
+---
+
 ## 👮 Petugas Pelayanan STNK
 
 **SATLANTAS POLRES KEBUMEN**  
