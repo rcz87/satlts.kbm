@@ -393,17 +393,9 @@ footer hr {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.social-link.instagram {
-  border-color: #E1306C;
-}
-
 .social-link.instagram:hover {
   background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
   border-color: #fcb045;
-}
-
-.social-link.facebook {
-  border-color: #1877f2;
 }
 
 .social-link.facebook:hover {
@@ -411,17 +403,9 @@ footer hr {
   border-color: #1877f2;
 }
 
-.social-link.twitter {
-  border-color: #ffffff;
-}
-
 .social-link.twitter:hover {
   background: #000000;
   border-color: #ffffff;
-}
-
-.social-link.tiktok {
-  border-color: #ff0050;
 }
 
 .social-link.tiktok:hover {
