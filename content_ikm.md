@@ -18,10 +18,12 @@ Indeks Kepuasan Masyarakat (IKM) adalah data dan informasi tentang tingkat kepua
       <select name="jenis_layanan" required class="form-select">
         <option value="">-- Pilih Layanan --</option>
         <option value="Pembayaran Pajak Tahunan">Pembayaran Pajak Tahunan</option>
-        <option value="Perpanjangan STNK 5 Tahunan">Perpanjangan STNK 5 Tahunan</option>
+        <option value="Pembayaran Pajak 5 Tahunan">Pembayaran Pajak 5 Tahunan (Ganti STNK)</option>
         <option value="Duplikat STNK">Duplikat STNK</option>
-        <option value="Mutasi Kendaraan">Mutasi Kendaraan</option>
-        <option value="Balik Nama (BBN 1/BBN 2)">Balik Nama (BBN 1/BBN 2)</option>
+        <option value="Mutasi Masuk">Mutasi Masuk (Pindah ke Kebumen)</option>
+        <option value="Mutasi Keluar">Mutasi Keluar (Pindah dari Kebumen)</option>
+        <option value="BBN 1 (Kendaraan Baru)">BBN 1 (Kendaraan Baru)</option>
+        <option value="BBN 2 (Balik Nama)">BBN 2 (Balik Nama)</option>
         <option value="Lainnya">Lainnya</option>
       </select>
     </div>
