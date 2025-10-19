@@ -56,6 +56,40 @@ header {
   letter-spacing: 2px;
 }
 
+.status-display {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.status-open {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  animation: pulse-green 2s infinite;
+}
+
+.status-closed {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+  }
+}
+
 @media (max-width: 768px) {
   .datetime-display {
     position: static;
@@ -69,6 +103,11 @@ header {
   
   .time-display {
     font-size: 1.2em;
+  }
+  
+  .status-display {
+    font-size: 0.75em;
+    padding: 5px 10px;
   }
 }
 
