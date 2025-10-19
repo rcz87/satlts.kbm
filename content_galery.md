@@ -31,7 +31,7 @@ Berikut adalah dokumentasi kegiatan dan pelayanan di SAMSAT Kebumen. Galeri ini 
   
   <div class="gallery-item">
     <img src="/static/images/galery/foto-05.jpg" alt="Kegiatan SAMSAT Kebumen 5">
-    <div class="gallery-caption">Pelayanan Administrasi Kendaraan</div>
+    <div class="gallery-caption">Sosialisasi Perpajakan</div>
   </div>
   
   <div class="gallery-item">
