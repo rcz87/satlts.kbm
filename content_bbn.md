@@ -64,15 +64,20 @@ Pajak yang dikenakan saat **kendaraan bekas berpindah kepemilikan** (balik nama)
 ### Karakteristik BBN 2:
 - ✅ Dikenakan saat balik nama kendaraan bekas
 - ✅ Dibayar oleh **pembeli** kendaraan bekas
-- ✅ Menggunakan dasar **NJKB** (Nilai Jual Kendaraan Bermotor)
 - ✅ Dikenakan **setiap kali** ada perpindahan kepemilikan
+- ✅ **PERUBAHAN ATURAN TERBARU:** BBN 2 tidak lagi menggunakan BPNKB 10% dari NJKB
+- ✅ Biaya langsung masuk ke **OPSEN Pajak** sesuai aturan terbaru
 
-### Tarif BBN 2:
-| Basis Perhitungan | Tarif |
-|-------------------|-------|
-| NJKB (Nilai Jual Kendaraan Bermotor) | 10% |
+### Tarif BBN 2 (Aturan Terbaru 2025):
+**BBN 2 sekarang TIDAK LAGI dikenakan BPNKB 10% dari NJKB**
 
-*NJKB ditentukan oleh Dispenda berdasarkan tahun & tipe kendaraan*
+Biaya yang dibayarkan:
+- **PKB** (Pajak Kendaraan Bermotor): 2% dari NJKB
+- **OPSEN**: 66% dari PKB (sesuai UU No. 1 Tahun 2022)
+- **SWDKLLJ**: Motor Rp 35.000 / Mobil Rp 143.000
+- **Biaya Administrasi**: STNK & TNKB
+
+*Ini membuat BBN 2 jauh lebih murah dibanding aturan sebelumnya!*
 
 ---
 
