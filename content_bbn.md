@@ -104,8 +104,8 @@ Biaya yang dibayarkan:
 | Tahap | Kegiatan | Waktu |
 |-------|----------|-------|
 | 1️⃣ | Cek fisik kendaraan (nomor rangka & mesin) | 30 menit |
-| 2️⃣ | Hitung BBN 2 (10% x NJKB) | 15 menit |
-| 3️⃣ | Bayar BBN 2 + PKB tahun berjalan | 15 menit |
+| 2️⃣ | Hitung biaya: PKB + OPSEN + SWDKLLJ | 15 menit |
+| 3️⃣ | Bayar PKB + OPSEN + Administrasi | 15 menit |
 | 4️⃣ | Proses penerbitan STNK baru (nama pembeli) | 1-2 hari |
 | 5️⃣ | Proses BPKB baru (nama pembeli) | 7-14 hari |
 
