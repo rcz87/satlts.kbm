@@ -59,7 +59,7 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 
 ### Plat Nomor Baru:
 - Kode: **R** (Banjarnegara/Kebumen)
-- Contoh: **R 1234 AB**
+- Contoh: **AA 1997 AD**
 
 ---
 
