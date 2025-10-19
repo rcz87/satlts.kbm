@@ -11,19 +11,25 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 2. **BPKB Asli**
 3. **Surat Laporan Kehilangan** dari Kepolisian
 4. **Surat Pernyataan Kehilangan** bermaterai Rp 10.000
-5. **Kendaraan** (untuk cek fisik)
-6. **Bukti Pelunasan Pajak** terakhir (jika ada)
-7. **Foto Copy STNK** (jika ada)
+5. **Pengumuman Media Massa** (pilih salah satu):
+   - Koran lokal/nasional, atau
+   - Radio lokal
+6. **Surat Rekomendasi** dari Urmin Satlantas
+7. **Kendaraan** (untuk cek fisik)
+8. **Bukti Pelunasan Pajak** terakhir (jika ada)
+9. **Foto Copy STNK** (jika ada)
 
 ### Langkah-langkah:
 | No | Tahapan | Keterangan |
 |----|---------|-----------|
 | 1 | Lapor Polisi | Buat surat kehilangan di Polres/Polsek |
-| 2 | Surat Pernyataan | Buat surat pernyataan kehilangan bermaterai |
-| 3 | Datang ke Samsat | Bawa semua dokumen + kendaraan |
-| 4 | Cek Fisik | Pemeriksaan nomor rangka & mesin |
-| 5 | Bayar Biaya | Bayar duplikat STNK + pajak (jika ada tunggakan) |
-| 6 | Tunggu Proses | STNK baru dicetak |
+| 2 | Pengumuman Media | Umumkan di koran lokal/nasional atau radio lokal |
+| 3 | Surat Pernyataan | Buat surat pernyataan kehilangan bermaterai |
+| 4 | Surat Rekomendasi | Urus surat rekomendasi dari Urmin Satlantas |
+| 5 | Datang ke Samsat | Bawa semua dokumen + kendaraan |
+| 6 | Cek Fisik | Pemeriksaan nomor rangka & mesin |
+| 7 | Bayar Biaya | Bayar duplikat STNK + pajak (jika ada tunggakan) |
+| 8 | Tunggu Proses | STNK baru dicetak |
 
 ---
 
