@@ -54,11 +54,11 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 | 1 | Registrasi di loket Samsat Kebumen | 30 menit |
 | 2 | Cek fisik kendaraan | 30 menit |
 | 3 | Pembayaran BPNKB + PKB + biaya admin | 15 menit |
-| 4 | Penerbitan STNK baru dengan plat R | 1-2 hari |
+| 4 | Penerbitan STNK baru dengan plat AA | 1-2 hari |
 | 5 | Pemasangan plat nomor baru | 30 menit |
 
 ### Plat Nomor Baru:
-- Kode: **R** (Banjarnegara/Kebumen)
+- Kode: **AA** (Wilayah Kedu/Kebumen)
 - Contoh: **AA 1997 AD**
 
 ---
@@ -186,7 +186,7 @@ KEBUMEN:
 3. Daftar di Samsat Kebumen
 4. Cek fisik kendaraan
 5. Bayar BPNKB + PKB
-6. Terima STNK & Plat baru (R)
+6. Terima STNK & Plat baru (AA)
 ```
 
 ---
