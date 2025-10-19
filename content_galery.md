@@ -36,7 +36,7 @@ Berikut adalah dokumentasi kegiatan dan pelayanan di SAMSAT Kebumen. Galeri ini 
   
   <div class="gallery-item">
     <img src="/static/images/galery/foto-06.jpg" alt="Kegiatan SAMSAT Kebumen 6">
-    <div class="gallery-caption">Cek Fisik Kendaraan</div>
+    <div class="gallery-caption">Pemberian Brosur</div>
   </div>
   
   <div class="gallery-item">
