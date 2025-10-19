@@ -51,18 +51,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const ratings = {};
         let allRated = true;
+        const unratedAspects = [];
         
         starRatings.forEach(ratingContainer => {
             const name = ratingContainer.getAttribute('data-name');
-            const rating = parseInt(ratingContainer.getAttribute('data-rating'));
-            if (rating === 0) {
+            const ratingValue = ratingContainer.getAttribute('data-rating');
+            const rating = parseInt(ratingValue) || 0;
+            
+            // Cek jika rating tidak valid atau masih 0
+            if (!ratingValue || rating === 0 || isNaN(rating) || rating < 1 || rating > 4) {
                 allRated = false;
+                unratedAspects.push(name);
             }
             ratings[name] = rating;
         });
         
         if (!allRated) {
-            showMessage('Mohon berikan penilaian untuk semua aspek', 'error');
+            showMessage('Mohon berikan penilaian untuk semua aspek (total 9 aspek)', 'error');
+            console.log('Aspek yang belum dinilai:', unratedAspects);
             return;
         }
         
