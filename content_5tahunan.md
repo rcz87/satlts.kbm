@@ -147,7 +147,7 @@ OPSEN = 66% × PKB yang terutang
 
 ### ❌ Yang Harus Dihindari:
 1. STNK sudah mati lebih dari 2 tahun (proses lebih lama)
-2. Nomor rangka/mesin tidak terbaca (harus di-blasting dulu)
+2. Nomor rangka/mesin tidak terbaca (bersihkan dulu agar jelas)
 3. Ada tilang yang belum diselesaikan
 4. Dokumen tidak lengkap
 

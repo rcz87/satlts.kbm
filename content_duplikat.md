@@ -61,7 +61,6 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 ### Biaya Tambahan (jika ada):
 - **Tunggakan Pajak**: Harus dilunasi
 - **Denda Keterlambatan**: 25% per tahun
-- **Blok Mesin** (jika nomor tidak jelas): Rp 100.000 - Rp 200.000
 
 ### Contoh Total:
 **Motor dengan pajak lunas:**
@@ -91,7 +90,7 @@ Layanan pembuatan STNK pengganti jika STNK hilang, rusak, atau tidak terbaca.
 4. **Cek Status** kendaraan tidak dalam blokir/bermasalah
 
 ### ❌ Yang Sering Jadi Kendala:
-1. Nomor rangka/mesin tidak jelas → Harus di-blasting
+1. Nomor rangka/mesin tidak jelas → Bersihkan dulu agar terbaca
 2. Ada tunggakan pajak → Harus dilunasi dulu
 3. Data tidak cocok antara BPKB dan kendaraan
 4. Surat laporan kehilangan tidak lengkap
