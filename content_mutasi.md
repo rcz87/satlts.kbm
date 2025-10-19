@@ -31,7 +31,7 @@ Proses memindahkan registrasi kendaraan dari Samsat Kebumen ke daerah lain.
 | 5 | Terima dokumen mutasi |
 
 ### Waktu Proses:
-- **1-2 hari kerja** di Samsat Kebumen
+- **4-5 hari kerja** di Samsat Kebumen
 
 ---
 
@@ -54,7 +54,7 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 | 1 | Registrasi di loket Samsat Kebumen | 30 menit |
 | 2 | Cek fisik kendaraan | 30 menit |
 | 3 | Pembayaran BPNKB + PKB + biaya admin | 15 menit |
-| 4 | Penerbitan STNK baru dengan plat AA | 1-2 hari |
+| 4 | Penerbitan STNK baru dengan plat AA | 4-5 hari |
 | 5 | Pemasangan plat nomor baru | 30 menit |
 
 ### Plat Nomor Baru:
@@ -126,11 +126,11 @@ Proses mendaftarkan kendaraan dari daerah lain ke Samsat Kebumen.
 ## ⏱️ Waktu Proses Total
 
 ### Mutasi Keluar:
-- Di Samsat Kebumen: **1-2 hari kerja**
+- Di Samsat Kebumen: **4-5 hari kerja**
 - Total waktu: Tergantung kecepatan di daerah tujuan
 
 ### Mutasi Masuk:
-- Proses di Samsat Kebumen: **2-5 hari kerja**
+- Proses di Samsat Kebumen: **4-5 hari kerja**
 - Tergantung kelengkapan dokumen dari daerah asal
 
 ---
