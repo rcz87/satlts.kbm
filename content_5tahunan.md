@@ -6,15 +6,15 @@ Perpanjangan STNK 5 tahunan memerlukan penggantian STNK dan plat nomor kendaraan
 
 ## ℹ️ Perbedaan Perpanjangan Tahunan vs 5 Tahunan
 
-### 📅 Pengesahan STNK Tahunan (Setiap Tahun)
+### 📅 Perpanjangan STNK Tahunan (Setiap Tahun)
 Perpanjangan pajak kendaraan bermotor tanpa ganti STNK/plat, hanya pengesahan (stempel).
 
-**Biaya Pengesahan (PNBP PP 76/2020):**
-- **Motor (Roda 2/3)**: Rp 25.000
-- **Mobil (Roda 4+)**: Rp 50.000
+**✅ GRATIS - Biaya Pengesahan Sudah Dihapus Sejak 2018**
 
-**Total Biaya Tahunan** = PKB + **OPSEN** + SWDKLLJ + Pengesahan  
-*Contoh Motor: PKB Rp 300.000 + OPSEN Rp 198.000 + SWDKLLJ Rp 35.000 + Pengesahan Rp 25.000 = **Rp 558.000***
+**Total Biaya Tahunan** = PKB + **OPSEN** + SWDKLLJ  
+*Contoh Motor: PKB Rp 300.000 + OPSEN Rp 198.000 + SWDKLLJ Rp 35.000 = **Rp 533.000***
+
+💡 **Info**: Biaya pengesahan STNK tahunan (Rp 25.000 motor / Rp 50.000 mobil) sudah **tidak berlaku lagi** sejak 14 Maret 2018 sesuai keputusan Mahkamah Agung.
 
 ---
 
@@ -123,9 +123,9 @@ OPSEN = 66% × PKB yang terutang
 1. **PKB** (Pajak Kendaraan Bermotor) - Ditetapkan provinsi
 2. **OPSEN PKB** (66% dari PKB) - Dipungut kabupaten/kota
 3. **SWDKLLJ** (Asuransi Jasa Raharja) - Tarif tetap
-4. **Pengesahan/STNK** - Biaya administrasi
 
-💡 **Total pajak yang dibayar = PKB + OPSEN + SWDKLLJ + Pengesahan/STNK**
+💡 **Total pajak tahunan = PKB + OPSEN + SWDKLLJ** (Pengesahan GRATIS sejak 2018)  
+💡 **Total pajak 5 tahunan = PKB + OPSEN + SWDKLLJ + STNK Baru + Plat Baru**
 
 ---
 

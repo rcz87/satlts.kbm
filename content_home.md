@@ -174,7 +174,7 @@ OPSEN adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bu
 - PKB Motor Rp 300.000 → OPSEN Rp 198.000
 - PKB Mobil Rp 2.000.000 → OPSEN Rp 1.320.000
 
-**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ + Pengesahan
+**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ (Pengesahan GRATIS sejak 2018)
 
 💡 *Lihat detail perhitungan di menu "Syarat 5 Tahunan"*
 
