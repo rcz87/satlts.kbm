@@ -393,24 +393,40 @@ footer hr {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.social-link.instagram:hover {
+.social-link.instagram {
   background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
   border-color: #fcb045;
 }
 
-.social-link.facebook:hover {
+.social-link.instagram:hover {
+  box-shadow: 0 8px 16px rgba(252, 176, 69, 0.4);
+}
+
+.social-link.facebook {
   background: #1877f2;
   border-color: #1877f2;
 }
 
-.social-link.twitter:hover {
+.social-link.facebook:hover {
+  box-shadow: 0 8px 16px rgba(24, 119, 242, 0.4);
+}
+
+.social-link.twitter {
   background: #000000;
   border-color: #ffffff;
 }
 
-.social-link.tiktok:hover {
+.social-link.twitter:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.social-link.tiktok {
   background: #000000;
-  border-color: #69C9D0;
+  border-color: #ff0050;
+}
+
+.social-link.tiktok:hover {
+  box-shadow: 0 8px 16px rgba(255, 0, 80, 0.4);
 }
 
 .footer-bottom {
