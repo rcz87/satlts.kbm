@@ -365,7 +365,9 @@ footer hr {
 }
 
 .social-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: white;
   text-decoration: none;
   padding: 12px 24px;
@@ -377,11 +379,22 @@ footer hr {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.social-link svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
 .social-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border-color: #ffd700;
-  background: rgba(255, 215, 0, 0.2);
+}
+
+.social-link.instagram {
+  border-color: #E1306C;
 }
 
 .social-link.instagram:hover {
@@ -389,9 +402,17 @@ footer hr {
   border-color: #fcb045;
 }
 
+.social-link.facebook {
+  border-color: #1877f2;
+}
+
 .social-link.facebook:hover {
   background: #1877f2;
   border-color: #1877f2;
+}
+
+.social-link.twitter {
+  border-color: #ffffff;
 }
 
 .social-link.twitter:hover {
@@ -399,9 +420,13 @@ footer hr {
   border-color: #ffffff;
 }
 
+.social-link.tiktok {
+  border-color: #ff0050;
+}
+
 .social-link.tiktok:hover {
   background: #000000;
-  border-color: #ff0050;
+  border-color: #69C9D0;
 }
 
 .footer-bottom {
