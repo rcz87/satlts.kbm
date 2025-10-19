@@ -113,54 +113,68 @@ Biaya yang dibayarkan:
 
 ---
 
-## 💰 Contoh Perhitungan BBN 2 (Termasuk OPSEN 2025)
+## 💰 Contoh Perhitungan BBN 2 (Aturan Terbaru 2025)
+
+**⚠️ PENTING: BBN 2 sekarang JAUH LEBIH MURAH karena tidak ada lagi BPNKB 10%!**
 
 ### Motor Bekas Tahun 2020:
 ```
 NJKB Motor: Rp 15.000.000
 ─────────────────────────
-BBN 2 (10%): Rp 1.500.000
 PKB (2%): Rp 300.000
 OPSEN (66% dari PKB): Rp 198.000
 SWDKLLJ: Rp 35.000
+STNK Baru: Rp 100.000
+TNKB Baru: Rp 60.000
 ─────────────────────────
-TOTAL: Rp 2.033.000
+TOTAL: Rp 693.000
+
+💰 HEMAT Rp 1.500.000 dibanding aturan lama!
 ```
 
 ### Motor Bekas Tahun 2018:
 ```
 NJKB Motor: Rp 12.000.000
 ─────────────────────────
-BBN 2 (10%): Rp 1.200.000
 PKB (2%): Rp 240.000
 OPSEN (66% dari PKB): Rp 158.400
 SWDKLLJ: Rp 35.000
+STNK Baru: Rp 100.000
+TNKB Baru: Rp 60.000
 ─────────────────────────
-TOTAL: Rp 1.633.400
+TOTAL: Rp 593.400
+
+💰 HEMAT Rp 1.200.000 dibanding aturan lama!
 ```
 
 ### Mobil Bekas Tahun 2019:
 ```
 NJKB Mobil: Rp 180.000.000
 ─────────────────────────
-BBN 2 (10%): Rp 18.000.000
 PKB (2%): Rp 3.600.000
 OPSEN (66% dari PKB): Rp 2.376.000
 SWDKLLJ: Rp 143.000
+STNK Baru: Rp 200.000
+TNKB Baru: Rp 100.000
 ─────────────────────────
-TOTAL: Rp 24.119.000
+TOTAL: Rp 6.419.000
+
+💰 HEMAT Rp 18.000.000 dibanding aturan lama!
 ```
 
 ### Mobil Bekas Tahun 2015:
 ```
 NJKB Mobil: Rp 120.000.000
 ─────────────────────────
-BBN 2 (10%): Rp 12.000.000
 PKB (2%): Rp 2.400.000
 OPSEN (66% dari PKB): Rp 1.584.000
 SWDKLLJ: Rp 143.000
+STNK Baru: Rp 200.000
+TNKB Baru: Rp 100.000
 ─────────────────────────
-TOTAL: Rp 16.127.000
+TOTAL: Rp 4.427.000
+
+💰 HEMAT Rp 12.000.000 dibanding aturan lama!
 ```
 
 ### 💡 Informasi OPSEN Pajak 2025
