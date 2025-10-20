@@ -143,7 +143,7 @@ def ikm():
     return render_template('index.html', content=content, current_page='ikm')
 
 @app.route('/ikm/submit', methods=['POST'])
-@limiter.limit("10 per hour")  # Security: Max 10 submissions per hour per IP
+@limiter.limit("50 per day")  # Security: Max 50 IKM submissions per day per IP
 def ikm_submit():
     from app_ikm import ikm_submit_route
     return ikm_submit_route()
