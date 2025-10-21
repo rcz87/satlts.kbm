@@ -142,6 +142,61 @@ def ikm():
     content = load_markdown('content_ikm.md')
     return render_template('index.html', content=content, current_page='ikm')
 
+# REGIDENT Routes
+@app.route('/regident')
+def regident():
+    content = load_markdown('content_regident.md')
+    return render_template('index.html', content=content, current_page='regident')
+
+@app.route('/regident/stnk')
+def regident_stnk():
+    content = load_markdown('content_regident_stnk.md')
+    return render_template('index.html', content=content, current_page='regident')
+
+@app.route('/regident/sim')
+def regident_sim():
+    content = load_markdown('content_regident_sim.md')
+    return render_template('index.html', content=content, current_page='regident')
+
+@app.route('/regident/bpkb')
+def regident_bpkb():
+    content = load_markdown('content_regident_bpkb.md')
+    return render_template('index.html', content=content, current_page='regident')
+
+# GAKUM Routes
+@app.route('/gakum')
+def gakum():
+    content = load_markdown('content_gakum.md')
+    return render_template('index.html', content=content, current_page='gakum')
+
+@app.route('/gakum/laka')
+def gakum_laka():
+    content = load_markdown('content_gakum_laka.md')
+    return render_template('index.html', content=content, current_page='gakum')
+
+@app.route('/gakum/tilang')
+def gakum_tilang():
+    content = load_markdown('content_gakum_tilang.md')
+    return render_template('index.html', content=content, current_page='gakum')
+
+# PATWAL Route
+@app.route('/patwal')
+def patwal():
+    content = load_markdown('content_patwal.md')
+    return render_template('index.html', content=content, current_page='patwal')
+
+# KAMSEL Route
+@app.route('/kamsel')
+def kamsel():
+    content = load_markdown('content_kamsel.md')
+    return render_template('index.html', content=content, current_page='kamsel')
+
+# URMIN Route
+@app.route('/urmin')
+def urmin():
+    content = load_markdown('content_urmin.md')
+    return render_template('index.html', content=content, current_page='urmin')
+
 @app.route('/ikm/submit', methods=['POST'])
 @limiter.limit("50 per day")  # Security: Max 50 IKM submissions per day per IP
 def ikm_submit():

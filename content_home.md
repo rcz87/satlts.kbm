@@ -1,123 +1,120 @@
-# 🏠 Selamat Datang di SAMSAT Kebumen
+# 🏠 Selamat Datang di Portal Satlantas Polres Kebumen
 
-## 📖 Apa itu SAMSAT Kebumen?
+## 📋 Pilih Layanan Sesuai Kebutuhan Anda
 
-**SAMSAT** adalah singkatan dari **Sistem Administrasi Manunggal Satu Atap**, yaitu kantor pelayanan terpadu yang memudahkan masyarakat dalam mengurus kendaraan bermotor.
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0;">
 
-SAMSAT Kebumen merupakan **kantor bersama** yang menggabungkan 4 instansi dalam satu gedung, sehingga Anda hanya perlu datang ke **satu tempat** untuk mengurus:
-- ✅ Perpanjangan STNK
-- ✅ Pembayaran Pajak Kendaraan
-- ✅ Balik Nama Kendaraan
-- ✅ Mutasi Kendaraan
-- ✅ dan layanan lainnya
+<a href="/regident" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
+    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">🏢</h2>
+    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">PELAYANAN REGIDENT</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
+      Registrasi & Identifikasi Kendaraan<br>
+      <strong style="color: #ffd700;">• STNK & Pajak</strong><br>
+      <strong style="color: #ffd700;">• SIM</strong><br>
+      <strong style="color: #ffd700;">• BPKB</strong>
+    </p>
+  </div>
+</a>
 
----
+<a href="/gakum" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
+    <h2 style="margin-top: 0; color: white; font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">⚖️</h2>
+    <h3 style="margin: 10px 0; font-size: 1.5em; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">PELAYANAN GAKUM</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: white;">
+      Penegakan Hukum Lalu Lintas<br>
+      <strong style="color: #fff3cd;">• Unit Laka Lantas</strong><br>
+      <strong style="color: #fff3cd;">• Tilang & ETLE</strong>
+    </p>
+  </div>
+</a>
 
-## 🤝 Instansi yang Tergabung di SAMSAT Kebumen
+<a href="/patwal" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
+    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">🚓</h2>
+    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">PATWAL</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
+      Patroli & Pengawalan<br>
+      <strong style="color: #ffd700;">• Pengaturan Lalu Lintas</strong><br>
+      <strong style="color: #ffd700;">• Pengawalan</strong>
+    </p>
+  </div>
+</a>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+<a href="/kamsel" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
+    <h2 style="margin-top: 0; color: white; font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🛡️</h2>
+    <h3 style="margin: 10px 0; font-size: 1.5em; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">KAMSEL</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: white;">
+      Keamanan & Keselamatan<br>
+      <strong style="color: white;">• Safety Riding</strong><br>
+      <strong style="color: white;">• Edukasi Masyarakat</strong>
+    </p>
+  </div>
+</a>
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 12px; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-  <h3 style="margin-top: 0; color: #ffd700;">🚔 Satlantas Polres Kebumen</h3>
-  <p style="font-size: 0.9em; line-height: 1.6;">
-    <strong>Fungsi:</strong><br>
-    • Registrasi & Identifikasi Kendaraan<br>
-    • Penerbitan dan perpanjangan STNK<br>
-    • Penerbitan BPKB<br>
-    • Penggantian plat nomor (TNKB)<br>
-    • Pemeriksaan fisik kendaraan<br>
-    • Mutasi kendaraan antar daerah
-  </p>
-</div>
+<a href="/urmin" style="text-decoration: none;">
+  <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
+    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">📁</h2>
+    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">URMIN</h3>
+    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
+      Urusan Dalam & Administrasi<br>
+      <strong style="color: #ffd700;">• Profil Satlantas</strong><br>
+      <strong style="color: #ffd700;">• Kontak & Lokasi</strong>
+    </p>
+  </div>
+</a>
 
-<div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 20px; border-radius: 12px; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-  <h3 style="margin-top: 0; color: #ffd700;">💰 UPPD Bapenda Kebumen</h3>
-  <p style="font-size: 0.85em; line-height: 1.6;">
-    <strong>Unit Pengelolaan Pendapatan Daerah</strong><br><br>
-    <strong>Fungsi:</strong><br>
-    • Penetapan Pajak Kendaraan Bermotor (PKB)<br>
-    • Pemungutan pajak tahunan & 5 tahunan<br>
-    • Bea Balik Nama Kendaraan (BBNKB)<br>
-    • Pengelolaan tunggakan pajak<br>
-    • Penerbitan bukti pelunasan pajak
-  </p>
-</div>
-
-<div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 20px; border-radius: 12px; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-  <h3 style="margin-top: 0; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🛡️ PT Jasa Raharja</h3>
-  <p style="font-size: 0.9em; line-height: 1.6; color: white;">
-    <strong>Fungsi:</strong><br>
-    • Pengelolaan SWDKLLJ (Dana Kecelakaan)<br>
-    • Asuransi kecelakaan lalu lintas<br>
-    • Santunan hingga Rp 50 juta untuk korban<br>
-    • Biaya perawatan maksimal Rp 20-25 juta<br>
-    • Klaim untuk korban kecelakaan
-  </p>
-</div>
-
-<div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 20px; border-radius: 12px; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-  <h3 style="margin-top: 0; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🏦 Bank Jateng</h3>
-  <p style="font-size: 0.9em; line-height: 1.6; color: white;">
-    <strong>Fungsi:</strong><br>
-    • Pembayaran dan transaksi keuangan<br>
-    • Penerimaan pembayaran PKB & BBNKB<br>
-    • Penerimaan pembayaran SWDKLLJ<br>
-    • Layanan perbankan untuk memudahkan transaksi masyarakat
-  </p>
-</div>
-
-</div>
-
----
-
-## ✨ Keuntungan Sistem SAMSAT
-
-<div style="background: #e8f4f8; border-left: 5px solid #3498db; padding: 20px; margin: 20px 0; border-radius: 5px;">
-  <h3 style="margin-top: 0; color: #2c3e50;">❌ Sebelum SAMSAT:</h3>
-  <p style="color: #555;">
-    • Harus ke <strong>3 kantor berbeda</strong> (Pajak → Jasa Raharja → Polisi)<br>
-    • Proses lama dan tidak efisien<br>
-    • Buang waktu dan biaya transportasi
-  </p>
-</div>
-
-<div style="background: #d4edda; border-left: 5px solid #28a745; padding: 20px; margin: 20px 0; border-radius: 5px;">
-  <h3 style="margin-top: 0; color: #155724;">✅ Dengan SAMSAT:</h3>
-  <p style="color: #155724;">
-    • <strong>Satu loket, satu gedung</strong> - semua instansi tergabung<br>
-    • PKB + SWDKLLJ + STNK → <strong>bayar sekaligus</strong><br>
-    • <strong>Hemat waktu</strong> dan biaya transportasi<br>
-    • Pelayanan lebih cepat dan terkoordinasi
-  </p>
 </div>
 
 ---
 
-## 📋 Informasi Layanan STNK & Pajak Kendaraan
+## 📋 Layanan Lainnya
 
-Gunakan menu di atas untuk melihat informasi lengkap tentang layanan yang Anda butuhkan.
+<div style="display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; justify-content: center;">
+  <a href="/ikm" style="text-decoration: none;">
+    <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
+      <h3 style="margin: 0; font-size: 1.3em;">📊 Survey IKM</h3>
+      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Indeks Kepuasan Masyarakat</p>
+    </div>
+  </a>
+  
+  <a href="/dasarhukum" style="text-decoration: none;">
+    <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
+      <h3 style="margin: 0; font-size: 1.3em;">📚 Dasar Hukum</h3>
+      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Peraturan & Regulasi</p>
+    </div>
+  </a>
+  
+  <a href="/galery" style="text-decoration: none;">
+    <div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
+      <h3 style="margin: 0; font-size: 1.3em;">📸 Galery</h3>
+      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Dokumentasi Kegiatan</p>
+    </div>
+  </a>
+</div>
 
 ---
 
-## 📍 Lokasi & Kontak
+## ⚠️ INFO PENTING: OPSEN Pajak 2025
 
-**SAMSAT KEBUMEN**  
-Jalan Tentara Pelajar No. 54, Kebumen  
-☎️ Telepon: (0287) 381234  
-✉️ Email: samsat.kebumen@jatengprov.go.id
+**Mulai 5 Januari 2025**, ada **tambahan pajak OPSEN** yang dibebankan kepada pemilik kendaraan.
 
----
+### Apa itu OPSEN?
+OPSEN adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bukan provinsi) sebesar **66% dari PKB** yang terutang.
 
-## ⏰ Jam Operasional
+**Dasar Hukum:** UU No. 1 Tahun 2022 tentang HKPD (Hubungan Keuangan Pusat dan Daerah)
 
-| Hari | Jam Buka | Jam Tutup |
-|------|----------|-----------|
-| Senin - Kamis | 08.00 WIB | 15.00 WIB |
-| Jumat | 08.00 WIB | 15.30 WIB |
-| Sabtu | 08.00 WIB | 12.00 WIB |
-| Minggu | TUTUP | TUTUP |
+### Cara Menghitung OPSEN:
+**OPSEN = 66% × PKB yang terutang**
 
-**Catatan:** Libur pada hari besar nasional dan cuti bersama
+**Contoh:**
+- PKB Motor Rp 300.000 → OPSEN Rp 198.000
+- PKB Mobil Rp 2.000.000 → OPSEN Rp 1.320.000
+
+**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ
+
+💡 *Lihat detail perhitungan di menu PELAYANAN REGIDENT → STNK & Pajak*
 
 ---
 
@@ -153,44 +150,6 @@ SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang
 
 ---
 
-## ⚠️ INFO PENTING: OPSEN Pajak 2025
-
-**Mulai 5 Januari 2025**, ada **tambahan pajak OPSEN** yang dibebankan kepada pemilik kendaraan.
-
-### Apa itu OPSEN?
-OPSEN adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bukan provinsi) sebesar **66% dari PKB** yang terutang.
-
-**Dasar Hukum:** UU No. 1 Tahun 2022 tentang HKPD (Hubungan Keuangan Pusat dan Daerah)
-
-### Kenapa Nominalnya Berbeda-beda?
-- Berdasarkan **domisili** (NIK & alamat) pemilik kendaraan
-- Tergantung **tarif PKB provinsi** yang berlaku
-- Setiap kabupaten/kota punya nominal berbeda
-
-### Cara Menghitung OPSEN:
-**OPSEN = 66% × PKB yang terutang**
-
-**Contoh:**
-- PKB Motor Rp 300.000 → OPSEN Rp 198.000
-- PKB Mobil Rp 2.000.000 → OPSEN Rp 1.320.000
-
-**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ (Pengesahan GRATIS sejak 2018)
-
-💡 *Lihat detail perhitungan di menu "Syarat 5 Tahunan"*
-
----
-
-## 📋 Pilih Menu di Atas
-
-Silakan pilih menu sesuai kebutuhan Anda:
-
-- **📋 Syarat 5 Tahunan** - Informasi perpanjangan STNK 5 tahun
-- **🔄 Duplikat STNK** - Prosedur STNK hilang/rusak
-- **🚗 Mutasi Antar Daerah** - Pindah domisili kendaraan
-- **💼 BBN 1 & 2** - Balik nama kendaraan baru & bekas
-
----
-
 ## 💬 Berikan Feedback & Saran Anda
 
 <div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
@@ -203,10 +162,22 @@ Silakan pilih menu sesuai kebutuhan Anda:
 
 ---
 
-## 👮 Petugas Pelayanan STNK
+## 📍 Kontak & Lokasi
 
 **SATLANTAS POLRES KEBUMEN**  
-Petugas pelayanan STNK di SAMSAT Kebumen siap membantu Anda
+Jalan Tentara Pelajar No. 54, Kebumen  
+☎️ Nomor Darurat: **0287-385514**  
+☎️ Polres Kebumen: **0287-382110**
+
+### ⏰ Jam Operasional
+
+| Hari | Jam Layanan |
+|------|-------------|
+| Senin - Kamis | 09.00 - 16.00 WIB |
+| Jumat | Disesuaikan |
+| Sabtu & Minggu | TUTUP |
+
+**Catatan:** Libur pada hari besar nasional
 
 ---
 
