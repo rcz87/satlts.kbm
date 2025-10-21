@@ -110,6 +110,7 @@ SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang
 
 **UNIT STNK SAMSAT KEBUMEN**  
 📍 Jalan Tentara Pelajar No. 54, Panjer, Kebumen  
+📱 WhatsApp: **+62 877-2555-8787**  
 ☎️ Telepon: **(0287) 385514**  
 ☎️ Polres Kebumen: **(0287) 382110**
 
