@@ -1,0 +1,147 @@
+LAPORAN AHLI: CETAK BIRU ARSITEKTUR DAN DESAIN PORTAL LAYANAN DIGITAL SATLANTAS POLRES KEBUMEN: KEPATUHAN E-GOV, INTEGRASI SINAR-ETLE, DAN AKSESIBILITAS WCAG
+BAB I: Pendahuluan dan Mandat Strategis
+A. Latar Belakang Proyek dan Tujuan Pendirian Situs Web
+Pembangunan portal layanan digital Satuan Lalu Lintas (Satlantas) Polres Kebumen bukan hanya merupakan inisiatif digitalisasi, tetapi juga pemenuhan mandat strategis dalam ekosistem layanan publik yang terintegrasi. Situs web ini didesain untuk bertransisi dari sekadar laman informasi statis menjadi Gerbang Layanan Presisi yang memudahkan masyarakat Kebumen mengakses layanan lalu lintas yang esensial, baik secara fisik maupun melalui integrasi platform digital nasional.
+Tujuan utama pendirian situs web ini adalah menjadi sumber informasi tepercaya bagi publik, memfasilitasi integrasi yang mulus ke ekosistem Digital Korlantas POLRI yang terpusat, dan secara fundamental, memenuhi kewajiban hukum terkait Keterbukaan Informasi Publik (KIP) sebagaimana diatur dalam Undang-Undang No. 14 Tahun 2018 dan Peraturan Komisi Informasi No. 1 Tahun 2010. Lebih lanjut, visi layanan ini harus mendukung terwujudnya pelayanan publik yang adil, inklusif, dan responsif terhadap kebutuhan seluruh lapisan masyarakat, termasuk Kelompok Rentan di Kebumen.
+B. Struktur Organisasi Pengelolaan Situs Web
+Keberhasilan jangka panjang sebuah portal layanan digital pemerintah sangat bergantung pada kerangka tata kelola dan komitmen manajerial. Pengelolaan situs web Satlantas Polres Kebumen memerlukan pembentukan struktur organisasi yang jelas dengan alokasi tanggung jawab yang spesifik.
+Pertama, Penanggung Jawab Situs Web harus ditetapkan pada tingkat eselon tertinggi instansi, yaitu Kepala Satuan Lalu Lintas Polres Kebumen. Penetapan ini memastikan adanya komitmen manajemen yang kuat terhadap pemutakhiran dan pemeliharaan informasi yang disajikan.
+Kedua, diperlukan pembentukan Tim Pengelola/Manajemen Situs Web yang memiliki pembagian tugas yang teralokasi dengan baik, mencakup arsitektur informasi, perencanaan isi, dan pemeliharaan standar situs web. Tim ini harus mencakup Tim Updating Content yang secara rutin memastikan informasi terbaru, akurat, dan dapat diakses.
+Ketiga, perluasan kompetensi Sumber Daya Manusia (SDM) internal menjadi krusial. Meskipun outsourcing dapat digunakan untuk desain awal atau infrastruktur teknis, pengelolaan konten, pemantauan standar, dan pemeliharaan situs web harus didukung oleh penguatan SDM internal. Hal ini untuk memastikan kontrol penuh terhadap kualitas dan kecepatan pemutakhiran informasi. Manajemen harus memastikan bahwa situs web dapat beroperasi secara profesional dan berkelanjutan, bukan hanya sebagai proyek ad hoc.
+BAB II: Kerangka Kepatuhan Regulasi E-Government
+Setiap portal layanan publik pemerintah di Indonesia harus dibangun di atas fondasi kerangka regulasi yang mencakup transparansi (KIP), keamanan siber (BSSN), dan inklusivitas (WCAG). Kepatuhan terhadap kerangka ini bersifat wajib.
+A. Kepatuhan Keterbukaan Informasi Publik (KIP)
+Situs web Satlantas Polres Kebumen wajib berfungsi sebagai media utama untuk memenuhi standar informasi publik, yaitu menyediakan dan mengumumkan informasi publik secara berkala dan mudah diakses oleh masyarakat.
+Kewajiban Konten KIP dan Sistem Manajemen Konten:
+Konten KIP yang wajib dipublikasikan mencakup dokumen resmi, anggaran, dan program kerja Satlantas (seperti Renja SKPD dan Ringkasan Anggaran Program). Untuk memfasilitasi kewajiban ini, penggunaan Content Management System (CMS) berbasis data adalah keharusan. CMS ini memungkinkan semua isi tersimpan dengan baik, mudah dicari, dan dapat dibuat indeks. Dalam konteks situs referensi instansi pemerintah yang padat informasi seperti Satlantas, penyediaan Mesin Pencari yang kuat menjadi persyaratan mutlak agar pengguna dapat menemukan informasi yang mereka cari dengan cepat dan efisien.
+B. Standar Keamanan Siber dan Tata Kelola (BSSN)
+Keamanan informasi dan data pengguna situs web pemerintah diatur oleh peraturan Badan Siber dan Sandi Negara (BSSN). Situs web Satlantas Polres Kebumen harus menerapkan langkah-langkah keamanan siber yang terukur dan berkelanjutan.
+Tingkat Kematangan Keamanan Siber:
+Berdasarkan panduan tata kelola, instansi pemerintahan diwajibkan untuk memastikan bahwa penerapan Keamanan Siber, khususnya pada domain Identifikasi (pengelolaan identitas dan otentikasi jika ada), berada pada minimal Level 2 (Penerapan Keamanan Siber dalam Tahap Implementasi yang Berulang). Pencapaian level ini membutuhkan spesifikasi teknis yang mendukung, seperti penerapan sertifikat SSL/TLS, penggunaan web application firewall, dan pelaksanaan audit keamanan siber berkala untuk mendeteksi dan mengatasi kerentanan. Kepatuhan ini tidak hanya melindungi data institusi tetapi juga membangun kepercayaan publik terhadap layanan digital yang disediakan.
+C. Inklusi dan Aksesibilitas (WCAG Compliance)
+Prinsip aksesibilitas dalam e-Government adalah kunci untuk memastikan Pelayanan Publik yang adil, inklusif, dan responsif, terutama bagi Kelompok Rentan/Disabilitas, sesuai dengan arahan Permen PAN-RB Nomor 11 Tahun 2024. Kepatuhan terhadap Pedoman Aksesibilitas Konten Web (WCAG) yang dikeluarkan oleh W3C adalah standar internasional yang diacu dalam pedoman nasional.
+Prinsip-prinsip Aksesibilitas WCAG:
+ * Perceivable (Terpersepsikan): Informasi dan antarmuka harus dapat dipersepsikan oleh pengguna. Ini mencakup penyediaan teks alternatif untuk semua gambar non-dekoratif (untuk pembaca layar), memastikan kontras warna teks dan latar belakang yang memadai, dan menyediakan sarana audio/visual pengganti untuk konten media (misalnya, caption untuk video dokumentasi kegiatan).
+ * Operable (Teroperasikan): Pengguna harus dapat mengoperasikan antarmuka dan navigasi. Situs harus sepenuhnya dapat dinavigasi menggunakan keyboard tanpa bergantung pada mouse. Lebih lanjut, harus ada mekanisme yang memungkinkan pengguna untuk menghentikan, memperpanjang, atau menyesuaikan batas waktu interaksi (misalnya, batas waktu pengisian formulir atau sesi) bagi pengguna yang membutuhkan waktu pemrosesan yang lebih lama.
+ * Understandable (Terpahamkan): Informasi dan antarmuka harus terpahamkan. Instruksi layanan (seperti prosedur perpanjangan SIM atau penyelesaian tilang) harus disajikan dengan bahasa yang lugas dan mudah dipahami, serta navigasi situs web harus konsisten di setiap halaman.
+ * Robust (Kuat): Isi harus kuat dan dapat diinterpretasikan secara andal oleh beragam teknologi asistif (seperti Screen Readers) seiring dengan perkembangan teknologi.
+Penerapan standar WCAG tidak hanya memenuhi kewajiban inklusif pemerintah, tetapi juga secara bersamaan meningkatkan kualitas User Experience (UX) secara keseluruhan dan Search Engine Optimization (SEO). Situs yang dirancang dengan WCAG cenderung memiliki kode yang lebih bersih, navigasi yang lebih logis, dan kecepatan akses yang lebih tinggi, yang merupakan faktor kunci dalam desain situs referensi e-Gov.
+D. Panduan Domain dan Hosting
+Situs web harus menggunakan identitas digital resmi pemerintah. Sesuai panduan pengelolaan situs web pemerintah, wajib menggunakan nama domain .go.id. Idealnya, Satlantas Polres Kebumen menggunakan subdomain terintegrasi (misalnya satlantas.polreskebumen.go.id) untuk mematuhi struktur tata kelola domain pemerintah daerah dan pusat, atau domain mandiri di bawah pengelolaan Polres. Penggunaan hosting dan infrastruktur harus mempertimbangkan aspek keamanan siber yang ditetapkan oleh BSSN.
+BAB III: Arsitektur Informasi dan Konten Institusional
+Struktur konten situs web Satlantas Polres Kebumen harus dirancang secara hierarkis, memprioritaskan layanan dan informasi kelembagaan yang diamanatkan oleh KIP.
+A. Struktur Navigasi Utama (Menu Primer)
+Navigasi situs harus dirancang dengan baik agar pengguna dapat melihat situs web secara keseluruhan dan menemukan informasi dengan mudah. Struktur navigasi utama (menu primer) direkomendasikan sebagai berikut:
+ * Beranda: Gerbang masuk utama.
+ * Profil: Informasi kelembagaan, sejarah, dan tata kelola Satlantas.
+ * Layanan Publik: Fokus pada panduan layanan offline dan tautan integrasi layanan online.
+ * Informasi KIP: Dokumen formal, peraturan, anggaran, dan program kerja.
+ * Berita & Pengumuman: Informasi terkini dan informasi serta merta.
+ * Kontak & Lokasi: Data operasional, alamat, dan nomor darurat.
+B. Inventaris Konten Institusional Wajib KIP
+Situs web harus memuat secara lengkap inventaris konten wajib yang harus dipublikasikan secara berkala.
+ * Selayang Pandang dan Profil Instansi: Bagian ini menjelaskan secara singkat keberadaan instansi, termasuk Visi, Misi, Moto, dan Sejarah Satlantas Polres Kebumen. Wajib memuat Tupoksi (Tugas Pokok dan Fungsi) Satlantas, Struktur Organisasi, Biodata Pimpinan Instansi, dan Profil SDM (pejabat yang bertugas).
+ * Perencanaan dan Anggaran: Konten ini krusial untuk KIP. Situs harus menjelaskan tentang Program Kerja dan Kegiatan jangka pendek (Renja SKPD) maupun jangka panjang (Renstra SKPD). Selain itu, Ringkasan Anggaran Program/Kegiatan Satlantas wajib ditampilkan kepada publik.
+ * Peraturan dan Kebijakan: Bagian ini memuat peraturan dan kebijakan yang dikeluarkan oleh instansi terkait lalu lintas yang perlu disosialisasikan kepada masyarakat luas.
+ * Berita dan Dokumentasi: Situs web harus menjadi acuan. Berita Terkini harus berasal dari lingkungan lembaga Satlantas Polres Kebumen, bukan diambil dari surat kabar lokal. Dokumentasi Kegiatan harus disampaikan kepada publik dalam bentuk narasi yang disertai dokumentasi foto atau video.
+C. Detail Konten Spesifik Kebumen (Data Operasional Lokal)
+Data operasional lokal berfungsi sebagai panduan praktis bagi masyarakat Kebumen yang membutuhkan interaksi fisik dengan layanan Satlantas.
+1. Informasi Kontak dan Darurat:
+Informasi ini harus dipublikasikan secara jelas di halaman Kontak dan Footer situs web. Data kontak resmi untuk Kebumen meliputi:
+ * Nomor Telepon Khusus SATLANTAS KEBUMEN: 0287-385514.
+ * Nomor Telepon POLRES KEBUMEN (Umum): 0287-382110.
+   Selain itu, daftar nomor penting lainnya di Kabupaten Kebumen (seperti Pemadam Kebakaran, RSUD, PMI) harus dicantumkan untuk kemudahan aksesibilitas darurat.
+2. Jam dan Jadwal Layanan Fisik:
+Jam operasional layanan umum harus dicantumkan secara eksplisit. Jam pelayanan umum (misalnya di Gedung SPKT/Pelayanan Satlantas) umumnya adalah Senin hingga Kamis, pukul 09.00 - 16.00. Perlu diberikan catatan bahwa jadwal layanan Samsat keliling atau Samling dapat berbeda dan harus diperbarui secara berkala.
+3. Peta Lokasi Layanan (Geospatial Mapping):
+Masyarakat harus dapat menemukan lokasi layanan fisik dengan mudah. Situs web wajib menyediakan daftar dan peta lokasi titik layanan Samsat Kebumen yang merupakan kolaborasi dengan Bapenda Jawa Tengah. Lokasi-lokasi tersebut mencakup:
+ * Jl. Tentara Pelajar No.54, Panjer, Kebumen.
+ * Klapasawit, Wero, Gombong.
+ * Jl. Indrakila, Kebumen.
+ * Kantor Kecamatan Ayah, Demangsari.
+Lokasi ini harus disajikan dalam bentuk peta digital interaktif (misalnya tautan Google Maps atau widget peta tertanam) untuk memfasilitasi navigasi pengguna.
+Berikut adalah matriks konten wajib yang diatur berdasarkan KIP, yang harus menjadi acuan pengelola konten.
+Matriks Inventaris Konten Wajib Berdasarkan KIP
+| Kategori Informasi KIP | Contoh Konten Satlantas Kebumen | Frekuensi Pemutakhiran |
+|---|---|---|
+| Informasi Berkala | Tupoksi, Renja SKPD, Ringkasan Anggaran, Peraturan Lokal Lalu Lintas | Semesteran/Tahunan |
+| Informasi Serta Merta | Pengumuman Penutupan Jalan Darurat, Operasi Terpusat, Informasi Bencana | Segera (Real-time) |
+| Informasi Tersedia Setiap Saat | Daftar Layanan Resmi, Alamat & Jadwal Pelayanan, Nomor Kontak Resmi | Setiap Ada Perubahan |
+BAB IV: Integrasi Layanan Digital
+Strategi utama situs web Satlantas Polres Kebumen adalah berfungsi sebagai hub atau gerbang digital yang mengarahkan pengguna ke platform nasional yang sudah terpusat dan terstandarisasi di bawah Digital Korlantas POLRI.
+A. Strategi Pemanfaatan Ekosistem Digital Korlantas
+Korlantas POLRI telah mengembangkan ekosistem digital terpadu (SINAR, ETLE, SIGNAL). Situs web Satlantas Kebumen tidak boleh mencoba menduplikasi layanan ini, melainkan harus menyediakan tautan langsung (deep linking) dan panduan kontekstual lokal untuk menjembatani layanan digital dengan kebutuhan fisik masyarakat setempat.
+B. Detail Integrasi Layanan Cepat (Quick Links)
+Tiga layanan utama yang harus diintegrasikan melalui tautan akses cepat di halaman depan (dijelaskan lebih lanjut di Bab V) adalah:
+1. SINAR (SIM Nasional Presisi)
+SINAR memfasilitasi Pendaftaran SIM (ujian teori online) dan Perpanjangan SIM secara online, di mana SIM yang sudah dicetak dapat dikirim langsung ke rumah.
+ * Fungsi Situs Kebumen: Menyediakan tautan Call-to-Action (CTA) langsung ke aplikasi/portal SINAR.
+ * Panduan Lokal yang Diperlukan: Meskipun proses perpanjangan telah digital, pembuatan SIM baru masih memerlukan kehadiran fisik untuk Ujian Praktik di Satpas. Situs web harus menyediakan panduan lengkap yang mencakup persyaratan dokumen (Foto e-KTP, SIM lama, Pas foto latar biru, Tanda tangan), dan yang terpenting, informasi lokasi klinik atau mitra di wilayah Kebumen yang sah untuk pelaksanaan Tes Kesehatan Jasmani (RIKKES) dan Tes Psikologi. Biaya tes psikologi saat ini ditetapkan sekitar Rp37.500.
+2. ETLE (Electronic Traffic Law Enforcement) / Tilang Elektronik
+ETLE adalah sistem penindakan pelanggaran lalu lintas menggunakan teknologi kamera.
+ * Fungsi Situs Kebumen: Tautan ke sistem cek tilang (memasukkan Nomor Registrasi E-Tilang) dan panduan prosedur penyelesaian.
+ * Panduan Prosedur Lokal: Situs harus menjelaskan secara rinci prosedur penyelesaian tilang, termasuk perbedaan esensial antara:
+   * Surat Tilang Biru: Pelanggar mengakui kesalahan dan langsung membayar denda tanpa perlu hadir di sidang.
+   * Surat Tilang Merah: Pelanggar tidak setuju dan wajib hadir di pengadilan.
+     Informasi mengenai prosedur pengurusan Tilang/ETLE di Gedung SPKT Polres Kebumen (termasuk nomor counter layanan jika ada) dan batas waktu penyelesaian setelah tilang diterbitkan, harus dicantumkan.
+3. SIGNAL (Samsat Digital Nasional)
+SIGNAL adalah platform untuk layanan Pengesahan STNK Tahunan dan Pembayaran Pajak Kendaraan Bermotor.
+ * Fungsi Situs Kebumen: Mengarahkan pengguna ke aplikasi SIGNAL untuk registrasi kendaraan dan pembayaran pajak tahunan.
+ * Implikasi Layanan: Karena Samsat merupakan layanan kolaboratif tiga pilar (POLRI/Satlantas, Bapenda, Jasa Raharja), situs harus mengintegrasikan informasi Jadwal dan Lokasi titik layanan Samsat Kebumen (termasuk Samsat Keliling) yang dikelola bersama UPPD/Bapenda Jawa Tengah.
+Peta Integrasi Layanan Satlantas Digital (Korlantas POLRI)
+| Layanan Utama | Platform Digital Korlantas | Fungsi di Website Satlantas Kebumen | Data Lokal yang Harus Disediakan |
+|---|---|---|---|
+| Surat Izin Mengemudi (SIM) | SINAR | Tautan CTA, Panduan Persyaratan Dokumen (Swafoto, dll.) | Lokasi & Kontak SATPAS untuk Ujian Praktik, Daftar Mitra RIKKES & Psikologi  |
+| Tilang & Pelanggaran | ETLE | Tautan CTA, Prosedur Cek Tilang (Memasukkan Nomor Registrasi E-Tilang) | Prosedur Penyelesaian Tilang Merah/Biru, Jam Layanan SPKT  |
+| STNK & Pajak Tahunan | SIGNAL | Tautan CTA, Panduan Registrasi Kendaraan | Jadwal & Lokasi Samsat Keliling/Gendong Kebumen  |
+C. Fitur Interaksi Dua Arah (Pengaduan dan Umpan Balik)
+Situs web instansi pemerintah harus memfasilitasi komunikasi dua arah dengan masyarakat. Fitur interaksi ini harus dibedakan:
+ * Pengaduan Masyarakat Formal: Kanal formal untuk menyampaikan pengaduan yang membutuhkan tindak lanjut resmi.
+ * Saran/Komentar/Buku Tamu: Fitur yang lebih sederhana, memungkinkan pengguna, termasuk pengguna yang tidak terdaftar, untuk menyampaikan masukan atau umpan balik cepat kepada pengelola situs web. Fitur ini merupakan langkah awal penting dalam manajemen umpan balik publik.
+BAB V: Blueprint Desain Homepage dan User Experience (UX)
+Desain halaman depan (homepage) Satlantas Polres Kebumen harus mengedepankan prinsip kecepatan akses, kemudahan navigasi (usability), dan kemampuan pengguna untuk menemukan informasi transaksional atau referensi dengan cepat.
+A. Prinsip Desain E-Gov dan Visualisasi
+Desain situs web instansi harus mengikuti karakteristik situs referensi, yaitu minimalis dalam uraian berkepanjangan dan maksimal dalam kecepatan dan efisiensi. Penggunaan template based CMS sangat direkomendasikan untuk memastikan standarisasi visual dan memudahkan pemeliharaan, karena memisahkan data isi dari desain tampilan. Fokus utama desain harus memudahkan pengguna untuk mencetak atau mengunduh dokumen (seperti formulir atau dokumen KIP).
+B. Struktur Tata Letak (Layout) Homepage
+Struktur halaman depan harus dibagi menjadi zona-zona strategis, meniru pola desain gateway layanan yang sukses, seperti Digital Korlantas POLRI, yang memprioritaskan fitur daripada konten naratif.
+1. Header dan Navigasi
+Bagian ini harus memuat identitas visual wajib (Logo Polres/Satlantas, Nama Instansi, Slogan) dan Navigasi Utama (seperti yang diuraikan di Bab III). Implementasi Tombol Pencarian yang fungsional adalah wajib di bagian header atau area yang mudah diakses.
+2. Hero Section (Visual Brand & CTA)
+Area visual utama ini harus menyampaikan pesan yang ringkas mengenai Visi atau Moto Satlantas Kebumen. Harus diposisikan sebagai pemantik yang mendorong pengguna segera mengakses layanan digital di Zona Akses Cepat.
+3. Zona Quick Access Buttons (Prioritas Tertinggi)
+Ini adalah elemen paling penting pada homepage dan harus diletakkan di bawah Hero Section untuk memastikan aksesibilitas langsung. Zona ini berfungsi sebagai jembatan langsung ke layanan transaksional nasional.
+Rekomendasi Elemen Akses Cepat (Quick Access) Homepage
+| Prioritas (Urutan Tampil) | Nama Tombol (Icon) | Target Tujuan Aksi (CTA) | Platform Integrasi |
+|---|---|---|---|
+| 1 | Cek Tilang ETLE | Memeriksa status tilang dan denda | ETLE (Tautan Eksternal) |
+| 2 | Perpanjangan SIM | Mengakses layanan perpanjangan SIM online | SINAR (Tautan Eksternal/Aplikasi) |
+| 3 | Cek Samsat Digital | Mengakses layanan pembayaran pajak/STNK | SIGNAL (Tautan Eksternal/Aplikasi) |
+| 4 | Kontak Darurat Satlantas | Display nomor telepon penting 0287-385514 | Nomor Lokal/Pengaduan  |
+| 5 | Peta Lokasi Layanan | Menampilkan lokasi fisik Samsat/Satpas Kebumen | Peta Interaktif Lokal  |
+Penempatan layanan digital nasional (ETLE, SINAR, SIGNAL) pada prioritas 1-3 memastikan bahwa kebutuhan utama masyarakat, yang bersifat transaksional, dapat dipenuhi dengan effort minimal.
+4. Zona Informasi Institusional (Berita & KIP)
+Area ini menampilkan konten yang bersifat dinamis dan kelembagaan:
+ * Berita Terkini dan Pengumuman Resmi (misalnya, terkait rekayasa lalu lintas atau operasi) harus ditampilkan secara ringkas.
+ * Dokumentasi Kegiatan yang menyajikan narasi dan foto/video pelaksanaan program.
+ * Tautan Cepat ke dokumen Informasi KIP (Anggaran, Renja, Peraturan).
+5. Footer dan Aksesibilitas
+Bagian footer harus bersifat informatif dan fungsional, mencakup:
+ * Aksesibilitas Widget: Sesuai WCAG, widget harus disediakan untuk penyesuaian kontras warna, ukuran teks, atau mode disleksia. Hal ini mendukung prinsip Perceivable dan Operable bagi pengguna disabilitas visual dan kognitif.
+ * Tautan Unduh Aplikasi: Link langsung ke Google Play Store dan Apple App Store untuk mengunduh aplikasi Digital Korlantas POLRI.
+ * Tautan Legalitas: Kebijakan Privasi, Syarat dan Ketentuan, dan Peta Situs (Site Map).
+BAB VI: Kesimpulan dan Roadmap Implementasi
+A. Ringkasan Rekomendasi Kunci
+Pembangunan situs web Satlantas Polres Kebumen harus mengadopsi tiga pilar utama untuk mencapai status portal layanan e-Government yang optimal:
+ * Arsitektur Referral dan Panduan Lokal: Situs ini harus berfungsi sebagai gateway yang terintegrasi penuh, mengarahkan lalu lintas ke layanan nasional (SINAR, ETLE, SIGNAL), sambil secara eksklusif menyediakan panduan prosedural dan data operasional yang hanya relevan secara lokal (lokasi Satpas, jadwal Samsat keliling, mitra RIKKES, dan kontak darurat).
+ * Kepatuhan Tripartit Regulasi: Situs wajib mematuhi Keterbukaan Informasi Publik (KIP) dalam hal struktur dan konten, Standar Keamanan Siber BSSN (minimal Level 2), dan Aksesibilitas WCAG (untuk menjamin inklusivitas layanan).
+ * Prioritas User Experience (UX): Desain homepage harus didominasi oleh Quick Access Buttons yang secara langsung memenuhi kebutuhan transaksional dan referensi pengguna, memastikan kecepatan akses informasi yang merupakan kunci keberhasilan situs referensi instansi pemerintah.
+B. Roadmap Pengembangan Tahap I (Maksimal 6 Bulan)
+Roadmap implementasi harus sistematis dan terstruktur untuk menjamin semua aspek regulasi terpenuhi sebelum peluncuran publik.
+| Fase | Aktivitas Utama | Keluaran (Output) |
+|---|---|---|
+| Fase I: Perencanaan & Legalitas (Bulan 1) | Pembentukan Tim Pengelola Situs Web dan alokasi SDM. Penetapan Nama Domain .go.id. Audit Kebutuhan Konten KIP dan penyusunan kerangka regulasi teknis. | Dokumen Perencanaan Konten KIP, Spesifikasi Teknis Keamanan BSSN. |
+| Fase II: Desain & Infrastruktur (Bulan 2-3) | Implementasi CMS berbasis Template Based. Pengembangan Struktur Navigasi dan Blueprint Homepage (Zona 1-5). Pengujian kinerja dan kecepatan akses awal. | Website Beta dengan Desain Paten, Mesin Pencari Fungsional. |
+| Fase III: Konten & Integrasi (Bulan 4-5) | Pengunggahan Konten KIP Wajib (Anggaran, Renja, Tupoksi). Integrasi Tautan ke SINAR, ETLE, SIGNAL, dan data lokal (Jadwal Samsat Keliling, Lokasi RIKKES/Psikologi). | Konten Minimal Terpenuhi, Pengujian Fungsionalitas Tautan Eksternal. |
+| Fase IV: Uji Publik & Go Live (Bulan 6) | Uji Coba Keamanan Siber (Penetration Testing) untuk validasi Level 2 BSSN. Pengujian Aksesibilitas WCAG (keyboard navigation, kontras, waktu tunggu). Peluncuran Resmi. | Situs Web Live yang Patuh Regulasi dan Aksesibel. |
+C. Komitmen Pemutakhiran Konten Berkelanjutan
+Keberlanjutan situs web ditentukan oleh komitmen manajemen dalam melakukan pemutakhiran konten secara berkala. Pemutakhiran situs web merupakan indikator utama pengelolaan yang efektif dan memerlukan komitmen dari Penanggung Jawab dan Pengelola. Evaluasi dan pemantauan yang berkelanjutan harus dilakukan untuk memastikan bahwa layanan yang disajikan benar-benar bermanfaat, inklusif, dan responsif terhadap kebutuhan masyarakat Kebumen. Kegagalan dalam pemutakhiran konten dapat menyebabkan informasi menjadi usang, melanggar kewajiban KIP, dan mengurangi kredibilitas Satlantas di mata publik.
