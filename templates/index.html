@@ -20,8 +20,8 @@
     <div class="header-container">
       <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo SAMSAT" class="logo-samsat">
       <div class="header-text">
-        <h1>INFORMASI UNIT STNK KEBUMEN</h1>
-        <h2>SAMSAT KEBUMEN</h2>
+        <h1>PORTAL SATLANTAS POLRES KEBUMEN</h1>
+        <h2>SISTEM ADMINISTRASI MANUNGGAL SATU ATAP</h2>
         <p class="address">Jl. Tentara Pelajar No. 54, Kebumen</p>
       </div>
     </div>
@@ -32,10 +32,11 @@
   <nav class="navigation-menu">
     <div class="nav-container">
       <a href="{{ url_for('index') }}" class="nav-item {% if current_page == 'home' %}active{% endif %}">🏠 Beranda</a>
-      <a href="{{ url_for('tahunan') }}" class="nav-item {% if current_page == '5tahunan' %}active{% endif %}">📋 Syarat 5 Tahunan</a>
-      <a href="{{ url_for('duplikat') }}" class="nav-item {% if current_page == 'duplikat' %}active{% endif %}">🔄 Duplikat STNK</a>
-      <a href="{{ url_for('mutasi') }}" class="nav-item {% if current_page == 'mutasi' %}active{% endif %}">🚚 Mutasi Daerah</a>
-      <a href="{{ url_for('bbn') }}" class="nav-item {% if current_page == 'bbn' %}active{% endif %}">💳 BBN 1 & 2</a>
+      <a href="{{ url_for('regident') }}" class="nav-item {% if current_page == 'regident' %}active{% endif %}">🏢 REGIDENT</a>
+      <a href="{{ url_for('gakum') }}" class="nav-item {% if current_page == 'gakum' %}active{% endif %}">⚖️ GAKUM</a>
+      <a href="{{ url_for('patwal') }}" class="nav-item {% if current_page == 'patwal' %}active{% endif %}">🚓 PATWAL</a>
+      <a href="{{ url_for('kamsel') }}" class="nav-item {% if current_page == 'kamsel' %}active{% endif %}">🛡️ KAMSEL</a>
+      <a href="{{ url_for('urmin') }}" class="nav-item {% if current_page == 'urmin' %}active{% endif %}">📋 URMIN</a>
       <a href="{{ url_for('dasarhukum') }}" class="nav-item {% if current_page == 'dasarhukum' %}active{% endif %}">📚 Dasar Hukum</a>
       <a href="{{ url_for('galery') }}" class="nav-item {% if current_page == 'galery' %}active{% endif %}">📸 Galery</a>
       <a href="{{ url_for('ikm') }}" class="nav-item {% if current_page == 'ikm' %}active{% endif %}">📊 IKM</a>
