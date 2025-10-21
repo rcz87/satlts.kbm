@@ -98,64 +98,76 @@
 
 ---
 
-## ⚠️ INFO PENTING: OPSEN Pajak 2025
+## 👤 Sambutan Kasat Lantas
 
-**Mulai 5 Januari 2025**, ada **tambahan pajak OPSEN** yang dibebankan kepada pemilik kendaraan.
+<div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 30px; border-radius: 12px; color: white; margin: 30px 0;">
+  
+**Assalamu'alaikum Warahmatullahi Wabarakatuh.**  
+**Salam sejahtera bagi kita semua.**
 
-### Apa itu OPSEN?
-OPSEN adalah pajak tambahan yang dipungut oleh **Pemerintah Kabupaten/Kota** (bukan provinsi) sebesar **66% dari PKB** yang terutang.
+Atas nama Satuan Lalu Lintas Polres Kebumen, saya mengucapkan selamat datang di Portal Satlantas Polres Kebumen. Sebagai bagian dari jajaran Polri, kami berkomitmen untuk senantiasa memberikan pelayanan terbaik kepada masyarakat di bidang lalu lintas.
 
-**Dasar Hukum:** UU No. 1 Tahun 2022 tentang HKPD (Hubungan Keuangan Pusat dan Daerah)
+Melalui portal ini, kami berharap dapat mendekatkan diri dengan masyarakat dan menyediakan informasi yang akurat seputar layanan lalu lintas di wilayah Kabupaten Kebumen. Kami juga mengajak seluruh masyarakat untuk berperan aktif dalam mewujudkan keamanan, keselamatan, ketertiban, dan kelancaran berlalu lintas (Kamseltibcarlantas).
 
-### Cara Menghitung OPSEN:
-**OPSEN = 66% × PKB yang terutang**
+Terima kasih atas kunjungan Anda. Kami siap menerima masukan konstruktif untuk peningkatan pelayanan kami ke depannya.
 
-**Contoh:**
-- PKB Motor Rp 300.000 → OPSEN Rp 198.000
-- PKB Mobil Rp 2.000.000 → OPSEN Rp 1.320.000
+**Hormat kami,**  
+**Kasat Lantas Polres Kebumen**
 
-**Total Pajak Tahunan** = PKB + OPSEN + SWDKLLJ
-
-💡 *Lihat detail perhitungan di menu PELAYANAN REGIDENT → STNK & Pajak*
+</div>
 
 ---
 
-## 📅 Jadwal Layanan Keliling SAMSAT
+## 📖 Tentang Satlantas Polres Kebumen
 
-### 🚐 SAMKEL (SAMSAT Keliling) & SAMDES (SAMSAT Desa)
+**Satuan Lalu Lintas (Satlantas) Polres Kebumen** merupakan unsur pelaksana tugas pokok Polri di tingkat Polres yang berada di bawah Kapolres Kebumen. Satlantas mempunyai tugas pokok melaksanakan fungsi polisi lalu lintas, yang mencakup:
 
-SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang kesulitan datang ke kantor SAMSAT. Berikut jadwal lengkapnya:
+- 🚦 **Pengaturan, penjagaan, pengawalan, dan patroli (Turjawali) lalu lintas**
+- 📚 **Pendidikan masyarakat lalu lintas (Dikmas Lantas)**
+- 📋 **Pelayanan registrasi dan identifikasi pengemudi serta kendaraan bermotor (Regident)**
+- 🚨 **Penyelidikan kecelakaan lalu lintas**
+- ⚖️ **Penegakan hukum di bidang lalu lintas**
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 30px 0;">
+Dalam pelaksanaan tugas-tugas tersebut, Satlantas senantiasa berpedoman pada peraturan perundang-undangan yang berlaku, termasuk **UU No. 22 Tahun 2009** tentang Lalu Lintas dan Angkutan Jalan.
 
-<div style="text-align: center;">
-  <h4 style="color: #2c3e50; margin-bottom: 15px;">🚐 Jadwal SAMKEL</h4>
-  <img src="/static/images/jadwal-samkel.jpeg" alt="Jadwal SAMKEL" style="width: 100%; max-width: 500px; border: 3px solid #3498db; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-</div>
+---
 
-<div style="text-align: center;">
-  <h4 style="color: #2c3e50; margin-bottom: 15px;">🏘️ Jadwal SAMDES</h4>
-  <img src="/static/images/jadwal-samdes.jpeg" alt="Jadwal SAMDES" style="width: 100%; max-width: 500px; border: 3px solid #27ae60; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-</div>
+## 🎯 Visi & Misi
 
-</div>
+### Visi
+**"Terwujudnya keamanan, keselamatan, ketertiban, dan kelancaran berlalu lintas (Kamseltibcarlantas) di Kabupaten Kebumen melalui pelayanan lalu lintas yang profesional dan humanis."**
 
-<div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px;">
-  <h4 style="margin-top: 0; color: #856404;">💡 Informasi Penting:</h4>
-  <p style="color: #856404; margin-bottom: 0;">
-    • Pastikan datang sesuai jadwal yang tertera<br>
-    • Bawa dokumen lengkap (KTP, STNK, BPKB)<br>
-    • Layanan mulai pukul 09.00 - 14.00 WIB<br>
-    • Jadwal dapat berubah sewaktu-waktu, harap konfirmasi terlebih dahulu
-  </p>
-</div>
+### Misi
+
+1. **Meningkatkan kualitas pelayanan administrasi lalu lintas** – Menyelenggarakan pelayanan penerbitan SIM, STNK, dan BPKB secara cepat, tepat, transparan, dan akuntabel.
+
+2. **Penegakan hukum yang adil dan humanis** – Melaksanakan penegakan hukum di bidang lalu lintas secara tegas, profesional, dan proporsional dengan pendekatan edukatif.
+
+3. **Pendidikan dan sosialisasi keselamatan berlalu lintas** – Menggalakkan program Dikmas Lantas (Pendidikan Masyarakat Lalu Lintas) secara berkesinambungan.
+
+4. **Penguatan kemitraan dan koordinasi lintas sektoral** – Membangun kerja sama dengan instansi terkait dalam rangka menciptakan sistem lalu lintas yang terpadu.
+
+5. **Peningkatan profesionalisme personel dan inovasi internal** – Mewujudkan SDM Polantas yang profesional, berintegritas, dan modern.
+
+---
+
+## 🏛️ Struktur Organisasi
+
+Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas)** yang bertanggung jawab langsung kepada Kapolres Kebumen. Dalam pelaksanaan tugas sehari-hari, Kasat Lantas dibantu oleh **KBO (Kaur Pembinaan Operasi)** Sat Lantas.
+
+### Unit-Unit Satlantas:
+
+- **Kanit Turjawali** – Pengaturan, Penjagaan, Pengawalan, dan Patroli
+- **Kanit Laka Lantas** – Penanganan Kecelakaan Lalu Lintas
+- **Kanit Regident** – Registrasi & Identifikasi (SIM, STNK, BPKB)
+- **Kanit Dikyasa** – Pendidikan dan Rekayasa Lalu Lintas
 
 ---
 
 ## 💬 Berikan Feedback & Saran Anda
 
 <div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
-  <h3 style="color: white; margin-bottom: 15px;">📬 Bantu Kami Tingkatkan Website Ini!</h3>
+  <h3 style="color: white; margin-bottom: 15px;">📬 Bantu Kami Tingkatkan Portal Ini!</h3>
   <p style="color: white; margin-bottom: 20px;">Punya saran untuk fitur baru, perbaikan, atau peningkatan? Kami sangat menghargai masukan Anda!</p>
   <button id="btn-feedback" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
     📝 Kirim Feedback & Saran
@@ -167,19 +179,24 @@ SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang
 ## 📍 Kontak & Lokasi
 
 **SATLANTAS POLRES KEBUMEN**  
-Jalan Tentara Pelajar No. 54, Kebumen  
-☎️ Nomor Darurat: **0287-385514**  
-☎️ Polres Kebumen: **0287-382110**
+📍 Jalan Pahlawan No. 40, Kebumen 54317, Jawa Tengah  
+☎️ Telepon: **(0287) 385514 / 382224**  
+📧 Email: **satlantaskebumen@ymail.com**
 
 ### ⏰ Jam Operasional
 
 | Hari | Jam Layanan |
 |------|-------------|
-| Senin - Kamis | 09.00 - 16.00 WIB |
-| Jumat | Disesuaikan |
+| Senin - Jumat | 08.00 - 15.00 WIB |
 | Sabtu & Minggu | TUTUP |
 
 **Catatan:** Libur pada hari besar nasional
+
+### 🗺️ Peta Lokasi
+
+<div style="margin: 20px 0;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.8579!2d109.6572!3d-7.6667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDAnMDAuMSJTIDEwOcKwMzknMjUuOSJF!5e0!3m2!1sid!2sid!4v1234567890" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
 
 ---
 
