@@ -1,5 +1,7 @@
 # 🏠 Selamat Datang di Portal Satlantas Polres Kebumen
 
+**Satuan Lalu Lintas (Satlantas) Polres Kebumen** melayani masyarakat dalam berbagai aspek keamanan dan ketertiban lalu lintas, mulai dari registrasi kendaraan, penegakan hukum, hingga edukasi keselamatan berlalu lintas.
+
 ## 📋 Pilih Layanan Sesuai Kebutuhan Anda
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0;">
