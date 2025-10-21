@@ -179,7 +179,7 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 ## 📍 Kontak & Lokasi
 
 **SATLANTAS POLRES KEBUMEN**  
-📍 Jalan Pahlawan No. 40, Kebumen 54317, Jawa Tengah  
+📍 Jalan Tentara Pelajar No. 39, Kebumen 54317, Jawa Tengah  
 ☎️ Telepon: **(0287) 385514 / 382224**  
 📧 Email: **satlantaskebumen@ymail.com**
 
