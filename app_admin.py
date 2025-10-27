@@ -5,8 +5,15 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import os
 from datetime import datetime
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
+
+limiter = Limiter(
+    key_func=get_remote_address,
+    storage_uri="memory://"
+)
 
 def get_db_connection():
     conn = psycopg2.connect(os.environ['DATABASE_URL'])
@@ -22,6 +29,7 @@ def login_required(f):
     return decorated_function
 
 @admin_bp.route('/login', methods=['GET', 'POST'])
+@limiter.limit("10 per hour")
 def login():
     if request.method == 'POST':
         username = request.form.get('username', '').strip()
