@@ -49,3 +49,16 @@ qr_code.png
 # UV/Poetry
 .uv/
 uv.lock
+
+# Environment variables (SENSITIVE - NEVER COMMIT!)
+.env
+
+# Production logs
+logs/
+*.log
+
+# Gunicorn socket files
+*.sock
+
+# Backup files
+/var/backups/
