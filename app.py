@@ -48,7 +48,8 @@ def get_db_connection():
 
 def load_markdown(filename):
     try:
-        with open(filename, 'r', encoding='utf-8') as f:
+        filepath = os.path.join('content', filename)
+        with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
         
         html = markdown.markdown(
@@ -58,7 +59,7 @@ def load_markdown(filename):
         
         return Markup(html)
     except FileNotFoundError:
-        return Markup(f'<p>File {filename} tidak ditemukan.</p>')
+        return Markup(f'<p>File {filename} tidak ditemukan di folder content/.</p>')
     except Exception as e:
         return Markup(f'<p>Error: {str(e)}</p>')
 
