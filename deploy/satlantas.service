@@ -1,0 +1,93 @@
+# ================================================
+# SYSTEMD SERVICE FILE
+# Portal Satlantas Polres Kebumen - Auto-start Service
+# ================================================
+#
+# INSTRUKSI INSTALASI:
+# 1. Copy file ini ke: /etc/systemd/system/satlantas.service
+#    sudo cp deploy/satlantas.service /etc/systemd/system/
+#
+# 2. Edit file dan sesuaikan dengan username dan path Anda:
+#    sudo nano /etc/systemd/system/satlantas.service
+#
+# 3. Reload systemd daemon:
+#    sudo systemctl daemon-reload
+#
+# 4. Start service:
+#    sudo systemctl start satlantas
+#
+# 5. Enable auto-start on boot:
+#    sudo systemctl enable satlantas
+#
+# 6. Check status:
+#    sudo systemctl status satlantas
+#
+
+[Unit]
+Description=Gunicorn instance untuk Portal Satlantas Polres Kebumen
+After=network.target
+
+[Service]
+# GANTI 'satlantas' dengan username Linux Anda
+User=satlantas
+Group=www-data
+
+# GANTI path berikut dengan lokasi instalasi aplikasi Anda
+# Contoh: /home/satlantas/portal-satlantas
+WorkingDirectory=/var/www/satlantas
+
+# Path ke virtual environment
+Environment="PATH=/var/www/satlantas/venv/bin"
+
+# Gunakan file .env untuk environment variables
+EnvironmentFile=/var/www/satlantas/.env
+
+# Gunicorn command
+# --workers: Jumlah worker processes (formula: 2 x CPU_cores + 1)
+# --worker-class: Tipe worker (sync untuk aplikasi sederhana)
+# --bind: Unix socket untuk komunikasi dengan Nginx
+# --timeout: Timeout dalam detik untuk request
+# --access-logfile: Log akses (- untuk stdout, atau path file)
+# --error-logfile: Log error
+ExecStart=/var/www/satlantas/venv/bin/gunicorn \
+    --workers 3 \
+    --worker-class sync \
+    --bind unix:/var/www/satlantas/satlantas.sock \
+    --timeout 60 \
+    --access-logfile /var/log/satlantas/access.log \
+    --error-logfile /var/log/satlantas/error.log \
+    --log-level info \
+    -m 007 \
+    wsgi:app
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Resource limits (optional)
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+
+# ================================================
+# CATATAN:
+# ================================================
+# 1. Pastikan folder log sudah dibuat:
+#    sudo mkdir -p /var/log/satlantas
+#    sudo chown satlantas:www-data /var/log/satlantas
+#
+# 2. Pastikan user 'satlantas' ada di group www-data:
+#    sudo usermod -aG www-data satlantas
+#
+# 3. Untuk melihat log real-time:
+#    sudo journalctl -u satlantas -f
+#
+# 4. Untuk restart service setelah update code:
+#    sudo systemctl restart satlantas
+#
+# 5. Worker count formula:
+#    - 1 CPU core: 3 workers (2x1 + 1)
+#    - 2 CPU cores: 5 workers (2x2 + 1)
+#    - 4 CPU cores: 9 workers (2x4 + 1)
+# ================================================
