@@ -1,0 +1,109 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Detail IKM #{{ response.id }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div style="margin-bottom: 2rem;">
+        <a href="{{ url_for('admin.ikm_list') }}" class="btn btn-primary">‹ Kembali ke Daftar</a>
+    </div>
+
+    <h2 style="margin-bottom: 2rem;">📋 Detail Responden IKM #{{ response.id }}</h2>
+
+    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+            <div>
+                <strong>Nama:</strong><br>
+                {{ response.name }}
+            </div>
+            <div>
+                <strong>No. HP:</strong><br>
+                {{ response.phone or '-' }}
+            </div>
+            <div>
+                <strong>Waktu Submit:</strong><br>
+                {{ response.submitted_at.strftime('%d %B %Y, %H:%M WIB') }}
+            </div>
+            <div>
+                <strong>Skor Total:</strong><br>
+                {% set total_score = ((response.q1 + response.q2 + response.q3 + response.q4 + response.q5 + response.q6 + response.q7 + response.q8 + response.q9) / 9.0) * 25 %}
+                <span style="font-size: 1.5rem; font-weight: bold; color: #667eea;">{{ "%.2f"|format(total_score) }}</span>
+                {% if total_score >= 88.31 %}
+                    <span style="color: green; font-weight: bold;"> - A (Sangat Baik)</span>
+                {% elif total_score >= 76.61 %}
+                    <span style="color: blue; font-weight: bold;"> - B (Baik)</span>
+                {% elif total_score >= 65.00 %}
+                    <span style="color: orange; font-weight: bold;"> - C (Kurang Baik)</span>
+                {% else %}
+                    <span style="color: red; font-weight: bold;"> - D (Tidak Baik)</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-bottom: 1rem;">Nilai Per Kriteria:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Kriteria</th>
+                <th>Nilai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Persyaratan</td>
+                <td><strong>{{ response.q1 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Sistem, Mekanisme, dan Prosedur</td>
+                <td><strong>{{ response.q2 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Waktu Pelayanan</td>
+                <td><strong>{{ response.q3 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Biaya/Tarif</td>
+                <td><strong>{{ response.q4 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Produk Spesifikasi Jenis Pelayanan</td>
+                <td><strong>{{ response.q5 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Kompetensi Pelaksana</td>
+                <td><strong>{{ response.q6 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Perilaku Pelaksana</td>
+                <td><strong>{{ response.q7 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+                <td><strong>{{ response.q8 }}</strong> / 4</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Sarana dan Prasarana</td>
+                <td><strong>{{ response.q9 }}</strong> / 4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if response.comments %}
+    <div style="margin-top: 2rem; background: #fff3cd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ffc107;">
+        <h3 style="margin-bottom: 1rem;">💬 Komentar:</h3>
+        <p style="font-style: italic;">"{{ response.comments }}"</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

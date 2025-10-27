@@ -13,6 +13,9 @@ from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 app.secret_key = os.environ.get('SESSION_SECRET', 'dev-secret-key-change-in-production')
 
+from app_admin import admin_bp
+app.register_blueprint(admin_bp)
+
 if not app.debug:
     if not os.path.exists('logs'):
         os.mkdir('logs')

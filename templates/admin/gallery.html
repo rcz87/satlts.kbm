@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Gallery{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 style="margin-bottom: 2rem;">🖼️ Kelola Gallery</h2>
+
+    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Upload Foto Baru</h3>
+        <form method="POST" action="{{ url_for('admin.gallery_upload') }}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div style="display: flex; gap: 1rem; align-items: end;">
+                <div style="flex: 1;">
+                    <label for="photo" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Pilih Foto (JPG, JPEG, PNG):</label>
+                    <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" class="btn btn-success">Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <h3 style="margin-bottom: 1rem;">Foto Gallery ({{ images|length }} foto)</h3>
+    
+    {% if images %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;">
+        {% for image in images %}
+        <div style="background: white; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <img src="{{ url_for('static', filename='images/galery/' + image) }}" alt="{{ image }}" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1rem;">
+                <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; word-break: break-all;">{{ image }}</div>
+                <form method="POST" action="{{ url_for('admin.gallery_delete', filename=image) }}" onsubmit="return confirm('Yakin ingin menghapus foto ini?');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-danger btn-sm" style="width: 100%;">Hapus</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p style="text-align: center; color: #999; padding: 2rem;">Belum ada foto di gallery</p>
+    {% endif %}
+</div>
+{% endblock %}

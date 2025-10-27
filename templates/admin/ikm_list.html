@@ -1,0 +1,76 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Data IKM{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>📋 Data Responden IKM</h2>
+        <div>Total: <strong>{{ total }}</strong> responden</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>No. HP</th>
+                <th>Skor</th>
+                <th>Waktu</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for response in responses %}
+            <tr>
+                <td>{{ response.id }}</td>
+                <td>{{ response.name }}</td>
+                <td>{{ response.phone or '-' }}</td>
+                <td>
+                    <strong>{{ "%.2f"|format(response.score) }}</strong>
+                    {% if response.score >= 88.31 %}
+                        <span style="color: green;">A (Sangat Baik)</span>
+                    {% elif response.score >= 76.61 %}
+                        <span style="color: blue;">B (Baik)</span>
+                    {% elif response.score >= 65.00 %}
+                        <span style="color: orange;">C (Kurang Baik)</span>
+                    {% else %}
+                        <span style="color: red;">D (Tidak Baik)</span>
+                    {% endif %}
+                </td>
+                <td>{{ response.submitted_at.strftime('%d %b %Y %H:%M') }}</td>
+                <td>
+                    <a href="{{ url_for('admin.ikm_detail', id=response.id) }}" class="btn btn-primary btn-sm">Detail</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6" style="text-align: center; color: #999; padding: 2rem;">Belum ada data IKM</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if total_pages > 1 %}
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('admin.ikm_list', page=page-1) }}">‹ Prev</a>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="active">{{ p }}</span>
+            {% elif p <= 3 or p > total_pages - 3 or (p >= page - 1 and p <= page + 1) %}
+                <a href="{{ url_for('admin.ikm_list', page=p) }}">{{ p }}</a>
+            {% elif p == 4 or p == total_pages - 3 %}
+                <span>...</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('admin.ikm_list', page=page+1) }}">Next ›</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

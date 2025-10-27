@@ -1,0 +1,57 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Dokumen{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 style="margin-bottom: 2rem;">📄 Kelola Dokumen</h2>
+
+    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Upload Dokumen Baru</h3>
+        <form method="POST" action="{{ url_for('admin.documents_upload') }}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div style="display: flex; gap: 1rem; align-items: end;">
+                <div style="flex: 1;">
+                    <label for="document" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Pilih Dokumen PDF:</label>
+                    <input type="file" id="document" name="document" accept=".pdf" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" class="btn btn-success">Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <h3 style="margin-bottom: 1rem;">Dokumen ({{ documents|length }} file)</h3>
+    
+    {% if documents %}
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama File</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in documents %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>
+                    <a href="{{ url_for('static', filename='documents/' + doc) }}" target="_blank" style="color: #667eea; text-decoration: none;">
+                        📄 {{ doc }}
+                    </a>
+                </td>
+                <td>
+                    <form method="POST" action="{{ url_for('admin.documents_delete', filename=doc) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus dokumen ini?');">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="text-align: center; color: #999; padding: 2rem;">Belum ada dokumen</p>
+    {% endif %}
+</div>
+{% endblock %}
