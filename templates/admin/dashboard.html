@@ -19,6 +19,12 @@
             <div style="opacity: 0.9;">Total Feedback</div>
         </div>
 
+        <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📰</div>
+            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.kegiatan_count }}</div>
+            <div style="opacity: 0.9;">Total Kegiatan</div>
+        </div>
+
         <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);">
             <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⭐</div>
             <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.avg_ikm }}</div>
@@ -99,6 +105,7 @@
     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
         <a href="{{ url_for('admin.ikm_list') }}" class="btn btn-primary">Lihat Semua IKM</a>
         <a href="{{ url_for('admin.feedback_list') }}" class="btn btn-primary">Lihat Semua Feedback</a>
+        <a href="{{ url_for('admin.kegiatan_list') }}" class="btn btn-success">Kelola Kegiatan</a>
         <a href="{{ url_for('admin.gallery_manage') }}" class="btn btn-success">Kelola Gallery</a>
         <a href="{{ url_for('admin.documents_manage') }}" class="btn btn-success">Kelola Dokumen</a>
     </div>

@@ -257,6 +257,7 @@
             <li><a href="{{ url_for('admin.dashboard') }}" class="{% if request.endpoint == 'admin.dashboard' %}active{% endif %}">📊 Dashboard</a></li>
             <li><a href="{{ url_for('admin.ikm_list') }}" class="{% if 'ikm' in request.endpoint %}active{% endif %}">📋 IKM</a></li>
             <li><a href="{{ url_for('admin.feedback_list') }}" class="{% if 'feedback' in request.endpoint %}active{% endif %}">💬 Feedback</a></li>
+            <li><a href="{{ url_for('admin.kegiatan_list') }}" class="{% if 'kegiatan' in request.endpoint %}active{% endif %}">📰 Kegiatan</a></li>
             <li><a href="{{ url_for('admin.gallery_manage') }}" class="{% if 'gallery' in request.endpoint %}active{% endif %}">🖼️ Gallery</a></li>
             <li><a href="{{ url_for('admin.documents_manage') }}" class="{% if 'documents' in request.endpoint %}active{% endif %}">📄 Dokumen</a></li>
             <li><a href="{{ url_for('index') }}" target="_blank">🌐 Lihat Website</a></li>

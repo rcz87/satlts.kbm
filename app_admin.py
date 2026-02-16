@@ -98,6 +98,10 @@ def dashboard():
         feedback_result = cur.fetchone()
         feedback_count = feedback_result['total'] if feedback_result else 0
 
+        cur.execute('SELECT COUNT(*) as total FROM kegiatan')
+        kegiatan_result = cur.fetchone()
+        kegiatan_count = kegiatan_result['total'] if kegiatan_result else 0
+
         cur.execute('''
             SELECT
                 AVG(rata_rata) * 25 as avg_ikm
@@ -136,6 +140,7 @@ def dashboard():
         stats = {
             'ikm_count': ikm_count,
             'feedback_count': feedback_count,
+            'kegiatan_count': kegiatan_count,
             'avg_ikm': avg_ikm,
             'ikm_weekly': ikm_weekly,
             'recent_comments': recent_comments,
@@ -403,6 +408,227 @@ def documents_delete(filename):
         flash('Terjadi kesalahan saat menghapus file.', 'danger')
 
     return redirect(url_for('admin.documents_manage'))
+
+UNIT_CHOICES = ['REGIDENT', 'GAKUM', 'PATWAL', 'KAMSEL', 'URMIN']
+
+# ==================== KEGIATAN CRUD ====================
+
+@admin_bp.route('/kegiatan')
+@login_required
+def kegiatan_list():
+    page = request.args.get('page', 1, type=int)
+    unit_filter = request.args.get('unit', '')
+    per_page = 20
+
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        if unit_filter and unit_filter in UNIT_CHOICES:
+            cur.execute('SELECT COUNT(*) as total FROM kegiatan WHERE unit = %s', (unit_filter,))
+        else:
+            cur.execute('SELECT COUNT(*) as total FROM kegiatan')
+            unit_filter = ''
+
+        total_result = cur.fetchone()
+        total = total_result['total'] if total_result else 0
+
+        offset = (page - 1) * per_page
+        if unit_filter:
+            cur.execute('''
+                SELECT * FROM kegiatan
+                WHERE unit = %s
+                ORDER BY tanggal_kegiatan DESC, created_at DESC
+                LIMIT %s OFFSET %s
+            ''', (unit_filter, per_page, offset))
+        else:
+            cur.execute('''
+                SELECT * FROM kegiatan
+                ORDER BY tanggal_kegiatan DESC, created_at DESC
+                LIMIT %s OFFSET %s
+            ''', (per_page, offset))
+
+        kegiatan_items = cur.fetchall()
+        total_pages = (total + per_page - 1) // per_page
+
+        return render_template('admin/kegiatan_list.html',
+                             kegiatan_items=kegiatan_items,
+                             page=page,
+                             total_pages=total_pages,
+                             total=total,
+                             unit_filter=unit_filter,
+                             unit_choices=UNIT_CHOICES)
+
+    except Exception as e:
+        logger.error(f'Kegiatan list error: {str(e)}')
+        flash('Terjadi kesalahan saat mengambil data.', 'danger')
+        return render_template('admin/kegiatan_list.html',
+                             kegiatan_items=[], page=1, total_pages=0, total=0,
+                             unit_filter='', unit_choices=UNIT_CHOICES)
+    finally:
+        cur.close()
+        conn.close()
+
+@admin_bp.route('/kegiatan/tambah', methods=['GET', 'POST'])
+@login_required
+def kegiatan_tambah():
+    if request.method == 'POST':
+        judul = request.form.get('judul', '').strip()
+        isi = request.form.get('isi', '').strip()
+        unit = request.form.get('unit', '').strip()
+        tanggal = request.form.get('tanggal_kegiatan', '').strip()
+
+        if not judul or not isi or not unit or not tanggal:
+            flash('Semua field wajib diisi.', 'danger')
+            return render_template('admin/kegiatan_form.html',
+                                 mode='tambah', unit_choices=UNIT_CHOICES,
+                                 kegiatan={'judul': judul, 'isi': isi, 'unit': unit, 'tanggal_kegiatan': tanggal})
+
+        if unit not in UNIT_CHOICES:
+            flash('Unit tidak valid.', 'danger')
+            return render_template('admin/kegiatan_form.html',
+                                 mode='tambah', unit_choices=UNIT_CHOICES,
+                                 kegiatan={'judul': judul, 'isi': isi, 'unit': unit, 'tanggal_kegiatan': tanggal})
+
+        foto_filename = None
+        if 'foto' in request.files:
+            file = request.files['foto']
+            if file and file.filename and allowed_file(file.filename):
+                from werkzeug.utils import secure_filename
+                import time
+                filename = secure_filename(file.filename)
+                timestamp = str(int(time.time()))
+                foto_filename = f"kegiatan-{timestamp}-{filename}"
+
+                upload_path = 'static/images/kegiatan'
+                os.makedirs(upload_path, exist_ok=True)
+                file.save(os.path.join(upload_path, foto_filename))
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        try:
+            cur.execute('''
+                INSERT INTO kegiatan (judul, isi, foto, unit, tanggal_kegiatan)
+                VALUES (%s, %s, %s, %s, %s)
+            ''', (judul, isi, foto_filename, unit, tanggal))
+            conn.commit()
+            flash('Kegiatan berhasil ditambahkan.', 'success')
+            return redirect(url_for('admin.kegiatan_list'))
+        except Exception as e:
+            logger.error(f'Kegiatan tambah error: {str(e)}')
+            flash('Terjadi kesalahan saat menyimpan data.', 'danger')
+        finally:
+            cur.close()
+            conn.close()
+
+    return render_template('admin/kegiatan_form.html',
+                         mode='tambah', unit_choices=UNIT_CHOICES, kegiatan={})
+
+@admin_bp.route('/kegiatan/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def kegiatan_edit(id):
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        if request.method == 'POST':
+            judul = request.form.get('judul', '').strip()
+            isi = request.form.get('isi', '').strip()
+            unit = request.form.get('unit', '').strip()
+            tanggal = request.form.get('tanggal_kegiatan', '').strip()
+
+            if not judul or not isi or not unit or not tanggal:
+                flash('Semua field wajib diisi.', 'danger')
+                cur.execute('SELECT * FROM kegiatan WHERE id = %s', (id,))
+                kegiatan = cur.fetchone()
+                return render_template('admin/kegiatan_form.html',
+                                     mode='edit', unit_choices=UNIT_CHOICES, kegiatan=kegiatan)
+
+            if unit not in UNIT_CHOICES:
+                flash('Unit tidak valid.', 'danger')
+                cur.execute('SELECT * FROM kegiatan WHERE id = %s', (id,))
+                kegiatan = cur.fetchone()
+                return render_template('admin/kegiatan_form.html',
+                                     mode='edit', unit_choices=UNIT_CHOICES, kegiatan=kegiatan)
+
+            foto_filename = None
+            if 'foto' in request.files:
+                file = request.files['foto']
+                if file and file.filename and allowed_file(file.filename):
+                    from werkzeug.utils import secure_filename
+                    import time
+                    filename = secure_filename(file.filename)
+                    timestamp = str(int(time.time()))
+                    foto_filename = f"kegiatan-{timestamp}-{filename}"
+
+                    upload_path = 'static/images/kegiatan'
+                    os.makedirs(upload_path, exist_ok=True)
+                    file.save(os.path.join(upload_path, foto_filename))
+
+            if foto_filename:
+                cur.execute('''
+                    UPDATE kegiatan
+                    SET judul = %s, isi = %s, foto = %s, unit = %s, tanggal_kegiatan = %s,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = %s
+                ''', (judul, isi, foto_filename, unit, tanggal, id))
+            else:
+                cur.execute('''
+                    UPDATE kegiatan
+                    SET judul = %s, isi = %s, unit = %s, tanggal_kegiatan = %s,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = %s
+                ''', (judul, isi, unit, tanggal, id))
+
+            conn.commit()
+            flash('Kegiatan berhasil diperbarui.', 'success')
+            return redirect(url_for('admin.kegiatan_list'))
+
+        cur.execute('SELECT * FROM kegiatan WHERE id = %s', (id,))
+        kegiatan = cur.fetchone()
+
+        if not kegiatan:
+            flash('Kegiatan tidak ditemukan.', 'warning')
+            return redirect(url_for('admin.kegiatan_list'))
+
+        return render_template('admin/kegiatan_form.html',
+                             mode='edit', unit_choices=UNIT_CHOICES, kegiatan=kegiatan)
+
+    except Exception as e:
+        logger.error(f'Kegiatan edit error: {str(e)}')
+        flash('Terjadi kesalahan.', 'danger')
+        return redirect(url_for('admin.kegiatan_list'))
+    finally:
+        cur.close()
+        conn.close()
+
+@admin_bp.route('/kegiatan/hapus/<int:id>', methods=['POST'])
+@login_required
+def kegiatan_hapus(id):
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        cur.execute('SELECT foto FROM kegiatan WHERE id = %s', (id,))
+        kegiatan = cur.fetchone()
+        if kegiatan and kegiatan['foto']:
+            filepath = os.path.join('static/images/kegiatan', kegiatan['foto'])
+            if os.path.exists(filepath):
+                os.remove(filepath)
+
+        cur.execute('DELETE FROM kegiatan WHERE id = %s', (id,))
+        conn.commit()
+        flash('Kegiatan berhasil dihapus.', 'success')
+    except Exception as e:
+        logger.error(f'Kegiatan hapus error: {str(e)}')
+        flash('Terjadi kesalahan saat menghapus data.', 'danger')
+    finally:
+        cur.close()
+        conn.close()
+
+    return redirect(url_for('admin.kegiatan_list'))
+
 
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
