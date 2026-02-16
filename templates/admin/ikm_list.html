@@ -13,8 +13,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nama</th>
-                <th>No. HP</th>
+                <th>Jenis Layanan</th>
                 <th>Skor</th>
                 <th>Waktu</th>
                 <th>Aksi</th>
@@ -24,8 +23,7 @@
             {% for response in responses %}
             <tr>
                 <td>{{ response.id }}</td>
-                <td>{{ response.name }}</td>
-                <td>{{ response.phone or '-' }}</td>
+                <td>{{ response.jenis_layanan or '-' }}</td>
                 <td>
                     <strong>{{ "%.2f"|format(response.score) }}</strong>
                     {% if response.score >= 88.31 %}
@@ -38,14 +36,14 @@
                         <span style="color: red;">D (Tidak Baik)</span>
                     {% endif %}
                 </td>
-                <td>{{ response.submitted_at.strftime('%d %b %Y %H:%M') }}</td>
+                <td>{{ response.created_at.strftime('%d %b %Y %H:%M') }}</td>
                 <td>
                     <a href="{{ url_for('admin.ikm_detail', id=response.id) }}" class="btn btn-primary btn-sm">Detail</a>
                 </td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="6" style="text-align: center; color: #999; padding: 2rem;">Belum ada data IKM</td>
+                <td colspan="5" style="text-align: center; color: #999; padding: 2rem;">Belum ada data IKM</td>
             </tr>
             {% endfor %}
         </tbody>
