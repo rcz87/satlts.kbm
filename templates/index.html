@@ -36,6 +36,7 @@
       <a href="{{ url_for('kamsel') }}" class="nav-item {% if current_page == 'kamsel' %}active{% endif %}">🛡️ KAMSEL</a>
       <a href="{{ url_for('urmin') }}" class="nav-item {% if current_page == 'urmin' %}active{% endif %}">📋 URMIN</a>
       <a href="{{ url_for('dasarhukum') }}" class="nav-item {% if current_page == 'dasarhukum' %}active{% endif %}">📚 Dasar Hukum</a>
+      <a href="{{ url_for('kegiatan_all') }}" class="nav-item {% if current_page == 'kegiatan' %}active{% endif %}">📰 Kegiatan</a>
       <a href="{{ url_for('galery') }}" class="nav-item {% if current_page == 'galery' %}active{% endif %}">📸 Galery</a>
       <a href="{{ url_for('ikm') }}" class="nav-item {% if current_page == 'ikm' %}active{% endif %}">📊 IKM</a>
     </div>
@@ -51,6 +52,35 @@
 
   <main class="container {% if current_page != 'home' %}full-page{% endif %}">
     {{ content|safe }}
+
+    {% if current_page == 'home' and recent_kegiatan %}
+    <div style="margin-top: 2rem;">
+      <hr>
+      <h2 style="color: #1e3c72; text-align: center; margin: 1.5rem 0;">📰 Kegiatan Terbaru</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem;">
+        {% for item in recent_kegiatan %}
+        <a href="{{ url_for('kegiatan_detail', unit_slug=unit_map_inv.get(item.unit, 'regident'), id=item.id) }}" style="text-decoration: none; color: inherit;">
+          <div style="background: white; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 3px 12px rgba(0,0,0,0.1)'">
+            {% if item.foto %}
+            <img src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="" style="width: 100%; height: 160px; object-fit: cover;">
+            {% else %}
+            <div style="width: 100%; height: 160px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">📰</div>
+            {% endif %}
+            <div style="padding: 1rem;">
+              <div style="font-size: 0.8rem; color: #667eea; font-weight: 600; margin-bottom: 0.3rem;">
+                {{ item.unit }} &middot; {{ item.tanggal_kegiatan.strftime('%d %b %Y') }}
+              </div>
+              <div style="font-size: 1rem; font-weight: 700; color: #1e3c72; line-height: 1.3;">{{ item.judul }}</div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div style="text-align: center;">
+        <a href="{{ url_for('kegiatan_all') }}" style="display: inline-block; padding: 0.7rem 2rem; background: #667eea; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Lihat Semua Kegiatan →</a>
+      </div>
+    </div>
+    {% endif %}
   </main>
 
   <footer>
