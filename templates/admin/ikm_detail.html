@@ -13,20 +13,16 @@
     <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
             <div>
-                <strong>Nama:</strong><br>
-                {{ response.name }}
-            </div>
-            <div>
-                <strong>No. HP:</strong><br>
-                {{ response.phone or '-' }}
+                <strong>Jenis Layanan:</strong><br>
+                {{ response.jenis_layanan or '-' }}
             </div>
             <div>
                 <strong>Waktu Submit:</strong><br>
-                {{ response.submitted_at.strftime('%d %B %Y, %H:%M WIB') }}
+                {{ response.created_at.strftime('%d %B %Y, %H:%M WIB') }}
             </div>
             <div>
                 <strong>Skor Total:</strong><br>
-                {% set total_score = ((response.q1 + response.q2 + response.q3 + response.q4 + response.q5 + response.q6 + response.q7 + response.q8 + response.q9) / 9.0) * 25 %}
+                {% set total_score = response.rata_rata * 25 %}
                 <span style="font-size: 1.5rem; font-weight: bold; color: #667eea;">{{ "%.2f"|format(total_score) }}</span>
                 {% if total_score >= 88.31 %}
                     <span style="color: green; font-weight: bold;"> - A (Sangat Baik)</span>
@@ -54,55 +50,55 @@
             <tr>
                 <td>1</td>
                 <td>Persyaratan</td>
-                <td><strong>{{ response.q1 }}</strong> / 4</td>
+                <td><strong>{{ response.persyaratan }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Sistem, Mekanisme, dan Prosedur</td>
-                <td><strong>{{ response.q2 }}</strong> / 4</td>
+                <td><strong>{{ response.prosedur }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Waktu Pelayanan</td>
-                <td><strong>{{ response.q3 }}</strong> / 4</td>
+                <td><strong>{{ response.waktu_pelayanan }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>Biaya/Tarif</td>
-                <td><strong>{{ response.q4 }}</strong> / 4</td>
+                <td><strong>{{ response.biaya_tarif }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>Produk Spesifikasi Jenis Pelayanan</td>
-                <td><strong>{{ response.q5 }}</strong> / 4</td>
+                <td><strong>{{ response.produk_layanan }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>Kompetensi Pelaksana</td>
-                <td><strong>{{ response.q6 }}</strong> / 4</td>
+                <td><strong>{{ response.kompetensi_petugas }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>Perilaku Pelaksana</td>
-                <td><strong>{{ response.q7 }}</strong> / 4</td>
+                <td><strong>{{ response.perilaku_petugas }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>Penanganan Pengaduan, Saran, dan Masukan</td>
-                <td><strong>{{ response.q8 }}</strong> / 4</td>
+                <td>Sarana dan Prasarana</td>
+                <td><strong>{{ response.maklumat_pelayanan }}</strong> / 4</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>Sarana dan Prasarana</td>
-                <td><strong>{{ response.q9 }}</strong> / 4</td>
+                <td>Penanganan Pengaduan, Saran, dan Masukan</td>
+                <td><strong>{{ response.penanganan_pengaduan }}</strong> / 4</td>
             </tr>
         </tbody>
     </table>
 
-    {% if response.comments %}
+    {% if response.komentar %}
     <div style="margin-top: 2rem; background: #fff3cd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ffc107;">
         <h3 style="margin-bottom: 1rem;">💬 Komentar:</h3>
-        <p style="font-style: italic;">"{{ response.comments }}"</p>
+        <p style="font-style: italic;">"{{ response.komentar }}"</p>
     </div>
     {% endif %}
 </div>

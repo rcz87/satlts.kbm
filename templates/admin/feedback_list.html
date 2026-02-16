@@ -24,10 +24,10 @@
             {% for feedback in feedbacks %}
             <tr>
                 <td>{{ feedback.id }}</td>
-                <td>{{ feedback.name }}</td>
+                <td>{{ feedback.nama }}</td>
                 <td>{{ feedback.email }}</td>
-                <td>{{ feedback.message[:80] }}{% if feedback.message|length > 80 %}...{% endif %}</td>
-                <td>{{ feedback.submitted_at.strftime('%d %b %Y %H:%M') }}</td>
+                <td>{{ feedback.pesan[:80] }}{% if feedback.pesan|length > 80 %}...{% endif %}</td>
+                <td>{{ feedback.created_at.strftime('%d %b %Y %H:%M') }}</td>
                 <td>
                     <form method="POST" action="{{ url_for('admin.feedback_delete', id=feedback.id) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus feedback ini?');">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

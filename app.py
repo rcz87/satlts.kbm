@@ -2,8 +2,6 @@ from flask import Flask, render_template, url_for, request, jsonify
 from markupsafe import Markup
 import markdown
 import os
-import psycopg2
-from psycopg2.extras import RealDictCursor
 from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -11,10 +9,28 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SESSION_SECRET', 'dev-secret-key-change-in-production')
 
-from app_admin import admin_bp
+# Security: Require a proper secret key — no unsafe fallback
+secret_key = os.environ.get('SESSION_SECRET')
+if not secret_key:
+    if app.debug:
+        secret_key = 'dev-secret-key-only-for-local-debug'
+    else:
+        raise RuntimeError('SESSION_SECRET environment variable must be set in production')
+app.secret_key = secret_key
+
+# Security: Limit upload size to 16 MB
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+from app_admin import admin_bp, limiter as admin_limiter
 app.register_blueprint(admin_bp)
+admin_limiter.init_app(app)
+
+from db import init_tables
+try:
+    init_tables()
+except Exception:
+    app.logger.warning('Could not initialize database tables at startup')
 
 if not app.debug:
     if not os.path.exists('logs'):
@@ -45,26 +61,24 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 if not app.debug:
     app.config['SESSION_COOKIE_SECURE'] = True
 
-def get_db_connection():
-    conn = psycopg2.connect(os.environ['DATABASE_URL'])
-    return conn
-
 def load_markdown(filename):
     try:
         filepath = os.path.join('content', filename)
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
-        
+
         html = markdown.markdown(
-            content, 
+            content,
             extensions=['tables', 'fenced_code', 'nl2br']
         )
-        
+
         return Markup(html)
     except FileNotFoundError:
-        return Markup(f'<p>File {filename} tidak ditemukan di folder content/.</p>')
+        app.logger.warning(f'Markdown file not found: {filename}')
+        return Markup('<p>Konten tidak ditemukan.</p>')
     except Exception as e:
-        return Markup(f'<p>Error: {str(e)}</p>')
+        app.logger.error(f'Error loading markdown {filename}: {str(e)}')
+        return Markup('<p>Terjadi kesalahan saat memuat konten.</p>')
 
 @app.route('/')
 def index():
@@ -106,15 +120,15 @@ def lihat_perpol():
             <p>Peraturan ini menjadi dasar hukum pelaksanaan layanan SAMSAT di seluruh Indonesia.</p>
             <hr>
             <div class="pdf-viewer">
-                <iframe src="{pdf_url}" 
-                        width="100%" 
-                        height="800px" 
+                <iframe src="{pdf_url}"
+                        width="100%"
+                        height="800px"
                         style="border: 1px solid #ddd; border-radius: 8px;">
                 </iframe>
             </div>
             <p class="download-link">
-                <a href="{pdf_url}" 
-                   download 
+                <a href="{pdf_url}"
+                   download
                    style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #1e5aa8; color: white; text-decoration: none; border-radius: 5px;">
                    📥 Download PDF
                 </a>
@@ -133,15 +147,15 @@ def lihat_uu_lalulintas():
             <p>Undang-undang yang mengatur tentang lalu lintas dan angkutan jalan di Indonesia.</p>
             <hr>
             <div class="pdf-viewer">
-                <iframe src="{pdf_url}" 
-                        width="100%" 
-                        height="800px" 
+                <iframe src="{pdf_url}"
+                        width="100%"
+                        height="800px"
                         style="border: 1px solid #ddd; border-radius: 8px;">
                 </iframe>
             </div>
             <p class="download-link">
-                <a href="{pdf_url}" 
-                   download 
+                <a href="{pdf_url}"
+                   download
                    style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #1e5aa8; color: white; text-decoration: none; border-radius: 5px;">
                    📥 Download PDF
                 </a>
@@ -216,7 +230,7 @@ def urmin():
     return render_template('index.html', content=content, current_page='urmin')
 
 @app.route('/ikm/submit', methods=['POST'])
-@limiter.limit("50 per day")  # Security: Max 50 IKM submissions per day per IP
+@limiter.limit("50 per day")
 def ikm_submit():
     from app_ikm import ikm_submit_route
     return ikm_submit_route()
@@ -228,29 +242,17 @@ def ikm_hasil():
 
 # Feedback routes
 @app.route('/feedback/submit', methods=['POST'])
-@limiter.limit("20 per hour")  # Security: Rate limit feedback submissions
+@limiter.limit("20 per hour")
 def feedback_submit():
     from app_feedback import feedback_submit_route
     return feedback_submit_route()
 
-@app.route('/feedback/daftar')
-def feedback_daftar():
-    from app_feedback import feedback_daftar_route
-    return feedback_daftar_route()
-
 # Security: Add security headers to all responses
 @app.after_request
 def add_security_headers(response):
-    # Prevent clickjacking attacks
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    
-    # Prevent MIME type sniffing
     response.headers['X-Content-Type-Options'] = 'nosniff'
-    
-    # Enable browser XSS protection
     response.headers['X-XSS-Protection'] = '1; mode=block'
-    
-    # Content Security Policy - prevent XSS attacks (strict mode, no inline scripts)
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
         "script-src 'self'; "
@@ -259,14 +261,9 @@ def add_security_headers(response):
         "font-src 'self'; "
         "frame-ancestors 'self';"
     )
-    
-    # Referrer Policy - control referrer information
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
-    
-    # HTTPS enforcement (HSTS) - only in production
     if not app.debug:
         response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    
     return response
 
 if __name__ == '__main__':

@@ -56,9 +56,9 @@
             <div style="max-height: 300px; overflow-y: auto;">
                 {% for comment in stats.recent_comments %}
                 <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-bottom: 0.5rem;">
-                    <div style="font-weight: 600; color: #333;">{{ comment.name }}</div>
-                    <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.5rem;">{{ comment.submitted_at.strftime('%d %b %Y %H:%M') }}</div>
-                    <div style="font-size: 0.9rem;">{{ comment.comments }}</div>
+                    <div style="font-weight: 600; color: #333;">{{ comment.jenis_layanan }}</div>
+                    <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.5rem;">{{ comment.created_at.strftime('%d %b %Y %H:%M') }}</div>
+                    <div style="font-size: 0.9rem;">{{ comment.komentar }}</div>
                 </div>
                 {% else %}
                 <p style="color: #999; text-align: center;">Belum ada komentar</p>
@@ -80,9 +80,9 @@
             <tbody>
                 {% for feedback in stats.recent_feedback %}
                 <tr>
-                    <td>{{ feedback.name }}</td>
-                    <td>{{ feedback.message[:100] }}{% if feedback.message|length > 100 %}...{% endif %}</td>
-                    <td>{{ feedback.submitted_at.strftime('%d %b %Y %H:%M') }}</td>
+                    <td>{{ feedback.nama }}</td>
+                    <td>{{ feedback.pesan[:100] }}{% if feedback.pesan|length > 100 %}...{% endif %}</td>
+                    <td>{{ feedback.created_at.strftime('%d %b %Y %H:%M') }}</td>
                 </tr>
                 {% else %}
                 <tr>
