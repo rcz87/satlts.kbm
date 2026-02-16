@@ -53,14 +53,14 @@
   <main class="container {% if current_page != 'home' %}full-page{% endif %}">
     {{ content|safe }}
 
-    {% if current_page == 'home' and recent_kegiatan %}
+    {% if current_page == 'home' and recent_kegiatan|default([]) %}
     <div style="margin-top: 2rem;">
       <hr>
       <h2 style="color: #1e3c72; text-align: center; margin: 1.5rem 0;">📰 Kegiatan Terbaru</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem;">
         {% for item in recent_kegiatan %}
         <a href="{{ url_for('kegiatan_detail', unit_slug=unit_map_inv.get(item.unit, 'regident'), id=item.id) }}" style="text-decoration: none; color: inherit;">
-          <div style="background: white; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 3px 12px rgba(0,0,0,0.1)'">
+          <div class="kegiatan-card">
             {% if item.foto %}
             <img src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="" style="width: 100%; height: 160px; object-fit: cover;">
             {% else %}
@@ -130,6 +130,9 @@
       </div>
     </div>
   </footer>
+  <!-- Floating Feedback Button -->
+  <button id="btn-feedback" class="btn-feedback-float" title="Kirim Feedback">&#9993;</button>
+
   <!-- Feedback Modal -->
   <div id="feedback-modal" class="feedback-modal">
     <div class="feedback-modal-content">

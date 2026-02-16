@@ -315,10 +315,11 @@ def kegiatan_all():
     per_page = 12
 
     from db import get_db_connection
-    conn = get_db_connection()
-    cur = conn.cursor(cursor_factory=RealDictCursor)
-
+    conn = None
     try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+
         cur.execute('SELECT COUNT(*) as total FROM kegiatan')
         total = cur.fetchone()['total']
 
@@ -335,8 +336,8 @@ def kegiatan_all():
         items = []
         total = 0
     finally:
-        cur.close()
-        conn.close()
+        if conn:
+            conn.close()
 
     total_pages = (total + per_page - 1) // per_page
     unit_map_inv = {v: k for k, v in UNIT_MAP.items()}
@@ -364,10 +365,11 @@ def kegiatan_unit(unit_slug):
     per_page = 12
 
     from db import get_db_connection
-    conn = get_db_connection()
-    cur = conn.cursor(cursor_factory=RealDictCursor)
-
+    conn = None
     try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+
         cur.execute('SELECT COUNT(*) as total FROM kegiatan WHERE unit = %s', (unit,))
         total = cur.fetchone()['total']
 
@@ -385,8 +387,8 @@ def kegiatan_unit(unit_slug):
         items = []
         total = 0
     finally:
-        cur.close()
-        conn.close()
+        if conn:
+            conn.close()
 
     icon, label = UNIT_LABELS.get(unit, ('', unit))
     total_pages = (total + per_page - 1) // per_page
@@ -411,18 +413,18 @@ def kegiatan_detail(unit_slug, id):
                              current_page='home'), 404
 
     from db import get_db_connection
-    conn = get_db_connection()
-    cur = conn.cursor(cursor_factory=RealDictCursor)
-
+    conn = None
     try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
         cur.execute('SELECT * FROM kegiatan WHERE id = %s AND unit = %s', (id, unit))
         item = cur.fetchone()
     except Exception as e:
         app.logger.error(f'Kegiatan detail error: {str(e)}')
         item = None
     finally:
-        cur.close()
-        conn.close()
+        if conn:
+            conn.close()
 
     if not item:
         return render_template('index.html',
