@@ -1,0 +1,79 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if mode == 'edit' %}Edit{% else %}Tambah{% endif %} Kegiatan{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div style="margin-bottom: 1.5rem;">
+        <a href="{{ url_for('admin.kegiatan_list') }}" class="btn btn-primary">‹ Kembali ke Daftar</a>
+    </div>
+
+    <h2 style="margin-bottom: 2rem;">
+        {% if mode == 'edit' %}✏️ Edit Kegiatan{% else %}📝 Tambah Kegiatan Baru{% endif %}
+    </h2>
+
+    <form method="POST" enctype="multipart/form-data"
+          action="{% if mode == 'edit' %}{{ url_for('admin.kegiatan_edit', id=kegiatan.id) }}{% else %}{{ url_for('admin.kegiatan_tambah') }}{% endif %}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <div style="margin-bottom: 1.5rem;">
+            <label for="judul" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Judul Kegiatan <span style="color: red;">*</span></label>
+            <input type="text" id="judul" name="judul"
+                   value="{{ kegiatan.judul or '' }}"
+                   required maxlength="200"
+                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;"
+                   placeholder="Contoh: Operasi Patuh Candi 2025">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div>
+                <label for="unit" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Unit <span style="color: red;">*</span></label>
+                <select id="unit" name="unit" required
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    <option value="">-- Pilih Unit --</option>
+                    {% for u in unit_choices %}
+                    <option value="{{ u }}" {% if kegiatan.get('unit') == u or kegiatan.unit is defined and kegiatan.unit == u %}selected{% endif %}>{{ u }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="tanggal_kegiatan" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Tanggal Kegiatan <span style="color: red;">*</span></label>
+                <input type="date" id="tanggal_kegiatan" name="tanggal_kegiatan"
+                       value="{{ kegiatan.tanggal_kegiatan or '' }}"
+                       required
+                       style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+            </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <label for="isi" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Isi / Deskripsi <span style="color: red;">*</span></label>
+            <textarea id="isi" name="isi" rows="8" required
+                      style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; resize: vertical;"
+                      placeholder="Tuliskan deskripsi kegiatan...">{{ kegiatan.isi or '' }}</textarea>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <label for="foto" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+                Foto {% if mode != 'edit' %}(Opsional){% else %}(Kosongkan jika tidak ingin mengubah){% endif %}
+            </label>
+            {% if mode == 'edit' and kegiatan.foto %}
+            <div style="margin-bottom: 1rem;">
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Foto saat ini:</p>
+                <img src="{{ url_for('static', filename='images/kegiatan/' + kegiatan.foto) }}" alt=""
+                     style="max-width: 300px; max-height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+            {% endif %}
+            <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png"
+                   style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            <small style="display: block; color: #666; margin-top: 0.25rem;">Format: JPG, JPEG, PNG</small>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn-success" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                {% if mode == 'edit' %}💾 Simpan Perubahan{% else %}✅ Tambah Kegiatan{% endif %}
+            </button>
+            <a href="{{ url_for('admin.kegiatan_list') }}" class="btn btn-danger" style="padding: 0.75rem 2rem; font-size: 1rem;">Batal</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

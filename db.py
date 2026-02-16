@@ -30,6 +30,18 @@ def init_tables():
             )
         """)
         cur.execute("""
+            CREATE TABLE IF NOT EXISTS kegiatan (
+                id SERIAL PRIMARY KEY,
+                judul VARCHAR(200) NOT NULL,
+                isi TEXT NOT NULL,
+                foto VARCHAR(255),
+                unit VARCHAR(50) NOT NULL,
+                tanggal_kegiatan DATE NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cur.execute("""
             CREATE TABLE IF NOT EXISTS feedback (
                 id SERIAL PRIMARY KEY,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ item.judul }} - Satlantas Polres Kebumen">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{{ item.judul }} - SATLANTAS POLRES KEBUMEN</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .detail-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .detail-img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+    }
+    .detail-body {
+      padding: 2rem;
+    }
+    .detail-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .detail-unit-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #667eea;
+      color: white;
+    }
+    .detail-date {
+      font-size: 0.9rem;
+      color: #667eea;
+      font-weight: 600;
+    }
+    .detail-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1e3c72;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .detail-content {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-wrap;
+    }
+    .detail-back {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.5rem;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .detail-back:hover {
+      background: #5568d3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="datetime-display" id="datetime-display">
+      <div class="date-display"></div>
+      <div class="time-display"></div>
+      <div class="status-display"></div>
+    </div>
+    <div class="header-container">
+      <div class="header-text">
+        <h1>PORTAL SATLANTAS POLRES KEBUMEN</h1>
+        <p class="address">Jl. Tentara Pelajar No. 39, Kebumen</p>
+      </div>
+    </div>
+    <hr>
+  </header>
+
+  <div class="back-button-container">
+    <a href="{{ url_for('kegiatan_unit', unit_slug=unit_slug) }}" class="back-button">
+      <span class="back-arrow">←</span>
+      <span class="back-text">Kembali ke Kegiatan {{ unit }}</span>
+    </a>
+  </div>
+
+  <main class="container full-page">
+    <div class="detail-container">
+      {% if item.foto %}
+      <img class="detail-img" src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="{{ item.judul }}">
+      {% endif %}
+
+      <div class="detail-body">
+        <div class="detail-meta">
+          <span class="detail-unit-badge">{{ unit_icon }} {{ unit }}</span>
+          <span class="detail-date">📅 {{ item.tanggal_kegiatan.strftime('%d %B %Y') }}</span>
+        </div>
+
+        <h1 class="detail-title">{{ item.judul }}</h1>
+
+        <div class="detail-content">{{ item.isi }}</div>
+
+        <a href="{{ url_for('kegiatan_unit', unit_slug=unit_slug) }}" class="detail-back">
+          ← Lihat Semua Kegiatan {{ unit }}
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <hr>
+    <div class="footer-content">
+      <div class="footer-bottom">
+        <p>&copy; 2025 SATLANTAS POLRES KEBUMEN</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='datetime.js') }}"></script>
+</body>
+</html>

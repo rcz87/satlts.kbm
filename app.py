@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, jsonify
-from markupsafe import Markup
+from markupsafe import Markup, escape
 import markdown
+from psycopg2.extras import RealDictCursor
 import os
 from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
@@ -246,6 +247,98 @@ def ikm_hasil():
 def feedback_submit():
     from app_feedback import feedback_submit_route
     return feedback_submit_route()
+
+# Kegiatan routes (public)
+UNIT_MAP = {
+    'regident': 'REGIDENT',
+    'gakum': 'GAKUM',
+    'patwal': 'PATWAL',
+    'kamsel': 'KAMSEL',
+    'urmin': 'URMIN',
+}
+
+UNIT_LABELS = {
+    'REGIDENT': ('🏢', 'Registrasi & Identifikasi'),
+    'GAKUM': ('⚖️', 'Penegakan Hukum'),
+    'PATWAL': ('🚓', 'Patroli & Pengawalan'),
+    'KAMSEL': ('🛡️', 'Keamanan & Keselamatan'),
+    'URMIN': ('📋', 'Urusan Administrasi'),
+}
+
+@app.route('/kegiatan/<unit_slug>')
+def kegiatan_unit(unit_slug):
+    unit = UNIT_MAP.get(unit_slug)
+    if not unit:
+        return render_template('index.html',
+                             content=Markup('<p>Unit tidak ditemukan.</p>'),
+                             current_page='home'), 404
+
+    from db import get_db_connection
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        cur.execute('''
+            SELECT id, judul, isi, foto, tanggal_kegiatan
+            FROM kegiatan
+            WHERE unit = %s
+            ORDER BY tanggal_kegiatan DESC, created_at DESC
+            LIMIT 50
+        ''', (unit,))
+        items = cur.fetchall()
+    except Exception as e:
+        app.logger.error(f'Kegiatan unit error: {str(e)}')
+        items = []
+    finally:
+        cur.close()
+        conn.close()
+
+    icon, label = UNIT_LABELS.get(unit, ('', unit))
+
+    return render_template('kegiatan.html',
+                         items=items,
+                         unit=unit,
+                         unit_slug=unit_slug,
+                         unit_icon=icon,
+                         unit_label=label,
+                         current_page=unit_slug)
+
+@app.route('/kegiatan/<unit_slug>/<int:id>')
+def kegiatan_detail(unit_slug, id):
+    unit = UNIT_MAP.get(unit_slug)
+    if not unit:
+        return render_template('index.html',
+                             content=Markup('<p>Unit tidak ditemukan.</p>'),
+                             current_page='home'), 404
+
+    from db import get_db_connection
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        cur.execute('SELECT * FROM kegiatan WHERE id = %s AND unit = %s', (id, unit))
+        item = cur.fetchone()
+    except Exception as e:
+        app.logger.error(f'Kegiatan detail error: {str(e)}')
+        item = None
+    finally:
+        cur.close()
+        conn.close()
+
+    if not item:
+        return render_template('index.html',
+                             content=Markup('<p>Kegiatan tidak ditemukan.</p>'),
+                             current_page=unit_slug), 404
+
+    icon, label = UNIT_LABELS.get(unit, ('', unit))
+
+    return render_template('kegiatan_detail.html',
+                         item=item,
+                         unit=unit,
+                         unit_slug=unit_slug,
+                         unit_icon=icon,
+                         unit_label=label,
+                         current_page=unit_slug)
 
 # Security: Add security headers to all responses
 @app.after_request
