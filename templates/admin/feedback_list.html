@@ -4,9 +4,34 @@
 
 {% block content %}
 <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
         <h2>💬 Data Feedback</h2>
-        <div>Total: <strong>{{ total }}</strong> feedback</div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span>Total: <strong>{{ total }}</strong> feedback</span>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="{{ url_for('admin.feedback_list') }}"
+           class="btn btn-sm {% if not status_filter %}btn-primary{% else %}btn-outline{% endif %}"
+           style="{% if status_filter %}border: 1px solid #667eea; color: #667eea;{% endif %}">
+            Semua
+        </a>
+        <a href="{{ url_for('admin.feedback_list', status='baru') }}"
+           class="btn btn-sm {% if status_filter == 'baru' %}btn-primary{% else %}btn-outline{% endif %}"
+           style="{% if status_filter != 'baru' %}border: 1px solid #ffc107; color: #856404;{% endif %}{% if status_filter == 'baru' %}background: #ffc107; border-color: #ffc107;{% endif %}">
+            🟡 Baru
+        </a>
+        <a href="{{ url_for('admin.feedback_list', status='dibaca') }}"
+           class="btn btn-sm {% if status_filter == 'dibaca' %}btn-primary{% else %}btn-outline{% endif %}"
+           style="{% if status_filter != 'dibaca' %}border: 1px solid #17a2b8; color: #17a2b8;{% endif %}{% if status_filter == 'dibaca' %}background: #17a2b8; border-color: #17a2b8;{% endif %}">
+            🔵 Dibaca
+        </a>
+        <a href="{{ url_for('admin.feedback_list', status='selesai') }}"
+           class="btn btn-sm {% if status_filter == 'selesai' %}btn-primary{% else %}btn-outline{% endif %}"
+           style="{% if status_filter != 'selesai' %}border: 1px solid #28a745; color: #28a745;{% endif %}{% if status_filter == 'selesai' %}background: #28a745; border-color: #28a745;{% endif %}">
+            🟢 Selesai
+        </a>
     </div>
 
     <table>
@@ -14,8 +39,9 @@
             <tr>
                 <th>ID</th>
                 <th>Nama</th>
-                <th>Email</th>
+                <th>Kategori</th>
                 <th>Pesan</th>
+                <th>Status</th>
                 <th>Waktu</th>
                 <th>Aksi</th>
             </tr>
@@ -24,20 +50,47 @@
             {% for feedback in feedbacks %}
             <tr>
                 <td>{{ feedback.id }}</td>
-                <td>{{ feedback.nama }}</td>
-                <td>{{ feedback.email }}</td>
+                <td>{{ feedback.nama or '-' }}</td>
+                <td><span style="font-size: 0.85rem;">{{ feedback.kategori }}</span></td>
                 <td>{{ feedback.pesan[:80] }}{% if feedback.pesan|length > 80 %}...{% endif %}</td>
+                <td>
+                    {% if feedback.status == 'baru' %}
+                    <span style="display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; background: #fff3cd; color: #856404;">🟡 Baru</span>
+                    {% elif feedback.status == 'dibaca' %}
+                    <span style="display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; background: #d1ecf1; color: #0c5460;">🔵 Dibaca</span>
+                    {% elif feedback.status == 'selesai' %}
+                    <span style="display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; background: #d4edda; color: #155724;">🟢 Selesai</span>
+                    {% else %}
+                    <span style="font-size: 0.85rem; color: #999;">{{ feedback.status }}</span>
+                    {% endif %}
+                </td>
                 <td>{{ feedback.created_at.strftime('%d %b %Y %H:%M') }}</td>
                 <td>
-                    <form method="POST" action="{{ url_for('admin.feedback_delete', id=feedback.id) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus feedback ini?');">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                    </form>
+                    <div style="display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                        {% if feedback.status == 'baru' %}
+                        <form method="POST" action="{{ url_for('admin.feedback_status', id=feedback.id) }}" style="display: inline;">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="status" value="dibaca">
+                            <button type="submit" class="btn btn-primary btn-sm" title="Tandai Dibaca">🔵</button>
+                        </form>
+                        {% endif %}
+                        {% if feedback.status != 'selesai' %}
+                        <form method="POST" action="{{ url_for('admin.feedback_status', id=feedback.id) }}" style="display: inline;">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="status" value="selesai">
+                            <button type="submit" class="btn btn-success btn-sm" title="Tandai Selesai">🟢</button>
+                        </form>
+                        {% endif %}
+                        <form method="POST" action="{{ url_for('admin.feedback_delete', id=feedback.id) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus feedback ini?');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="6" style="text-align: center; color: #999; padding: 2rem;">Belum ada feedback</td>
+                <td colspan="7" style="text-align: center; color: #999; padding: 2rem;">Belum ada feedback</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -46,21 +99,21 @@
     {% if total_pages > 1 %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="{{ url_for('admin.feedback_list', page=page-1) }}">‹ Prev</a>
+            <a href="{{ url_for('admin.feedback_list', page=page-1, status=status_filter) }}">‹ Prev</a>
         {% endif %}
 
         {% for p in range(1, total_pages + 1) %}
             {% if p == page %}
                 <span class="active">{{ p }}</span>
             {% elif p <= 3 or p > total_pages - 3 or (p >= page - 1 and p <= page + 1) %}
-                <a href="{{ url_for('admin.feedback_list', page=p) }}">{{ p }}</a>
+                <a href="{{ url_for('admin.feedback_list', page=p, status=status_filter) }}">{{ p }}</a>
             {% elif p == 4 or p == total_pages - 3 %}
                 <span>...</span>
             {% endif %}
         {% endfor %}
 
         {% if page < total_pages %}
-            <a href="{{ url_for('admin.feedback_list', page=page+1) }}">Next ›</a>
+            <a href="{{ url_for('admin.feedback_list', page=page+1, status=status_filter) }}">Next ›</a>
         {% endif %}
     </div>
     {% endif %}

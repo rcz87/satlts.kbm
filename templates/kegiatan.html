@@ -9,110 +9,29 @@
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <style>
-    .kegiatan-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .kegiatan-header h1 {
-      color: #1e3c72;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .kegiatan-header p {
-      color: #666;
-      font-size: 1.1rem;
-    }
-    .kegiatan-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .kegiatan-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .kegiatan-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .kegiatan-card a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .kegiatan-card-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #f0f0f0;
-    }
-    .kegiatan-card-img-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-    .kegiatan-card-body {
-      padding: 1.25rem;
-    }
-    .kegiatan-card-date {
-      font-size: 0.85rem;
-      color: #667eea;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .kegiatan-card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1e3c72;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-    .kegiatan-card-preview {
-      font-size: 0.9rem;
-      color: #666;
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .kegiatan-empty {
-      text-align: center;
-      padding: 3rem;
-      color: #999;
-    }
-    .kegiatan-empty h2 {
-      margin-bottom: 0.5rem;
-    }
-    .unit-nav {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .unit-nav a {
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.3s;
-      border: 2px solid #667eea;
-      color: #667eea;
-    }
-    .unit-nav a:hover, .unit-nav a.active {
-      background: #667eea;
-      color: white;
-    }
+    .kegiatan-header { text-align: center; margin-bottom: 2rem; }
+    .kegiatan-header h1 { color: #1e3c72; font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .kegiatan-header p { color: #666; font-size: 1.1rem; }
+    .kegiatan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .kegiatan-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .kegiatan-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+    .kegiatan-card a { text-decoration: none; color: inherit; display: block; }
+    .kegiatan-card-img { width: 100%; height: 200px; object-fit: cover; background: #f0f0f0; }
+    .kegiatan-card-img-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .kegiatan-card-body { padding: 1.25rem; }
+    .kegiatan-card-date { font-size: 0.85rem; color: #667eea; font-weight: 600; margin-bottom: 0.5rem; }
+    .kegiatan-card-title { font-size: 1.1rem; font-weight: 700; color: #1e3c72; margin-bottom: 0.5rem; line-height: 1.4; }
+    .kegiatan-card-preview { font-size: 0.9rem; color: #666; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .kegiatan-card-unit { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; background: #667eea; color: white; margin-bottom: 0.4rem; }
+    .kegiatan-empty { text-align: center; padding: 3rem; color: #999; }
+    .unit-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem; }
+    .unit-nav a { padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; border: 2px solid #667eea; color: #667eea; }
+    .unit-nav a:hover, .unit-nav a.active { background: #667eea; color: white; }
+    .kegiatan-pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; flex-wrap: wrap; }
+    .kegiatan-pagination a, .kegiatan-pagination span { display: inline-block; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .kegiatan-pagination a { background: white; color: #667eea; border: 1px solid #667eea; }
+    .kegiatan-pagination a:hover { background: #667eea; color: white; }
+    .kegiatan-pagination span.active { background: #667eea; color: white; border: 1px solid #667eea; }
   </style>
 </head>
 <body>
@@ -140,11 +59,17 @@
 
   <main class="container full-page">
     <div class="kegiatan-header">
+      {% if unit_slug == 'all' %}
+      <h1>📰 Kegiatan Satlantas Polres Kebumen</h1>
+      <p>Dokumentasi kegiatan dan aktivitas semua unit</p>
+      {% else %}
       <h1>{{ unit_icon }} Kegiatan {{ unit }} - {{ unit_label }}</h1>
       <p>Dokumentasi kegiatan dan aktivitas unit {{ unit }}</p>
+      {% endif %}
     </div>
 
     <div class="unit-nav">
+      <a href="{{ url_for('kegiatan_all') }}" class="{% if unit_slug == 'all' %}active{% endif %}">📰 Semua</a>
       <a href="{{ url_for('kegiatan_unit', unit_slug='regident') }}" class="{% if unit_slug == 'regident' %}active{% endif %}">🏢 REGIDENT</a>
       <a href="{{ url_for('kegiatan_unit', unit_slug='gakum') }}" class="{% if unit_slug == 'gakum' %}active{% endif %}">⚖️ GAKUM</a>
       <a href="{{ url_for('kegiatan_unit', unit_slug='patwal') }}" class="{% if unit_slug == 'patwal' %}active{% endif %}">🚓 PATWAL</a>
@@ -156,13 +81,16 @@
     <div class="kegiatan-grid">
       {% for item in items %}
       <div class="kegiatan-card">
-        <a href="{{ url_for('kegiatan_detail', unit_slug=unit_slug, id=item.id) }}">
+        <a href="{{ url_for('kegiatan_detail', unit_slug=(unit_map_inv.get(item.unit, unit_slug) if unit_slug == 'all' else unit_slug), id=item.id) }}">
           {% if item.foto %}
-          <img class="kegiatan-card-img" src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="{{ item.judul }}">
+          <img class="kegiatan-card-img" src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="{{ item.judul }}" loading="lazy">
           {% else %}
           <div class="kegiatan-card-img-placeholder">{{ unit_icon }}</div>
           {% endif %}
           <div class="kegiatan-card-body">
+            {% if unit_slug == 'all' and item.unit %}
+            <span class="kegiatan-card-unit">{{ item.unit }}</span>
+            {% endif %}
             <div class="kegiatan-card-date">📅 {{ item.tanggal_kegiatan.strftime('%d %B %Y') }}</div>
             <div class="kegiatan-card-title">{{ item.judul }}</div>
             <div class="kegiatan-card-preview">{{ item.isi[:150] }}{% if item.isi|length > 150 %}...{% endif %}</div>
@@ -171,10 +99,31 @@
       </div>
       {% endfor %}
     </div>
+
+    {% if total_pages is defined and total_pages > 1 %}
+    <div class="kegiatan-pagination">
+      {% if page > 1 %}
+      <a href="?page={{ page - 1 }}">‹ Prev</a>
+      {% endif %}
+      {% for p in range(1, total_pages + 1) %}
+        {% if p == page %}
+        <span class="active">{{ p }}</span>
+        {% elif p <= 3 or p > total_pages - 2 or (p >= page - 1 and p <= page + 1) %}
+        <a href="?page={{ p }}">{{ p }}</a>
+        {% elif p == 4 or p == total_pages - 2 %}
+        <span>...</span>
+        {% endif %}
+      {% endfor %}
+      {% if page < total_pages %}
+      <a href="?page={{ page + 1 }}">Next ›</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
     {% else %}
     <div class="kegiatan-empty">
       <h2>📭 Belum Ada Kegiatan</h2>
-      <p>Belum ada kegiatan yang dipublikasikan untuk unit {{ unit }}.</p>
+      <p>Belum ada kegiatan yang dipublikasikan{% if unit_slug != 'all' %} untuk unit {{ unit }}{% endif %}.</p>
     </div>
     {% endif %}
   </main>
@@ -182,6 +131,13 @@
   <footer>
     <hr>
     <div class="footer-content">
+      <div class="contact-section">
+        <h3>📞 Hubungi Kami</h3>
+        <a href="https://wa.me/6282326915609" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+          💬 WhatsApp: +62 823-2691-5609
+        </a>
+        <p class="contact-item"><strong>Alamat:</strong> Jl. Tentara Pelajar No. 39, Kebumen</p>
+      </div>
       <div class="footer-bottom">
         <p>&copy; 2025 SATLANTAS POLRES KEBUMEN</p>
       </div>

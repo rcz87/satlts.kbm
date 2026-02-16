@@ -226,23 +226,40 @@ def ikm_detail(id):
 @login_required
 def feedback_list():
     page = request.args.get('page', 1, type=int)
+    status_filter = request.args.get('status', '').strip()
     per_page = 20
+
+    valid_statuses = ['baru', 'dibaca', 'selesai']
+    if status_filter and status_filter not in valid_statuses:
+        status_filter = ''
 
     conn = get_db_connection()
     cur = conn.cursor(cursor_factory=RealDictCursor)
 
     try:
-        cur.execute('SELECT COUNT(*) as total FROM feedback')
+        if status_filter:
+            cur.execute('SELECT COUNT(*) as total FROM feedback WHERE status = %s', (status_filter,))
+        else:
+            cur.execute('SELECT COUNT(*) as total FROM feedback')
         total_result = cur.fetchone()
         total = total_result['total'] if total_result else 0
 
         offset = (page - 1) * per_page
-        cur.execute('''
-            SELECT *
-            FROM feedback
-            ORDER BY created_at DESC
-            LIMIT %s OFFSET %s
-        ''', (per_page, offset))
+        if status_filter:
+            cur.execute('''
+                SELECT *
+                FROM feedback
+                WHERE status = %s
+                ORDER BY created_at DESC
+                LIMIT %s OFFSET %s
+            ''', (status_filter, per_page, offset))
+        else:
+            cur.execute('''
+                SELECT *
+                FROM feedback
+                ORDER BY created_at DESC
+                LIMIT %s OFFSET %s
+            ''', (per_page, offset))
         feedbacks = cur.fetchall()
 
         total_pages = (total + per_page - 1) // per_page
@@ -251,15 +268,43 @@ def feedback_list():
                              feedbacks=feedbacks,
                              page=page,
                              total_pages=total_pages,
-                             total=total)
+                             total=total,
+                             status_filter=status_filter)
 
     except Exception as e:
         logger.error(f'Feedback list error: {str(e)}')
         flash('Terjadi kesalahan saat mengambil data.', 'danger')
-        return render_template('admin/feedback_list.html', feedbacks=[], page=1, total_pages=0, total=0)
+        return render_template('admin/feedback_list.html',
+                             feedbacks=[], page=1, total_pages=0, total=0, status_filter='')
     finally:
         cur.close()
         conn.close()
+
+@admin_bp.route('/feedback/status/<int:id>', methods=['POST'])
+@login_required
+def feedback_status(id):
+    new_status = request.form.get('status', '').strip()
+    valid_statuses = ['baru', 'dibaca', 'selesai']
+
+    if new_status not in valid_statuses:
+        flash('Status tidak valid.', 'danger')
+        return redirect(url_for('admin.feedback_list'))
+
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    try:
+        cur.execute('UPDATE feedback SET status = %s WHERE id = %s', (new_status, id))
+        conn.commit()
+        flash(f'Status feedback berhasil diubah ke "{new_status}".', 'success')
+    except Exception as e:
+        logger.error(f'Feedback status update error: {str(e)}')
+        flash('Terjadi kesalahan saat mengubah status.', 'danger')
+    finally:
+        cur.close()
+        conn.close()
+
+    return redirect(url_for('admin.feedback_list'))
 
 @admin_bp.route('/feedback/delete/<int:id>', methods=['POST'])
 @login_required

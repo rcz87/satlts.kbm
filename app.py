@@ -81,10 +81,46 @@ def load_markdown(filename):
         app.logger.error(f'Error loading markdown {filename}: {str(e)}')
         return Markup('<p>Terjadi kesalahan saat memuat konten.</p>')
 
+# Unit constants (shared across routes)
+UNIT_MAP = {
+    'regident': 'REGIDENT',
+    'gakum': 'GAKUM',
+    'patwal': 'PATWAL',
+    'kamsel': 'KAMSEL',
+    'urmin': 'URMIN',
+}
+
+UNIT_LABELS = {
+    'REGIDENT': ('🏢', 'Registrasi & Identifikasi'),
+    'GAKUM': ('⚖️', 'Penegakan Hukum'),
+    'PATWAL': ('🚓', 'Patroli & Pengawalan'),
+    'KAMSEL': ('🛡️', 'Keamanan & Keselamatan'),
+    'URMIN': ('📋', 'Urusan Administrasi'),
+}
+
 @app.route('/')
 def index():
     content = load_markdown('content_home.md')
-    return render_template('index.html', content=content, current_page='home')
+
+    from db import get_db_connection
+    recent_kegiatan = []
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        cur.execute('''
+            SELECT id, judul, foto, unit, tanggal_kegiatan
+            FROM kegiatan
+            ORDER BY tanggal_kegiatan DESC, created_at DESC
+            LIMIT 6
+        ''')
+        recent_kegiatan = cur.fetchall()
+        cur.close()
+        conn.close()
+    except Exception:
+        pass
+
+    return render_template('index.html', content=content, current_page='home',
+                         recent_kegiatan=recent_kegiatan, unit_map_inv={v: k for k, v in UNIT_MAP.items()})
 
 @app.route('/5tahunan')
 def tahunan():
@@ -167,8 +203,32 @@ def lihat_uu_lalulintas():
 
 @app.route('/galery')
 def galery():
-    content = load_markdown('content_galery.md')
-    return render_template('index.html', content=content, current_page='galery')
+    import glob as globmod
+    gallery_path = 'static/images/galery'
+    images = []
+    if os.path.exists(gallery_path):
+        image_files = (globmod.glob(f'{gallery_path}/*.jpg')
+                      + globmod.glob(f'{gallery_path}/*.jpeg')
+                      + globmod.glob(f'{gallery_path}/*.png'))
+        images = sorted([os.path.basename(f) for f in image_files])
+
+    gallery_html = '<h1>📸 Galeri Foto Kegiatan</h1>\n'
+    gallery_html += '<p>Dokumentasi kegiatan dan pelayanan Satlantas Polres Kebumen.</p>\n<hr>\n'
+
+    if images:
+        gallery_html += '<div class="gallery-grid">\n'
+        for img in images:
+            img_url = url_for('static', filename=f'images/galery/{img}')
+            gallery_html += (
+                f'  <div class="gallery-item">\n'
+                f'    <img src="{img_url}" alt="{img}" loading="lazy">\n'
+                f'  </div>\n'
+            )
+        gallery_html += '</div>\n'
+    else:
+        gallery_html += '<p style="text-align:center; color:#999; padding:3rem;">Belum ada foto di galeri.</p>\n'
+
+    return render_template('index.html', content=Markup(gallery_html), current_page='galery')
 
 @app.route('/ikm')
 def ikm():
@@ -248,22 +308,49 @@ def feedback_submit():
     from app_feedback import feedback_submit_route
     return feedback_submit_route()
 
-# Kegiatan routes (public)
-UNIT_MAP = {
-    'regident': 'REGIDENT',
-    'gakum': 'GAKUM',
-    'patwal': 'PATWAL',
-    'kamsel': 'KAMSEL',
-    'urmin': 'URMIN',
-}
+@app.route('/kegiatan')
+def kegiatan_all():
+    """Show all kegiatan across all units."""
+    page = request.args.get('page', 1, type=int)
+    per_page = 12
 
-UNIT_LABELS = {
-    'REGIDENT': ('🏢', 'Registrasi & Identifikasi'),
-    'GAKUM': ('⚖️', 'Penegakan Hukum'),
-    'PATWAL': ('🚓', 'Patroli & Pengawalan'),
-    'KAMSEL': ('🛡️', 'Keamanan & Keselamatan'),
-    'URMIN': ('📋', 'Urusan Administrasi'),
-}
+    from db import get_db_connection
+    conn = get_db_connection()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    try:
+        cur.execute('SELECT COUNT(*) as total FROM kegiatan')
+        total = cur.fetchone()['total']
+
+        offset = (page - 1) * per_page
+        cur.execute('''
+            SELECT id, judul, isi, foto, unit, tanggal_kegiatan
+            FROM kegiatan
+            ORDER BY tanggal_kegiatan DESC, created_at DESC
+            LIMIT %s OFFSET %s
+        ''', (per_page, offset))
+        items = cur.fetchall()
+    except Exception as e:
+        app.logger.error(f'Kegiatan all error: {str(e)}')
+        items = []
+        total = 0
+    finally:
+        cur.close()
+        conn.close()
+
+    total_pages = (total + per_page - 1) // per_page
+    unit_map_inv = {v: k for k, v in UNIT_MAP.items()}
+
+    return render_template('kegiatan.html',
+                         items=items,
+                         unit='SEMUA',
+                         unit_slug='all',
+                         unit_icon='📰',
+                         unit_label='Semua Unit',
+                         current_page='kegiatan',
+                         page=page,
+                         total_pages=total_pages,
+                         unit_map_inv=unit_map_inv)
 
 @app.route('/kegiatan/<unit_slug>')
 def kegiatan_unit(unit_slug):
@@ -273,27 +360,36 @@ def kegiatan_unit(unit_slug):
                              content=Markup('<p>Unit tidak ditemukan.</p>'),
                              current_page='home'), 404
 
+    page = request.args.get('page', 1, type=int)
+    per_page = 12
+
     from db import get_db_connection
     conn = get_db_connection()
     cur = conn.cursor(cursor_factory=RealDictCursor)
 
     try:
+        cur.execute('SELECT COUNT(*) as total FROM kegiatan WHERE unit = %s', (unit,))
+        total = cur.fetchone()['total']
+
+        offset = (page - 1) * per_page
         cur.execute('''
             SELECT id, judul, isi, foto, tanggal_kegiatan
             FROM kegiatan
             WHERE unit = %s
             ORDER BY tanggal_kegiatan DESC, created_at DESC
-            LIMIT 50
-        ''', (unit,))
+            LIMIT %s OFFSET %s
+        ''', (unit, per_page, offset))
         items = cur.fetchall()
     except Exception as e:
         app.logger.error(f'Kegiatan unit error: {str(e)}')
         items = []
+        total = 0
     finally:
         cur.close()
         conn.close()
 
     icon, label = UNIT_LABELS.get(unit, ('', unit))
+    total_pages = (total + per_page - 1) // per_page
 
     return render_template('kegiatan.html',
                          items=items,
@@ -301,7 +397,10 @@ def kegiatan_unit(unit_slug):
                          unit_slug=unit_slug,
                          unit_icon=icon,
                          unit_label=label,
-                         current_page=unit_slug)
+                         current_page=unit_slug,
+                         page=page,
+                         total_pages=total_pages,
+                         unit_map_inv={v: k for k, v in UNIT_MAP.items()})
 
 @app.route('/kegiatan/<unit_slug>/<int:id>')
 def kegiatan_detail(unit_slug, id):

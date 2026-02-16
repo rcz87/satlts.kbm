@@ -120,3 +120,11 @@
     Berlalu lintas dengan tertib untuk keselamatan diri sendiri dan orang lain
   </p>
 </div>
+
+---
+
+## 📰 Kegiatan Unit KAMSEL
+
+<div style="text-align: center; margin: 20px 0;">
+  <a href="/kegiatan/kamsel" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1em; box-shadow: 0 4px 15px rgba(102,126,234,0.3);">📰 Lihat Kegiatan Unit KAMSEL →</a>
+</div>
