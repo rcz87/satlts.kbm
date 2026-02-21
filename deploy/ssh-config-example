@@ -20,8 +20,8 @@
 
 # === KONEKSI VPS SATLANTAS ===
 Host satlantas-vps
-    # Ganti dengan IP VPS Hostinger Anda
-    HostName YOUR_VPS_IP
+    # IP VPS Hostinger
+    HostName 31.97.107.243
 
     # Username untuk login (default root, atau user yang sudah dibuat)
     User root

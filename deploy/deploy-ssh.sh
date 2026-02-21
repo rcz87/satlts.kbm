@@ -23,7 +23,7 @@
 # ================================================
 
 # IP Address VPS Hostinger
-VPS_IP="${VPS_IP:-YOUR_VPS_IP}"
+VPS_IP="${VPS_IP:-31.97.107.243}"
 
 # Username di VPS
 VPS_USER="${VPS_USER:-satlantas}"
