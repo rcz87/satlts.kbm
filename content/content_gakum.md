@@ -10,31 +10,43 @@
 
 Pilih layanan sesuai kebutuhan Anda:
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/gakum/laka" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 30px; border-radius: 12px; color: white; box-shadow: 0 5px 12px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 12px rgba(0,0,0,0.2)'">
-    <h3 style="margin-top: 0; color: white; font-size: 2.5em; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🚗💥</h3>
-    <h4 style="margin: 15px 0; font-size: 1.3em; color: white; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Unit Laka Lantas</h4>
-    <p style="font-size: 0.9em; line-height: 1.6; text-align: center; margin-top: 15px;">
-      • Laporan Kecelakaan<br>
-      • Investigasi Laka<br>
-      • Surat Keterangan<br>
-      • Prosedur Penanganan
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
+    <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🚗💥</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700;">Unit Laka Lantas</h4>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Penanganan Kecelakaan Lalu Lintas</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Laporan Laka</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Investigasi</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Surat Keterangan</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/gakum/tilang" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 30px; border-radius: 12px; color: white; box-shadow: 0 5px 12px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 12px rgba(0,0,0,0.2)'">
-    <h3 style="margin-top: 0; color: white; font-size: 2.5em; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🚨</h3>
-    <h4 style="margin: 15px 0; font-size: 1.3em; color: white; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Tilang & ETLE</h4>
-    <p style="font-size: 0.9em; line-height: 1.6; text-align: center; margin-top: 15px;">
-      • Cek Tilang Online<br>
-      • Tilang Elektronik (ETLE)<br>
-      • Cara Bayar Tilang<br>
-      • Prosedur di SPKT
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(235,51,73,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(235,51,73,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(235,51,73,0.15)'">
+    <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🚨</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700;">Tilang & ETLE</h4>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Penegakan Hukum & Tilang Elektronik</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #eb3349, #f45c43); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Cek Tilang</span>
+        <span style="background: linear-gradient(135deg, #eb3349, #f45c43); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">ETLE</span>
+        <span style="background: linear-gradient(135deg, #eb3349, #f45c43); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Cara Bayar</span>
+      </div>
+    </div>
   </div>
 </a>
 

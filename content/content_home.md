@@ -103,27 +103,50 @@
 
 ## 📋 Layanan Lainnya
 
-<div style="display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; justify-content: center;">
+<div style="display: flex; gap: 22px; margin: 30px 0; flex-wrap: wrap; justify-content: center;">
+
   <a href="/ikm" style="text-decoration: none;">
-    <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-      <h3 style="margin: 0; font-size: 1.3em;">📊 Survey IKM</h3>
-      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Indeks Kepuasan Masyarakat</p>
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(17,153,142,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(17,153,142,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(17,153,142,0.15)'">
+      <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
+        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 1.6em;">📊</span>
+        </div>
+        <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Survey IKM</h3>
+      </div>
+      <div style="padding: 14px 20px 18px;">
+        <p style="margin: 0; font-size: 0.85em; color: #666;">Indeks Kepuasan Masyarakat</p>
+      </div>
     </div>
   </a>
-  
+
   <a href="/dasarhukum" style="text-decoration: none;">
-    <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-      <h3 style="margin: 0; font-size: 1.3em;">📚 Dasar Hukum</h3>
-      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Peraturan & Regulasi</p>
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(235,51,73,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(235,51,73,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(235,51,73,0.15)'">
+      <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
+        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 1.6em;">📚</span>
+        </div>
+        <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Dasar Hukum</h3>
+      </div>
+      <div style="padding: 14px 20px 18px;">
+        <p style="margin: 0; font-size: 0.85em; color: #666;">Peraturan & Regulasi</p>
+      </div>
     </div>
   </a>
-  
+
   <a href="/galery" style="text-decoration: none;">
-    <div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 25px 40px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-      <h3 style="margin: 0; font-size: 1.3em;">📸 Galery</h3>
-      <p style="margin: 8px 0 0 0; font-size: 0.9em;">Dokumentasi Kegiatan</p>
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(255,106,0,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(255,106,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(255,106,0,0.15)'">
+      <div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
+        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 1.6em;">📸</span>
+        </div>
+        <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Galery</h3>
+      </div>
+      <div style="padding: 14px 20px 18px;">
+        <p style="margin: 0; font-size: 0.85em; color: #666;">Dokumentasi Kegiatan</p>
+      </div>
     </div>
   </a>
+
 </div>
 
 ---

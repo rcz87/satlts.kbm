@@ -4,37 +4,61 @@
 
 Pilih layanan sesuai kebutuhan Anda:
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; margin: 30px 0;">
 
 <a href="/5tahunan" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-    <h3 style="margin: 0; font-size: 1.4em; color: #ffd700;">📅</h3>
-    <h4 style="margin: 10px 0 5px 0;">Perpanjangan 5 Tahunan</h4>
-    <p style="margin: 0; font-size: 0.85em; opacity: 0.95;">Ganti STNK & Plat Nomor</p>
+  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(102,126,234,0.15)'">
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
+      <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 1.8em;">📅</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">5 Tahunan</h4>
+    </div>
+    <div style="padding: 16px 18px 22px;">
+      <p style="font-size: 0.85em; color: #666; margin: 0;">Ganti STNK & Plat Nomor</p>
+    </div>
   </div>
 </a>
 
 <a href="/duplikat" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 25px; border-radius: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-    <h3 style="margin: 0; font-size: 1.4em; color: #ffd700;">🔄</h3>
-    <h4 style="margin: 10px 0 5px 0;">Duplikat STNK</h4>
-    <p style="margin: 0; font-size: 0.85em; opacity: 0.95;">STNK Hilang/Rusak</p>
+  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(42,82,152,0.15)'">
+    <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
+      <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 1.8em;">🔄</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Duplikat STNK</h4>
+    </div>
+    <div style="padding: 16px 18px 22px;">
+      <p style="font-size: 0.85em; color: #666; margin: 0;">STNK Hilang / Rusak</p>
+    </div>
   </div>
 </a>
 
 <a href="/mutasi" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 25px; border-radius: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-    <h3 style="margin: 0; font-size: 1.4em; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🚚</h3>
-    <h4 style="margin: 10px 0 5px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Mutasi Antar Daerah</h4>
-    <p style="margin: 0; font-size: 0.85em;">Pindah Domisili</p>
+  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(244,107,69,0.15)'">
+    <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
+      <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 1.8em;">🚚</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Mutasi Antar Daerah</h4>
+    </div>
+    <div style="padding: 16px 18px 22px;">
+      <p style="font-size: 0.85em; color: #666; margin: 0;">Pindah Domisili</p>
+    </div>
   </div>
 </a>
 
 <a href="/bbn" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 25px; border-radius: 10px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; text-align: center;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.2)'">
-    <h3 style="margin: 0; font-size: 1.4em; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">💳</h3>
-    <h4 style="margin: 10px 0 5px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">BBN 1 & 2</h4>
-    <p style="margin: 0; font-size: 0.85em;">Balik Nama Kendaraan</p>
+  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(86,171,47,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(86,171,47,0.15)'">
+    <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
+      <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 1.8em;">💳</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">BBN 1 & 2</h4>
+    </div>
+    <div style="padding: 16px 18px 22px;">
+      <p style="font-size: 0.85em; color: #666; margin: 0;">Balik Nama Kendaraan</p>
+    </div>
   </div>
 </a>
 
