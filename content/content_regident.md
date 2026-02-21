@@ -10,44 +10,62 @@
 
 Pilih layanan sesuai kebutuhan Anda:
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/regident/stnk" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 30px; border-radius: 12px; color: white; box-shadow: 0 5px 12px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 12px rgba(0,0,0,0.2)'">
-    <h3 style="margin-top: 0; color: #ffd700; font-size: 2.5em; text-align: center;">📋</h3>
-    <h4 style="margin: 15px 0; font-size: 1.3em; color: white; text-align: center;">STNK & Pajak</h4>
-    <p style="font-size: 0.9em; line-height: 1.6; text-align: center; margin-top: 15px;">
-      • Perpanjangan 5 Tahunan<br>
-      • Duplikat STNK<br>
-      • Mutasi Antar Daerah<br>
-      • BBN 1 & 2 (Balik Nama)
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(42,82,152,0.15)'">
+    <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">📋</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700;">STNK & Pajak</h4>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">5 Tahunan</span>
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Duplikat</span>
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Mutasi</span>
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">BBN</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/regident/sim" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 12px; color: white; box-shadow: 0 5px 12px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 12px rgba(0,0,0,0.2)'">
-    <h3 style="margin-top: 0; color: #ffd700; font-size: 2.5em; text-align: center;">🪪</h3>
-    <h4 style="margin: 15px 0; font-size: 1.3em; color: white; text-align: center;">SIM (Surat Izin Mengemudi)</h4>
-    <p style="font-size: 0.9em; line-height: 1.6; text-align: center; margin-top: 15px;">
-      • Pembuatan SIM Baru<br>
-      • Perpanjangan SIM<br>
-      • Peningkatan Golongan<br>
-      • Informasi SATPAS Kebumen
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(102,126,234,0.15)'">
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🪪</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700;">SIM (Surat Izin Mengemudi)</h4>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">SIM Baru</span>
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Perpanjangan</span>
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Upgrade</span>
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">SATPAS</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/regident/bpkb" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 30px; border-radius: 12px; color: white; box-shadow: 0 5px 12px rgba(0,0,0,0.2); transition: all 0.3s; cursor: pointer; min-height: 220px;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 12px rgba(0,0,0,0.2)'">
-    <h3 style="margin-top: 0; color: white; font-size: 2.5em; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">📜</h3>
-    <h4 style="margin: 15px 0; font-size: 1.3em; color: white; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">BPKB</h4>
-    <p style="font-size: 0.9em; line-height: 1.6; text-align: center; margin-top: 15px;">
-      • Penerbitan BPKB Baru<br>
-      • Balik Nama BPKB<br>
-      • Duplikat BPKB<br>
-      • Mutasi BPKB
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
+    <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">📜</span>
+      </div>
+      <h4 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700;">BPKB</h4>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">BPKB Baru</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Balik Nama</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Duplikat</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Mutasi</span>
+      </div>
+    </div>
   </div>
 </a>
 

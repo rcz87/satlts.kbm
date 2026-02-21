@@ -13,17 +13,24 @@
 
 ## 📋 Informasi Kelembagaan
 
-<div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 40px; border-radius: 15px; color: white; box-shadow: 0 6px 20px rgba(0,0,0,0.2); margin: 30px 0;">
-  <h3 style="margin-top: 0; color: #ffd700; text-align: center;">📁 URMIN</h3>
-  <h4 style="margin: 10px 0; color: white; text-align: center;">Urusan Dalam & Administrasi</h4>
-  <p style="font-size: 0.95em; line-height: 1.8; text-align: center; margin-top: 20px;">
-    Satuan Urusan Dalam mengelola:<br><br>
-    • <strong>Profil Satlantas</strong> Polres Kebumen<br>
-    • <strong>Struktur Organisasi</strong><br>
-    • <strong>Kontak & Lokasi</strong> layanan<br>
-    • <strong>Administrasi</strong> internal<br>
-    • <strong>Data & Informasi</strong> kelembagaan
-  </p>
+<div style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(131,77,155,0.15); margin: 30px 0;">
+  <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 28px 30px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 12% 12%; text-align: center;">
+    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+      <span style="font-size: 2.2em;">📁</span>
+    </div>
+    <h3 style="margin: 0; color: white; font-weight: 700; font-size: 1.3em;">URMIN</h3>
+    <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 0.95em;">Urusan Dalam & Administrasi</p>
+  </div>
+  <div style="padding: 25px 30px 30px; text-align: center;">
+    <p style="font-size: 0.95em; color: #555; margin: 0 0 18px 0;">Satuan Urusan Dalam mengelola:</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+      <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Profil Satlantas</span>
+      <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Struktur Organisasi</span>
+      <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Kontak & Lokasi</span>
+      <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Administrasi</span>
+      <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Data & Informasi</span>
+    </div>
+  </div>
 </div>
 
 ---
