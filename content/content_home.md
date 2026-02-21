@@ -4,66 +4,96 @@
 
 ## 📋 Pilih Layanan Sesuai Kebutuhan Anda
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/regident" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
-    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">🏢</h2>
-    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">PELAYANAN REGIDENT</h3>
-    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
-      Registrasi & Identifikasi Kendaraan<br>
-      <strong style="color: #ffd700;">• STNK & Pajak</strong><br>
-      <strong style="color: #ffd700;">• SIM</strong><br>
-      <strong style="color: #ffd700;">• BPKB</strong>
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(102,126,234,0.15)'">
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🏢</span>
+      </div>
+      <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PELAYANAN REGIDENT</h3>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Registrasi & Identifikasi Kendaraan</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">STNK & Pajak</span>
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">SIM</span>
+        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">BPKB</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/gakum" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
-    <h2 style="margin-top: 0; color: white; font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">⚖️</h2>
-    <h3 style="margin: 10px 0; font-size: 1.5em; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">PELAYANAN GAKUM</h3>
-    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: white;">
-      Penegakan Hukum Lalu Lintas<br>
-      <strong style="color: #fff3cd;">• Unit Laka Lantas</strong><br>
-      <strong style="color: #fff3cd;">• Tilang & ETLE</strong>
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
+    <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">⚖️</span>
+      </div>
+      <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PELAYANAN GAKUM</h3>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Penegakan Hukum Lalu Lintas</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Unit Laka Lantas</span>
+        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Tilang & ETLE</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/patwal" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
-    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">🚓</h2>
-    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">PATWAL</h3>
-    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
-      Patroli & Pengawalan<br>
-      <strong style="color: #ffd700;">• Pengaturan Lalu Lintas</strong><br>
-      <strong style="color: #ffd700;">• Pengawalan</strong>
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(42,82,152,0.15)'">
+    <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🚓</span>
+      </div>
+      <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PATWAL</h3>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Patroli & Pengawalan</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Pengaturan Lalin</span>
+        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Pengawalan</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/kamsel" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
-    <h2 style="margin-top: 0; color: white; font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🛡️</h2>
-    <h3 style="margin: 10px 0; font-size: 1.5em; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">KAMSEL</h3>
-    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: white;">
-      Keamanan & Keselamatan<br>
-      <strong style="color: white;">• Safety Riding</strong><br>
-      <strong style="color: white;">• Edukasi Masyarakat</strong>
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(86,171,47,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(86,171,47,0.15)'">
+    <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">🛡️</span>
+      </div>
+      <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">KAMSEL</h3>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Keamanan & Keselamatan</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Safety Riding</span>
+        <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Edukasi Masyarakat</span>
+      </div>
+    </div>
   </div>
 </a>
 
 <a href="/urmin" style="text-decoration: none;">
-  <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 35px; border-radius: 15px; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-align: center; height: 280px; display: flex; flex-direction: column; justify-content: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.2)'">
-    <h2 style="margin-top: 0; color: #ffd700; font-size: 3em; margin-bottom: 10px;">📁</h2>
-    <h3 style="margin: 10px 0; font-size: 1.5em; color: white;">URMIN</h3>
-    <p style="font-size: 0.95em; line-height: 1.6; margin: 15px 0 0 0; color: rgba(255,255,255,0.95);">
-      Urusan Dalam & Administrasi<br>
-      <strong style="color: #ffd700;">• Profil Satlantas</strong><br>
-      <strong style="color: #ffd700;">• Kontak & Lokasi</strong>
-    </p>
+  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(131,77,155,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(131,77,155,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(131,77,155,0.15)'">
+    <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
+      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+        <span style="font-size: 2.2em;">📁</span>
+      </div>
+      <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">URMIN</h3>
+    </div>
+    <div style="padding: 22px 25px 28px;">
+      <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Urusan Dalam & Administrasi</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+        <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Profil Satlantas</span>
+        <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Kontak & Lokasi</span>
+      </div>
+    </div>
   </div>
 </a>
 
