@@ -1,0 +1,52 @@
+# ================================================
+# SSH CONFIG TEMPLATE
+# Portal Satlantas Polres Kebumen - VS Code Remote-SSH
+# ================================================
+#
+# INSTRUKSI:
+# 1. Buka VS Code, tekan Ctrl+Shift+P
+# 2. Ketik "Remote-SSH: Open SSH Configuration File"
+# 3. Pilih file ~/.ssh/config
+# 4. Copy dan paste konfigurasi di bawah ini
+# 5. Ganti nilai YOUR_VPS_IP dan YOUR_USERNAME
+# 6. Save file, lalu Connect ke host
+#
+# CARA CONNECT:
+# 1. Tekan Ctrl+Shift+P
+# 2. Ketik "Remote-SSH: Connect to Host"
+# 3. Pilih "satlantas-vps"
+# 4. Masukkan password saat diminta
+#
+
+# === KONEKSI VPS SATLANTAS ===
+Host satlantas-vps
+    # Ganti dengan IP VPS Hostinger Anda
+    HostName YOUR_VPS_IP
+
+    # Username untuk login (default root, atau user yang sudah dibuat)
+    User root
+
+    # Port SSH (default 22)
+    Port 22
+
+    # Folder yang akan dibuka otomatis di VS Code
+    # Sesuaikan setelah deploy aplikasi ke VPS
+    # RemoteCommand cd /var/www/satlantas && exec $SHELL
+
+    # Keep connection alive (mencegah disconnect)
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+    # Compression untuk koneksi lebih cepat
+    Compression yes
+
+# === KONEKSI DENGAN SSH KEY (RECOMMENDED) ===
+# Gunakan konfigurasi ini setelah setup SSH Key
+# Host satlantas-vps-key
+#     HostName YOUR_VPS_IP
+#     User satlantas
+#     Port 22
+#     IdentityFile ~/.ssh/id_rsa_satlantas
+#     ServerAliveInterval 60
+#     ServerAliveCountMax 3
+#     Compression yes
