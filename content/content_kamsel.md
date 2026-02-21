@@ -13,9 +13,9 @@
 
 ## 📋 Program Keamanan & Keselamatan
 
-<div style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(86,171,47,0.15); margin: 30px 0;">
-  <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 28px 30px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 12% 12%; text-align: center;">
-    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+<div class="svc-info-box green" style="margin: 30px 0;">
+  <div class="svc-card-header" style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); border-radius: 24px 24px 50% 50% / 24px 24px 12% 12%;">
+    <div class="svc-card-icon">
       <span style="font-size: 2.2em;">🛡️</span>
     </div>
     <h3 style="margin: 0; color: white; font-weight: 700; font-size: 1.3em;">KAMSEL</h3>
@@ -24,11 +24,11 @@
   <div style="padding: 25px 30px 30px; text-align: center;">
     <p style="font-size: 0.95em; color: #555; margin: 0 0 18px 0;">Satuan Keamanan dan Keselamatan bertugas:</p>
     <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-      <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Edukasi Keselamatan</span>
-      <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Safety Riding</span>
-      <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Penyuluhan</span>
-      <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Kampanye Tertib Lalin</span>
-      <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Pencegahan Laka</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Edukasi Keselamatan</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Safety Riding</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Penyuluhan</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Kampanye Tertib Lalin</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Pencegahan Laka</span>
     </div>
   </div>
 </div>

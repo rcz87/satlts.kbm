@@ -7,91 +7,81 @@
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/regident" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(102,126,234,0.15)'">
-    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
-      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <span style="font-size: 2.2em;">🏢</span>
-      </div>
+  <div class="svc-card purple">
+    <div class="svc-card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+      <div class="svc-card-icon">🏢</div>
       <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PELAYANAN REGIDENT</h3>
     </div>
     <div style="padding: 22px 25px 28px;">
       <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Registrasi & Identifikasi Kendaraan</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">STNK & Pajak</span>
-        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">SIM</span>
-        <span style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">BPKB</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #667eea, #764ba2);">STNK & Pajak</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #667eea, #764ba2);">SIM</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #667eea, #764ba2);">BPKB</span>
       </div>
     </div>
   </div>
 </a>
 
 <a href="/gakum" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
-    <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
-      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <span style="font-size: 2.2em;">⚖️</span>
-      </div>
+  <div class="svc-card orange">
+    <div class="svc-card-header" style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%);">
+      <div class="svc-card-icon">⚖️</div>
       <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PELAYANAN GAKUM</h3>
     </div>
     <div style="padding: 22px 25px 28px;">
       <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Penegakan Hukum Lalu Lintas</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Unit Laka Lantas</span>
-        <span style="background: linear-gradient(135deg, #f46b45, #eea849); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Tilang & ETLE</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #f46b45, #eea849);">Unit Laka Lantas</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #f46b45, #eea849);">Tilang & ETLE</span>
       </div>
     </div>
   </div>
 </a>
 
 <a href="/patwal" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(42,82,152,0.15)'">
-    <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
-      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <span style="font-size: 2.2em;">🚓</span>
-      </div>
+  <div class="svc-card blue">
+    <div class="svc-card-header" style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);">
+      <div class="svc-card-icon">🚓</div>
       <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">PATWAL</h3>
     </div>
     <div style="padding: 22px 25px 28px;">
       <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Patroli & Pengawalan</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Pengaturan Lalin</span>
-        <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Pengawalan</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Pengaturan Lalin</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Pengawalan</span>
       </div>
     </div>
   </div>
 </a>
 
 <a href="/kamsel" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(86,171,47,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(86,171,47,0.15)'">
-    <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
-      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <span style="font-size: 2.2em;">🛡️</span>
-      </div>
+  <div class="svc-card green">
+    <div class="svc-card-header" style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);">
+      <div class="svc-card-icon">🛡️</div>
       <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">KAMSEL</h3>
     </div>
     <div style="padding: 22px 25px 28px;">
       <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Keamanan & Keselamatan</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Safety Riding</span>
-        <span style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Edukasi Masyarakat</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Safety Riding</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #56ab2f, #a8e063);">Edukasi Masyarakat</span>
       </div>
     </div>
   </div>
 </a>
 
 <a href="/urmin" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(131,77,155,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(131,77,155,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(131,77,155,0.15)'">
-    <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
-      <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <span style="font-size: 2.2em;">📁</span>
-      </div>
+  <div class="svc-card pink">
+    <div class="svc-card-header" style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%);">
+      <div class="svc-card-icon">📁</div>
       <h3 style="margin: 0; font-size: 1.25em; color: white; font-weight: 700; letter-spacing: 0.5px;">URMIN</h3>
     </div>
     <div style="padding: 22px 25px 28px;">
       <p style="font-size: 0.9em; color: #666; margin: 0 0 14px 0;">Urusan Dalam & Administrasi</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Profil Satlantas</span>
-        <span style="background: linear-gradient(135deg, #834d9b, #d04ed6); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600;">Kontak & Lokasi</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #834d9b, #d04ed6);">Profil Satlantas</span>
+        <span class="svc-pill" style="background: linear-gradient(135deg, #834d9b, #d04ed6);">Kontak & Lokasi</span>
       </div>
     </div>
   </div>
@@ -106,11 +96,9 @@
 <div style="display: flex; gap: 22px; margin: 30px 0; flex-wrap: wrap; justify-content: center;">
 
   <a href="/ikm" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(17,153,142,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(17,153,142,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(17,153,142,0.15)'">
-      <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
-        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
-          <span style="font-size: 1.6em;">📊</span>
-        </div>
+    <div class="svc-card teal">
+      <div class="svc-card-header sm" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+        <div class="svc-card-icon sm">📊</div>
         <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Survey IKM</h3>
       </div>
       <div style="padding: 14px 20px 18px;">
@@ -120,11 +108,9 @@
   </a>
 
   <a href="/dasarhukum" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(235,51,73,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(235,51,73,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(235,51,73,0.15)'">
-      <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
-        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
-          <span style="font-size: 1.6em;">📚</span>
-        </div>
+    <div class="svc-card red">
+      <div class="svc-card-header sm" style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);">
+        <div class="svc-card-icon sm">📚</div>
         <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Dasar Hukum</h3>
       </div>
       <div style="padding: 14px 20px 18px;">
@@ -134,11 +120,9 @@
   </a>
 
   <a href="/galery" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(255,106,0,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(255,106,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(255,106,0,0.15)'">
-      <div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
-        <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
-          <span style="font-size: 1.6em;">📸</span>
-        </div>
+    <div class="svc-card fire">
+      <div class="svc-card-header sm" style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);">
+        <div class="svc-card-icon sm">📸</div>
         <h3 style="margin: 0; font-size: 1.1em; color: white; font-weight: 700;">Galery</h3>
       </div>
       <div style="padding: 14px 20px 18px;">

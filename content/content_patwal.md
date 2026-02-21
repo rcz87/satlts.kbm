@@ -13,9 +13,9 @@
 
 ## 📋 Layanan Patroli & Pengawalan
 
-<div style="background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(42,82,152,0.15); margin: 30px 0;">
-  <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 30px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 12% 12%; text-align: center;">
-    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+<div class="svc-info-box blue" style="margin: 30px 0;">
+  <div class="svc-card-header" style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); border-radius: 24px 24px 50% 50% / 24px 24px 12% 12%;">
+    <div class="svc-card-icon">
       <span style="font-size: 2.2em;">🚓</span>
     </div>
     <h3 style="margin: 0; color: white; font-weight: 700; font-size: 1.3em;">PATWAL</h3>
@@ -24,11 +24,11 @@
   <div style="padding: 25px 30px 30px; text-align: center;">
     <p style="font-size: 0.95em; color: #555; margin: 0 0 18px 0;">Satuan Patroli dan Pengawalan bertugas melakukan:</p>
     <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-      <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Pengaturan Lalin</span>
-      <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Patroli Rutin</span>
-      <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Pengawalan VIP</span>
-      <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Operasi Terpadu</span>
-      <span style="background: linear-gradient(135deg, #2a5298, #1e3c72); color: white; padding: 8px 18px; border-radius: 20px; font-size: 0.85em; font-weight: 600;">Pengamanan Kegiatan</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Pengaturan Lalin</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Patroli Rutin</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Pengawalan VIP</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Operasi Terpadu</span>
+      <span class="svc-pill lg" style="background: linear-gradient(135deg, #2a5298, #1e3c72);">Pengamanan Kegiatan</span>
     </div>
   </div>
 </div>

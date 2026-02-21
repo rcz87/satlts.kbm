@@ -1254,6 +1254,134 @@ footer hr {
 }
 
 /* ========================================
+   SERVICE CARD - HOVER EFFECT
+   Card layanan yang terangkat saat di-hover
+   ======================================== */
+
+.svc-card {
+  background: white;
+  padding: 0;
+  border-radius: 24px;
+  color: #333;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.svc-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+
+.svc-card:active {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Shadow variants per warna gradient */
+.svc-card.purple { box-shadow: 0 4px 20px rgba(102,126,234,0.18); }
+.svc-card.purple:hover { box-shadow: 0 16px 40px rgba(102,126,234,0.35); }
+
+.svc-card.orange { box-shadow: 0 4px 20px rgba(244,107,69,0.18); }
+.svc-card.orange:hover { box-shadow: 0 16px 40px rgba(244,107,69,0.35); }
+
+.svc-card.blue { box-shadow: 0 4px 20px rgba(42,82,152,0.18); }
+.svc-card.blue:hover { box-shadow: 0 16px 40px rgba(42,82,152,0.35); }
+
+.svc-card.green { box-shadow: 0 4px 20px rgba(86,171,47,0.18); }
+.svc-card.green:hover { box-shadow: 0 16px 40px rgba(86,171,47,0.35); }
+
+.svc-card.pink { box-shadow: 0 4px 20px rgba(131,77,155,0.18); }
+.svc-card.pink:hover { box-shadow: 0 16px 40px rgba(131,77,155,0.35); }
+
+.svc-card.red { box-shadow: 0 4px 20px rgba(235,51,73,0.18); }
+.svc-card.red:hover { box-shadow: 0 16px 40px rgba(235,51,73,0.35); }
+
+.svc-card.teal { box-shadow: 0 4px 20px rgba(17,153,142,0.18); }
+.svc-card.teal:hover { box-shadow: 0 16px 40px rgba(17,153,142,0.35); }
+
+.svc-card.fire { box-shadow: 0 4px 20px rgba(255,106,0,0.18); }
+.svc-card.fire:hover { box-shadow: 0 16px 40px rgba(255,106,0,0.35); }
+
+/* Header card dengan kurva bawah */
+.svc-card-header {
+  padding: 28px 20px 22px;
+  border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;
+  text-align: center;
+}
+
+.svc-card-header.sm {
+  padding: 22px 16px 18px;
+  border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;
+}
+
+/* Icon lingkaran glassmorphism */
+.svc-card-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  font-size: 2.2em;
+}
+
+.svc-card-icon.sm {
+  width: 56px;
+  height: 56px;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+/* Badge/pill */
+.svc-pill {
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.svc-pill.lg {
+  padding: 8px 18px;
+  font-size: 0.85em;
+}
+
+/* Info box card (patwal, kamsel, urmin) */
+.svc-info-box {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.svc-info-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .svc-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .svc-card-header {
+    padding: 22px 16px 18px;
+  }
+
+  .svc-card-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.8em;
+  }
+}
+
+/* ========================================
    FLOATING FEEDBACK BUTTON
    ======================================== */
 
