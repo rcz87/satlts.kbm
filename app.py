@@ -125,22 +125,26 @@ def index():
 @app.route('/5tahunan')
 def tahunan():
     content = load_markdown('content_5tahunan.md')
-    return render_template('index.html', content=content, current_page='5tahunan')
+    return render_template('index.html', content=content, current_page='5tahunan',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/duplikat')
 def duplikat():
     content = load_markdown('content_duplikat.md')
-    return render_template('index.html', content=content, current_page='duplikat')
+    return render_template('index.html', content=content, current_page='duplikat',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/mutasi')
 def mutasi():
     content = load_markdown('content_mutasi.md')
-    return render_template('index.html', content=content, current_page='mutasi')
+    return render_template('index.html', content=content, current_page='mutasi',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/bbn')
 def bbn():
     content = load_markdown('content_bbn.md')
-    return render_template('index.html', content=content, current_page='bbn')
+    return render_template('index.html', content=content, current_page='bbn',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/dasarhukum')
 def dasarhukum():
@@ -172,7 +176,8 @@ def lihat_perpol():
             </p>
         </div>
     ''')
-    return render_template('index.html', content=content, current_page='dasarhukum')
+    return render_template('index.html', content=content, current_page='dasarhukum',
+                         parent_url=url_for('dasarhukum'), parent_label='Kembali ke Dasar Hukum')
 
 @app.route('/lihat-uu-lalulintas')
 def lihat_uu_lalulintas():
@@ -199,7 +204,8 @@ def lihat_uu_lalulintas():
             </p>
         </div>
     ''')
-    return render_template('index.html', content=content, current_page='dasarhukum')
+    return render_template('index.html', content=content, current_page='dasarhukum',
+                         parent_url=url_for('dasarhukum'), parent_label='Kembali ke Dasar Hukum')
 
 @app.route('/galery')
 def galery():
@@ -244,17 +250,20 @@ def regident():
 @app.route('/regident/stnk')
 def regident_stnk():
     content = load_markdown('content_regident_stnk.md')
-    return render_template('index.html', content=content, current_page='regident')
+    return render_template('index.html', content=content, current_page='regident',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/regident/sim')
 def regident_sim():
     content = load_markdown('content_regident_sim.md')
-    return render_template('index.html', content=content, current_page='regident')
+    return render_template('index.html', content=content, current_page='regident',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 @app.route('/regident/bpkb')
 def regident_bpkb():
     content = load_markdown('content_regident_bpkb.md')
-    return render_template('index.html', content=content, current_page='regident')
+    return render_template('index.html', content=content, current_page='regident',
+                         parent_url=url_for('regident'), parent_label='Kembali ke REGIDENT')
 
 # GAKUM Routes
 @app.route('/gakum')
@@ -265,12 +274,14 @@ def gakum():
 @app.route('/gakum/laka')
 def gakum_laka():
     content = load_markdown('content_gakum_laka.md')
-    return render_template('index.html', content=content, current_page='gakum')
+    return render_template('index.html', content=content, current_page='gakum',
+                         parent_url=url_for('gakum'), parent_label='Kembali ke GAKUM')
 
 @app.route('/gakum/tilang')
 def gakum_tilang():
     content = load_markdown('content_gakum_tilang.md')
-    return render_template('index.html', content=content, current_page='gakum')
+    return render_template('index.html', content=content, current_page='gakum',
+                         parent_url=url_for('gakum'), parent_label='Kembali ke GAKUM')
 
 # PATWAL Route
 @app.route('/patwal')
@@ -453,6 +464,7 @@ def add_security_headers(response):
         "style-src 'self' 'unsafe-inline'; "
         "img-src 'self' data:; "
         "font-src 'self'; "
+        "frame-src 'self' https://www.google.com https://maps.google.com; "
         "frame-ancestors 'self';"
     )
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'

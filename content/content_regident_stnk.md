@@ -7,7 +7,7 @@ Pilih layanan sesuai kebutuhan Anda:
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; margin: 30px 0;">
 
 <a href="/5tahunan" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(102,126,234,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
       <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 1.8em;">📅</span>
@@ -21,7 +21,7 @@ Pilih layanan sesuai kebutuhan Anda:
 </a>
 
 <a href="/duplikat" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(42,82,152,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
       <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 1.8em;">🔄</span>
@@ -35,7 +35,7 @@ Pilih layanan sesuai kebutuhan Anda:
 </a>
 
 <a href="/mutasi" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(244,107,69,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
       <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 1.8em;">🚚</span>
@@ -49,7 +49,7 @@ Pilih layanan sesuai kebutuhan Anda:
 </a>
 
 <a href="/bbn" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(86,171,47,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(86,171,47,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 22px; color: #333; box-shadow: 0 4px 18px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 22px 16px 18px; border-radius: 22px 22px 50% 50% / 22px 22px 20% 20%;">
       <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 1.8em;">💳</span>
@@ -123,7 +123,7 @@ SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang
 <div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
   <h3 style="color: white; margin-bottom: 15px;">📬 Bantu Kami Tingkatkan Layanan STNK!</h3>
   <p style="color: white; margin-bottom: 20px;">Punya saran untuk fitur baru, perbaikan, atau peningkatan? Kami sangat menghargai masukan Anda!</p>
-  <button id="btn-feedback" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+  <button id="btn-feedback" class="btn-cta" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
     📝 Kirim Feedback & Saran
   </button>
 </div>
@@ -151,7 +151,7 @@ SAMSAT Kebumen menyediakan **layanan keliling** untuk memudahkan masyarakat yang
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="/regident" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#1e3c72'" onmouseout="this.style.background='#2a5298'">
+  <a href="/regident" class="btn-back-content" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
     ← Kembali ke PELAYANAN REGIDENT
   </a>
 </div>

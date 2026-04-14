@@ -76,7 +76,7 @@ Jalan Tentara Pelajar No. 54, Kebumen
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="/regident" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#1e3c72'" onmouseout="this.style.background='#2a5298'">
+  <a href="/regident" class="btn-back-content" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
     ← Kembali ke PELAYANAN REGIDENT
   </a>
 </div>

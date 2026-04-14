@@ -16,7 +16,7 @@
 **SINAR** (SIM Nasional Presisi) adalah aplikasi untuk perpanjangan SIM online dari Korlantas POLRI.
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="https://sinar.korlantas.polri.go.id" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+  <a href="https://sinar.korlantas.polri.go.id" target="_blank" rel="noopener noreferrer" class="btn-cta" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s;">
     🪪 Buka SINAR →
   </a>
 </div>
@@ -83,7 +83,7 @@
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="/regident" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#1e3c72'" onmouseout="this.style.background='#2a5298'">
+  <a href="/regident" class="btn-back-content" style="display: inline-block; padding: 12px 30px; background: #2a5298; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
     ← Kembali ke PELAYANAN REGIDENT
   </a>
 </div>

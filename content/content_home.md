@@ -7,7 +7,7 @@
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/regident" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(102,126,234,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">🏢</span>
@@ -26,7 +26,7 @@
 </a>
 
 <a href="/gakum" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">⚖️</span>
@@ -44,7 +44,7 @@
 </a>
 
 <a href="/patwal" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(42,82,152,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">🚓</span>
@@ -62,7 +62,7 @@
 </a>
 
 <a href="/kamsel" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(86,171,47,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(86,171,47,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(86,171,47,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">🛡️</span>
@@ -80,7 +80,7 @@
 </a>
 
 <a href="/urmin" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(131,77,155,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(131,77,155,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(131,77,155,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(131,77,155,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #834d9b 0%, #d04ed6 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">📁</span>
@@ -106,7 +106,7 @@
 <div style="display: flex; gap: 22px; margin: 30px 0; flex-wrap: wrap; justify-content: center;">
 
   <a href="/ikm" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(17,153,142,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(17,153,142,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(17,153,142,0.15)'">
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(17,153,142,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
       <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
         <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
           <span style="font-size: 1.6em;">📊</span>
@@ -120,7 +120,7 @@
   </a>
 
   <a href="/dasarhukum" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(235,51,73,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(235,51,73,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(235,51,73,0.15)'">
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(235,51,73,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
       <div style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
         <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
           <span style="font-size: 1.6em;">📚</span>
@@ -134,7 +134,7 @@
   </a>
 
   <a href="/galery" style="text-decoration: none;">
-    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(255,106,0,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 30px rgba(255,106,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 18px rgba(255,106,0,0.15)'">
+    <div style="background: white; padding: 0; border-radius: 22px; min-width: 200px; box-shadow: 0 4px 18px rgba(255,106,0,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
       <div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 20px 30px 16px; border-radius: 22px 22px 50% 50% / 22px 22px 22% 22%;">
         <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;">
           <span style="font-size: 1.6em;">📸</span>
@@ -256,7 +256,7 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 <div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
   <h3 style="color: white; margin-bottom: 15px;">📬 Bantu Kami Tingkatkan Portal Ini!</h3>
   <p style="color: white; margin-bottom: 20px;">Punya saran untuk fitur baru, perbaikan, atau peningkatan? Kami sangat menghargai masukan Anda!</p>
-  <button id="btn-feedback" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+  <button id="btn-feedback" class="btn-cta" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
     📝 Kirim Feedback & Saran
   </button>
 </div>
@@ -282,7 +282,7 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 ### 🗺️ Peta Lokasi
 
 <div style="margin: 20px 0;">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.8579!2d109.6572!3d-7.6667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDAnMDAuMSJTIDEwOcKwMzknMjUuOSJF!5e0!3m2!1sid!2sid!4v1234567890" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps?q=Polres+Kebumen,+Jl.+Tentara+Pelajar,+Kebumen,+Jawa+Tengah&output=embed" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 ---

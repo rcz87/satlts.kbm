@@ -83,7 +83,7 @@
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <a href="/gakum" style="display: inline-block; padding: 12px 30px; background: #f46b45; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#d45a35'" onmouseout="this.style.background='#f46b45'">
+  <a href="/gakum" class="btn-back-content" style="display: inline-block; padding: 12px 30px; background: #f46b45; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
     ← Kembali ke PELAYANAN GAKUM
   </a>
 </div>

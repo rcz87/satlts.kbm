@@ -8,7 +8,7 @@
   <title>SAMSAT SMART INFOBOARD - Kebumen</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}">
   <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
 </head>
 <body>
   <header>
@@ -43,9 +43,9 @@
   </nav>
   {% else %}
   <div class="back-button-container">
-    <a href="{{ url_for('index') }}" class="back-button">
+    <a href="{{ parent_url|default(url_for('index')) }}" class="back-button">
       <span class="back-arrow">←</span>
-      <span class="back-text">Kembali ke Menu Utama</span>
+      <span class="back-text">{{ parent_label|default('Kembali ke Menu Utama') }}</span>
     </a>
   </div>
   {% endif %}

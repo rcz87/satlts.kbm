@@ -13,7 +13,7 @@ Pilih layanan sesuai kebutuhan Anda:
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin: 40px 0;">
 
 <a href="/regident/stnk" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(42,82,152,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(42,82,152,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(42,82,152,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">📋</span>
@@ -32,7 +32,7 @@ Pilih layanan sesuai kebutuhan Anda:
 </a>
 
 <a href="/regident/sim" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(102,126,234,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(102,126,234,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">🪪</span>
@@ -51,7 +51,7 @@ Pilih layanan sesuai kebutuhan Anda:
 </a>
 
 <a href="/regident/bpkb" style="text-decoration: none;">
-  <div style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 35px rgba(244,107,69,0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(244,107,69,0.15)'">
+  <div class="service-card" style="background: white; padding: 0; border-radius: 24px; color: #333; box-shadow: 0 4px 20px rgba(244,107,69,0.15); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-align: center; overflow: hidden;">
     <div style="background: linear-gradient(135deg, #f46b45 0%, #eea849 100%); padding: 28px 20px 22px; border-radius: 24px 24px 50% 50% / 24px 24px 18% 18%;">
       <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
         <span style="font-size: 2.2em;">📜</span>
