@@ -68,14 +68,17 @@ URL: `/admin/documents`
 
 ## 🔑 Login Kredensial
 
-**Default Admin Account:**
-```
-URL: https://your-domain.com/admin/login
-Username: admin
-Password: admin123
+**Tidak ada default admin.** Admin pertama harus dibuat manual setelah deploy:
+
+```bash
+# Interaktif
+python create_admin.py
+
+# Non-interaktif (CI/automation)
+ADMIN_PASSWORD='password_kuat' python create_admin.py admin "Admin Satlantas"
 ```
 
-⚠️ **PENTING:** Ganti password default setelah login pertama!
+URL login: `https://your-domain.com/admin/login`
 
 ## 📁 Struktur File Sistem Admin
 
@@ -110,7 +113,7 @@ CREATE TABLE admin_users (
 );
 ```
 
-Default admin sudah ter-insert otomatis.
+Admin pertama dibuat manual via `python create_admin.py` (tidak ada default account).
 
 ## 🛡️ Fitur Keamanan
 
@@ -142,7 +145,7 @@ Default admin sudah ter-insert otomatis.
 - [x] Login page tampil dengan benar
 - [x] Server running tanpa error
 - [x] Database schema created
-- [x] Default admin account inserted
+- [x] Admin bootstrap via `create_admin.py`
 - [x] Blueprint registered ke main app
 - [x] All templates created
 - [x] Routes configured
@@ -151,7 +154,7 @@ Default admin sudah ter-insert otomatis.
 ### Testing untuk User:
 1. **Login Test:**
    - Buka `/admin/login`
-   - Login dengan admin/admin123
+   - Login dengan admin yang dibuat via `create_admin.py`
    - Verify redirect ke dashboard
 
 2. **Dashboard Test:**

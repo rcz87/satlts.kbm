@@ -81,7 +81,7 @@
                             <button type="submit" class="btn btn-success btn-sm" title="Tandai Selesai">🟢</button>
                         </form>
                         {% endif %}
-                        <form method="POST" action="{{ url_for('admin.feedback_delete', id=feedback.id) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus feedback ini?');">
+                        <form method="POST" action="{{ url_for('admin.feedback_delete', id=feedback.id) }}" style="display: inline;" data-confirm="Yakin ingin menghapus feedback ini?">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                         </form>

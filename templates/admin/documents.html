@@ -41,7 +41,7 @@
                     </a>
                 </td>
                 <td>
-                    <form method="POST" action="{{ url_for('admin.documents_delete', filename=doc) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus dokumen ini?');">
+                    <form method="POST" action="{{ url_for('admin.documents_delete', filename=doc) }}" style="display: inline;" data-confirm="Yakin ingin menghapus dokumen ini?">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                     </form>

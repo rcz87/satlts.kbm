@@ -22,8 +22,8 @@
 # KONFIGURASI - SESUAIKAN DENGAN VPS ANDA
 # ================================================
 
-# IP Address VPS Hostinger
-VPS_IP="${VPS_IP:-31.97.107.243}"
+# IP Address VPS (wajib diisi via env var)
+VPS_IP="${VPS_IP:-}"
 
 # Username di VPS
 VPS_USER="${VPS_USER:-satlantas}"
@@ -70,13 +70,15 @@ log_error() {
 # VALIDASI
 # ================================================
 
-if [ "$VPS_IP" = "YOUR_VPS_IP" ]; then
+if [ -z "$VPS_IP" ]; then
     log_error "VPS_IP belum dikonfigurasi!"
     echo ""
-    echo "Cara setting:"
-    echo "  1. Edit file ini dan ganti YOUR_VPS_IP dengan IP VPS Anda"
-    echo "  2. Atau jalankan dengan environment variable:"
-    echo "     VPS_IP=123.456.789.0 VPS_USER=satlantas ./deploy/deploy-ssh.sh"
+    echo "Jalankan dengan environment variable:"
+    echo "  VPS_IP=123.456.789.0 VPS_USER=satlantas ./deploy/deploy-ssh.sh"
+    echo ""
+    echo "Atau export dulu:"
+    echo "  export VPS_IP=123.456.789.0"
+    echo "  ./deploy/deploy-ssh.sh"
     echo ""
     exit 1
 fi

@@ -31,6 +31,12 @@ env/
 instance/
 .webassets-cache
 
+# Replit (platform-specific)
+.replit
+.upm/
+.config/
+replit.nix
+
 # IDE
 .vscode/
 .idea/

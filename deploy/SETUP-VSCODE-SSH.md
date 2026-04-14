@@ -24,7 +24,7 @@ Panduan lengkap menghubungkan VS Code ke VPS untuk development & deployment Port
 
 ```
 Host satlantas-vps
-    HostName 31.97.107.243
+    HostName YOUR_VPS_IP
     User root
     Port 22
     ServerAliveInterval 60
@@ -32,7 +32,7 @@ Host satlantas-vps
     Compression yes
 ```
 
-5. Ganti `31.97.107.243` dengan IP VPS dari hPanel Hostinger
+5. Ganti `YOUR_VPS_IP` dengan IP VPS dari hPanel Hostinger
 6. Save file (`Ctrl+S`)
 
 > Template lengkap tersedia di: `deploy/ssh-config-example`
@@ -61,7 +61,7 @@ Agar tidak perlu ketik password setiap kali connect:
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_satlantas
 
 # Copy key ke VPS
-ssh-copy-id -i ~/.ssh/id_rsa_satlantas root@31.97.107.243
+ssh-copy-id -i ~/.ssh/id_rsa_satlantas root@YOUR_VPS_IP
 ```
 
 ### Di Windows (PowerShell):
@@ -71,14 +71,14 @@ ssh-copy-id -i ~/.ssh/id_rsa_satlantas root@31.97.107.243
 ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE\.ssh\id_rsa_satlantas
 
 # Copy key ke VPS (manual)
-type $env:USERPROFILE\.ssh\id_rsa_satlantas.pub | ssh root@31.97.107.243 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+type $env:USERPROFILE\.ssh\id_rsa_satlantas.pub | ssh root@YOUR_VPS_IP "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
 ### Update SSH Config:
 
 ```
 Host satlantas-vps
-    HostName 31.97.107.243
+    HostName YOUR_VPS_IP
     User satlantas
     Port 22
     IdentityFile ~/.ssh/id_rsa_satlantas
@@ -172,7 +172,7 @@ sudo systemctl status nginx
 ### VS Code tidak bisa connect
 ```
 # Cek koneksi dari terminal biasa dulu:
-ssh root@31.97.107.243
+ssh root@YOUR_VPS_IP
 
 # Jika timeout, cek firewall:
 # Di VPS: sudo ufw allow OpenSSH

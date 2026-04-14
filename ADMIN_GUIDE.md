@@ -47,14 +47,22 @@ Sistem admin telah berhasil dibangun untuk Portal Satlantas Polres Kebumen denga
 - ✅ Delete dokumen
 - ✅ Link langsung ke PDF viewer
 
-## 🔑 Kredensial Default
+## 🔑 Bootstrap Admin Pertama
 
-**PENTING:** Segera ganti password default setelah login pertama!
+Setelah fresh deploy, database admin kosong. Buat admin pertama dengan script:
 
+```bash
+# Interaktif (akan minta username, nama, password)
+python create_admin.py
+
+# Non-interaktif (untuk CI/deploy otomatis)
+ADMIN_PASSWORD='password_kuat_minimal_8_char' python create_admin.py admin "Admin Satlantas"
 ```
-Username: admin
-Password: admin123
-```
+
+**PENTING:**
+- Password minimal 8 karakter
+- Jangan pakai password default/lemah di production
+- Jalankan sekali saja saat setup awal
 
 ## 📱 Akses Admin Panel
 

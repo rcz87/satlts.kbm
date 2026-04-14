@@ -59,7 +59,7 @@
                 <td>
                     <div style="display: flex; gap: 0.5rem;">
                         <a href="{{ url_for('admin.kegiatan_edit', id=item.id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <form method="POST" action="{{ url_for('admin.kegiatan_hapus', id=item.id) }}" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus kegiatan ini?');">
+                        <form method="POST" action="{{ url_for('admin.kegiatan_hapus', id=item.id) }}" style="display: inline;" data-confirm="Yakin ingin menghapus kegiatan ini?">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                         </form>
