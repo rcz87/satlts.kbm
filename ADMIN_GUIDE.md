@@ -233,7 +233,7 @@ Berdasarkan Permenpan RB No. 14/2017:
 
 Untuk bantuan teknis, hubungi developer atau check:
 - Documentation: `/DEPLOYMENT.md`
-- Project info: `/replit.md`
+- Project info: `/PROJECT.md`
 - Logs: `/logs/satlantas.log`
 
 ---
