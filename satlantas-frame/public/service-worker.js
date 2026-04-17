@@ -1,4 +1,4 @@
-const CACHE = 'satlantas-frame-v22';
+const CACHE = 'satlantas-frame-v23';
 const ASSETS = [
   '/',
   '/index.html',

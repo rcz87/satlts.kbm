@@ -213,6 +213,7 @@ if('serviceWorker' in navigator){
           <option value="PAM AG Pagi (Pelaksana)" style="color:#000;background:#fff;">PAM AG Pagi (Pelaksana)</option>
         </optgroup>
         <optgroup label="── GIAT LAIN ──" style="color:#000;background:#fff;">
+          <option value="Live Report" style="color:#000;background:#fff;">Live Report</option>
           <option value="Giat Patroli" style="color:#000;background:#fff;">Giat Patroli</option>
           <option value="Operasi Patuh" style="color:#000;background:#fff;">Operasi Patuh</option>
           <option value="Operasi Zebra" style="color:#000;background:#fff;">Operasi Zebra</option>
@@ -327,6 +328,21 @@ if('serviceWorker' in navigator){
       <div style="margin-bottom:8px;">
         <div class="field-label">TTD / Penandatangan (1 nama per baris, huruf kapital)</div>
         <textarea id="wa-pamag-ttd" rows="3" placeholder="AKP SRI ENINGSIH.&#10;IPDA AGUS WIJAYANTO, S.H.&#10;IPDA RIDHO WINDU ATMOJO, S.H." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+    </div>
+
+    <div id="wa-fields-livereport" style="display:none;">
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Pelaksana (1 nama per baris)</div>
+        <textarea id="wa-lr-pelaksana" rows="3" placeholder="Aipda Agus Romi S, S.H.&#10;Briptu Rich Rizky IB." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Lokasi Pantauan (1 lokasi per baris)</div>
+        <textarea id="wa-lr-lokasi" rows="3" placeholder="Jalan Revolusi di depan Pos Karanganyar Kebumen.&#10;Jalan Indrakila Kebumen." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.3);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Kondisi Lalin & Cuaca</div>
+        <input id="wa-lr-kondisi" value="aman, lancar, tertib dan kondusif, 8-15 cerah" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
       </div>
     </div>
 
@@ -761,6 +777,7 @@ Seluruh kegiatan pelayanan Regident berjalan lancar, tertib, dan sesuai SOP yang
 
 var PATROLI_JENIS=['Giat Patroli'];
 var PAMAG_JENIS=['PAM AG Pagi (Pawas)','PAM AG Pagi (Pelaksana)'];
+var LIVEREPORT_JENIS=['Live Report'];
 function waCheckCustom(){
   var inp=document.getElementById('wa-jenis-input');
   var narasi=document.getElementById('wa-narasi');
@@ -771,11 +788,17 @@ function waCheckCustom(){
   var fpm=document.getElementById('wa-fields-pamag');
   var pwWrap=document.getElementById('wa-pamag-pengawas-wrap');
   var prWrap=document.getElementById('wa-pamag-propam-wrap');
+  var flr2=document.getElementById('wa-fields-livereport');
   // Hide all special fields first
   if(fp)fp.style.display='none';
   if(fl)fl.style.display='none';
   if(fpm)fpm.style.display='none';
-  if(PATROLI_JENIS.indexOf(v)!==-1){
+  if(flr2)flr2.style.display='none';
+  if(LIVEREPORT_JENIS.indexOf(v)!==-1){
+    var flr=document.getElementById('wa-fields-livereport');
+    if(flr)flr.style.display='';
+    narasi.value='';
+  } else if(PATROLI_JENIS.indexOf(v)!==-1){
     if(fp)fp.style.display='';
     narasi.value='1. Polantas Kebumen hadir melaksanakan kegiatan patroli jalan raya antisipasi kerawanan Lalin dan Laka Lantas dengan rute *(lihat field rute di atas)*\n\n2. Melaksanakan pengaturan dan pantauan arus lalin di *...(isi lokasi)*\n\n3. Selama kegiatan berjalan arus lalin terdapat aman lancar.';
   } else if(PAMAG_JENIS.indexOf(v)!==-1){
@@ -885,6 +908,55 @@ KASAT LANTAS POLRES KEBUMEN
 *AKP EDI NUGROHO, S.Tr.K.,S.I.K.*`;
     document.getElementById('wa-text').value=teksFormal;
     document.getElementById('wa-result').style.display='block';
+    return;
+  }
+
+  // Template LIVE REPORT
+  if(LIVEREPORT_JENIS.indexOf(jenis)!==-1){
+    try{
+    var sapaanCapLR=sapaan.charAt(0).toUpperCase()+sapaan.slice(1);
+    var lrPelRaw=(document.getElementById('wa-lr-pelaksana')||{}).value||'';
+    var lrLokRaw=(document.getElementById('wa-lr-lokasi')||{}).value||'';
+    var lrKondisi=(document.getElementById('wa-lr-kondisi')||{}).value||'aman, lancar, tertib dan kondusif';
+    var lrPelLines=lrPelRaw.split('\n').filter(function(s){return s.trim();});
+    var lrLokLines=lrLokRaw.split('\n').filter(function(s){return s.trim();});
+    var R=[];
+    R.push('*\u{1F1F2}\u{1F1E8}SATLANTAS POLRES KEBUMEN\u{1F1F2}\u{1F1E8}*');
+    R.push('');
+    R.push('               *RESPON CEPAT*');
+    R.push('             *TULUS MELAYANI*');
+    R.push('');
+    R.push('');
+    R.push('*LIVE REPORT PANTAUAN ARUS LALU LINTAS DI WILAYAH HUKUM POLRES KEBUMEN*');
+    R.push('');
+    R.push('Kepada Yth. :');
+    R.push('*1. DIRLANTAS  POLDA JATENG*');
+    R.push('*2. KAPOLRES KEBUMEN*');
+    R.push('');
+    R.push('Selamat '+sapaan+' Komandan, mohon ijin melaporkan *Live report pantauan arus Lalu lintas di wilayah hukum Polres Kebumen* sebagai berikut:');
+    R.push('');
+    R.push('*WAKTU:*');
+    R.push('Hari.          : '+hari+';');
+    R.push('Tanggal.   : '+tgl+';');
+    R.push('Pukul.       : '+mulai+' WIB s.d. selesai.');
+    R.push('');
+    R.push('*PELAKSANA:*');
+    for(var ri=0;ri<lrPelLines.length;ri++) R.push((ri+1)+'. '+lrPelLines[ri].trim());
+    if(!lrPelLines.length) R.push('1. -');
+    R.push('');
+    R.push('*KEGIATAN:*');
+    R.push('Melaksanakan live report pantauan arus lalin di lokasi sbb:');
+    for(var li=0;li<lrLokLines.length;li++) R.push((li+1)+'. '+lrLokLines[li].trim());
+    if(!lrLokLines.length) R.push('1. -');
+    R.push('');
+    R.push('Secara umum  arus lalu lintas terdapat '+lrKondisi+'.');
+    R.push('');
+    R.push('Hormat Kami');
+    R.push('*KASATLANTAS POLRES KEBUMEN*');
+    R.push('*AKP EDI NUGROHO., S.Tr.K., S.I.K.*');
+    document.getElementById('wa-text').value=R.join('\n');
+    document.getElementById('wa-result').style.display='block';
+    }catch(err){alert('Error Live Report: '+err.message);}
     return;
   }
 
