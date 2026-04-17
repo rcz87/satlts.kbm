@@ -1323,3 +1323,17 @@ footer hr {
     font-size: 1.3em;
   }
 }
+
+/* Tombol Aduan - efek menyala */
+#btn-aduan-toggle {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(220,53,69,0.35);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(220,53,69,0.7), 0 0 40px rgba(220,53,69,0.4), 0 0 80px rgba(220,53,69,0.2);
+  }
+}

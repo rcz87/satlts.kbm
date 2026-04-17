@@ -162,12 +162,12 @@
 
 <!-- Foto & Identitas -->
 <div style="text-align: center; min-width: 180px; flex-shrink: 0;">
-  <div style="width: 150px; height: 180px; margin: 0 auto 15px; border-radius: 12px; border: 3px solid #ffd700; background: linear-gradient(135deg, #1a3a5c, #2a5298); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-    <span style="font-size: 4em; opacity: 0.8;">👮</span>
+  <div style="width: 150px; height: 180px; margin: 0 auto 15px; border-radius: 12px; border: 3px solid #ffd700; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+    <img src="/static/images/kasat-lantas.jpg" alt="Kasat Lantas Polres Kebumen" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
   </div>
   <div style="background: rgba(255,215,0,0.15); border: 1px solid rgba(255,215,0,0.3); border-radius: 8px; padding: 10px 15px;">
-    <strong style="color: #ffd700; font-size: 0.95em; display: block; margin-bottom: 4px;">Kasat Lantas</strong>
-    <span style="color: rgba(255,255,255,0.85); font-size: 0.85em;">Polres Kebumen</span>
+    <strong style="color: #ffd700; font-size: 0.95em; display: block; margin-bottom: 4px;">AKP EDI NUGROHO, S.Tr.K., S.I.K.</strong>
+    <span style="color: rgba(255,255,255,0.85); font-size: 0.85em;">Kasat Lantas Polres Kebumen</span>
   </div>
 </div>
 
@@ -248,6 +248,43 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 - **Kanit Laka Lantas** – Penanganan Kecelakaan Lalu Lintas
 - **Kanit Regident** – Registrasi & Identifikasi (SIM, STNK, BPKB)
 - **Kanit Dikyasa** – Pendidikan dan Rekayasa Lalu Lintas
+
+---
+
+## 📞 Hubungi Kami / Laporan & Aduan
+
+<div style="margin: 25px 0;">
+  <button id="btn-aduan-toggle" style="width:100%;padding:16px 24px;border:none;border-radius:14px;background:linear-gradient(135deg,#dc3545,#c82333);color:white;font-size:1.1em;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(220,53,69,0.35);display:flex;align-items:center;justify-content:center;gap:10px;">
+    <span style="font-size:1.3em;">📞</span> HUBUNGI KAMI / LAPORAN & ADUAN
+  </button>
+  <div id="panel-aduan" style="display:none;margin-top:14px;background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.12);overflow:hidden;">
+    <div style="background:linear-gradient(135deg,#1e3c72,#2a5298);padding:16px 20px;text-align:center;">
+      <p style="margin:0;color:white;font-weight:700;font-size:1.05em;">Pilih Unit Yang Dituju</p>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,0.7);font-size:0.85em;">Klik untuk langsung terhubung via WhatsApp</p>
+    </div>
+    <div style="padding:16px 20px;">
+      <p style="font-size:0.85em;color:#1e3c72;font-weight:700;margin:0 0 10px;border-bottom:2px solid #667eea;padding-bottom:6px;">🏢 REGIDENT</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <a href="https://wa.me/6287725558787?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20STNK%20%26%20Pajak" target="_blank" rel="noopener" style="flex:1;min-width:120px;text-decoration:none;background:linear-gradient(135deg,#25d366,#128c7e);color:white;padding:12px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">📋 STNK & Pajak</a>
+        <a href="#" class="unit-segera" data-unit="SIM" style="flex:1;min-width:120px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">🪪 SIM<br><span style="font-size:0.75em;">(segera)</span></a>
+        <a href="#" class="unit-segera" data-unit="BPKB" style="flex:1;min-width:120px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">📄 BPKB<br><span style="font-size:0.75em;">(segera)</span></a>
+      </div>
+      <p style="font-size:0.85em;color:#1e3c72;font-weight:700;margin:0 0 10px;border-bottom:2px solid #f46b45;padding-bottom:6px;">📢 UNIT LAINNYA</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <a href="#" class="unit-segera" data-unit="Laka Lantas" style="flex:1;min-width:140px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">🚨 Laka Lantas<br><span style="font-size:0.75em;">(segera)</span></a>
+        <a href="#" class="unit-segera" data-unit="Tilang/ETLE" style="flex:1;min-width:140px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">📋 Tilang/ETLE<br><span style="font-size:0.75em;">(segera)</span></a>
+        <a href="#" class="unit-segera" data-unit="PATWAL" style="flex:1;min-width:140px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">🚓 PATWAL<br><span style="font-size:0.75em;">(segera)</span></a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+        <a href="#" class="unit-segera" data-unit="KAMSEL" style="flex:1;min-width:140px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">🛡️ KAMSEL<br><span style="font-size:0.75em;">(segera)</span></a>
+        <a href="#" class="unit-segera" data-unit="URMIN" style="flex:1;min-width:140px;text-decoration:none;background:#ccc;color:#666;padding:16px 14px;border-radius:10px;text-align:center;font-weight:700;font-size:1.1em;">📋 URMIN<br><span style="font-size:0.75em;">(segera)</span></a>
+      </div>
+      <div style="margin-top:14px;padding:12px;background:#fff3cd;border-radius:8px;text-align:center;">
+        <p style="margin:0;font-size:0.85em;color:#856404;">☎️ <strong>Nomor Darurat Satlantas:</strong> 0287-385514 &nbsp;|&nbsp; <strong>Polres:</strong> 0287-382110</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
