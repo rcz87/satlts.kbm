@@ -95,8 +95,8 @@
 
 ## 📍 Lokasi
 
-**Polres Kebumen**  
-Jl. Tentara Pelajar No. 54, Kebumen
+**Kantor PATWAL Satlantas Polres Kebumen**  
+Jl. Indrakila, Kebumen
 
 ---
 

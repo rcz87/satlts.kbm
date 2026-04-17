@@ -81,7 +81,7 @@ Berikut adalah dokumentasi kegiatan dan pelayanan di SAMSAT Kebumen. Galeri ini 
 Untuk informasi lebih lanjut tentang kegiatan dan layanan SAMSAT Kebumen:
 
 **📱 WhatsApp:** [0877-2555-8787](https://wa.me/6287725558787)  
-**📍 Alamat:** Jl. Tentara Pelajar No. 54, Kebumen  
+**📍 Alamat:** Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen  
 **⏰ Jam Operasional:**  
 - Senin - Jumat: 08:00 - 14:00 WIB  
 - Sabtu: 08:00 - 12:00 WIB

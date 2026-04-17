@@ -91,8 +91,8 @@ Memahami dasar hukum pelayanan SAMSAT membantu masyarakat untuk:
 
 Jika Anda membutuhkan penjelasan lebih detail tentang peraturan-peraturan ini, silakan hubungi:
 
-**SAMSAT Kebumen**  
-📍 Jl. Tentara Pelajar No. 54, Kebumen  
+**SATLANTAS POLRES KEBUMEN**  
+📍 Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen  
 💬 WhatsApp: [+62 877-2555-8787](https://wa.me/6287725558787)
 
 ---

@@ -62,10 +62,10 @@
 
 ## 📍 Kontak & Lokasi
 
-### Kantor Satlantas Polres Kebumen
+### Kantor POLRES KEBUMEN
 
 **Alamat:**  
-Jl. Tentara Pelajar No. 54, Kebumen  
+Jl. Tentara Pelajar No. 39, Kebumen  
 Kabupaten Kebumen, Jawa Tengah
 
 ### Kontak:

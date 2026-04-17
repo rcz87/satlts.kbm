@@ -58,13 +58,8 @@
 
 ## 📍 Lokasi Layanan
 
-**SAMSAT KEBUMEN**  
-Jalan Tentara Pelajar No. 54, Kebumen
-
-### Lokasi Lainnya:
-- Klapasawit, Wero, Gombong
-- Jl. Indrakila, Kebumen
-- Kantor Kecamatan Ayah, Demangsari
+**SATLANTAS POLRES KEBUMEN**  
+Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen
 
 ---
 

@@ -79,7 +79,7 @@
 ## 📍 Lokasi SPKT Polres Kebumen
 
 **Gedung SPKT Polres Kebumen**  
-Jl. Tentara Pelajar No. 54, Kebumen
+Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen
 
 ### ⏰ Jam Operasional:
 | Hari | Jam Layanan |

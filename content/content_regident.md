@@ -73,18 +73,28 @@ Pilih layanan sesuai kebutuhan Anda:
 
 ---
 
-## 📍 Lokasi Layanan SAMSAT Kebumen
+## 📍 Lokasi Layanan SAMSAT Kebumen (STNK & Pajak)
 
-SAMSAT Kebumen memiliki **4 lokasi pelayanan** untuk memudahkan masyarakat:
+SAMSAT Kebumen memiliki **4 lokasi pelayanan** untuk layanan STNK & Pajak:
 
 <div style="background: #e8f4f8; border-left: 5px solid #3498db; padding: 20px; margin: 20px 0; border-radius: 5px;">
-  <h4 style="margin-top: 0; color: #2c3e50;">📍 Lokasi Layanan:</h4>
+  <h4 style="margin-top: 0; color: #2c3e50;">📍 Lokasi Layanan STNK:</h4>
   <ol style="color: #555; line-height: 2;">
     <li><strong>Jl. Tentara Pelajar No.54, Panjer, Kebumen</strong> (Kantor Pusat)</li>
     <li><strong>Klapasawit, Wero, Gombong</strong></li>
     <li><strong>Jl. Indrakila, Kebumen</strong></li>
     <li><strong>Kantor Kecamatan Ayah, Demangsari</strong></li>
   </ol>
+</div>
+
+## 📍 Lokasi Layanan BPKB
+
+<div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px;">
+  <h4 style="margin-top: 0; color: #856404;">📍 Layanan BPKB:</h4>
+  <p style="color: #856404; margin-bottom: 0;">
+    <strong>SATLANTAS POLRES KEBUMEN</strong><br>
+    Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen
+  </p>
 </div>
 
 ---

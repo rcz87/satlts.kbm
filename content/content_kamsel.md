@@ -115,6 +115,7 @@
 ## 📞 Kontak
 
 **SATLANTAS POLRES KEBUMEN**  
+📍 Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen  
 ☎️ Nomor Darurat: **0287-385514**  
 ☎️ Polres Kebumen: **0287-382110**
 

@@ -78,7 +78,7 @@ Satuan Penegakan Hukum Lalu Lintas (GAKUM) bertugas:
 ☎️ Polres Kebumen: **0287-382110**
 
 **Lokasi SPKT:**  
-Jl. Tentara Pelajar No. 54, Kebumen
+Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen
 
 ---
 

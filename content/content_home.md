@@ -266,7 +266,7 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 ## 📍 Kontak & Lokasi
 
 **SATLANTAS POLRES KEBUMEN**  
-📍 Jalan Tentara Pelajar No. 39, Kebumen 54317, Jawa Tengah  
+📍 Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen  
 ☎️ Telepon: **(0287) 385514 / 382224**  
 📧 Email: **satlantaskebumen@ymail.com**
 
@@ -282,9 +282,9 @@ Satlantas Polres Kebumen dipimpin oleh **Kepala Satuan Lalu Lintas (Kasat Lantas
 ### 🗺️ Peta Lokasi
 
 <div style="margin: 20px 0;">
-<iframe src="https://www.google.com/maps?q=Polres+Kebumen,+Jl.+Tentara+Pelajar,+Kebumen,+Jawa+Tengah&output=embed" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps?q=Satlantas+Polres+Kebumen,+Jl.+H.M.+Sarbini,+Mertokondo,+Bumirejo,+Kebumen&output=embed" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 ---
 
-*Terakhir diperbarui: Oktober 2025*
+*Terakhir diperbarui: April 2026*
