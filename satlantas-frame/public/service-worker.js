@@ -1,4 +1,4 @@
-const CACHE = 'satlantas-frame-v23';
+const CACHE = 'satlantas-frame-v24';
 const ASSETS = [
   '/',
   '/index.html',
@@ -6,7 +6,9 @@ const ASSETS = [
   '/icon-192.png',
   '/icon-512.png',
   '/apple-touch-icon.png',
-  '/manifest.json'
+  '/manifest.json',
+  '/frame-gold.jpg',
+  '/frame-biru.jpg'
 ];
 
 self.addEventListener('install', e => {
