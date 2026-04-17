@@ -208,6 +208,10 @@ if('serviceWorker' in navigator){
           <option value="Pelayanan Samsat Malam" selected style="color:#000;background:#fff;">Pelayanan Samsat Malam</option>
           <option value="Pelayanan CFD" style="color:#000;background:#fff;">Pelayanan CFD</option>
         </optgroup>
+        <optgroup label="── PENGATURAN PAGI ──" style="color:#000;background:#fff;">
+          <option value="PAM AG Pagi (Pawas)" style="color:#000;background:#fff;">PAM AG Pagi (Pawas)</option>
+          <option value="PAM AG Pagi (Pelaksana)" style="color:#000;background:#fff;">PAM AG Pagi (Pelaksana)</option>
+        </optgroup>
         <optgroup label="── GIAT LAIN ──" style="color:#000;background:#fff;">
           <option value="Giat Patroli" style="color:#000;background:#fff;">Giat Patroli</option>
           <option value="Operasi Patuh" style="color:#000;background:#fff;">Operasi Patuh</option>
@@ -263,7 +267,7 @@ if('serviceWorker' in navigator){
       <input id="wa-tempat" value="Halaman parkir Kantor Samsat Kebumen" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
     </div>
 
-    <div style="display:flex;gap:8px;margin-bottom:8px;">
+    <div id="wa-fields-pelayanan" style="display:flex;gap:8px;margin-bottom:8px;">
       <div style="flex:1;">
         <div class="field-label">Jumlah WP (isi hari ini)</div>
         <input id="wa-wp" type="number" placeholder="misal 13" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.3);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
@@ -271,6 +275,58 @@ if('serviceWorker' in navigator){
       <div style="flex:1;">
         <div class="field-label">Total Penerimaan Rp (isi hari ini)</div>
         <input id="wa-nominal" placeholder="misal 7.842.500" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.3);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+      </div>
+    </div>
+
+    <div id="wa-fields-patroli" style="display:none;">
+      <div style="margin-bottom:8px;">
+        <div class="field-label">No. SPRIN</div>
+        <input id="wa-sprin" value="Sprin/90/IV/PAM.3.3./2026 Tanggal 1 April 2026" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Pelaksana (1 nama per baris)</div>
+        <textarea id="wa-pelaksana" rows="3" placeholder="Bripka Kusriyanto&#10;Bripka Puguh Anjar Prayogo,S.H" style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Rute Patroli</div>
+        <textarea id="wa-rute" rows="2" placeholder="Jl. Indrakila - Jl. A. Yani - Jl. Hasyim Asngari - ..." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Kondisi Lalin & Cuaca (misal: aman lancar, 815 cerah 33 nihil)</div>
+        <input id="wa-kondisi" value="aman lancar" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+      </div>
+    </div>
+
+    <div id="wa-fields-pamag" style="display:none;">
+      <div style="display:flex;gap:8px;margin-bottom:8px;">
+        <div style="flex:1;">
+          <div class="field-label">Nomor Beat</div>
+          <input id="wa-beat" value="7" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.3);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+        </div>
+        <div style="flex:1;">
+          <div class="field-label">Jam Selesai</div>
+          <input id="wa-pamag-selesai" value="07.45" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+        </div>
+      </div>
+      <div id="wa-pamag-pengawas-wrap" style="margin-bottom:8px;">
+        <div class="field-label">Pengawas (1 nama per baris, format: Pangkat Nama (Jabatan))</div>
+        <textarea id="wa-pamag-pengawas" rows="3" placeholder="AKP Sri Eningsih (Kasubbag Dalpers)&#10;Ipda Agus W, S.H. (Kaurmintu Satlantas)" style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div id="wa-pamag-propam-wrap" style="margin-bottom:8px;">
+        <div class="field-label">Sie Propam (1 nama per baris)</div>
+        <textarea id="wa-pamag-propam" rows="2" placeholder="Briptu Mahendra Panji Winata" style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Titik PAM AG (isi lengkap lokasi + personel)</div>
+        <textarea id="wa-pamag-titik" rows="10" placeholder="1. Jalan Bodronolo SP.3 Puskesmas Kutosari:&#10;- Aipda Margono (Siwas).&#10;- Bripka Titis Nurohman, S.H. (SDM).&#10;&#10;2. Jalan Merdeka SP.4 Kutosari:&#10;- Bripka Kusriyanto (Satlantas)." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.3);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">Kondisi Lalin & Cuaca</div>
+        <input id="wa-pamag-kondisi" value="ramai lancar, 8-15 cerah" style="width:100%;padding:7px 9px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;box-sizing:border-box;">
+      </div>
+      <div style="margin-bottom:8px;">
+        <div class="field-label">TTD / Penandatangan (1 nama per baris, huruf kapital)</div>
+        <textarea id="wa-pamag-ttd" rows="3" placeholder="AKP SRI ENINGSIH.&#10;IPDA AGUS WIJAYANTO, S.H.&#10;IPDA RIDHO WINDU ATMOJO, S.H." style="width:100%;padding:8px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:7px;color:#fff;font-size:11px;font-family:'Barlow',sans-serif;resize:vertical;box-sizing:border-box;line-height:1.5;"></textarea>
       </div>
     </div>
 
@@ -703,17 +759,41 @@ Telah dilaksanakan pelayanan SIM meliputi :
 
 Seluruh kegiatan pelayanan Regident berjalan lancar, tertib, dan sesuai SOP yang berlaku. (Dokumentasi terlampir)`;
 
+var PATROLI_JENIS=['Giat Patroli'];
+var PAMAG_JENIS=['PAM AG Pagi (Pawas)','PAM AG Pagi (Pelaksana)'];
 function waCheckCustom(){
-  const inp=document.getElementById('wa-jenis-input');
-  const narasi=document.getElementById('wa-narasi');
+  var inp=document.getElementById('wa-jenis-input');
+  var narasi=document.getElementById('wa-narasi');
   if(!narasi||!inp)return;
-  const v=inp.value.trim();
-  if(v==='Laporan Harian Unit Regident (Ringkas)'){
-    narasi.value=TEMPLATE_REGIDENT_RINGKAS;
-  } else if(v==='Laporan Harian Unit Regident (Lengkap)'){
-    narasi.value=TEMPLATE_REGIDENT_LENGKAP;
-  } else if(narasi.value===TEMPLATE_REGIDENT_RINGKAS||narasi.value===TEMPLATE_REGIDENT_LENGKAP){
-    narasi.value='Telah dilaksanakan kegiatan *'+v+'* sesuai mekanisme yang berlaku.';
+  var v=inp.value.trim();
+  var fp=document.getElementById('wa-fields-patroli');
+  var fl=document.getElementById('wa-fields-pelayanan');
+  var fpm=document.getElementById('wa-fields-pamag');
+  var pwWrap=document.getElementById('wa-pamag-pengawas-wrap');
+  var prWrap=document.getElementById('wa-pamag-propam-wrap');
+  // Hide all special fields first
+  if(fp)fp.style.display='none';
+  if(fl)fl.style.display='none';
+  if(fpm)fpm.style.display='none';
+  if(PATROLI_JENIS.indexOf(v)!==-1){
+    if(fp)fp.style.display='';
+    narasi.value='1. Polantas Kebumen hadir melaksanakan kegiatan patroli jalan raya antisipasi kerawanan Lalin dan Laka Lantas dengan rute *(lihat field rute di atas)*\n\n2. Melaksanakan pengaturan dan pantauan arus lalin di *...(isi lokasi)*\n\n3. Selama kegiatan berjalan arus lalin terdapat aman lancar.';
+  } else if(PAMAG_JENIS.indexOf(v)!==-1){
+    if(fpm)fpm.style.display='';
+    // Pawas: show pengawas+propam, Pelaksana: hide
+    var isPawas=(v.indexOf('Pawas')!==-1);
+    if(pwWrap)pwWrap.style.display=isPawas?'':'none';
+    if(prWrap)prWrap.style.display=isPawas?'':'none';
+    narasi.value='';
+  } else {
+    if(fl)fl.style.display='';
+    if(v==='Laporan Harian Unit Regident (Ringkas)'){
+      narasi.value=TEMPLATE_REGIDENT_RINGKAS;
+    } else if(v==='Laporan Harian Unit Regident (Lengkap)'){
+      narasi.value=TEMPLATE_REGIDENT_LENGKAP;
+    } else {
+      narasi.value='Telah dilaksanakan kegiatan *'+v+'* sesuai mekanisme yang berlaku.';
+    }
   }
 }
 function waFormatTgl(dateStr){
@@ -808,6 +888,144 @@ KASAT LANTAS POLRES KEBUMEN
     return;
   }
 
+  // Template PAM AG PAGI (Pawas & Pelaksana)
+  if(PAMAG_JENIS.indexOf(jenis)!==-1){
+    try{
+    var isPawas2=(jenis.indexOf('Pawas')!==-1);
+    var beat=(document.getElementById('wa-beat')||{}).value||'7';
+    var pamSelesai=(document.getElementById('wa-pamag-selesai')||{}).value||'07.45';
+    var pengawasRaw=(document.getElementById('wa-pamag-pengawas')||{}).value||'';
+    var propamRaw=(document.getElementById('wa-pamag-propam')||{}).value||'';
+    var titikRaw=(document.getElementById('wa-pamag-titik')||{}).value||'';
+    var pamKondisi=(document.getElementById('wa-pamag-kondisi')||{}).value||'ramai lancar, 8-15 cerah';
+    var ttdRaw=(document.getElementById('wa-pamag-ttd')||{}).value||'';
+    var pengLines=pengawasRaw.split('\n').filter(function(s){return s.trim();});
+    var proLines=propamRaw.split('\n').filter(function(s){return s.trim();});
+    var ttdLines=ttdRaw.split('\n').filter(function(s){return s.trim();});
+    var tipeLabel=isPawas2?'PAWAS':'PELAKSANA';
+    var P=[];
+    P.push('\u{1F1EE}\u{1F1E9} *POLRES KEBUMEN* \u{1F1EE}\u{1F1E9}');
+    P.push('');
+    P.push('          *RESPON CEPAT*');
+    P.push('        *TULUS MELAYANI*');
+    P.push('');
+    P.push('');
+    P.push('Kepada Yth. :');
+    P.push('*KAPOLRES KEBUMEN*');
+    P.push('');
+    P.push('Dari : *'+tipeLabel+' PAM AG PAGI BEAT '+beat+'*');
+    P.push('');
+    P.push('Tembusan :');
+    P.push('1. Wakapolres Kebumen.');
+    P.push('2. PJU Polres Kebumen.');
+    if(!isPawas2) P.push('3. Pawas PAM AG Pagi Beat '+beat+'.');
+    P.push('');
+    P.push('Hal : *Laporan Pelaksanaan PAM AG (PH Pagi)*');
+    P.push('');
+    P.push('Selamat pagi, mohon ijin Komandan, dilaporkan bahwa pada hari *'+hari+', '+tgl+', Pukul '+mulai+' s.d. '+pamSelesai+' WIB*, personel Polres Kebumen melaksanakan kegiatan *PAM AG/PH pagi di lokasi Beat '+beat+'* dgn rincian sbb:');
+    P.push('');
+    P.push('');
+    if(isPawas2){
+      P.push('*BEAT '+beat+'*');
+      P.push('Pengawas:');
+      for(var ei=0;ei<pengLines.length;ei++) P.push('- '+pengLines[ei].trim()+';');
+      P.push('Sie Propam:');
+      for(var pi2=0;pi2<proLines.length;pi2++) P.push('- '+proLines[pi2].trim()+'.');
+      P.push('');
+      P.push('*Titik PAM AG Pagi:*');
+    } else {
+      P.push('*TITIK PAM:*');
+    }
+    P.push(titikRaw.trim());
+    P.push('');
+    P.push('Dilaporkan utk arus lalin '+pamKondisi+'.');
+    P.push('');
+    P.push('');
+    P.push('*PENUTUP*');
+    P.push('Demikian yang dapat kami laporkan komandan, dokumentasi kegiatan terlampir.');
+    P.push('');
+    P.push('Hormat kami,');
+    P.push('');
+    P.push('*'+tipeLabel+' PAM AG PAGI*');
+    P.push('');
+    for(var ti=0;ti<ttdLines.length;ti++) P.push('*'+ttdLines[ti].trim()+'*');
+    document.getElementById('wa-text').value=P.join('\n');
+    document.getElementById('wa-result').style.display='block';
+    }catch(err){alert('Error PAM AG: '+err.message);}
+    return;
+  }
+
+  // Template PATROLI
+  if(PATROLI_JENIS.indexOf(jenis)!==-1){
+    try{
+    var sapaanCap2=sapaan.charAt(0).toUpperCase()+sapaan.slice(1);
+    var sprin=(document.getElementById('wa-sprin')||{}).value||'';
+    var pelaksanaRaw=(document.getElementById('wa-pelaksana')||{}).value||'';
+    var rute=(document.getElementById('wa-rute')||{}).value||'';
+    var kondisi=(document.getElementById('wa-kondisi')||{}).value||'aman lancar';
+    var pelLines=pelaksanaRaw.split('\n').filter(function(s){return s.trim();});
+    var pelaksanaList='';
+    for(var pi=0;pi<pelLines.length;pi++){pelaksanaList+='    '+(pi+1)+'. '+pelLines[pi].trim()+'\n';}
+    if(!pelaksanaList)pelaksanaList='    1. -\n';
+    var tahun2=new Date().getFullYear();
+    var L=[];
+    L.push('*SATLANTAS POLRES KEBUMEN*');
+    L.push('');
+    L.push('            \u{1F1EE}\u{1F1E9}*RESPON CEPAT*\u{1F1EE}\u{1F1E9}');
+    L.push('          \u{1F1EE}\u{1F1E9}*TULUS MELAYANI*\u{1F1EE}\u{1F1E9}');
+    L.push('');
+    L.push('*LAPORAN GIAT PATROLI '+sapaanCap2.toUpperCase()+' JALAN RAYA ANTISIPASI KERAWANAN LALIN, LAKA LANTAS DAN GANGGUAN KAMSELTIBCARLANTAS*');
+    L.push('');
+    L.push('Kepada Yth. :');
+    L.push('*1. DIREKTUR LALU LINTAS  POLDA JATENG*');
+    L.push('*2. KAPOLRES KEBUMEN*');
+    L.push('');
+    L.push('Tembusan :');
+    L.push('1. Wadir Lantas');
+    L.push('2. Kabagbinops');
+    L.push('3. Pr Kasubdit');
+    L.push('4. Kasat PJR');
+    L.push('5. Kasubbag Renmin');
+    L.push('6. Wakapolres Kebumen');
+    L.push('7. PJU Polres Kebumen');
+    L.push('');
+    L.push('');
+    L.push('Selamat '+sapaanCap2+' Komandan, mohon ijin melaporkan *Polantas Kebumen hadir dgn melaksanakan kegiatan Patroli '+sapaan+' jalan raya antisipasi kerawanan lalin,laka lantas dan gangguan Kamseltibcarlantas* sebagai berikut:');
+    L.push('');
+    L.push('*DASAR*');
+    L.push('');
+    L.push('1. UU No. 2 Tahun 2002 ttg Kepolisian Negara RI');
+    L.push('2. UU No. 22 Tahun 2009 ttg LLAJ.');
+    L.push('3. Rengiat Tahunan Satlantas Polres Kebumen TA. '+tahun2+'.');
+    L.push('4. SPRIN Kapolres Kebumen No: '+sprin+' tentang Patroli.');
+    L.push('');
+    L.push('*WAKTU*');
+    L.push('');
+    L.push('Hari.          : '+hari);
+    L.push('Tanggal.   : '+tgl);
+    L.push('Pukul.       : '+mulai+' WIB  s.d selesai');
+    L.push('');
+    L.push('*PELAKSANA*');
+    L.push(pelaksanaList.trimEnd());
+    L.push('');
+    L.push('');
+    L.push('*KEGIATAN*');
+    L.push('');
+    L.push(narasi);
+    L.push('');
+    L.push('*PENUTUP*');
+    L.push('Demikian laporan kegiatan kami sampaikan, dokumentasi terlampir.');
+    L.push('');
+    L.push('Hormat Kami');
+    L.push('');
+    L.push('*Kasat Lantas Polres Kebumen*');
+    L.push('*AKP EDI NUGROHO, S.Tr.K., S.I.K*');
+    document.getElementById('wa-text').value=L.join('\n');
+    document.getElementById('wa-result').style.display='block';
+    }catch(err){alert('Error patroli: '+err.message);}
+    return;
+  }
+
   const teks=`🇮🇩 *SATLANTAS POLRES KEBUMEN* 🇮🇩
         *RESPON CEPAT TULUS MELAYANI*
 ${garis}
@@ -857,7 +1075,7 @@ function waCopy(){
 
 setTimeout(()=>setMode(state.appMode||'cover'),0);
 
-let previewOpen=false;
+var previewOpen=false;
 async function togglePreview(){previewOpen=!previewOpen;const wrap=document.getElementById('preview-wrap');wrap.classList.toggle('open',previewOpen);if(previewOpen)await renderPreview();}
 async function renderPreview(){const cv=document.getElementById('preview-canvas');const pw=Math.min(480,window.innerWidth-28);const ph=Math.round(pw*H/W);cv.width=pw;cv.height=ph;const ctx=cv.getContext('2d');await drawFrame(ctx,pw,ph);}
 function updatePreviewIfOpen(){if(previewOpen)renderPreview();}
