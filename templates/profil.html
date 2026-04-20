@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Profil Satlantas Polres Kebumen — Sambutan Kasat, Visi & Misi, Tugas Pokok dan Fungsi" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>Profil — Satlantas Polres Kebumen</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    --navy-900:#071a33; --navy-800:#0b2545; --navy-700:#13315c; --navy-600:#1e3a8a; --navy-500:#3b5fbd;
+    --ink:#0b1220; --ink-2:#1f2937; --muted:#64748b; --line:#e5ecf5; --line-2:#eef4ff; --bg:#f6f8fc; --surface:#fff;
+    --gold:#d4a017; --gold-soft:#fbe9b3; --gold-ink:#7a5a0a;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(11,37,69,.04), 0 1px 1px rgba(11,37,69,.03);
+    --shadow-md:0 4px 14px rgba(11,37,69,.06), 0 1px 3px rgba(11,37,69,.04);
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;margin:0;letter-spacing:-.01em}
+  h1{font-size:38px;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:26px;font-weight:700}
+  h3{font-size:18px;font-weight:700}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--line-2);color:var(--navy-700);font-size:12px;font-weight:600}
+  .pill.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .icon{width:18px;height:18px;stroke-width:1.75}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid transparent;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none}
+  .btn-ghost{background:transparent;color:var(--navy-800);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--line-2)}
+  .btn-gold{background:var(--gold);color:#221600}
+  .btn-gold:hover{background:#bd8d12}
+
+  /* ========== UTILITY BAR ========== */
+  .util{background:var(--navy-900);color:#a9b8d4;font-size:12px}
+  .util-row{max-width:1280px;margin:0 auto;padding:8px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .util a{color:#d6e2f5;text-decoration:none}
+  .util .sep{opacity:.35}
+  .util .spacer{flex:1}
+
+  /* ========== HEADER ========== */
+  .pub-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+  .pub-header-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo img{width:46px;height:46px;object-fit:contain}
+  .logo .name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy-800);line-height:1.2;margin-bottom:2px;font-size:16px}
+  .logo .sub{font-size:12px;color:var(--muted);letter-spacing:.02em;line-height:1.3}
+  .pub-nav{margin-left:auto;display:flex;gap:4px}
+  .pub-nav a{padding:10px 14px;border-radius:8px;text-decoration:none;color:#334155;font-weight:500;font-size:14px;transition:background .15s, color .15s}
+  .pub-nav a:hover{background:var(--line-2);color:var(--navy-800)}
+  .pub-nav a.active{color:var(--navy-800);background:var(--line-2)}
+  .nav-toggle{display:none;background:transparent;border:1px solid var(--line);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+  @media (max-width:900px){ .logo .name{font-size:14px} .logo .sub{font-size:11px} }
+
+  /* ========== HERO PROFIL ========== */
+  .hero-profil{
+    background:
+      radial-gradient(900px 420px at 85% -20%, rgba(212,160,23,.25), transparent 60%),
+      linear-gradient(180deg, var(--navy-800), var(--navy-900));
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .hero-profil::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:linear-gradient(180deg,black,transparent 80%);
+    pointer-events:none;
+  }
+  .hero-profil-inner{max-width:1200px;margin:0 auto;padding:64px 24px 72px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative}
+  .hero-profil .eyebrow{color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px}
+  .hero-profil h1{margin-top:10px;max-width:560px}
+  .hero-profil h1 em{font-style:normal;background:linear-gradient(120deg,#ffd966,#f5b200);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-profil p.lead{color:#c9d7ee;max-width:520px;margin-top:14px;font-size:16px}
+  .hero-profil .meta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .hero-profil .meta .pill{background:rgba(255,255,255,.1);color:#e2ecff}
+
+  .kasat-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;padding:24px;backdrop-filter:blur(6px);
+    display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;
+    position:relative;
+  }
+  .kasat-card .photo-frame{
+    width:180px;height:180px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),#f5b200);
+    padding:4px;box-shadow:0 10px 30px rgba(212,160,23,.3);
+  }
+  .kasat-card .photo-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid var(--navy-900)}
+  .kasat-card .nama{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#fff}
+  .kasat-card .pangkat{color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+  .kasat-card .jabatan{color:#c9d7ee;font-size:13.5px}
+
+  /* ========== SAMBUTAN ========== */
+  .block{padding:72px 0}
+  .block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section-head{text-align:center;margin-bottom:40px}
+  .section-head .eyebrow{color:var(--gold-ink);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .section-head h2{margin-top:8px}
+  .section-head .sub{color:var(--muted);max-width:620px;margin:8px auto 0}
+
+  .sambutan{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:48px 40px;max-width:880px;margin:0 auto;position:relative;
+    box-shadow:var(--shadow-md);
+  }
+  .sambutan::before{
+    content:"\201C";position:absolute;top:12px;left:28px;
+    font-family:'Plus Jakarta Sans',serif;font-size:120px;line-height:1;color:var(--gold);opacity:.22;
+  }
+  .sambutan p{font-size:16px;line-height:1.75;color:var(--ink-2);margin:0 0 14px 0;position:relative}
+  .sambutan .signature{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:20px;border-top:1px dashed var(--line)}
+  .sambutan .signature .sig-photo{width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--line-2);flex-shrink:0}
+  .sambutan .signature .sig-photo img{width:100%;height:100%;object-fit:cover}
+  .sambutan .signature .sig-text .n{font-weight:800;color:var(--navy-800);font-size:15px}
+  .sambutan .signature .sig-text .p{color:var(--muted);font-size:12.5px}
+
+  /* ========== VISI MISI ========== */
+  .visi-misi{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1080px;margin:0 auto}
+  .vm-card{padding:32px;border-radius:20px;position:relative;overflow:hidden}
+  .vm-card .tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+  .vm-card h3{font-size:22px;margin-top:12px}
+  .vm-visi{
+    background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;
+  }
+  .vm-visi::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.28),transparent 65%)}
+  .vm-visi .tag{background:var(--gold);color:#221600}
+  .vm-visi h3{color:#fff;position:relative}
+  .vm-visi p{color:#c9d7ee;font-size:15px;line-height:1.7;margin:12px 0 0;position:relative;font-style:italic}
+
+  .vm-misi{background:#fff;border:1px solid var(--line)}
+  .vm-misi .tag{background:var(--gold-soft);color:var(--gold-ink)}
+  .vm-misi h3{color:var(--navy-800);margin-bottom:12px}
+  .vm-misi ol{margin:0;padding-left:0;counter-reset:mis;list-style:none;display:flex;flex-direction:column;gap:12px}
+  .vm-misi li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);counter-increment:mis;font-size:14px;color:var(--ink-2)}
+  .vm-misi li:last-child{border-bottom:0}
+  .vm-misi li::before{
+    content:counter(mis,decimal-leading-zero);
+    font-family:'JetBrains Mono',monospace;color:var(--gold-ink);font-weight:700;font-size:14px;
+    background:var(--gold-soft);min-width:30px;height:26px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  /* ========== TUPOKSI ========== */
+  .tupoksi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto}
+  .tup{
+    background:#698cdd;color:#fff;border:1px solid #567bc9;border-radius:16px;padding:22px;
+    display:flex;flex-direction:column;gap:10px;transition:transform .15s;text-decoration:none;
+  }
+  .tup:hover{transform:translateY(-2px)}
+  .tup .num{font-family:'JetBrains Mono',monospace;color:#ffd966;font-size:17px;font-weight:700;letter-spacing:.04em}
+  .tup h3{font-size:17px;color:#fff}
+  .tup p{color:rgba(255,255,255,.88);font-size:13.5px;margin:0;line-height:1.6}
+  .tup .more{margin-top:auto;padding-top:10px;color:#ffd966;font-weight:600;font-size:13px;display:inline-flex;gap:4px;align-items:center}
+
+  /* ========== MOTTO BANNER ========== */
+  .motto{
+    max-width:1080px;margin:56px auto 0;padding:28px 32px;border-radius:20px;
+    background:linear-gradient(90deg,var(--gold),#eaae2a);
+    color:#221600;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    box-shadow:0 10px 30px rgba(212,160,23,.25);
+  }
+  .motto .t{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.01em}
+  .motto .s{font-size:13.5px;opacity:.85}
+
+  /* ========== LOKASI / MAP ========== */
+  .map-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;align-items:stretch;max-width:1080px;margin:0 auto}
+  .map-info{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm)}
+  .map-info .info-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .map-info .info-ic{width:44px;height:44px;border-radius:12px;background:var(--gold-soft);color:var(--gold-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .map-info .info-head h3{font-size:17px;color:var(--navy-800)}
+  .map-info .info-head .muted{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .map-info .info-row{display:flex;gap:12px;align-items:start;font-size:13.5px}
+  .map-info .info-row > svg{color:var(--navy-600);margin-top:2px;flex-shrink:0;width:16px;height:16px}
+  .map-info .info-row .k{font-weight:700;color:var(--navy-800);font-size:13px}
+  .map-info .info-row .v{color:var(--ink-2);margin-top:2px;line-height:1.55}
+  .map-info .info-row .v a{color:var(--navy-700);text-decoration:none;font-weight:600}
+  .map-info .info-row .v a:hover{color:var(--navy-800)}
+  .map-ctas{display:flex;gap:8px;margin-top:auto;padding-top:10px;flex-wrap:wrap}
+  .map-frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--line-2);min-height:420px;box-shadow:var(--shadow-sm)}
+  .map-frame iframe{display:block;width:100%;height:100%;min-height:420px}
+  @media (max-width:900px){
+    .map-wrap{grid-template-columns:1fr}
+    .map-frame{min-height:320px}
+  }
+
+  /* ========== FOOTER ========== */
+  footer{background:var(--navy-900);color:#a9b8d4;padding:42px 0 20px;margin-top:60px}
+  .foot{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+  .foot h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .foot a{display:block;color:#b9c6e0;text-decoration:none;padding:4px 0;font-size:13.5px}
+  .foot a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding:18px 24px 0;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px}
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width:1000px){
+    .hero-profil-inner{grid-template-columns:1fr;gap:28px;padding:48px 24px 56px}
+    .visi-misi{grid-template-columns:1fr}
+    .tupoksi{grid-template-columns:repeat(2,1fr)}
+    .foot{grid-template-columns:1fr 1fr}
+    .hero-profil h1{font-size:30px}
+  }
+  @media (max-width:720px){
+    .pub-nav{display:none}
+    .nav-toggle{display:inline-flex}
+    .pub-nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;gap:4px;box-shadow:var(--shadow-md);z-index:20}
+    .block{padding:48px 0}
+    .sambutan{padding:32px 24px}
+    .tupoksi{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr}
+    .util-row{font-size:11px;gap:10px}
+    .util .sep{display:none}
+    .kasat-card .photo-frame{width:140px;height:140px}
+  }
+</style>
+</head>
+<body>
+
+{# ========== UTILITY ========== #}
+<div class="util">
+  <div class="util-row">
+    <span><i data-lucide="phone" style="width:12px;height:12px;vertical-align:-2px"></i> WA 0823-2691-5609</span>
+    <span class="sep">·</span>
+    <span>Senin–Kamis 09.00–16.00 WIB</span>
+    <span class="sep">·</span>
+    <span>Jum'at 09.00–11.30</span>
+    <span class="spacer"></span>
+    <a href="{{ url_for('ikm') }}">Survei IKM</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('admin.login') }}" style="display:inline-flex;align-items:center;gap:4px;color:#ffd966"><i data-lucide="lock" style="width:11px;height:11px"></i> Admin</a>
+  </div>
+</div>
+
+{# ========== HEADER ========== #}
+<header class="pub-header">
+  <div class="pub-header-inner">
+    <a class="logo" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo Satlantas Polres Kebumen" />
+      <div>
+        <div class="name">Satlantas Polres Kebumen</div>
+        <div class="sub">Portal Layanan Lalu Lintas Resmi</div>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+    <nav class="pub-nav" id="pubNav">
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}" class="active">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+      <a href="{{ url_for('kegiatan_all') }}">Berita</a>
+      <a href="{{ url_for('kontak') }}">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+{# ========== HERO PROFIL ========== #}
+<section class="hero-profil">
+  <div class="hero-profil-inner">
+    <div>
+      <span class="eyebrow">Profil Satlantas</span>
+      <h1>Pengabdian tulus untuk masyarakat <em>Kabupaten Kebumen</em>.</h1>
+      <p class="lead">Satuan Lalu Lintas Polres Kebumen berkomitmen memberikan pelayanan profesional, transparan, dan humanis di bidang registrasi, penegakan hukum, patroli, serta edukasi keselamatan berlalu lintas.</p>
+      <div class="meta">
+        <span class="pill"><i data-lucide="shield-check" style="width:13px;height:13px"></i> Polres Kebumen</span>
+        <span class="pill"><i data-lucide="map-pin" style="width:13px;height:13px"></i> Kab. Kebumen, Jateng</span>
+        <span class="pill"><i data-lucide="users" style="width:13px;height:13px"></i> 5 Unit Pelayanan</span>
+      </div>
+    </div>
+    <div class="kasat-card">
+      <div class="photo-frame">
+        <img src="{{ url_for('static', filename='images/kasat-lantas.jpg') }}" alt="Kasat Lantas Polres Kebumen" />
+      </div>
+      <div>
+        <div class="pangkat">Kasatlantas Polres Kebumen</div>
+        <div class="nama">[Nama Kasat Lantas]</div>
+        <div class="jabatan">AKP · NRP [XXXXXXXX]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== SAMBUTAN ========== #}
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Sambutan Kasatlantas</div>
+      <h2>Salam dari Pimpinan Satlantas</h2>
+      <div class="sub">Pesan dan komitmen dari Kepala Satuan Lalu Lintas Polres Kebumen kepada seluruh masyarakat.</div>
+    </div>
+
+    <div class="sambutan">
+      <p>Assalamu'alaikum warahmatullahi wabarakatuh. Salam sejahtera untuk kita semua.</p>
+      <p>Atas nama Satuan Lalu Lintas Polres Kebumen, saya menyambut baik kehadiran portal resmi ini sebagai wujud komitmen kami untuk memberikan pelayanan yang <strong>cepat, transparan, dan dekat</strong> dengan masyarakat Kabupaten Kebumen.</p>
+      <p>Melalui portal ini, masyarakat dapat mengakses informasi lengkap seputar layanan STNK, SIM, BPKB, penanganan tilang, hingga edukasi keselamatan berlalu lintas. Kami juga membuka kanal aduan dan survei kepuasan sebagai ruang partisipasi publik yang terbuka.</p>
+      <p>Mari bersama-sama mewujudkan lalu lintas Kebumen yang tertib, aman, dan selamat. Terima kasih atas kepercayaan dan dukungan Bapak/Ibu sekalian.</p>
+
+      <div class="signature">
+        <div class="sig-photo">
+          <img src="{{ url_for('static', filename='images/kasat-lantas.jpg') }}" alt="" />
+        </div>
+        <div class="sig-text">
+          <div class="n">[Nama Kasat Lantas]</div>
+          <div class="p">AKP · Kasatlantas Polres Kebumen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== VISI MISI ========== #}
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Landasan Pelayanan</div>
+      <h2>Visi & Misi</h2>
+      <div class="sub">Arah pelayanan Satlantas Polres Kebumen — selaras dengan Renstra Polri dan kebutuhan masyarakat lokal.</div>
+    </div>
+
+    <div class="visi-misi">
+      <div class="vm-card vm-visi">
+        <span class="tag"><i data-lucide="target" style="width:13px;height:13px"></i> Visi</span>
+        <h3>Pelayanan lalu lintas yang unggul dan humanis</h3>
+        <p>"Terwujudnya pelayanan lalu lintas yang profesional, modern, dan terpercaya dalam rangka menciptakan Kamseltibcarlantas di wilayah Kabupaten Kebumen."</p>
+      </div>
+      <div class="vm-card vm-misi">
+        <span class="tag"><i data-lucide="list-checks" style="width:13px;height:13px"></i> Misi</span>
+        <h3>Langkah nyata kami</h3>
+        <ol>
+          <li>Memberikan pelayanan registrasi dan identifikasi kendaraan & pengemudi secara cepat, akurat, dan bebas pungli.</li>
+          <li>Menegakkan hukum lalu lintas secara tegas, adil, dan transparan melalui ETLE dan tilang konvensional.</li>
+          <li>Melaksanakan patroli, pengawalan, dan pengamanan lalu lintas untuk mendukung kelancaran masyarakat.</li>
+          <li>Melaksanakan edukasi keselamatan berlalu lintas melalui program Polsanak, PKS, dan sosialisasi rutin.</li>
+          <li>Menjamin partisipasi publik melalui kanal aduan, survei kepuasan, dan keterbukaan informasi.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== TUPOKSI ========== #}
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Tugas Pokok & Fungsi</div>
+      <h2>Lima unit pelayanan Satlantas</h2>
+      <div class="sub">Struktur dan peran tiap unit dalam mendukung pelayanan lalu lintas di Kabupaten Kebumen.</div>
+    </div>
+
+    <div class="tupoksi">
+      <a class="tup" href="{{ url_for('regident') }}">
+        <div class="num">01 / REGIDENT</div>
+        <h3>Registrasi & Identifikasi</h3>
+        <p>Melayani registrasi kendaraan bermotor dan pengemudi — STNK, BPKB, SIM, pajak tahunan & 5 tahunan, mutasi, dan BBN.</p>
+        <span class="more">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+      <a class="tup" href="{{ url_for('gakum') }}">
+        <div class="num">02 / GAKUM</div>
+        <h3>Penegakan Hukum</h3>
+        <p>Menangani laka lantas, tilang manual & elektronik (ETLE), proses konfirmasi, dan koordinasi sidang.</p>
+        <span class="more">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+      <a class="tup" href="{{ url_for('patwal') }}">
+        <div class="num">03 / PATWAL</div>
+        <h3>Patroli & Pengawalan</h3>
+        <p>Pengawalan resmi, patroli wilayah, dan pengamanan rute VIP serta kegiatan masyarakat.</p>
+        <span class="more">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+      <a class="tup" href="{{ url_for('kamsel') }}">
+        <div class="num">04 / KAMSEL</div>
+        <h3>Keamanan & Keselamatan</h3>
+        <p>Edukasi keselamatan berlalu lintas, program Polsanak, dan Patroli Keamanan Sekolah (PKS).</p>
+        <span class="more">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+      <a class="tup" href="{{ url_for('urmin') }}">
+        <div class="num">05 / URMIN</div>
+        <h3>Urusan Administrasi</h3>
+        <p>Mengelola surat-menyurat, administrasi kepegawaian, dan dukungan administrasi internal Satlantas.</p>
+        <span class="more">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+      <a class="tup" href="{{ url_for('ikm') }}" style="background:var(--navy-800);border-color:transparent">
+        <div class="num">BONUS / IKM</div>
+        <h3>Partisipasi Publik</h3>
+        <p>Survei Indeks Kepuasan Masyarakat berdasarkan Permenpan RB No. 14/2017 — suara Anda membentuk pelayanan kami.</p>
+        <span class="more">Isi survei <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+      </a>
+    </div>
+
+    <div class="motto">
+      <div>
+        <div class="t">"Respon Cepat, Tulus Melayani"</div>
+        <div class="s">Motto pelayanan Satlantas Polres Kebumen</div>
+      </div>
+      <a href="{{ url_for('index') }}" class="btn btn-ghost" style="background:rgba(34,22,0,.1);border-color:rgba(34,22,0,.18);color:#221600"><i data-lucide="arrow-left" class="icon"></i> Kembali ke Beranda</a>
+    </div>
+  </div>
+</section>
+
+{# ========== LOKASI / MAP ========== #}
+<section class="block" id="lokasi">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Lokasi Kantor</div>
+      <h2>Kantor Satlantas Polres Kebumen</h2>
+      <div class="sub">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah.</div>
+    </div>
+
+    <div class="map-wrap">
+      <div class="map-info">
+        <div class="info-head">
+          <div class="info-ic"><i data-lucide="map-pin"></i></div>
+          <div>
+            <h3>Kantor Satlantas</h3>
+            <div class="muted">Polres Kebumen — Jawa Tengah</div>
+          </div>
+        </div>
+        <div class="info-row"><i data-lucide="navigation"></i><div><div class="k">Alamat</div><div class="v">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah 54316</div></div></div>
+        <div class="info-row"><i data-lucide="phone"></i><div><div class="k">WhatsApp</div><div class="v"><a href="https://wa.me/6282326915609" target="_blank" rel="noopener">0823-2691-5609</a></div></div></div>
+        <div class="info-row"><i data-lucide="clock"></i><div><div class="k">Jam Layanan</div><div class="v">Senin–Kamis 09.00–16.00<br>Jum'at 09.00–11.30</div></div></div>
+        <div class="info-row"><i data-lucide="siren"></i><div><div class="k">Darurat</div><div class="v">Hotline 110 · SPKT 0287-385514</div></div></div>
+        <div class="map-ctas">
+          <a href="https://www.google.com/maps/search/?api=1&query=-7.67611103,109.6705691" target="_blank" rel="noopener" class="btn btn-gold"><i data-lucide="map" class="icon"></i> Buka di Google Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-7.67611103,109.6705691" target="_blank" rel="noopener" class="btn btn-ghost"><i data-lucide="route" class="icon"></i> Rute ke Sini</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=-7.67611103,109.6705691&output=embed&hl=id&z=17"
+          width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Peta Kantor Satlantas Polres Kebumen"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== FOOTER ========== #}
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo" style="gap:10px;margin-bottom:12px">
+        <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" style="width:38px;height:38px" alt="Logo" />
+        <div>
+          <div class="name" style="color:#fff;font-size:15px">Satlantas Polres Kebumen</div>
+          <div class="sub" style="color:#8ea3c6">Respon Cepat, Tulus Melayani</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#8ea3c6;margin:0;max-width:320px">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah.</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <a href="https://wa.me/6282326915609" target="_blank" rel="noopener">WhatsApp 0823-2691-5609</a>
+      <a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">@satlantasres_kebumen</a>
+      <a href="{{ url_for('kontak') }}">Halaman Kontak</a>
+      <a href="{{ url_for('admin.login') }}" style="color:#ffd966">🔒 Panel Admin</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2025–2026 Polres Kebumen · Satlantas</div>
+    <div>Informasi dapat berubah sewaktu-waktu.</div>
+  </div>
+</footer>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('pubNav')?.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

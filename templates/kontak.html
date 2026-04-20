@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Kontak Satlantas Polres Kebumen — WhatsApp per unit, media sosial, alamat kantor, kontak darurat." />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>Kontak — Satlantas Polres Kebumen</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    --navy-900:#071a33; --navy-800:#0b2545; --navy-700:#13315c; --navy-600:#1e3a8a; --navy-500:#3b5fbd;
+    --ink:#0b1220; --ink-2:#1f2937; --muted:#64748b; --line:#e5ecf5; --line-2:#eef4ff; --bg:#f6f8fc; --surface:#fff;
+    --gold:#d4a017; --gold-soft:#fbe9b3; --gold-ink:#7a5a0a;
+    --ok:#0f9960; --ok-soft:#e3f5ec;
+    --warn:#c98410; --warn-soft:#fdf2d8;
+    --bad:#c0392b; --bad-soft:#fce5e1;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(11,37,69,.04), 0 1px 1px rgba(11,37,69,.03);
+    --shadow-md:0 4px 14px rgba(11,37,69,.06), 0 1px 3px rgba(11,37,69,.04);
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;margin:0;letter-spacing:-.01em}
+  h1{font-size:36px;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:24px;font-weight:700}
+  h3{font-size:17px;font-weight:700}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.info{background:var(--line-2);color:var(--navy-700)}
+  .pill.bad{background:var(--bad-soft);color:var(--bad)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid transparent;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-primary{background:var(--navy-800);color:#fff}
+  .btn-primary:hover{background:var(--navy-700)}
+  .btn-ghost{background:#fff;color:var(--navy-800);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--line-2)}
+  .btn-gold{background:var(--gold);color:#221600}
+  .btn-gold:hover{background:#bd8d12}
+  .icon{width:18px;height:18px;stroke-width:1.75}
+  .muted{color:var(--muted)}
+
+  /* ========== UTILITY / HEADER ========== */
+  .util{background:var(--navy-900);color:#a9b8d4;font-size:12px}
+  .util-row{max-width:1280px;margin:0 auto;padding:8px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .util a{color:#d6e2f5;text-decoration:none}
+  .util .sep{opacity:.35}
+  .util .spacer{flex:1}
+
+  .pub-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+  .pub-header-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo img{width:46px;height:46px;object-fit:contain}
+  .logo .name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy-800);line-height:1.2;margin-bottom:2px;font-size:16px}
+  .logo .sub{font-size:12px;color:var(--muted)}
+  .pub-nav{margin-left:auto;display:flex;gap:4px}
+  .pub-nav a{padding:10px 14px;border-radius:8px;text-decoration:none;color:#334155;font-weight:500;font-size:14px;transition:background .15s}
+  .pub-nav a:hover{background:var(--line-2);color:var(--navy-800)}
+  .pub-nav a.active{color:var(--navy-800);background:var(--line-2)}
+  .nav-toggle{display:none;background:transparent;border:1px solid var(--line);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+  @media (max-width:900px){ .logo .name{font-size:14px} .logo .sub{font-size:11px} }
+
+  /* ========== HERO ========== */
+  .hero-kt{background:radial-gradient(900px 420px at 85% -20%, rgba(212,160,23,.22), transparent 60%),linear-gradient(180deg, var(--navy-800), var(--navy-900));color:#fff;position:relative;overflow:hidden}
+  .hero-kt::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,black,transparent 80%);pointer-events:none}
+  .hero-kt-inner{max-width:1200px;margin:0 auto;padding:52px 24px 40px;position:relative}
+  .hero-kt .eyebrow{color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px}
+  .hero-kt h1{margin-top:10px;max-width:620px}
+  .hero-kt h1 em{font-style:normal;background:linear-gradient(120deg,#ffd966,#f5b200);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-kt p{color:#c9d7ee;max-width:620px;margin-top:12px;font-size:15.5px}
+  .hero-kt .meta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .hero-kt .meta .pill{background:rgba(255,255,255,.1);color:#e2ecff}
+
+  /* ========== SECTION ========== */
+  .block{padding:56px 0}
+  .block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .section-head{text-align:center;margin-bottom:32px}
+  .section-head .eyebrow{color:var(--gold-ink);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .section-head h2{margin-top:8px}
+  .section-head .sub{color:var(--muted);max-width:620px;margin:8px auto 0;font-size:14.5px}
+
+  /* ========== KANAL GRID ========== */
+  .kanal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin:0 auto}
+  .kn{
+    display:flex;gap:14px;align-items:start;padding:20px;
+    background:#fff;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:inherit;
+    transition:border-color .15s, transform .15s, box-shadow .15s;
+  }
+  .kn:hover{border-color:var(--navy-600);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .kn .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+  .kn .ic.wa{background:linear-gradient(135deg,#25d366,#128c7e)}
+  .kn .ic.gold{background:linear-gradient(135deg,var(--gold),#bd8d12);color:#221600}
+  .kn .ic.ig{background:linear-gradient(135deg,#e1306c,#f77737,#fcaf45)}
+  .kn .ic.fb{background:#1877f2}
+  .kn .ic.x{background:#0b1220}
+  .kn .ic.tt{background:linear-gradient(135deg,#ff0050,#00f2ea,#0b1220)}
+  .kn .t{font-weight:700;font-size:14.5px;color:var(--navy-800)}
+  .kn .v{font-family:'JetBrains Mono',monospace;color:var(--ink-2);font-size:13px;margin-top:3px}
+  .kn .s{color:var(--muted);font-size:12px;margin-top:3px}
+  .kn .arr{margin-left:auto;color:var(--muted);align-self:center;flex-shrink:0}
+
+  /* ========== UNIT TABLE ========== */
+  .unit-table{max-width:1100px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .unit-table table{width:100%;border-collapse:collapse;font-size:14px}
+  .unit-table th{background:var(--line-2);color:var(--navy-800);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  .unit-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+  .unit-table tr:last-child td{border-bottom:0}
+  .unit-table tr:hover{background:#fafbfe}
+  .unit-table .uic{width:34px;height:34px;border-radius:10px;background:var(--line-2);color:var(--navy-700);display:inline-flex;align-items:center;justify-content:center;margin-right:10px;vertical-align:middle}
+  .unit-table .uic.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .unit-table .unm{font-weight:700;color:var(--navy-800)}
+  .unit-table .ucode{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:11px}
+  .unit-table .contact{font-family:'JetBrains Mono',monospace;font-size:13px}
+  .unit-table .contact a{color:var(--navy-700);text-decoration:none;font-weight:600}
+  .unit-table .contact a:hover{color:var(--navy-800);text-decoration:underline}
+
+  /* ========== KANTOR + MAP ========== */
+  .kn-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;max-width:1100px;margin:0 auto}
+  .kn-info{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm)}
+  .kn-info .h{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .kn-info .h .ic{width:44px;height:44px;border-radius:12px;background:var(--gold-soft);color:var(--gold-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .kn-info .h h3{font-size:17px;color:var(--navy-800)}
+  .kn-info .h .s{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .kn-info .row{display:flex;gap:12px;align-items:start;font-size:13.5px}
+  .kn-info .row > svg{color:var(--navy-600);margin-top:2px;flex-shrink:0;width:16px;height:16px}
+  .kn-info .row .k{font-weight:700;color:var(--navy-800);font-size:13px}
+  .kn-info .row .v{color:var(--ink-2);line-height:1.55}
+  .kn-info .row .v a{color:var(--navy-700);text-decoration:none;font-weight:600}
+  .kn-info .ctas{display:flex;gap:8px;margin-top:auto;padding-top:10px;flex-wrap:wrap}
+  .kn-map{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--line-2);min-height:420px;box-shadow:var(--shadow-sm)}
+  .kn-map iframe{display:block;width:100%;height:100%;min-height:420px;border:0}
+
+  /* ========== DARURAT ========== */
+  .darurat{
+    max-width:1100px;margin:0 auto;padding:28px 32px;border-radius:16px;
+    background:linear-gradient(135deg, var(--bad), #a02c1f);color:#fff;
+    display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+    box-shadow:0 10px 28px rgba(192,57,43,.25);
+  }
+  .darurat .ic{width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+  .darurat .ic svg{width:30px;height:30px}
+  .darurat h3{color:#fff;font-size:19px}
+  .darurat p{color:rgba(255,255,255,.9);margin:4px 0 0;font-size:13.5px}
+  .darurat .phones{display:flex;gap:8px;flex-wrap:wrap}
+  .darurat .phones a{background:#fff;color:var(--bad);font-family:'JetBrains Mono',monospace;font-weight:700;padding:10px 14px;border-radius:10px;text-decoration:none;font-size:13.5px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .darurat .phones a:hover{background:#ffe5e1}
+
+  /* ========== FORM PESAN ========== */
+  .form-wrap{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+  .form-intro{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;border-radius:18px;padding:28px;position:relative;overflow:hidden}
+  .form-intro::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.28),transparent 65%)}
+  .form-intro h3{color:#fff;position:relative;font-size:19px;margin-bottom:10px}
+  .form-intro p{color:#c9d7ee;position:relative;margin:0;font-size:14px}
+  .form-intro ul{list-style:none;padding:0;margin:16px 0 0;position:relative;display:flex;flex-direction:column;gap:8px}
+  .form-intro li{display:flex;gap:10px;font-size:13.5px;color:#d6e2f5;align-items:center}
+  .form-intro li svg{color:var(--gold);flex-shrink:0;width:14px;height:14px}
+
+  .form-card{background:#eef4fb;border:1px solid #d6e3f0;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .form-card h3{font-size:17px}
+  .form-card label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-700);display:block;margin-bottom:6px}
+  .form-card input,.form-card select,.form-card textarea{
+    width:100%;border:1px solid #d6e3f0;border-radius:10px;padding:10px 12px;font-family:inherit;font-size:14px;
+    background:#fff;color:var(--ink);outline:none;transition:border-color .15s;
+  }
+  .form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:var(--navy-800)}
+  .form-card textarea{min-height:90px;resize:vertical}
+  .form-card .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .form-card .actions{display:flex;justify-content:flex-end;margin-top:4px}
+
+  /* ========== FOOTER ========== */
+  footer{background:var(--navy-900);color:#a9b8d4;padding:42px 0 20px;margin-top:60px}
+  .foot{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+  .foot h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .foot a{display:block;color:#b9c6e0;text-decoration:none;padding:4px 0;font-size:13.5px}
+  .foot a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding:18px 24px 0;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px}
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width:1000px){
+    .kanal{grid-template-columns:repeat(2,1fr)}
+    .kn-wrap{grid-template-columns:1fr}
+    .kn-map{min-height:320px}
+    .foot{grid-template-columns:1fr 1fr}
+    .darurat{grid-template-columns:auto 1fr;gap:16px;padding:20px}
+    .darurat .phones{grid-column:1/-1}
+    .form-wrap{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .pub-nav{display:none} .nav-toggle{display:inline-flex}
+    .pub-nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;gap:4px;box-shadow:var(--shadow-md);z-index:20}
+    .kanal{grid-template-columns:1fr}
+    .hero-kt h1{font-size:26px}
+    .form-card .row2{grid-template-columns:1fr}
+    .unit-table{font-size:13px}
+    .unit-table th,.unit-table td{padding:10px 12px}
+    .foot{grid-template-columns:1fr}
+    .util-row{font-size:11px;gap:10px} .util .sep{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="util-row">
+    <span>WA 0823-2691-5609</span>
+    <span class="sep">·</span>
+    <span>Senin–Kamis 09.00–16.00 WIB</span>
+    <span class="sep">·</span>
+    <span>Jum'at 09.00–11.30</span>
+    <span class="spacer"></span>
+    <a href="{{ url_for('ikm') }}">Survei IKM</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('admin.login') }}" style="display:inline-flex;align-items:center;gap:4px;color:#ffd966"><i data-lucide="lock" style="width:11px;height:11px"></i> Admin</a>
+  </div>
+</div>
+
+<header class="pub-header">
+  <div class="pub-header-inner">
+    <a class="logo" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo" />
+      <div>
+        <div class="name">Satlantas Polres Kebumen</div>
+        <div class="sub">Portal Layanan Lalu Lintas Resmi</div>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle"><i data-lucide="menu"></i></button>
+    <nav class="pub-nav" id="pubNav">
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+      <a href="{{ url_for('kegiatan_all') }}">Berita</a>
+      <a href="{{ url_for('kontak') }}" class="active">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-kt">
+  <div class="hero-kt-inner">
+    <span class="eyebrow">Hubungi Kami</span>
+    <h1><em>Satu pintu</em> kontak ke seluruh unit Satlantas Kebumen.</h1>
+    <p>Pilih kanal yang sesuai kebutuhan Anda: WhatsApp per unit, media sosial resmi, hotline darurat, atau kunjungi kantor langsung.</p>
+    <div class="meta">
+      <span class="pill"><i data-lucide="phone" style="width:13px;height:13px"></i> 6 kanal resmi</span>
+      <span class="pill"><i data-lucide="shield-check" style="width:13px;height:13px"></i> Verified</span>
+      <span class="pill"><i data-lucide="clock" style="width:13px;height:13px"></i> Respon jam kerja</span>
+    </div>
+  </div>
+</section>
+
+{# ========== KANAL ========== #}
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kanal Resmi</div>
+      <h2>WhatsApp & Media Sosial</h2>
+      <div class="sub">Klik kanal untuk langsung terhubung. Admin akan merespons pada jam kerja.</div>
+    </div>
+
+    <div class="kanal">
+      <a class="kn" href="https://wa.me/6282326915609" target="_blank" rel="noopener">
+        <span class="ic wa"><i data-lucide="message-circle"></i></span>
+        <div>
+          <div class="t">WhatsApp Admin Umum</div>
+          <div class="v">0823-2691-5609</div>
+          <div class="s">Info & aduan umum</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+
+      <a class="kn" href="https://wa.me/6287725558787" target="_blank" rel="noopener">
+        <span class="ic gold"><i data-lucide="file-text"></i></span>
+        <div>
+          <div class="t">WhatsApp STNK & Pajak</div>
+          <div class="v">0877-2555-8787</div>
+          <div class="s">Konsultasi REGIDENT</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+
+      <a class="kn" href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">
+        <span class="ic ig"><i data-lucide="instagram"></i></span>
+        <div>
+          <div class="t">Instagram</div>
+          <div class="v">@satlantasres_kebumen</div>
+          <div class="s">Info harian & galeri</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+
+      <a class="kn" href="https://web.facebook.com/profile.php?id=61582067180356" target="_blank" rel="noopener">
+        <span class="ic fb"><i data-lucide="facebook"></i></span>
+        <div>
+          <div class="t">Facebook</div>
+          <div class="v">Satlantas Polres Kebumen</div>
+          <div class="s">Pengumuman resmi</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+
+      <a class="kn" href="https://x.com/TMC_Kebumen" target="_blank" rel="noopener">
+        <span class="ic x"><i data-lucide="twitter"></i></span>
+        <div>
+          <div class="t">X / Twitter</div>
+          <div class="v">@TMC_Kebumen</div>
+          <div class="s">Info lalu lintas realtime</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+
+      <a class="kn" href="https://www.tiktok.com/@satlantasres.kebumen" target="_blank" rel="noopener">
+        <span class="ic tt"><i data-lucide="video"></i></span>
+        <div>
+          <div class="t">TikTok</div>
+          <div class="v">@satlantasres.kebumen</div>
+          <div class="s">Edukasi & konten kreatif</div>
+        </div>
+        <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+{# ========== KONTAK PER UNIT ========== #}
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Per Unit Layanan</div>
+      <h2>Kontak Setiap Unit Satlantas</h2>
+      <div class="sub">Hubungi unit terkait untuk pertanyaan atau aduan yang lebih spesifik. Sebagian nomor unit masih dalam proses pelengkapan.</div>
+    </div>
+
+    <div class="unit-table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30%">Unit</th>
+            <th style="width:35%">WhatsApp / Kontak</th>
+            <th style="width:20%">Status</th>
+            <th style="width:15%;text-align:right">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="uic gold"><i data-lucide="file-text" style="width:16px;height:16px"></i></span>
+              <span class="unm">REGIDENT — STNK &amp; Pajak</span>
+              <div class="ucode" style="margin-left:44px">01 / Tersedia</div>
+            </td>
+            <td class="contact"><a href="https://wa.me/6287725558787" target="_blank" rel="noopener">0877-2555-8787</a></td>
+            <td><span class="pill ok">Aktif</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6287725558787" target="_blank" rel="noopener" class="btn btn-primary" style="padding:6px 10px;font-size:12.5px"><i data-lucide="message-circle" style="width:13px;height:13px"></i> Chat</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic"><i data-lucide="contact" style="width:16px;height:16px"></i></span>
+              <span class="unm">REGIDENT — SIM / SINAR</span>
+              <div class="ucode" style="margin-left:44px">01 / Segera</div>
+            </td>
+            <td class="muted">Sementara via Admin Umum</td>
+            <td><span class="pill info">Segera</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6282326915609" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:6px 10px;font-size:12.5px">Admin</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic"><i data-lucide="camera" style="width:16px;height:16px"></i></span>
+              <span class="unm">GAKUM — Tilang / ETLE</span>
+              <div class="ucode" style="margin-left:44px">02 / Segera</div>
+            </td>
+            <td class="muted">Cek tilang: <a href="https://etle-nasional.polri.go.id/" target="_blank" rel="noopener" style="color:var(--navy-700)">etle-nasional.polri.go.id</a></td>
+            <td><span class="pill info">Segera</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6282326915609" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:6px 10px;font-size:12.5px">Admin</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic" style="background:var(--bad-soft);color:var(--bad)"><i data-lucide="alert-triangle" style="width:16px;height:16px"></i></span>
+              <span class="unm">GAKUM — Laka Lantas</span>
+              <div class="ucode" style="margin-left:44px">02 / 24 Jam</div>
+            </td>
+            <td class="contact"><a href="tel:110">Hotline 110</a> · <a href="tel:0287385514">0287-385514</a> (SPKT)</td>
+            <td><span class="pill ok">24 Jam</span></td>
+            <td style="text-align:right"><a href="tel:110" class="btn btn-primary" style="padding:6px 10px;font-size:12.5px;background:var(--bad)"><i data-lucide="phone" style="width:13px;height:13px"></i> 110</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic"><i data-lucide="siren" style="width:16px;height:16px"></i></span>
+              <span class="unm">PATWAL — Patroli &amp; Pengawalan</span>
+              <div class="ucode" style="margin-left:44px">03 / Permohonan</div>
+            </td>
+            <td class="muted">Permohonan tertulis ke Admin</td>
+            <td><span class="pill info">Permohonan</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6282326915609?text=Permohonan%20PATWAL" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:6px 10px;font-size:12.5px">Ajukan</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic"><i data-lucide="shield" style="width:16px;height:16px"></i></span>
+              <span class="unm">KAMSEL — Edukasi &amp; Narasumber</span>
+              <div class="ucode" style="margin-left:44px">04 / Permohonan</div>
+            </td>
+            <td class="muted">Permohonan narasumber ke Admin</td>
+            <td><span class="pill info">Permohonan</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6282326915609?text=Permohonan%20KAMSEL" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:6px 10px;font-size:12.5px">Ajukan</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="uic"><i data-lucide="folder" style="width:16px;height:16px"></i></span>
+              <span class="unm">URMIN — Administrasi &amp; Loket</span>
+              <div class="ucode" style="margin-left:44px">05 / Jam Kerja</div>
+            </td>
+            <td class="muted">Loket kantor · Jam kerja</td>
+            <td><span class="pill warn">Jam Kerja</span></td>
+            <td style="text-align:right"><a href="https://wa.me/6282326915609" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:6px 10px;font-size:12.5px">Admin</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ========== KANTOR + MAP ========== #}
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kantor Kami</div>
+      <h2>Alamat, Jam Layanan &amp; Peta</h2>
+      <div class="sub">Perempatan Jl. Tentara Pelajar / Jl. H.M. Sarbini, Kabupaten Kebumen.</div>
+    </div>
+
+    <div class="kn-wrap">
+      <div class="kn-info">
+        <div class="h">
+          <div class="ic"><i data-lucide="map-pin"></i></div>
+          <div>
+            <h3>Kantor Satlantas</h3>
+            <div class="s">Polres Kebumen — Jawa Tengah</div>
+          </div>
+        </div>
+        <div class="row"><i data-lucide="navigation"></i><div><div class="k">Alamat</div><div class="v">Perempatan Jl. Tentara Pelajar / Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah 54316</div></div></div>
+        <div class="row"><i data-lucide="clock"></i><div><div class="k">Jam Layanan</div><div class="v">Senin–Kamis 09.00–16.00<br>Jum'at 09.00–11.30<br>Sabtu/Minggu: Tutup</div></div></div>
+        <div class="row"><i data-lucide="mail"></i><div><div class="k">Surat Resmi</div><div class="v">Surat resmi dapat diantar ke loket URMIN pada jam kerja.</div></div></div>
+        <div class="ctas">
+          <a href="https://www.google.com/maps/search/?api=1&query=-7.67611103,109.6705691" target="_blank" rel="noopener" class="btn btn-gold"><i data-lucide="map" class="icon"></i> Buka Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-7.67611103,109.6705691" target="_blank" rel="noopener" class="btn btn-ghost"><i data-lucide="route" class="icon"></i> Rute</a>
+        </div>
+      </div>
+      <div class="kn-map">
+        <iframe
+          src="https://maps.google.com/maps?q=-7.67611103,109.6705691&output=embed&hl=id&z=17"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Peta Kantor Satlantas Polres Kebumen"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== DARURAT ========== #}
+<section class="block">
+  <div class="container">
+    <div class="darurat">
+      <div class="ic"><i data-lucide="siren"></i></div>
+      <div>
+        <h3>Kondisi Darurat Lalu Lintas?</h3>
+        <p>Hubungi hotline di bawah untuk Laka Lantas, kebutuhan mendesak, atau ambulans & pengawalan darurat — aktif 24 jam.</p>
+      </div>
+      <div class="phones">
+        <a href="tel:110"><i data-lucide="phone" style="width:14px;height:14px"></i> 110 Hotline</a>
+        <a href="tel:0287385514"><i data-lucide="phone" style="width:14px;height:14px"></i> 0287-385514 SPKT</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== FORM PESAN ========== #}
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Pesan Singkat</div>
+      <h2>Kirim Pertanyaan via WhatsApp</h2>
+      <div class="sub">Isi form — saat dikirim, Anda akan diarahkan ke WhatsApp admin dengan pesan sudah terformat otomatis.</div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-intro">
+        <span class="pill gold" style="background:var(--gold);color:#221600">Admin Umum</span>
+        <h3 style="margin-top:12px">Kami siap membantu</h3>
+        <p>Admin Satlantas akan merespons pertanyaan Anda pada jam kerja. Untuk kondisi darurat, gunakan hotline 110.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Respon maksimal 1 hari kerja</li>
+          <li><i data-lucide="check"></i> Data Anda tidak disimpan di server</li>
+          <li><i data-lucide="check"></i> Langsung terhubung ke WhatsApp</li>
+        </ul>
+      </div>
+
+      <form class="form-card" id="msgForm">
+        <h3>Form Pesan</h3>
+        <div class="row2">
+          <div>
+            <label>Nama</label>
+            <input type="text" name="nama" placeholder="Nama Anda" />
+          </div>
+          <div>
+            <label>Kontak (opsional)</label>
+            <input type="text" name="kontak" placeholder="08xxx / email" />
+          </div>
+        </div>
+        <div>
+          <label>Topik</label>
+          <select name="topik">
+            <option>Informasi Umum</option>
+            <option>STNK &amp; Pajak</option>
+            <option>SIM</option>
+            <option>Tilang / ETLE</option>
+            <option>Permohonan Pengawalan</option>
+            <option>Permohonan Narasumber</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div>
+          <label>Pesan</label>
+          <textarea name="pesan" placeholder="Tulis pertanyaan Anda..." required></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary"><i data-lucide="send" class="icon"></i> Kirim via WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo" style="gap:10px;margin-bottom:12px">
+        <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" style="width:38px;height:38px" alt="Logo" />
+        <div>
+          <div class="name" style="color:#fff;font-size:15px">Satlantas Polres Kebumen</div>
+          <div class="sub" style="color:#8ea3c6">Respon Cepat, Tulus Melayani</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#8ea3c6;margin:0;max-width:320px">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah.</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <a href="https://wa.me/6282326915609" target="_blank" rel="noopener">WhatsApp 0823-2691-5609</a>
+      <a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">@satlantasres_kebumen</a>
+      <a href="{{ url_for('admin.login') }}" style="color:#ffd966">🔒 Panel Admin</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2025–2026 Polres Kebumen · Satlantas</div>
+    <div>Informasi dapat berubah sewaktu-waktu.</div>
+  </div>
+</footer>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('pubNav')?.classList.toggle('open');
+  });
+
+  document.getElementById('msgForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const nama = fd.get('nama') || '-';
+    const kontak = fd.get('kontak') || '-';
+    const topik = fd.get('topik') || '-';
+    const pesan = fd.get('pesan') || '-';
+    const msg = `*PESAN dari Portal Satlantas*\n\nNama: ${nama}\nKontak: ${kontak}\nTopik: ${topik}\n\nPesan:\n${pesan}`;
+    window.open(`https://wa.me/6282326915609?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+</script>
+</body>
+</html>

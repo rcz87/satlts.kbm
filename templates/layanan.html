@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Layanan Satlantas Polres Kebumen — Pilih unit untuk melihat detail layanan dan status." />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>Layanan — Satlantas Polres Kebumen</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    --navy-900:#071a33; --navy-800:#0b2545; --navy-700:#13315c; --navy-600:#1e3a8a; --navy-500:#3b5fbd;
+    --ink:#0b1220; --ink-2:#1f2937; --muted:#64748b; --line:#e5ecf5; --line-2:#eef4ff; --bg:#f6f8fc; --surface:#fff;
+    --gold:#d4a017; --gold-soft:#fbe9b3; --gold-ink:#7a5a0a;
+    --ok:#0f9960; --ok-soft:#e3f5ec;
+    --warn:#c98410; --warn-soft:#fdf2d8;
+    --bad:#c0392b; --bad-soft:#fce5e1;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(11,37,69,.04), 0 1px 1px rgba(11,37,69,.03);
+    --shadow-md:0 4px 14px rgba(11,37,69,.06), 0 1px 3px rgba(11,37,69,.04);
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;margin:0;letter-spacing:-.01em}
+  h1{font-size:34px;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:22px;font-weight:700}
+  h3{font-size:17px;font-weight:700}
+  h4{font-size:15px;font-weight:700}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.info{background:var(--line-2);color:var(--navy-700)}
+  .pill .dot{width:7px;height:7px;border-radius:99px;display:inline-block}
+  .pill.ok .dot{background:var(--ok)}
+  .pill.warn .dot{background:var(--warn)}
+  .pill.info .dot{background:var(--navy-500)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid transparent;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;font-family:inherit}
+  .btn-ghost{background:#fff;color:var(--navy-800);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--line-2)}
+
+  /* ========== UTILITY BAR ========== */
+  .util{background:var(--navy-900);color:#a9b8d4;font-size:12px}
+  .util-row{max-width:1280px;margin:0 auto;padding:8px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .util a{color:#d6e2f5;text-decoration:none}
+  .util .sep{opacity:.35}
+  .util .spacer{flex:1}
+
+  /* ========== HEADER ========== */
+  .pub-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+  .pub-header-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo img{width:46px;height:46px;object-fit:contain}
+  .logo .name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy-800);line-height:1.2;margin-bottom:2px;font-size:16px}
+  .logo .sub{font-size:12px;color:var(--muted)}
+  .pub-nav{margin-left:auto;display:flex;gap:4px}
+  .pub-nav a{padding:10px 14px;border-radius:8px;text-decoration:none;color:#334155;font-weight:500;font-size:14px;transition:background .15s}
+  .pub-nav a:hover{background:var(--line-2);color:var(--navy-800)}
+  .pub-nav a.active{color:var(--navy-800);background:var(--line-2)}
+  .nav-toggle{display:none;background:transparent;border:1px solid var(--line);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+  @media (max-width:900px){ .logo .name{font-size:14px} .logo .sub{font-size:11px} }
+
+  /* ========== HERO ========== */
+  .hero-lyn{background:radial-gradient(900px 420px at 85% -20%, rgba(212,160,23,.22), transparent 60%),linear-gradient(180deg, var(--navy-800), var(--navy-900));color:#fff;position:relative;overflow:hidden}
+  .hero-lyn::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,black,transparent 80%);pointer-events:none}
+  .hero-lyn-inner{max-width:1200px;margin:0 auto;padding:48px 24px 36px;position:relative}
+  .hero-lyn .eyebrow{color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px}
+  .hero-lyn h1{margin-top:10px;max-width:620px}
+  .hero-lyn h1 em{font-style:normal;background:linear-gradient(120deg,#ffd966,#f5b200);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-lyn p{color:#c9d7ee;max-width:620px;margin-top:12px;font-size:15.5px}
+
+  /* ========== TABS ========== */
+  .tabs-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:78px;z-index:20}
+  .tabs-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin}
+  .tab-btn{
+    display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;
+    background:var(--line-2);color:var(--navy-800);font-size:13.5px;font-weight:700;
+    border:0;cursor:pointer;white-space:nowrap;font-family:inherit;
+    transition:background .15s, color .15s, transform .1s;
+  }
+  .tab-btn:hover{background:#dbe7fa}
+  .tab-btn.on{background:var(--navy-800);color:#fff;transform:scale(1.03)}
+  .tab-btn .n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--navy-500);background:#fff;padding:2px 6px;border-radius:5px}
+  .tab-btn.on .n{color:#ffd966;background:rgba(255,255,255,.12)}
+  .tab-btn svg{width:14px;height:14px}
+
+  /* ========== PANEL ========== */
+  .panel{display:none;padding:36px 0}
+  .panel.on{display:block;animation:fade .2s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .unit-head{
+    background:#698cdd;color:#fff;border-radius:16px;padding:26px 28px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;margin-bottom:20px;
+    box-shadow:var(--shadow-sm);
+  }
+  .unit-head .ic{width:58px;height:58px;border-radius:14px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+  .unit-head .ic svg{width:30px;height:30px;stroke-width:1.75}
+  .unit-head .meta-n{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;color:#ffd966;letter-spacing:.04em}
+  .unit-head h2{color:#fff;margin-top:4px}
+  .unit-head p{color:rgba(255,255,255,.9);margin:6px 0 0;font-size:14px;line-height:1.6}
+  .unit-head .hstat{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:12.5px;font-weight:700}
+  .unit-head .hstat .dot{width:7px;height:7px;border-radius:99px;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+
+  /* Layanan list (accordion) */
+  .service-list{display:flex;flex-direction:column;gap:10px}
+  .service-item{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .15s, box-shadow .15s}
+  .service-item[open]{border-color:var(--navy-500);box-shadow:var(--shadow-md)}
+  .service-item > summary{
+    list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:14px;font-weight:700;color:var(--navy-800);font-size:15px;transition:background .15s;
+  }
+  .service-item > summary::-webkit-details-marker{display:none}
+  .service-item > summary:hover{background:var(--line-2)}
+  .service-item > summary .ic-sub{width:36px;height:36px;border-radius:10px;background:var(--line-2);color:var(--navy-700);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .service-item[open] > summary .ic-sub{background:var(--gold-soft);color:var(--gold-ink)}
+  .service-item > summary .title-wrap{flex:1;min-width:0}
+  .service-item > summary .t{display:block}
+  .service-item > summary .arrow{transition:transform .2s;color:var(--muted);flex-shrink:0}
+  .service-item[open] > summary .arrow{transform:rotate(90deg)}
+  .service-body{padding:0 22px 22px 72px;color:var(--ink-2);font-size:14.5px;line-height:1.75}
+
+  /* Main content box */
+  .main-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;color:var(--ink-2);font-size:14.5px;line-height:1.75}
+
+  /* Markdown styling */
+  .service-body h1,.service-body h2,.service-body h3,.service-body h4,
+  .main-box h1,.main-box h2,.main-box h3,.main-box h4{margin:18px 0 10px;color:var(--navy-800);font-family:'Plus Jakarta Sans',sans-serif}
+  .service-body h1:first-child,.service-body h2:first-child,.service-body h3:first-child,
+  .main-box h1:first-child,.main-box h2:first-child,.main-box h3:first-child{margin-top:0}
+  .service-body h1,.main-box h1{font-size:22px}
+  .service-body h2,.main-box h2{font-size:18px}
+  .service-body h3,.main-box h3{font-size:16px}
+  .service-body h4,.main-box h4{font-size:14px}
+  .service-body p,.main-box p{margin:10px 0}
+  .service-body ul,.service-body ol,.main-box ul,.main-box ol{padding-left:22px;margin:10px 0}
+  .service-body li,.main-box li{margin:4px 0}
+  .service-body a,.main-box a{color:var(--navy-700);text-decoration:underline;text-decoration-color:var(--gold)}
+  .service-body strong,.main-box strong{color:var(--navy-800)}
+  .service-body table,.main-box table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  .service-body th,.service-body td,.main-box th,.main-box td{padding:8px 12px;border:1px solid var(--line);text-align:left}
+  .service-body th,.main-box th{background:var(--line-2);color:var(--navy-800);font-weight:700}
+  .service-body hr,.main-box hr{border:0;border-top:1px dashed var(--line);margin:16px 0}
+  .service-body blockquote,.main-box blockquote{border-left:3px solid var(--gold);padding:10px 16px;margin:10px 0;background:var(--gold-soft);color:var(--navy-800);border-radius:0 8px 8px 0}
+
+  /* Sub count banner */
+  .sub-count{font-size:12.5px;color:var(--muted);margin:8px 0 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .sub-count .ctrls{display:flex;gap:6px}
+  .sub-count .ctrls button{padding:5px 10px;font-size:11.5px;border-radius:6px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700;color:var(--ink-2);font-family:inherit;display:inline-flex;align-items:center;gap:4px}
+  .sub-count .ctrls button:hover{background:var(--line-2)}
+
+  /* ========== FOOTER ========== */
+  footer{background:var(--navy-900);color:#a9b8d4;padding:42px 0 20px;margin-top:60px}
+  .foot{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+  .foot h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .foot a{display:block;color:#b9c6e0;text-decoration:none;padding:4px 0;font-size:13.5px}
+  .foot a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding:18px 24px 0;max-width:1280px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px}
+
+  @media (max-width:900px){
+    .unit-head{grid-template-columns:auto 1fr;gap:14px;padding:20px}
+    .unit-head .hstat{grid-column:1/-1;justify-self:start}
+    .foot{grid-template-columns:1fr 1fr}
+    .hero-lyn h1{font-size:26px}
+  }
+  @media (max-width:720px){
+    .pub-nav{display:none} .nav-toggle{display:inline-flex}
+    .pub-nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;gap:4px;box-shadow:var(--shadow-md);z-index:20}
+    .tabs-bar{top:78px}
+    .hero-lyn h1{font-size:22px}
+    .service-body{padding:0 18px 18px 18px}
+    .foot{grid-template-columns:1fr}
+    .util-row{font-size:11px;gap:10px} .util .sep{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="util-row">
+    <span>WA 0823-2691-5609</span>
+    <span class="sep">·</span>
+    <span>Senin–Kamis 09.00–16.00 WIB</span>
+    <span class="sep">·</span>
+    <span>Jum'at 09.00–11.30</span>
+    <span class="spacer"></span>
+    <a href="{{ url_for('ikm') }}">Survei IKM</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('admin.login') }}" style="display:inline-flex;align-items:center;gap:4px;color:#ffd966"><i data-lucide="lock" style="width:11px;height:11px"></i> Admin</a>
+  </div>
+</div>
+
+<header class="pub-header">
+  <div class="pub-header-inner">
+    <a class="logo" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo" />
+      <div>
+        <div class="name">Satlantas Polres Kebumen</div>
+        <div class="sub">Portal Layanan Lalu Lintas Resmi</div>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle"><i data-lucide="menu"></i></button>
+    <nav class="pub-nav" id="pubNav">
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}" class="active">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+      <a href="{{ url_for('kegiatan_all') }}">Berita</a>
+      <a href="{{ url_for('kontak') }}">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-lyn">
+  <div class="hero-lyn-inner">
+    <span class="eyebrow">Direktori Layanan</span>
+    <h1>Pilih unit untuk melihat <em>layanan &amp; status</em>.</h1>
+    <p>Klik tab unit di bawah — hanya layanan unit terpilih yang ditampilkan. Klik tiap layanan untuk membuka detail persyaratan, biaya, waktu proses, dan alur.</p>
+  </div>
+</section>
+
+<div class="tabs-bar">
+  <div class="tabs-inner" role="tablist">
+    {% for u in layanan %}
+      <button class="tab-btn {% if loop.first %}on{% endif %}" data-tab="{{ u.slug }}" type="button" role="tab">
+        <span class="n">{{ u.num }}</span>
+        <i data-lucide="{{ u.icon }}"></i>
+        {{ u.code }}
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+<main class="container">
+  {% for u in layanan %}
+    <section class="panel {% if loop.first %}on{% endif %}" id="panel-{{ u.slug }}" role="tabpanel">
+      <div class="unit-head">
+        <div class="ic"><i data-lucide="{{ u.icon }}"></i></div>
+        <div>
+          <div class="meta-n">{{ u.num }} / {{ u.code }}</div>
+          <h2>{{ u.title }}</h2>
+          <p>{{ u.intro }}</p>
+        </div>
+        <div class="hstat"><span class="dot"></span> {{ u.status }}</div>
+      </div>
+
+      {% if u.sub %}
+        <div class="sub-count">
+          <span><b style="color:var(--ink-2)">{{ u.sub|length }} layanan</b> tersedia di unit {{ u.code }} — klik untuk membuka detail.</span>
+          <div class="ctrls">
+            <button type="button" data-expand="{{ u.slug }}"><i data-lucide="chevrons-down" style="width:12px;height:12px"></i> Buka semua</button>
+            <button type="button" data-collapse="{{ u.slug }}"><i data-lucide="chevrons-up" style="width:12px;height:12px"></i> Tutup semua</button>
+          </div>
+        </div>
+        <div class="service-list" id="list-{{ u.slug }}">
+          {% for s in u.sub %}
+            <details class="service-item">
+              <summary>
+                <span class="ic-sub"><i data-lucide="{{ s.icon }}"></i></span>
+                <span class="title-wrap">
+                  <span class="t">{{ s.title }}</span>
+                </span>
+                <span class="pill {{ s.status_type }}"><span class="dot"></span> {{ s.status }}</span>
+                <i data-lucide="chevron-right" class="arrow" style="width:18px;height:18px"></i>
+              </summary>
+              <div class="service-body">{{ s.content|safe }}</div>
+            </details>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="main-box">{{ u.main|safe }}</div>
+      {% endif %}
+    </section>
+  {% endfor %}
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo" style="gap:10px;margin-bottom:12px">
+        <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" style="width:38px;height:38px" alt="Logo" />
+        <div>
+          <div class="name" style="color:#fff;font-size:15px">Satlantas Polres Kebumen</div>
+          <div class="sub" style="color:#8ea3c6">Respon Cepat, Tulus Melayani</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#8ea3c6;margin:0;max-width:320px">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah.</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <a href="{{ url_for('index') }}">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <a href="https://wa.me/6282326915609" target="_blank" rel="noopener">WhatsApp 0823-2691-5609</a>
+      <a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">@satlantasres_kebumen</a>
+      <a href="{{ url_for('kontak') }}">Halaman Kontak</a>
+      <a href="{{ url_for('admin.login') }}" style="color:#ffd966">🔒 Panel Admin</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2025–2026 Polres Kebumen · Satlantas</div>
+    <div>Informasi dapat berubah sewaktu-waktu.</div>
+  </div>
+</footer>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('pubNav')?.classList.toggle('open');
+  });
+
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  function switchTab(slug){
+    tabs.forEach(b => b.classList.toggle('on', b.dataset.tab === slug));
+    panels.forEach(p => p.classList.toggle('on', p.id === 'panel-' + slug));
+    history.replaceState(null, '', '#' + slug);
+    window.scrollTo({top: document.querySelector('.tabs-bar').offsetTop - 60, behavior:'smooth'});
+  }
+
+  tabs.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+
+  // Open from hash on load
+  const hash = window.location.hash.replace('#','');
+  if (hash && document.getElementById('panel-' + hash)) switchTab(hash);
+
+  // Expand/collapse all (per unit)
+  document.querySelectorAll('[data-expand]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#list-' + b.dataset.expand + ' details').forEach(d => d.open = true);
+    });
+  });
+  document.querySelectorAll('[data-collapse]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#list-' + b.dataset.collapse + ' details').forEach(d => d.open = false);
+    });
+  });
+</script>
+</body>
+</html>

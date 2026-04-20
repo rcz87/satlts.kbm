@@ -1,8 +1,10 @@
 # 📊 Indeks Kepuasan Masyarakat (IKM)
 
-## Survei Kepuasan Pelayanan SAMSAT Kebumen
+## Survei Kepuasan Pelayanan Satlantas Polres Kebumen
 
-Indeks Kepuasan Masyarakat (IKM) adalah data dan informasi tentang tingkat kepuasan masyarakat yang diperoleh dari hasil pengukuran secara kuantitatif dan kualitatif atas pendapat masyarakat dalam memperoleh pelayanan dari SAMSAT Kebumen.
+Indeks Kepuasan Masyarakat (IKM) adalah data dan informasi tentang tingkat kepuasan masyarakat yang diperoleh dari hasil pengukuran secara kuantitatif dan kualitatif atas pendapat masyarakat terhadap pelayanan Satlantas Polres Kebumen — mencakup **seluruh unit**: REGIDENT, GAKUM, PATWAL, KAMSEL, dan URMIN.
+
+Hasil survei digunakan sesuai Permenpan RB No. 14 Tahun 2017 untuk perbaikan mutu layanan publik secara berkelanjutan.
 
 ---
 
@@ -17,13 +19,41 @@ Indeks Kepuasan Masyarakat (IKM) adalah data dan informasi tentang tingkat kepua
       <label class="form-label">Jenis Layanan yang Anda Gunakan:</label>
       <select name="jenis_layanan" required class="form-select">
         <option value="">-- Pilih Layanan --</option>
-        <option value="Pembayaran Pajak Tahunan">Pembayaran Pajak Tahunan</option>
-        <option value="Pembayaran Pajak 5 Tahunan">Pembayaran Pajak 5 Tahunan (Ganti STNK)</option>
-        <option value="Duplikat STNK">Duplikat STNK</option>
-        <option value="Mutasi Masuk">Mutasi Masuk (Pindah ke Kebumen)</option>
-        <option value="Mutasi Keluar">Mutasi Keluar (Pindah dari Kebumen)</option>
-        <option value="BBN 1 (Kendaraan Baru)">BBN 1 (Kendaraan Baru)</option>
-        <option value="BBN 2 (Balik Nama)">BBN 2 (Balik Nama)</option>
+        <optgroup label="🚗 REGIDENT (STNK, SIM, BPKB)">
+          <option value="Pembayaran Pajak Tahunan">Pembayaran Pajak Tahunan</option>
+          <option value="Pembayaran Pajak 5 Tahunan">Pembayaran Pajak 5 Tahunan (Ganti STNK)</option>
+          <option value="Duplikat STNK">Duplikat STNK</option>
+          <option value="Mutasi Masuk">Mutasi Masuk (Pindah ke Kebumen)</option>
+          <option value="Mutasi Keluar">Mutasi Keluar (Pindah dari Kebumen)</option>
+          <option value="BBN 1 (Kendaraan Baru)">BBN 1 (Kendaraan Baru)</option>
+          <option value="BBN 2 (Balik Nama)">BBN 2 (Balik Nama)</option>
+          <option value="Perpanjangan SIM">Perpanjangan SIM</option>
+          <option value="SIM Baru">Pembuatan SIM Baru</option>
+          <option value="Pelayanan BPKB">Pelayanan BPKB</option>
+        </optgroup>
+        <optgroup label="⚖️ GAKUM (Tilang &amp; Laka Lantas)">
+          <option value="Konfirmasi Tilang / ETLE">Konfirmasi Tilang / ETLE</option>
+          <option value="Cek Status Tilang">Cek Status Tilang</option>
+          <option value="Penanganan Laka Lantas">Penanganan Laka Lantas</option>
+          <option value="Sidang / Pembayaran Denda Tilang">Sidang / Pembayaran Denda Tilang</option>
+        </optgroup>
+        <optgroup label="🚓 PATWAL (Patroli &amp; Pengawalan)">
+          <option value="Pengawalan VIP / Pejabat">Pengawalan VIP / Pejabat</option>
+          <option value="Pengawalan Kegiatan Masyarakat">Pengawalan Kegiatan Masyarakat</option>
+          <option value="Pengawalan Jenazah / Ambulans">Pengawalan Jenazah / Ambulans</option>
+          <option value="Pengamanan Event / Lomba">Pengamanan Event / Lomba</option>
+        </optgroup>
+        <optgroup label="🛡️ KAMSEL (Edukasi Keselamatan)">
+          <option value="Program Polsanak">Program Polsanak (Polisi Sahabat Anak)</option>
+          <option value="Program PKS">Program Patroli Keamanan Sekolah (PKS)</option>
+          <option value="Sosialisasi Tertib Lalu Lintas">Sosialisasi Tertib Lalu Lintas</option>
+          <option value="Permohonan Narasumber">Permohonan Narasumber / Pembicara</option>
+        </optgroup>
+        <optgroup label="📋 URMIN (Administrasi)">
+          <option value="Surat Keterangan Kehilangan">Surat Keterangan Kehilangan (STNK/SIM/BPKB)</option>
+          <option value="Legalisir / Administrasi Umum">Legalisir / Administrasi Umum</option>
+          <option value="Loket Satlantas">Loket Satlantas (Jam Kerja)</option>
+        </optgroup>
         <option value="Lainnya">Lainnya</option>
       </select>
     </div>

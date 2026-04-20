@@ -14,6 +14,9 @@ psycopg2-binary==2.9.11
 flask-limiter==3.8.0
 flask-wtf==1.2.2
 
+# Performance: response caching
+flask-caching==2.4.0
+
 # Content Rendering
 markdown==3.7
 markupsafe==3.0.2

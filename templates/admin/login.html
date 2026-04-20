@@ -2,112 +2,83 @@
 
 {% block title %}Login Admin{% endblock %}
 
-{% block content %}
+{% block extra_css %}
 <style>
-    .login-container {
-        max-width: 400px;
-        margin: 5rem auto;
-    }
-
-    .login-card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        padding: 3rem 2rem;
-        text-align: center;
-    }
-
-    .login-card h2 {
-        margin-bottom: 0.5rem;
-        color: #1e3c72;
-    }
-
-    .login-card p {
-        color: #666;
-        margin-bottom: 2rem;
-    }
-
-    .form-group {
-        margin-bottom: 1.5rem;
-        text-align: left;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: #333;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-    }
-
-    .form-group input:focus {
-        outline: none;
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    }
-
-    .btn-login {
-        width: 100%;
-        padding: 0.9rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .btn-login:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-    }
-
-    .logo-container {
-        margin-bottom: 2rem;
-    }
-
-    .logo-container img {
-        width: 80px;
-        height: auto;
-    }
+  body{background:#0b2545}
+  .login-wrap{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:
+      radial-gradient(1200px 500px at 80% -20%, rgba(212,160,23,.22), transparent 60%),
+      linear-gradient(180deg, var(--navy-800), var(--navy-900));
+    position:relative;overflow:hidden;
+  }
+  .login-wrap::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:linear-gradient(180deg,black,transparent 80%);
+    pointer-events:none;
+  }
+  .login-card{
+    background:#fff;border-radius:18px;padding:36px 32px;width:100%;max-width:420px;
+    box-shadow:0 20px 60px rgba(11,37,69,.35);position:relative;z-index:1;
+  }
+  .login-card .login-brand{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .login-card .login-brand img{width:52px;height:52px;object-fit:contain}
+  .login-card .login-brand .t{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;color:var(--navy-800);line-height:1.2}
+  .login-card .login-brand .s{font-size:12px;color:var(--muted);margin-top:4px}
+  .login-card h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;color:var(--ink);margin-bottom:4px}
+  .login-card .lead{color:var(--muted);font-size:13.5px;margin-bottom:24px}
+  .login-card .btn-submit{
+    width:100%;padding:12px;background:var(--navy-800);color:#fff;border:0;border-radius:10px;
+    font-weight:700;font-size:14.5px;cursor:pointer;transition:background .15s;font-family:inherit;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .login-card .btn-submit:hover{background:var(--navy-700)}
+  .login-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);text-align:center;font-size:11.5px;color:var(--muted)}
+  .login-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--gold-soft);color:var(--gold-ink);font-size:11px;font-weight:700;margin-bottom:14px}
 </style>
+{% endblock %}
 
-<div class="login-container">
-    <div class="login-card">
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo">
-        </div>
-        <h2>🔐 Admin Login</h2>
-        <p>Portal Satlantas Polres Kebumen</p>
-
-        <form method="POST" action="{{ url_for('admin.login') }}">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required autofocus>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <button type="submit" class="btn-login">Login</button>
-        </form>
-
-        <p style="margin-top: 2rem; font-size: 0.85rem; color: #999;">
-            Portal Satlantas Polres Kebumen
-        </p>
+{% block content %}
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-brand">
+      <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo">
+      <div>
+        <div class="t">Satlantas Polres Kebumen</div>
+        <div class="s">Panel Admin · Akses Internal</div>
+      </div>
     </div>
+
+    <span class="login-pill"><i data-lucide="shield-check" style="width:12px;height:12px"></i> Area Terbatas</span>
+    <h2>Masuk ke Dashboard</h2>
+    <p class="lead">Silakan masuk dengan kredensial admin yang telah diberikan.</p>
+
+    <form method="POST" action="{{ url_for('admin.login') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required autofocus autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Kata Sandi</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn-submit">
+        <i data-lucide="log-in" style="width:16px;height:16px"></i> Masuk
+      </button>
+    </form>
+
+    <div class="login-foot">
+      © 2026 Polres Kebumen · Satlantas<br>
+      Dilindungi CSRF & Rate Limiting
+    </div>
+  </div>
 </div>
 {% endblock %}

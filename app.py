@@ -6,6 +6,7 @@ import os
 from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_caching import Cache
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -44,6 +45,13 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
     app.logger.info('Portal Satlantas startup')
+
+# Performance: Response caching (in-memory, per-process)
+cache = Cache(app, config={
+    'CACHE_TYPE': 'SimpleCache',
+    'CACHE_DEFAULT_TIMEOUT': 300,  # 5 menit
+    'CACHE_THRESHOLD': 200,
+})
 
 # Security: CSRF Protection
 csrf = CSRFProtect(app)
@@ -100,10 +108,9 @@ UNIT_LABELS = {
 
 @app.route('/')
 def index():
-    content = load_markdown('content_home.md')
-
     from db import get_db_connection
     recent_kegiatan = []
+    stats = {'ikm_count': 0, 'avg_ikm': '—'}
     try:
         conn = get_db_connection()
         cur = conn.cursor(cursor_factory=RealDictCursor)
@@ -111,16 +118,267 @@ def index():
             SELECT id, judul, foto, unit, tanggal_kegiatan
             FROM kegiatan
             ORDER BY tanggal_kegiatan DESC, created_at DESC
-            LIMIT 6
+            LIMIT 3
         ''')
         recent_kegiatan = cur.fetchall()
+
+        cur.execute('SELECT COUNT(*) as total FROM survei_ikm')
+        row = cur.fetchone()
+        stats['ikm_count'] = row['total'] if row else 0
+
+        cur.execute('SELECT AVG(rata_rata) * 25 as avg_ikm FROM survei_ikm')
+        row = cur.fetchone()
+        if row and row['avg_ikm']:
+            stats['avg_ikm'] = round(row['avg_ikm'], 1)
+
         cur.close()
         conn.close()
     except Exception:
         pass
 
-    return render_template('index.html', content=content, current_page='home',
-                         recent_kegiatan=recent_kegiatan, unit_map_inv={v: k for k, v in UNIT_MAP.items()})
+    return render_template('home.html',
+                           recent_kegiatan=recent_kegiatan,
+                           unit_map_inv={v: k for k, v in UNIT_MAP.items()},
+                           stats=stats)
+
+@app.route('/profil')
+def profil():
+    return render_template('profil.html')
+
+@app.route('/kontak')
+def kontak():
+    return render_template('kontak.html')
+
+@app.route('/layanan')
+@cache.cached(timeout=600)
+def layanan():
+    layanan_data = [
+        {
+            'slug': 'regident', 'num': '01', 'code': 'REGIDENT',
+            'title': 'Registrasi & Identifikasi',
+            'intro': 'Pelayanan registrasi dan identifikasi kendaraan bermotor serta pengemudi. Meliputi STNK, BPKB, SIM, pajak, mutasi, dan BBN.',
+            'icon': 'car', 'status': 'Tersedia', 'status_type': 'ok',
+            'main': load_markdown('content_regident.md'),
+            'sub': [
+                {'title': 'STNK & Pajak Kendaraan', 'icon': 'file-text', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_regident_stnk.md')},
+                {'title': 'SIM (Surat Izin Mengemudi)', 'icon': 'contact', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_regident_sim.md')},
+                {'title': 'BPKB', 'icon': 'book', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_regident_bpkb.md')},
+                {'title': 'Pajak 5 Tahunan', 'icon': 'calendar', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_5tahunan.md')},
+                {'title': 'Duplikat STNK', 'icon': 'copy', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_duplikat.md')},
+                {'title': 'Mutasi Kendaraan', 'icon': 'arrow-right-left', 'status': 'Proses 4–5 hari', 'status_type': 'warn', 'content': load_markdown('content_mutasi.md')},
+                {'title': 'BBN (Bea Balik Nama)', 'icon': 'refresh-cw', 'status': 'Tersedia', 'status_type': 'ok', 'content': load_markdown('content_bbn.md')},
+            ],
+        },
+        {
+            'slug': 'gakum', 'num': '02', 'code': 'GAKUM',
+            'title': 'Penegakan Hukum',
+            'intro': 'Menangani penegakan hukum lalu lintas: tilang manual dan elektronik (ETLE), serta penanganan kecelakaan lalu lintas.',
+            'icon': 'scale', 'status': 'Aktif 24 Jam', 'status_type': 'ok',
+            'main': load_markdown('content_gakum.md'),
+            'sub': [
+                {'title': 'Kecelakaan Lalu Lintas (Laka Lantas)', 'icon': 'alert-triangle', 'status': 'Siaga 24 Jam', 'status_type': 'ok', 'content': load_markdown('content_gakum_laka.md')},
+                {'title': 'Tilang & ETLE (Elektronik)', 'icon': 'camera', 'status': 'Online', 'status_type': 'ok', 'content': load_markdown('content_gakum_tilang.md')},
+                {'title': 'Cek Status Tilang ETLE', 'icon': 'search', 'status': 'Online 24 Jam', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Cara Cek Tilang Elektronik (ETLE)</h3>
+                    <p>Untuk mengecek apakah kendaraan Anda terkena tilang elektronik, ikuti langkah berikut:</p>
+                    <ol>
+                        <li>Buka situs resmi <a href="https://etle-nasional.polri.go.id/" target="_blank" rel="noopener">etle-nasional.polri.go.id</a></li>
+                        <li>Masukkan Nomor Pelat, Nomor Mesin, dan Nomor Rangka kendaraan</li>
+                        <li>Klik <strong>Cek Data</strong> — sistem akan menampilkan daftar pelanggaran (jika ada)</li>
+                        <li>Jika terkena tilang, ikuti instruksi konfirmasi & pembayaran via BRIVA</li>
+                    </ol>
+                    <blockquote>Konfirmasi wajib dilakukan dalam <strong>8 hari</strong> sejak pelanggaran terjadi. Setelah itu, STNK otomatis diblokir hingga Anda menyelesaikan tilang.</blockquote>
+                    <p><strong>Kontak Unit GAKUM:</strong> Posko Gakum Satlantas Polres Kebumen (Jam kerja).</p>
+                ''')},
+                {'title': 'Konfirmasi & Pembayaran Tilang', 'icon': 'credit-card', 'status': 'Tersedia', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Prosedur Konfirmasi Tilang</h3>
+                    <ul>
+                        <li>Datangi Posko Gakum Satlantas atau konfirmasi online via ETLE</li>
+                        <li>Bawa STNK, SIM, dan <strong>blanko tilang</strong> (warna merah / biru)</li>
+                        <li>Dapatkan nomor BRIVA untuk pembayaran denda</li>
+                        <li>Bayar via ATM / Mobile Banking / Teller BRI</li>
+                        <li>STNK/SIM yang ditahan diambil kembali setelah pembayaran terverifikasi</li>
+                    </ul>
+                    <h4>Blanko Merah vs Biru</h4>
+                    <ul>
+                        <li><strong>Biru</strong>: mengaku salah — bayar denda langsung, tanpa sidang</li>
+                        <li><strong>Merah</strong>: membantah — akan disidangkan di Pengadilan Negeri</li>
+                    </ul>
+                ''')},
+            ],
+        },
+        {
+            'slug': 'patwal', 'num': '03', 'code': 'PATWAL',
+            'title': 'Patroli & Pengawalan',
+            'intro': 'Permohonan pengawalan resmi, patroli wilayah, dan pengamanan rute untuk kegiatan masyarakat maupun VIP.',
+            'icon': 'siren', 'status': 'Permohonan', 'status_type': 'info',
+            'main': load_markdown('content_patwal.md'),
+            'sub': [
+                {'title': 'Pengawalan Resmi (VIP / Pejabat)', 'icon': 'star', 'status': 'Permohonan Tertulis', 'status_type': 'info', 'content': Markup('''
+                    <h3>Pengawalan Resmi</h3>
+                    <p>Pengawalan terhadap pejabat negara, tamu VVIP, dan rombongan resmi yang melintasi wilayah hukum Polres Kebumen.</p>
+                    <h4>Persyaratan Permohonan:</h4>
+                    <ul>
+                        <li>Surat permohonan resmi dari instansi / penyelenggara</li>
+                        <li>Jadwal & rute perjalanan yang jelas</li>
+                        <li>Daftar kendaraan yang akan dikawal</li>
+                        <li>Kontak penanggung jawab kegiatan</li>
+                    </ul>
+                    <p><strong>Waktu pengajuan:</strong> minimal 3 hari kerja sebelum kegiatan.</p>
+                    <blockquote>Hubungi WhatsApp 0823-2691-5609 atau datang langsung ke Kantor Satlantas untuk koordinasi.</blockquote>
+                ''')},
+                {'title': 'Pengawalan Kegiatan Masyarakat', 'icon': 'users', 'status': 'Permohonan', 'status_type': 'info', 'content': Markup('''
+                    <h3>Pengawalan Kegiatan Publik</h3>
+                    <p>Pengawalan rombongan masyarakat seperti jenazah, ambulans darurat, pengantin, konvoi resmi, karnaval, hingga rombongan studi tur.</p>
+                    <h4>Jenis pengawalan:</h4>
+                    <ul>
+                        <li><strong>Jenazah & Ambulans</strong> — dapat diakomodir situasional, hubungi segera</li>
+                        <li><strong>Rombongan pernikahan / konvoi</strong> — permohonan 2 hari sebelum</li>
+                        <li><strong>Studi tur / karya wisata</strong> — permohonan tertulis via sekolah</li>
+                    </ul>
+                    <p>Untuk permohonan rutin: lampirkan surat dari instansi/penyelenggara dan daftar peserta.</p>
+                ''')},
+                {'title': 'Patroli Wilayah', 'icon': 'map', 'status': 'Rutin Harian', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Patroli Lalu Lintas Rutin</h3>
+                    <p>Patroli terjadwal dan situasional di jalur utama Kabupaten Kebumen untuk menjaga kamseltibcarlantas.</p>
+                    <ul>
+                        <li>Jalur utama Pantura — pagi, siang, malam</li>
+                        <li>Pos pantau di titik rawan (Petanahan, Gombong, Ayah)</li>
+                        <li>Patroli cegah tawuran & balap liar malam hari</li>
+                        <li>Patroli hari besar keagamaan & event</li>
+                    </ul>
+                    <p>Melihat kejadian di jalan? Hubungi hotline <strong>110</strong> atau WhatsApp Satlantas.</p>
+                ''')},
+                {'title': 'Pengamanan Rute / Event', 'icon': 'route', 'status': 'Permohonan', 'status_type': 'info', 'content': Markup('''
+                    <h3>Pengamanan Jalur untuk Event</h3>
+                    <p>Satlantas membantu pengaturan & pengalihan arus lalu lintas untuk kegiatan skala besar.</p>
+                    <ul>
+                        <li>Lomba lari / sepeda (Fun Run, Gowes)</li>
+                        <li>Karnaval kemerdekaan / hari jadi daerah</li>
+                        <li>Kegiatan keagamaan dengan jalur tertutup sementara</li>
+                        <li>Operasi pasar / Bakti Sosial</li>
+                    </ul>
+                    <p><strong>Ajukan permohonan minimal 1 minggu sebelumnya</strong> dengan peta rute dan estimasi peserta.</p>
+                ''')},
+            ],
+        },
+        {
+            'slug': 'kamsel', 'num': '04', 'code': 'KAMSEL',
+            'title': 'Keamanan & Keselamatan',
+            'intro': 'Edukasi keselamatan berlalu lintas, program Polsanak, dan Patroli Keamanan Sekolah (PKS).',
+            'icon': 'shield', 'status': 'Program Rutin', 'status_type': 'info',
+            'main': load_markdown('content_kamsel.md'),
+            'sub': [
+                {'title': 'Polsanak (Polisi Sahabat Anak)', 'icon': 'smile', 'status': 'Program Rutin', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Polsanak — Polisi Sahabat Anak</h3>
+                    <p>Program edukasi lalu lintas untuk siswa TK dan SD, memperkenalkan tertib berlalu lintas dengan cara yang menyenangkan.</p>
+                    <h4>Kegiatan:</h4>
+                    <ul>
+                        <li>Kunjungan polisi ke sekolah (storytelling, games)</li>
+                        <li>Pengenalan rambu dan marka jalan</li>
+                        <li>Simulasi menyeberang jalan & naik kendaraan aman</li>
+                        <li>Cerita tentang Polantas sebagai sahabat</li>
+                    </ul>
+                    <p><strong>Permohonan dari sekolah:</strong> surat resmi + jadwal usulan ke Satlantas minimal 2 minggu sebelum.</p>
+                ''')},
+                {'title': 'Patroli Keamanan Sekolah (PKS)', 'icon': 'school', 'status': 'Aktif', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Patroli Keamanan Sekolah</h3>
+                    <p>Pembinaan siswa SMP/SMA sebagai kader PKS — bertugas membantu penyeberangan teman sekolah dan edukasi tertib lalu lintas.</p>
+                    <h4>Peran Satlantas:</h4>
+                    <ul>
+                        <li>Pelatihan dasar PKS (baris-berbaris, isyarat lalu lintas)</li>
+                        <li>Pengukuhan kader PKS</li>
+                        <li>Pendampingan rutin saat jam masuk & pulang sekolah</li>
+                        <li>Lomba PKS antar sekolah</li>
+                    </ul>
+                    <p>Sekolah yang ingin membentuk PKS dapat mengajukan permohonan ke Satlantas.</p>
+                ''')},
+                {'title': 'Sosialisasi Tertib Lalu Lintas', 'icon': 'megaphone', 'status': 'Terbuka', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Sosialisasi & Edukasi Masyarakat</h3>
+                    <p>Sosialisasi kepada komunitas, ormas, perusahaan, dan masyarakat umum tentang tertib berlalu lintas.</p>
+                    <h4>Topik yang disediakan:</h4>
+                    <ul>
+                        <li>Keselamatan berkendara roda dua (helm, SIM, dokumen)</li>
+                        <li>Etika berlalu lintas & Defensive Driving</li>
+                        <li>Operasi Keselamatan, Patuh, Zebra — tujuan & sasaran</li>
+                        <li>Dampak hukum pelanggaran lalu lintas</li>
+                    </ul>
+                    <p><strong>Permohonan narasumber</strong> dapat diajukan dengan surat resmi ke Kantor Satlantas.</p>
+                ''')},
+                {'title': 'Permohonan Narasumber / Pembicara', 'icon': 'mic', 'status': 'Permohonan', 'status_type': 'info', 'content': Markup('''
+                    <h3>Narasumber Satlantas</h3>
+                    <p>Satlantas siap mengirim personel terampil untuk menjadi pembicara di acara:</p>
+                    <ul>
+                        <li>Seminar keselamatan di kampus & sekolah</li>
+                        <li>Safety induction perusahaan</li>
+                        <li>Talkshow radio / televisi lokal</li>
+                        <li>Diskusi komunitas (klub motor, ormas)</li>
+                    </ul>
+                    <h4>Persyaratan:</h4>
+                    <ul>
+                        <li>Surat permohonan resmi (kop + tanda tangan)</li>
+                        <li>Topik, tanggal, waktu, & tempat kegiatan</li>
+                        <li>Estimasi jumlah peserta & durasi</li>
+                    </ul>
+                ''')},
+            ],
+        },
+        {
+            'slug': 'urmin', 'num': '05', 'code': 'URMIN',
+            'title': 'Urusan Administrasi',
+            'intro': 'Mengelola surat-menyurat, administrasi kepegawaian, dan dukungan administrasi internal Satlantas.',
+            'icon': 'folder', 'status': 'Jam Kerja', 'status_type': 'info',
+            'main': load_markdown('content_urmin.md'),
+            'sub': [
+                {'title': 'Surat Keterangan Kehilangan STNK/SIM', 'icon': 'file-minus', 'status': 'Tersedia', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Surat Keterangan Kehilangan</h3>
+                    <p>Untuk kehilangan STNK, SIM, atau BPKB. Diterbitkan oleh SPKT Polres, kemudian digunakan sebagai syarat pengurusan duplikat.</p>
+                    <h4>Cara Mengurus:</h4>
+                    <ol>
+                        <li>Datang ke <strong>SPKT Polres Kebumen</strong> (Sentra Pelayanan Kepolisian Terpadu)</li>
+                        <li>Bawa KTP asli + fotokopi</li>
+                        <li>Ceritakan kronologi kehilangan kepada petugas</li>
+                        <li>Surat Keterangan Kehilangan dicetak — gratis</li>
+                        <li>Lanjutkan ke loket REGIDENT untuk pengurusan duplikat</li>
+                    </ol>
+                    <p><strong>Catatan:</strong> Surat Kehilangan berlaku 14 hari sejak diterbitkan.</p>
+                ''')},
+                {'title': 'Administrasi Umum & Loket', 'icon': 'clipboard', 'status': 'Jam Kerja', 'status_type': 'info', 'content': Markup('''
+                    <h3>Loket Administrasi Satlantas</h3>
+                    <p>Melayani pengurusan surat-menyurat internal, pengantar, dan konfirmasi dokumen kendaraan.</p>
+                    <h4>Jam Layanan:</h4>
+                    <ul>
+                        <li>Senin–Kamis: <strong>08.00 – 15.00 WIB</strong></li>
+                        <li>Jum'at: <strong>08.00 – 11.00 WIB</strong></li>
+                        <li>Sabtu/Minggu/Libur Nasional: Tutup</li>
+                    </ul>
+                    <h4>Dokumen yang dilayani:</h4>
+                    <ul>
+                        <li>Surat pengantar urusan kepolisian lalu lintas</li>
+                        <li>Legalisir fotokopi dokumen kendaraan</li>
+                        <li>Verifikasi dokumen bagi instansi / notaris</li>
+                    </ul>
+                ''')},
+                {'title': 'Kontak & Informasi Personel', 'icon': 'contact', 'status': 'Online', 'status_type': 'ok', 'content': Markup('''
+                    <h3>Kontak Satlantas Polres Kebumen</h3>
+                    <ul>
+                        <li><strong>Alamat:</strong> Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen</li>
+                        <li><strong>WhatsApp Admin:</strong> <a href="https://wa.me/6282326915609" target="_blank" rel="noopener">0823-2691-5609</a></li>
+                        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">@satlantasres_kebumen</a></li>
+                        <li><strong>Facebook:</strong> Satlantas Polres Kebumen</li>
+                        <li><strong>X/Twitter:</strong> <a href="https://x.com/TMC_Kebumen" target="_blank" rel="noopener">@TMC_Kebumen</a></li>
+                        <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@satlantasres.kebumen" target="_blank" rel="noopener">@satlantasres.kebumen</a></li>
+                    </ul>
+                    <h4>Darurat:</h4>
+                    <ul>
+                        <li><strong>Laka Lantas:</strong> Hotline 110 (24 jam)</li>
+                        <li><strong>SPKT Polres:</strong> 0287-385514</li>
+                    </ul>
+                ''')},
+            ],
+        },
+    ]
+    return render_template('layanan.html', layanan=layanan_data)
 
 @app.route('/5tahunan')
 def tahunan():
@@ -460,10 +718,11 @@ def add_security_headers(response):
     response.headers['X-XSS-Protection'] = '1; mode=block'
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
-        "script-src 'self'; "
-        "style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data:; "
-        "font-src 'self'; "
+        "script-src 'self' 'unsafe-inline' https://unpkg.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "img-src 'self' data: https:; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "connect-src 'self' https://unpkg.com; "
         "frame-src 'self' https://www.google.com https://maps.google.com; "
         "frame-ancestors 'self';"
     )

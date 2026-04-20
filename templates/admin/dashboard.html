@@ -2,112 +2,392 @@
 
 {% block title %}Dashboard{% endblock %}
 
+{% block extra_css %}
+<style>
+  /* ===== dashboard-specific ===== */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+  .kpi .head{display:flex;justify-content:space-between;align-items:start;gap:10px}
+  .kpi .head .ic{width:34px;height:34px;border-radius:8px;background:var(--line-2);color:var(--navy-700);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .kpi.gold .head .ic{background:var(--gold-soft);color:var(--gold-ink)}
+  .kpi .l{font-size:12.5px;color:var(--muted);font-weight:600}
+  .kpi .v{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:10px;color:var(--ink);line-height:1}
+  .kpi .trend{margin-top:8px;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ok)}
+  .kpi .trend.down{color:var(--bad)}
+  .kpi .trend.muted{color:var(--muted)}
+  .kpi .spark{position:absolute;right:14px;bottom:12px;width:90px;height:28px;opacity:.7;pointer-events:none}
+
+  .admin-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:18px}
+  .admin-grid.single{grid-template-columns:1fr}
+  .admin-grid.half{grid-template-columns:1fr 1fr}
+
+  .trend-chart{height:220px;position:relative;padding:10px 4px 0}
+  .trend-chart svg{width:100%;height:100%;overflow:visible}
+
+  .chart-legend{display:flex;gap:14px;margin-top:8px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+  .chart-legend .sw{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:6px;vertical-align:middle}
+
+  .queue{display:flex;flex-direction:column;gap:10px}
+  .q-item{display:flex;gap:12px;padding:12px;border:1px solid var(--line);border-radius:10px}
+  .q-item .av{width:34px;height:34px;border-radius:99px;background:var(--line-2);color:var(--navy-700);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0}
+  .q-item .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:4px;gap:10px}
+  .q-item .meta b{color:var(--ink-2)}
+  .q-item p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.5}
+  .q-item .act{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .q-item .act button,.q-item .act a{padding:5px 10px;font-size:12px;border-radius:6px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:600;color:var(--ink-2);font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+  .q-item .act .ok{color:var(--ok);border-color:#bde6cf}
+  .q-item .act .ok:hover{background:var(--ok-soft)}
+  .q-item .act .no{color:var(--bad);border-color:#f2c9c2}
+  .q-item .act .no:hover{background:var(--bad-soft)}
+
+  .status-list{display:flex;flex-direction:column;gap:0}
+  .status-list .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .status-list .row:last-child{border-bottom:0}
+  .dot-st{width:8px;height:8px;border-radius:99px;display:inline-block;margin-right:8px}
+  .dot-st.ok{background:var(--ok)}
+  .dot-st.warn{background:var(--warn)}
+  .dot-st.bad{background:var(--bad)}
+
+  .stars{color:var(--gold);letter-spacing:1px;font-size:13px}
+
+  /* Quick links grid */
+  .quick-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .quick-action{
+    display:flex;align-items:center;gap:12px;
+    padding:14px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;text-decoration:none;color:var(--ink);
+    transition:border-color .15s, transform .15s, background .15s;
+  }
+  .quick-action:hover{border-color:var(--navy-600);background:#fbfcfe;transform:translateY(-1px)}
+  .quick-action .ic{width:36px;height:36px;border-radius:8px;background:var(--line-2);color:var(--navy-700);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .quick-action .ic.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .quick-action .t{font-weight:700;font-size:13.5px;line-height:1.2}
+  .quick-action .s{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+  .ikm-weekly-table td{padding:10px 12px}
+  .ikm-weekly-table .bar-inline{display:block;height:6px;background:var(--line-2);border-radius:99px;overflow:hidden;margin-top:4px}
+  .ikm-weekly-table .bar-inline i{display:block;height:100%;background:linear-gradient(90deg,var(--navy-700),var(--gold));border-radius:99px}
+
+  .empty-state{padding:36px 20px;text-align:center;color:var(--muted);font-size:13.5px}
+  .empty-state svg{width:32px;height:32px;margin-bottom:8px;opacity:.4}
+
+  @media (max-width:1100px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .admin-grid, .admin-grid.half{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .kpis{grid-template-columns:1fr}
+    .kpi .v{font-size:26px}
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="card">
-    <h2 style="margin-bottom: 2rem;">📊 Dashboard Admin</h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📋</div>
-            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.ikm_count }}</div>
-            <div style="opacity: 0.9;">Total Responden IKM</div>
-        </div>
-
-        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💬</div>
-            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.feedback_count }}</div>
-            <div style="opacity: 0.9;">Total Feedback</div>
-        </div>
-
-        <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📰</div>
-            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.kegiatan_count }}</div>
-            <div style="opacity: 0.9;">Total Kegiatan</div>
-        </div>
-
-        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⭐</div>
-            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">{{ stats.avg_ikm }}</div>
-            <div style="opacity: 0.9;">Rata-rata Skor IKM</div>
-        </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-        <div>
-            <h3 style="margin-bottom: 1rem;">📊 Data IKM 7 Hari Terakhir</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tanggal</th>
-                        <th>Jumlah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in stats.ikm_weekly %}
-                    <tr>
-                        <td>{{ row.tanggal }}</td>
-                        <td>{{ row.jumlah }}</td>
-                    </tr>
-                    {% else %}
-                    <tr>
-                        <td colspan="2" style="text-align: center; color: #999;">Belum ada data</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        <div>
-            <h3 style="margin-bottom: 1rem;">💬 Komentar IKM Terbaru</h3>
-            <div style="max-height: 300px; overflow-y: auto;">
-                {% for comment in stats.recent_comments %}
-                <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-bottom: 0.5rem;">
-                    <div style="font-weight: 600; color: #333;">{{ comment.jenis_layanan }}</div>
-                    <div style="font-size: 0.85rem; color: #666; margin-bottom: 0.5rem;">{{ comment.created_at.strftime('%d %b %Y %H:%M') }}</div>
-                    <div style="font-size: 0.9rem;">{{ comment.komentar }}</div>
-                </div>
-                {% else %}
-                <p style="color: #999; text-align: center;">Belum ada komentar</p>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <h3 style="margin-bottom: 1rem;">📩 Feedback Terbaru</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Pesan</th>
-                    <th>Waktu</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for feedback in stats.recent_feedback %}
-                <tr>
-                    <td>{{ feedback.nama }}</td>
-                    <td>{{ feedback.pesan[:100] }}{% if feedback.pesan|length > 100 %}...{% endif %}</td>
-                    <td>{{ feedback.created_at.strftime('%d %b %Y %H:%M') }}</td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="3" style="text-align: center; color: #999;">Belum ada feedback</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+{# ===== HEADER ===== #}
+<div class="admin-top">
+  <div class="title-wrap">
+    <h1>Dashboard</h1>
+    <div class="sub">Selamat datang kembali, {{ session.admin_fullname }}. Berikut ringkasan aktivitas terbaru.</div>
+  </div>
+  <div class="search">
+    <i data-lucide="search"></i>
+    <input placeholder="Cari IKM, feedback, kegiatan…" />
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="avatar" title="{{ session.admin_fullname }}">
+    {% set parts = session.admin_fullname.split() %}
+    {% if parts|length >= 2 %}{{ parts[0][0] }}{{ parts[1][0] }}{% else %}{{ session.admin_fullname[:2] }}{% endif %}
+  </div>
 </div>
 
-<div class="card">
-    <h3 style="margin-bottom: 1rem;">📌 Quick Links</h3>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="{{ url_for('admin.ikm_list') }}" class="btn btn-primary">Lihat Semua IKM</a>
-        <a href="{{ url_for('admin.feedback_list') }}" class="btn btn-primary">Lihat Semua Feedback</a>
-        <a href="{{ url_for('admin.kegiatan_list') }}" class="btn btn-success">Kelola Kegiatan</a>
-        <a href="{{ url_for('admin.gallery_manage') }}" class="btn btn-success">Kelola Gallery</a>
-        <a href="{{ url_for('admin.documents_manage') }}" class="btn btn-success">Kelola Dokumen</a>
+{# ===== KPI CARDS ===== #}
+<div class="kpis">
+  <div class="kpi">
+    <div class="head">
+      <div>
+        <div class="l">Total Responden IKM</div>
+        <div class="v">{{ "{:,}".format(stats.ikm_count).replace(',', '.') }}</div>
+        <div class="trend"><i data-lucide="arrow-up-right" style="width:13px;height:13px"></i> Kumulatif</div>
+      </div>
+      <div class="ic"><i data-lucide="clipboard-list"></i></div>
     </div>
+    <svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><polyline fill="none" stroke="var(--navy-600)" stroke-width="1.5" points="0,22 10,18 20,20 30,14 40,16 50,10 60,12 70,7 80,9 90,4"/></svg>
+  </div>
+
+  <div class="kpi gold">
+    <div class="head">
+      <div>
+        <div class="l">Rata-rata Skor IKM</div>
+        <div class="v">{{ stats.avg_ikm }}<span style="font-size:16px;color:var(--muted);font-weight:600">/100</span></div>
+        <div class="trend"><i data-lucide="star" style="width:13px;height:13px"></i>
+          {% if stats.avg_ikm >= 88 %}Sangat Baik (A)
+          {% elif stats.avg_ikm >= 76 %}Baik (B)
+          {% elif stats.avg_ikm >= 65 %}Kurang Baik (C)
+          {% else %}Tidak Baik (D){% endif %}
+        </div>
+      </div>
+      <div class="ic"><i data-lucide="star"></i></div>
+    </div>
+    <svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><polyline fill="none" stroke="var(--gold)" stroke-width="1.5" points="0,18 10,15 20,17 30,12 40,14 50,10 60,8 70,11 80,6 90,5"/></svg>
+  </div>
+
+  <div class="kpi">
+    <div class="head">
+      <div>
+        <div class="l">Feedback Masuk</div>
+        <div class="v">{{ stats.feedback_count }}</div>
+        <div class="trend muted"><i data-lucide="message-square" style="width:13px;height:13px"></i> Total seluruh waktu</div>
+      </div>
+      <div class="ic"><i data-lucide="message-square"></i></div>
+    </div>
+    <svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><polyline fill="none" stroke="var(--navy-600)" stroke-width="1.5" points="0,12 10,14 20,10 30,16 40,13 50,18 60,14 70,20 80,16 90,22"/></svg>
+  </div>
+
+  <div class="kpi">
+    <div class="head">
+      <div>
+        <div class="l">Total Kegiatan</div>
+        <div class="v">{{ stats.kegiatan_count }}</div>
+        <div class="trend"><i data-lucide="calendar" style="width:13px;height:13px"></i> Dipublikasikan</div>
+      </div>
+      <div class="ic"><i data-lucide="newspaper"></i></div>
+    </div>
+    <svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><polyline fill="none" stroke="var(--navy-600)" stroke-width="1.5" points="0,20 10,18 20,16 30,17 40,12 50,14 60,10 70,12 80,8 90,6"/></svg>
+  </div>
+</div>
+
+{# ===== TREND CHART + FEEDBACK QUEUE ===== #}
+<div class="admin-grid">
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>Tren Responden IKM</h3>
+        <div class="sub muted small">Harian · periode terakhir</div>
+      </div>
+      <div class="tabs">
+        <button>1H</button>
+        <button class="on">7H</button>
+        <button>30H</button>
+      </div>
+    </div>
+
+    {% if stats.ikm_weekly and stats.ikm_weekly|length > 0 %}
+      {% set max_val = stats.ikm_weekly | map(attribute='jumlah') | max %}
+      {% if max_val == 0 %}{% set max_val = 1 %}{% endif %}
+      <div class="trend-chart">
+        <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0b2545" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#0b2545" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#eef4ff" stroke-width="1">
+            <line x1="0" y1="40" x2="600" y2="40"/>
+            <line x1="0" y1="90" x2="600" y2="90"/>
+            <line x1="0" y1="140" x2="600" y2="140"/>
+            <line x1="0" y1="180" x2="600" y2="180"/>
+          </g>
+          {% set reversed_data = stats.ikm_weekly | reverse | list %}
+          {% set n = reversed_data | length %}
+          {% set step = 600 / (n if n > 1 else 1) %}
+          {% set points = [] %}
+          {% for row in reversed_data %}
+            {% set x = loop.index0 * step %}
+            {% set y = 180 - ((row.jumlah / max_val) * 140) %}
+            {% set _ = points.append(x|round(1)|string + ',' + y|round(1)|string) %}
+          {% endfor %}
+          <path d="M{{ points[0] }} L{{ points|join(' L') }} L600,200 L0,200 Z" fill="url(#trendGrad)"/>
+          <polyline fill="none" stroke="#0b2545" stroke-width="2.5" points="{{ points|join(' ') }}"/>
+          {% for row in reversed_data %}
+            {% set x = loop.index0 * step %}
+            {% set y = 180 - ((row.jumlah / max_val) * 140) %}
+            <circle cx="{{ x|round(1) }}" cy="{{ y|round(1) }}" r="3.5" fill="#fff" stroke="#0b2545" stroke-width="2"/>
+          {% endfor %}
+          <g font-size="11" fill="#64748b" font-family="JetBrains Mono">
+            {% for row in reversed_data %}
+              {% set x = loop.index0 * step %}
+              <text x="{{ x|round(1) }}" y="199" text-anchor="middle">{{ row.tanggal.strftime('%d/%m') }}</text>
+            {% endfor %}
+          </g>
+        </svg>
+      </div>
+      <div class="chart-legend" style="margin-top:4px">
+        <div><span class="sw" style="background:var(--navy-800)"></span> Responden harian</div>
+        <div>Total: <b style="color:var(--ink);font-family:JetBrains Mono,monospace">{{ stats.ikm_weekly | map(attribute='jumlah') | sum }}</b></div>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <i data-lucide="bar-chart-3"></i>
+        <div>Belum ada data IKM.</div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>Feedback Terbaru</h3>
+        <div class="sub muted small">5 terbaru</div>
+      </div>
+      <a href="{{ url_for('admin.feedback_list') }}" class="small" style="font-weight:600;color:var(--navy-700);text-decoration:none">Lihat semua →</a>
+    </div>
+    <div class="queue">
+      {% for feedback in stats.recent_feedback %}
+        {% set initials = feedback.nama.split() %}
+        <div class="q-item">
+          <div class="av">
+            {% if initials|length >= 2 %}{{ initials[0][0]|upper }}{{ initials[1][0]|upper }}
+            {% else %}{{ feedback.nama[:2]|upper }}{% endif %}
+          </div>
+          <div style="flex:1;min-width:0">
+            <div class="meta"><b>{{ feedback.nama }}</b><span>{{ feedback.created_at.strftime('%d %b · %H:%M') }}</span></div>
+            <p>{{ feedback.pesan[:140] }}{% if feedback.pesan|length > 140 %}…{% endif %}</p>
+          </div>
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <i data-lucide="inbox"></i>
+          <div>Belum ada feedback.</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ===== IKM 7 HARI + KOMENTAR ===== #}
+<div class="admin-grid half">
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>IKM 7 Hari Terakhir</h3>
+        <div class="sub muted small">Responden per hari</div>
+      </div>
+      <a href="{{ url_for('admin.ikm_list') }}" class="small" style="font-weight:600;color:var(--navy-700);text-decoration:none">Buka daftar →</a>
+    </div>
+    {% if stats.ikm_weekly and stats.ikm_weekly|length > 0 %}
+      {% set max_val = stats.ikm_weekly | map(attribute='jumlah') | max %}
+      {% if max_val == 0 %}{% set max_val = 1 %}{% endif %}
+      <table class="ikm-weekly-table">
+        <thead><tr><th>Tanggal</th><th style="text-align:right">Jumlah</th></tr></thead>
+        <tbody>
+          {% for row in stats.ikm_weekly %}
+            <tr>
+              <td>
+                {{ row.tanggal.strftime('%A, %d %b %Y') if row.tanggal.strftime else row.tanggal }}
+                <span class="bar-inline"><i style="width:{{ (row.jumlah / max_val * 100)|round(1) }}%"></i></span>
+              </td>
+              <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600">{{ row.jumlah }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="empty-state">
+        <i data-lucide="calendar-off"></i>
+        <div>Belum ada data 7 hari terakhir.</div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>Komentar IKM Terbaru</h3>
+        <div class="sub muted small">5 terbaru</div>
+      </div>
+      <a href="{{ url_for('admin.ikm_list') }}" class="small" style="font-weight:600;color:var(--navy-700);text-decoration:none">Lihat semua →</a>
+    </div>
+    <div class="queue" style="max-height:430px;overflow:auto">
+      {% for comment in stats.recent_comments %}
+        <div class="q-item">
+          <div class="av" style="background:var(--gold-soft);color:var(--gold-ink)"><i data-lucide="message-circle" style="width:14px;height:14px"></i></div>
+          <div style="flex:1;min-width:0">
+            <div class="meta"><b>{{ comment.jenis_layanan or 'Layanan' }}</b><span>{{ comment.created_at.strftime('%d %b · %H:%M') }}</span></div>
+            <p>"{{ comment.komentar[:200] }}{% if comment.komentar|length > 200 %}…{% endif %}"</p>
+          </div>
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <i data-lucide="message-square-off"></i>
+          <div>Belum ada komentar.</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{# ===== QUICK ACTIONS + STATUS ===== #}
+<div class="admin-grid half">
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>Aksi Cepat</h3>
+        <div class="sub muted small">Kelola konten portal</div>
+      </div>
+    </div>
+    <div class="quick-actions">
+      <a class="quick-action" href="{{ url_for('admin.ikm_list') }}">
+        <span class="ic gold"><i data-lucide="star"></i></span>
+        <div>
+          <div class="t">Kelola IKM</div>
+          <div class="s">{{ stats.ikm_count }} responden</div>
+        </div>
+      </a>
+      <a class="quick-action" href="{{ url_for('admin.feedback_list') }}">
+        <span class="ic"><i data-lucide="message-square"></i></span>
+        <div>
+          <div class="t">Kelola Feedback</div>
+          <div class="s">{{ stats.feedback_count }} pesan</div>
+        </div>
+      </a>
+      <a class="quick-action" href="{{ url_for('admin.kegiatan_list') }}">
+        <span class="ic"><i data-lucide="newspaper"></i></span>
+        <div>
+          <div class="t">Kelola Kegiatan</div>
+          <div class="s">{{ stats.kegiatan_count }} artikel</div>
+        </div>
+      </a>
+      <a class="quick-action" href="{{ url_for('admin.gallery_manage') }}">
+        <span class="ic"><i data-lucide="image"></i></span>
+        <div>
+          <div class="t">Kelola Gallery</div>
+          <div class="s">Upload foto</div>
+        </div>
+      </a>
+      <a class="quick-action" href="{{ url_for('admin.documents_manage') }}">
+        <span class="ic"><i data-lucide="file-text"></i></span>
+        <div>
+          <div class="t">Kelola Dokumen</div>
+          <div class="s">Publikasi resmi</div>
+        </div>
+      </a>
+      <a class="quick-action" href="{{ url_for('index') }}" target="_blank">
+        <span class="ic"><i data-lucide="external-link"></i></span>
+        <div>
+          <div class="t">Lihat Portal Publik</div>
+          <div class="s">Buka di tab baru</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="block-card">
+    <div class="hd">
+      <div>
+        <h3>Status Sistem</h3>
+        <div class="sub muted small">Pantau layanan</div>
+      </div>
+      <span class="pill ok"><i data-lucide="check-circle" style="width:13px;height:13px"></i> Operasional</span>
+    </div>
+    <div class="status-list">
+      <div class="row"><span><span class="dot-st ok"></span>Web portal publik</span><span class="muted small">Online</span></div>
+      <div class="row"><span><span class="dot-st ok"></span>Database IKM</span><span class="muted small">{{ stats.ikm_count }} entri</span></div>
+      <div class="row"><span><span class="dot-st ok"></span>CSRF & Rate limiting</span><span class="muted small">Aktif</span></div>
+      <div class="row"><span><span class="dot-st ok"></span>SSL/TLS certificate</span><span class="muted small">Valid</span></div>
+      <div class="row"><span><span class="dot-st ok"></span>SINAR / ETLE / SIGNAL links</span><span class="muted small">Tersambung</span></div>
+      <div class="row"><span><span class="dot-st ok"></span>Form Feedback publik</span><span class="muted small">{{ stats.feedback_count }} menerima</span></div>
+    </div>
+  </div>
 </div>
 {% endblock %}

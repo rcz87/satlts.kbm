@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Portal Resmi Satlantas Polres Kebumen - Layanan Lalu Lintas, REGIDENT, GAKUM, PATWAL, KAMSEL, URMIN" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>Portal Satlantas Polres Kebumen</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo-samsat.png') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    --navy-900:#071a33;
+    --navy-800:#0b2545;
+    --navy-700:#13315c;
+    --navy-600:#1e3a8a;
+    --navy-500:#3b5fbd;
+    --ink:#0b1220;
+    --ink-2:#1f2937;
+    --muted:#64748b;
+    --line:#e5ecf5;
+    --line-2:#eef4ff;
+    --bg:#f6f8fc;
+    --surface:#ffffff;
+    --gold:#d4a017;
+    --gold-soft:#fbe9b3;
+    --gold-ink:#7a5a0a;
+    --ok:#0f9960;
+    --ok-soft:#e3f5ec;
+    --warn:#c98410;
+    --warn-soft:#fdf2d8;
+    --bad:#c0392b;
+    --bad-soft:#fce5e1;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(11,37,69,.04), 0 1px 1px rgba(11,37,69,.03);
+    --shadow-md:0 4px 14px rgba(11,37,69,.06), 0 1px 3px rgba(11,37,69,.04);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    font-size:15px;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;margin:0;letter-spacing:-.01em}
+  h1{font-size:28px;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:22px;font-weight:700}
+  h3{font-size:16px;font-weight:700}
+  a{color:inherit}
+  button{font-family:inherit}
+  img{max-width:100%;display:block}
+
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--line-2);color:var(--navy-700);font-size:12px;font-weight:600}
+  .pill.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)}
+  .icon{width:18px;height:18px;stroke-width:1.75}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid transparent;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;transition:transform .06s ease, background .15s ease, border-color .15s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--navy-800);color:#fff}
+  .btn-primary:hover{background:var(--navy-700)}
+  .btn-gold{background:var(--gold);color:#221600}
+  .btn-gold:hover{background:#bd8d12}
+  .btn-ghost{background:transparent;color:var(--navy-800);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--line-2)}
+  .small{font-size:12px;color:var(--muted)}
+  .muted{color:var(--muted)}
+
+  /* ========== TOP UTILITY ========== */
+  .util{background:var(--navy-900);color:#a9b8d4;font-size:12px}
+  .util-row{max-width:1280px;margin:0 auto;padding:8px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .util a{color:#d6e2f5;text-decoration:none}
+  .util a:hover{color:#fff}
+  .util .sep{opacity:.35}
+  .util .spacer{flex:1}
+
+  /* ========== PUBLIC HEADER ========== */
+  .pub-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+  .pub-header-inner{max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:20px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .logo img{width:46px;height:46px;object-fit:contain}
+  .logo > div{min-width:0}
+  .logo .name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy-800);line-height:1.2;margin-bottom:2px;white-space:nowrap;font-size:16px}
+  .logo .sub{font-size:12px;color:var(--muted);letter-spacing:.02em;line-height:1.3}
+  .pub-nav{margin-left:auto;display:flex;gap:4px;align-items:center}
+  .pub-nav a{padding:10px 14px;border-radius:8px;text-decoration:none;color:#334155;font-weight:500;font-size:14px;transition:background .15s, color .15s}
+  .pub-nav a:hover{background:var(--line-2);color:var(--navy-800)}
+  .pub-nav a.active{color:var(--navy-800);background:var(--line-2)}
+  .nav-toggle{display:none;background:transparent;border:1px solid var(--line);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+  @media (max-width:900px){
+    .logo .name{font-size:14px}
+    .logo .sub{font-size:11px}
+  }
+  @media (max-width:720px){
+    .logo .name{white-space:normal}
+  }
+
+  /* ========== HERO ========== */
+  .hero{
+    background:
+      radial-gradient(1200px 500px at 80% -30%, rgba(212,160,23,.22), transparent 60%),
+      linear-gradient(180deg, var(--navy-800), var(--navy-900));
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:linear-gradient(180deg,black,transparent 80%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1280px;margin:0 auto;padding:56px 24px 44px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;position:relative}
+  .hero h1{font-size:42px;line-height:1.1;max-width:560px}
+  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#ffd966,#f5b200);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:#c9d7ee;max-width:520px;font-size:16px;margin-top:14px}
+  .hero-meta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .hero-meta .pill{background:rgba(255,255,255,.1);color:#e2ecff}
+  .hero-cta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+  .hero-stats{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;backdrop-filter:blur(6px);
+  }
+  .hero-stat .k{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;letter-spacing:-.02em}
+  .hero-stat .k small{color:var(--gold);font-size:16px;margin-left:4px;font-weight:700}
+  .hero-stat .l{color:#a9b8d4;font-size:13px;margin-top:4px}
+
+  /* ========== QUICK ACCESS ========== */
+  .quick-band{background:#fff;border-bottom:1px solid var(--line);margin-top:-1px}
+  .quick{max-width:1280px;margin:0 auto;padding:20px 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .quick-card{
+    position:relative;display:flex;align-items:center;gap:12px;
+    padding:16px;border:1px solid var(--line);border-radius:12px;
+    background:#fff;text-decoration:none;color:var(--ink);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .quick-card:hover{border-color:var(--navy-800);transform:translateY(-2px)}
+  .quick-ic{width:40px;height:40px;border-radius:10px;background:var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--navy-800);flex-shrink:0}
+  .quick-ic.gold{background:var(--gold-soft);color:var(--gold-ink)}
+  .quick-card .t{font-weight:700;font-size:14px;line-height:1.2}
+  .quick-card .s{font-size:12px;color:var(--muted);margin-top:2px}
+  .quick-card .arr{margin-left:auto;color:var(--muted)}
+
+  /* ========== SECTION ========== */
+  section.block{padding:64px 0}
+  section.block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .block-head{display:flex;align-items:end;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+  .block-head .eyebrow{color:var(--gold-ink);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .block-head h2{max-width:620px}
+  .block-head .sub{color:var(--muted);max-width:560px;margin-top:4px}
+  .block-head .r{margin-left:auto}
+
+  /* ========== LAYANAN GRID ========== */
+  .layanan{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .svc{
+    padding:22px;border-radius:16px;background:#698cdd;border:1px solid #567bc9;color:#fff;
+    display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none;
+  }
+  .svc:hover{border-color:#fff;transform:translateY(-2px)}
+  .svc-hd{display:flex;align-items:center;gap:10px}
+  .svc-num{font-family:'JetBrains Mono',monospace;color:#ffd966;font-size:17px;font-weight:700;letter-spacing:.04em}
+  .svc h3{font-size:18px;color:#fff}
+  .svc p{color:rgba(255,255,255,.85);font-size:14px;margin:0}
+  .svc ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .svc li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:rgba(255,255,255,.92)}
+  .svc li svg{width:14px;height:14px;color:#ffd966;flex-shrink:0}
+  .svc-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px dashed rgba(255,255,255,.25)}
+  .svc-footer .label{color:rgba(255,255,255,.75);font-size:12px}
+  .svc-footer .lnk{font-weight:600;color:#ffd966;font-size:13px;display:inline-flex;align-items:center;gap:4px}
+
+  /* ========== BERITA + INFO ========== */
+  .two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+  .berita{display:flex;flex-direction:column;gap:14px}
+  .news-item{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px;border:1px solid var(--line);background:#fff;border-radius:12px;transition:border-color .15s;text-decoration:none;color:inherit}
+  .news-item:hover{border-color:var(--navy-600)}
+  .news-thumb{aspect-ratio:4/3;border-radius:8px;background:repeating-linear-gradient(135deg, var(--line-2) 0 10px, #e6ecf7 10px 20px);display:flex;align-items:center;justify-content:center;color:var(--navy-600);font-family:'JetBrains Mono',monospace;font-size:11px;overflow:hidden}
+  .news-thumb img{width:100%;height:100%;object-fit:cover}
+  .news-meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
+  .news-item h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;margin:0 0 4px 0;font-weight:700;color:var(--ink)}
+  .news-item p{margin:0;color:var(--muted);font-size:13px}
+
+  .info-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:90px}
+  .ops-card{padding:20px;border-radius:16px;background:var(--navy-800);color:#fff;background-image:radial-gradient(700px 200px at 120% -20%,rgba(212,160,23,.3),transparent)}
+  .ops-card h3{color:#fff;margin-bottom:8px}
+  .ops-card .row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px dashed rgba(255,255,255,.15);font-size:14px}
+  .ops-card .row:first-of-type{border-top:0}
+  .ops-card .row span:first-child{color:#a9b8d4}
+  .ops-card .row span:last-child{font-weight:600}
+
+  .kontak-card{padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff}
+  .kontak-card .line{display:flex;gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+  .kontak-card .line:first-of-type{border-top:0;padding-top:0}
+  .kontak-card .line svg{color:var(--navy-600);flex-shrink:0;margin-top:2px}
+  .kontak-card .line .k{font-weight:700;font-size:13.5px}
+  .kontak-card .line .v{color:var(--muted);font-size:13px}
+  .kontak-card .line a{color:var(--navy-700);text-decoration:none}
+  .kontak-card .line a:hover{color:var(--navy-800)}
+
+  /* ========== ADUAN ========== */
+  .aduan-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .aduan-intro{background:linear-gradient(160deg,var(--navy-800),var(--navy-900));color:#fff;border-radius:18px;padding:28px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px}
+  .aduan-intro::after{content:"";position:absolute;right:-80px;bottom:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.28),transparent 65%)}
+  .aduan-intro h2{color:#fff;position:relative}
+  .aduan-intro p{color:#c9d7ee;position:relative;margin:0}
+  .aduan-steps{display:flex;flex-direction:column;gap:10px;position:relative;margin-top:6px}
+  .aduan-steps .st{display:flex;gap:12px;align-items:start}
+  .aduan-steps .n{width:26px;height:26px;border-radius:99px;background:var(--gold);color:#221600;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
+  .aduan-steps .tx .t{font-weight:700;font-size:14px}
+  .aduan-steps .tx .s{color:#a9b8d4;font-size:12.5px;margin-top:2px}
+  .aduan-intro .sla{display:flex;gap:14px;margin-top:auto;position:relative;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
+  .aduan-intro .sla div{flex:1}
+  .aduan-intro .sla .k{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800}
+  .aduan-intro .sla .l{color:#a9b8d4;font-size:11.5px;margin-top:2px}
+
+  .aduan-form{background:#eef4fb;border:1px solid #d6e3f0;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .aduan-form h3{font-size:18px;margin-bottom:4px}
+  .aduan-form .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-700)}
+  .aduan-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .aduan-form input, .aduan-form select, .aduan-form textarea{
+    border:1px solid #d6e3f0;border-radius:10px;padding:10px 12px;font-family:inherit;font-size:14px;
+    background:#fff;color:var(--ink);outline:none;transition:border-color .15s, background .15s;width:100%;
+  }
+  .aduan-form input:focus, .aduan-form select:focus, .aduan-form textarea:focus{border-color:var(--navy-800);background:#fff}
+  .aduan-form textarea{min-height:90px;resize:vertical}
+  .aduan-form .field{display:flex;flex-direction:column;gap:6px}
+  .aduan-form .submit-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:4px}
+  .aduan-form .anon{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+  .aduan-form .anon input{width:16px;height:16px;accent-color:var(--navy-800)}
+  .aduan-track{margin-top:8px;background:var(--line-2);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:center;font-size:13px;color:var(--navy-700)}
+  .aduan-track b{font-family:'JetBrains Mono',monospace}
+
+  /* ========== LOKASI ========== */
+  .lokasi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .lok{padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .lok .t{font-weight:700;font-size:14px}
+  .lok .a{color:var(--muted);font-size:13px;margin-top:4px}
+  .lok .tag{margin-top:10px;display:inline-flex;gap:6px;align-items:center;font-size:11px;font-weight:600;color:var(--navy-700);background:var(--line-2);padding:3px 8px;border-radius:99px}
+
+  /* ========== FOOTER ========== */
+  footer{background:var(--navy-900);color:#a9b8d4;padding:42px 0 20px;margin-top:60px}
+  .foot{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px}
+  .foot h4{color:#fff;font-size:14px;margin-bottom:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .foot a{display:block;color:#b9c6e0;text-decoration:none;padding:4px 0;font-size:13.5px}
+  .foot a:hover{color:#fff}
+  .foot .social-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .foot .social-row a{background:rgba(255,255,255,.08);padding:8px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#d6e2f5}
+  .foot .social-row a:hover{background:rgba(255,255,255,.16);color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:32px;padding-top:18px;max-width:1280px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px}
+
+  /* ========== FEEDBACK BUTTON (keep existing system) ========== */
+  .btn-feedback-float{
+    position:fixed;bottom:20px;right:20px;z-index:40;
+    width:56px;height:56px;border-radius:50%;background:var(--gold);color:#221600;
+    border:0;cursor:pointer;font-size:22px;
+    box-shadow:0 10px 24px rgba(212,160,23,.35);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .btn-feedback-float:hover{background:#bd8d12}
+
+  .feedback-modal{display:none;position:fixed;inset:0;background:rgba(11,37,69,.6);z-index:100;align-items:center;justify-content:center;padding:16px}
+  .feedback-modal.active{display:flex}
+  .feedback-modal-content{background:#fff;border-radius:14px;max-width:520px;width:100%;padding:28px;position:relative;max-height:90vh;overflow-y:auto}
+  .feedback-close{position:absolute;top:10px;right:14px;font-size:28px;color:var(--muted);cursor:pointer;line-height:1}
+  .feedback-form-group{margin-bottom:14px}
+  .feedback-form-group label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-700);margin-bottom:6px}
+  .feedback-form-group input,.feedback-form-group select,.feedback-form-group textarea{
+    width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fbfcfe;outline:none
+  }
+  .feedback-form-group input:focus,.feedback-form-group select:focus,.feedback-form-group textarea:focus{border-color:var(--navy-800);background:#fff}
+  .feedback-submit-btn{width:100%;padding:12px;background:var(--navy-800);color:#fff;border:0;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14.5px;margin-top:6px}
+  .feedback-submit-btn:hover{background:var(--navy-700)}
+  .feedback-form-message{padding:10px 12px;border-radius:8px;font-size:13px;margin-bottom:10px}
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width:1100px){
+    .hero-inner{grid-template-columns:1fr;gap:28px}
+    .quick{grid-template-columns:repeat(3,1fr)}
+    .layanan{grid-template-columns:repeat(2,1fr)}
+    .two-col{grid-template-columns:1fr}
+    .info-side{position:static}
+    .lokasi{grid-template-columns:repeat(2,1fr)}
+    .aduan-wrap{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:720px){
+    .pub-nav{display:none}
+    .nav-toggle{display:inline-flex}
+    .pub-nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:12px;right:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;gap:4px;box-shadow:var(--shadow-md);z-index:20}
+    .hero-inner{padding:36px 20px 28px}
+    .hero h1{font-size:30px}
+    .quick{grid-template-columns:1fr 1fr;padding:14px 16px}
+    .container{padding:0 16px}
+    section.block{padding:40px 0}
+    .layanan{grid-template-columns:1fr}
+    .lokasi{grid-template-columns:1fr}
+    .news-item{grid-template-columns:90px 1fr}
+    .foot{grid-template-columns:1fr}
+    .util-row{font-size:11px;gap:10px}
+    .util .sep{display:none}
+  }
+</style>
+</head>
+<body>
+
+{# ========== TOP UTILITY BAR ========== #}
+<div class="util">
+  <div class="util-row">
+    <span><i data-lucide="phone" style="width:12px;height:12px;vertical-align:-2px"></i> WA 0823-2691-5609</span>
+    <span class="sep">·</span>
+    <span>Senin–Kamis 09.00–16.00 WIB</span>
+    <span class="sep">·</span>
+    <span>Jum'at 09.00–11.30</span>
+    <span class="spacer"></span>
+    <a href="{{ url_for('ikm') }}">Survei IKM</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+    <span class="sep">·</span>
+    <a href="{{ url_for('admin.login') }}" style="display:inline-flex;align-items:center;gap:4px;color:#ffd966"><i data-lucide="lock" style="width:11px;height:11px"></i> Admin</a>
+  </div>
+</div>
+
+{# ========== HEADER ========== #}
+<header class="pub-header">
+  <div class="pub-header-inner">
+    <a class="logo" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" alt="Logo Satlantas Polres Kebumen" />
+      <div>
+        <div class="name">Satlantas Polres Kebumen</div>
+        <div class="sub">Portal Layanan Lalu Lintas Resmi</div>
+      </div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+    <nav class="pub-nav" id="pubNav">
+      <a href="{{ url_for('index') }}" class="active">Beranda</a>
+      <a href="{{ url_for('profil') }}">Profil</a>
+      <a href="{{ url_for('layanan') }}">Layanan</a>
+      <a href="{{ url_for('dasarhukum') }}">Informasi Publik</a>
+      <a href="{{ url_for('kegiatan_all') }}">Berita</a>
+      <a href="{{ url_for('kontak') }}">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+{# ========== HERO ========== #}
+<section class="hero" id="profil">
+  <div class="hero-inner">
+    <div>
+      <span class="pill gold"><i data-lucide="shield-check" style="width:13px;height:13px"></i> Portal Resmi Polres Kebumen</span>
+      <h1 style="margin-top:16px">Pelayanan lalu lintas yang <em>cepat, transparan, dan dekat</em> dengan masyarakat Kebumen.</h1>
+      <p>Informasi dan layanan digital Satlantas Kebumen dalam satu halaman: akses cepat ke SIGNAL dan SINAR, panduan lokal seputar STNK, SIM, dan BPKB, dashboard layanan dan survei kepuasan yang terbuka untuk publik, serta kanal laporan langsung ke admin tiap unit.</p>
+      <div class="hero-cta">
+        <a href="#aduan-form" class="btn btn-gold" style="justify-content:center;text-align:center;font-size:18px;font-weight:800;padding:14px 28px;letter-spacing:.06em;text-transform:uppercase;font-family:'Plus Jakarta Sans',sans-serif"><i data-lucide="zap" style="width:20px;height:20px"></i> Laporan Cepat</a>
+      </div>
+      <div class="hero-meta">
+        <span class="pill"><i data-lucide="eye" style="width:13px;height:13px"></i> Informasi Publik</span>
+        <span class="pill"><i data-lucide="accessibility" style="width:13px;height:13px"></i> WCAG 2.1 AA</span>
+        <span class="pill"><i data-lucide="lock" style="width:13px;height:13px"></i> HTTPS Aktif</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="k">{{ stats.ikm_count|default(0) }} <small>responden</small></div>
+        <div class="l">Survei kepuasan</div>
+      </div>
+      <div class="hero-stat">
+        <div class="k">{{ stats.avg_ikm|default('—') }} <small>IKM</small></div>
+        <div class="l">Skor layanan</div>
+      </div>
+      <div class="hero-stat">
+        <div class="k">5 <small>bidang</small></div>
+        <div class="l">Layanan Satlantas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="k">24/7</div>
+        <div class="l">Layanan online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== QUICK ACCESS ========== #}
+<div class="quick-band">
+  <div class="quick">
+    <a class="quick-card" href="https://etle-nasional.polri.go.id/" target="_blank" rel="noopener" style="background:#db5a5a;border-color:#c14a4a;color:#fff">
+      <span class="quick-ic" style="background:rgba(255,255,255,.18);color:#fff"><i data-lucide="camera"></i></span>
+      <div><div class="t">Cek Tilang ETLE</div><div class="s" style="color:rgba(255,255,255,.85)">Tilang elektronik</div></div>
+      <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px;color:rgba(255,255,255,.85)"></i>
+    </a>
+    <a class="quick-card" href="https://digitalkorlantas.id/" target="_blank" rel="noopener" style="background:#85c274;border-color:#6fae62;color:#0b2545">
+      <span class="quick-ic" style="background:rgba(255,255,255,.35);color:#0b2545"><i data-lucide="contact"></i></span>
+      <div><div class="t">Perpanjangan SIM</div><div class="s" style="color:rgba(11,37,69,.75)">via SINAR</div></div>
+      <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px;color:rgba(11,37,69,.75)"></i>
+    </a>
+    <a class="quick-card" href="https://signalsamsat.id/" target="_blank" rel="noopener" style="background:#e6e65c;border-color:#cccc45;color:#0b2545">
+      <span class="quick-ic" style="background:rgba(11,37,69,.12);color:#0b2545"><i data-lucide="wallet"></i></span>
+      <div><div class="t">Bayar Pajak</div><div class="s" style="color:rgba(11,37,69,.7)">Samsat Digital (SIGNAL)</div></div>
+      <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px;color:rgba(11,37,69,.7)"></i>
+    </a>
+    <a class="quick-card" href="{{ url_for('regident_stnk') }}" style="background:#d0effa;border-color:#a8d9ea;color:#0b2545">
+      <span class="quick-ic" style="background:rgba(11,37,69,.1);color:#0b2545"><i data-lucide="map"></i></span>
+      <div><div class="t">Layanan Samsat</div><div class="s" style="color:rgba(11,37,69,.7)">Induk, Keliling, Desa</div></div>
+      <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px;color:rgba(11,37,69,.7)"></i>
+    </a>
+    <a class="quick-card" href="{{ url_for('ikm') }}" style="background:#c98bdd;border-color:#b070c9;color:#fff">
+      <span class="quick-ic" style="background:rgba(255,255,255,.25);color:#fff"><i data-lucide="message-square-heart"></i></span>
+      <div><div class="t">Beri Penilaian</div><div class="s" style="color:rgba(255,255,255,.85)">Survei IKM 3 menit</div></div>
+      <i data-lucide="arrow-up-right" class="arr" style="width:16px;height:16px;color:rgba(255,255,255,.85)"></i>
+    </a>
+  </div>
+</div>
+
+{# ========== LAYANAN ========== #}
+<section class="block" id="layanan">
+  <div class="container">
+    <div class="block-head">
+      <div>
+        <div class="eyebrow">Layanan Utama</div>
+        <h2>Lima bidang pelayanan Satlantas</h2>
+        <div class="sub">Informasi persyaratan, biaya, waktu proses, dan titik pelayanan — lengkap untuk setiap bidang.</div>
+      </div>
+      <a href="{{ url_for('kegiatan_all') }}" class="btn btn-ghost r">Lihat kegiatan <i data-lucide="arrow-right" class="icon"></i></a>
+    </div>
+
+    <div class="layanan">
+      <a class="svc" href="{{ url_for('regident') }}">
+        <div class="svc-hd"><span class="svc-num">01 / REGIDENT</span></div>
+        <h3>STNK, BPKB, dan SIM</h3>
+        <p>Registrasi & identifikasi kendaraan dan pengemudi — pajak, duplikat, mutasi, BBN.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Pajak Tahunan & 5 Tahunan</li>
+          <li><i data-lucide="check"></i> Mutasi keluar–masuk</li>
+          <li><i data-lucide="check"></i> BBN I & II</li>
+        </ul>
+        <div class="svc-footer"><span class="label">4 titik Samsat</span><span class="lnk">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span></div>
+      </a>
+
+      <a class="svc" href="{{ url_for('gakum') }}">
+        <div class="svc-hd"><span class="svc-num">02 / GAKUM</span></div>
+        <h3>Penegakan Hukum</h3>
+        <p>Unit Laka Lantas, tilang manual & elektronik (ETLE), proses konfirmasi dan sidang.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Cek status tilang online</li>
+          <li><i data-lucide="check"></i> Prosedur merah & biru</li>
+          <li><i data-lucide="check"></i> Laka Lantas 24 jam</li>
+        </ul>
+        <div class="svc-footer"><span class="label">SPKT Polres Kebumen</span><span class="lnk">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span></div>
+      </a>
+
+      <a class="svc" href="{{ url_for('patwal') }}">
+        <div class="svc-hd"><span class="svc-num">03 / PATWAL</span></div>
+        <h3>Patroli & Pengawalan</h3>
+        <p>Permohonan pengawalan resmi, patroli wilayah, dan pengamanan rute.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Formulir pengawalan</li>
+          <li><i data-lucide="check"></i> Respons ≤ 2 jam kerja</li>
+          <li><i data-lucide="check"></i> Koordinasi satuan wilayah</li>
+        </ul>
+        <div class="svc-footer"><span class="label">Koordinasi langsung</span><span class="lnk">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span></div>
+      </a>
+
+      <a class="svc" href="{{ url_for('kamsel') }}">
+        <div class="svc-hd"><span class="svc-num">04 / KAMSEL</span></div>
+        <h3>Keamanan & Keselamatan</h3>
+        <p>Edukasi keselamatan berkendara, Polsanak, Patroli Keamanan Sekolah.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Sosialisasi tertib lalin</li>
+          <li><i data-lucide="check"></i> Materi edukasi terbuka</li>
+          <li><i data-lucide="check"></i> Permintaan narasumber</li>
+        </ul>
+        <div class="svc-footer"><span class="label">Program rutin</span><span class="lnk">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span></div>
+      </a>
+
+      <a class="svc" href="{{ url_for('urmin') }}">
+        <div class="svc-hd"><span class="svc-num">05 / URMIN</span></div>
+        <h3>Urusan Administrasi</h3>
+        <p>Pelayanan surat-menyurat, kepegawaian, dan administrasi internal.</p>
+        <ul>
+          <li><i data-lucide="check"></i> Surat keterangan resmi</li>
+          <li><i data-lucide="check"></i> Jam layanan jelas</li>
+          <li><i data-lucide="check"></i> Kontak loket aktif</li>
+        </ul>
+        <div class="svc-footer"><span class="label">Kantor Satlantas</span><span class="lnk">Detail <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span></div>
+      </a>
+
+      <a class="svc" href="{{ url_for('ikm') }}">
+        <div class="svc-hd"><span class="svc-num">BONUS / IKM</span></div>
+        <h3>Suara Anda, kinerja kami</h3>
+        <p>Ikuti survei IKM 9 unsur (Permenpan RB No. 14/2017). Hasil publik, real-time.</p>
+        <ul>
+          <li><i data-lucide="check"></i> 3 menit pengisian</li>
+          <li><i data-lucide="check"></i> Anonim & aman</li>
+          <li><i data-lucide="check"></i> Rekap publik terbuka</li>
+        </ul>
+        <div class="svc-footer">
+          <span class="label">{{ stats.ikm_count|default(0) }} responden</span>
+          <span class="lnk">Isi survei <i data-lucide="chevron-right" style="width:14px;height:14px"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{# ========== ADUAN ========== #}
+<section class="block" id="aduan-form" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="block-head">
+      <div>
+        <div class="eyebrow">Partisipasi Publik</div>
+        <h2>Kirim Aduan Masyarakat</h2>
+        <div class="sub">Laporkan pelayanan yang kurang baik atau indikasi pelanggaran. Aduan akan ditangani sesuai SOP.</div>
+      </div>
+    </div>
+
+    <div class="aduan-wrap">
+      <div class="aduan-intro">
+        <span class="pill gold" style="align-self:flex-start;background:var(--gold);color:#221600">Dijamin rahasia</span>
+        <h2>Suara Anda ditindaklanjuti</h2>
+        <p>Setiap aduan dicatat dan ditindaklanjuti oleh unit terkait. Anda akan menerima nomor tiket unik.</p>
+        <div class="aduan-steps">
+          <div class="st"><div class="n">1</div><div class="tx"><div class="t">Kirim aduan</div><div class="s">Isi form — sertakan detail lokasi dan waktu</div></div></div>
+          <div class="st"><div class="n">2</div><div class="tx"><div class="t">Verifikasi 1×24 jam</div><div class="s">Admin mengkaji dan menetapkan kategori</div></div></div>
+          <div class="st"><div class="n">3</div><div class="tx"><div class="t">Tindak lanjut</div><div class="s">Unit terkait memproses aduan Anda</div></div></div>
+          <div class="st"><div class="n">4</div><div class="tx"><div class="t">Selesai</div><div class="s">Hasil dikomunikasikan kembali kepada pelapor</div></div></div>
+        </div>
+        <div class="sla">
+          <div><div class="k">≤24<span style="color:var(--gold);font-size:14px">j</span></div><div class="l">Verifikasi</div></div>
+          <div><div class="k">7<span style="color:var(--gold);font-size:14px">hari</span></div><div class="l">Respons awal</div></div>
+          <div><div class="k">Aman</div><div class="l">Data pelapor</div></div>
+        </div>
+      </div>
+
+      <form class="aduan-form" id="aduanForm">
+        <h3>Formulir Aduan</h3>
+        <div class="small muted" style="margin-top:-4px">Aduan akan dikirim ke admin via WhatsApp.</div>
+
+        <div class="row2">
+          <div class="field">
+            <label class="lbl">Nama Pelapor</label>
+            <input type="text" name="nama" placeholder="Nama lengkap" />
+          </div>
+          <div class="field">
+            <label class="lbl">Kontak (HP/Email)</label>
+            <input type="text" name="kontak" placeholder="08xxx atau email" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label class="lbl">Kategori Aduan</label>
+            <select name="kategori">
+              <option>Pelayanan STNK & Pajak</option>
+              <option>Tilang / ETLE</option>
+              <option>Pengurusan SIM</option>
+              <option>Perilaku Petugas</option>
+              <option>Kecelakaan / Laka Lantas</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="lbl">Lokasi Kejadian</label>
+            <input type="text" name="lokasi" placeholder="Contoh: Samsat Induk — Loket 3" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Uraian Aduan</label>
+          <textarea name="uraian" placeholder="Jelaskan kronologi singkat: kapan, di mana, apa yang terjadi…" required></textarea>
+        </div>
+
+        <div class="submit-row">
+          <label class="anon"><input type="checkbox" name="anon" /> Kirim sebagai anonim</label>
+          <div style="display:flex;gap:8px">
+            <button type="reset" class="btn btn-ghost">Reset</button>
+            <button type="submit" class="btn btn-primary"><i data-lucide="send" class="icon"></i> Kirim Laporan</button>
+          </div>
+        </div>
+
+        <div class="aduan-track" id="aduanTicket" style="display:none">
+          <i data-lucide="check-circle" style="color:var(--ok)"></i>
+          <div>Terima kasih, Anda akan diarahkan ke WhatsApp untuk mengirim aduan ke admin.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{# ========== BERITA + INFO ========== #}
+<section class="block">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="block-head" style="margin-bottom:20px">
+          <div>
+            <div class="eyebrow">Berita & Kegiatan</div>
+            <h2>Kabar terbaru dari lapangan</h2>
+          </div>
+          <a href="{{ url_for('kegiatan_all') }}" class="btn btn-ghost r">Arsip kegiatan</a>
+        </div>
+        <div class="berita">
+          {% for item in recent_kegiatan %}
+            <a class="news-item" href="{{ url_for('kegiatan_detail', unit_slug=unit_map_inv.get(item.unit, 'regident'), id=item.id) }}">
+              <div class="news-thumb">
+                {% if item.foto %}
+                  <img src="{{ url_for('static', filename='images/kegiatan/' + item.foto) }}" alt="">
+                {% else %}
+                  foto kegiatan
+                {% endif %}
+              </div>
+              <div>
+                <div class="news-meta"><span class="pill">{{ item.unit }}</span> <span>{{ item.tanggal_kegiatan.strftime('%d %b %Y') }}</span></div>
+                <h4>{{ item.judul }}</h4>
+                <p>Kegiatan Satlantas Polres Kebumen di unit {{ item.unit }}.</p>
+              </div>
+            </a>
+          {% else %}
+            <div style="padding:32px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px">
+              <i data-lucide="newspaper" style="width:28px;height:28px;margin-bottom:8px;opacity:.4"></i>
+              <div>Belum ada kegiatan yang dipublikasikan.</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <aside class="info-side">
+        <div class="ops-card">
+          <span class="pill gold" style="background:var(--gold);color:#221600">Jam Operasional</span>
+          <h3 style="margin-top:10px">Jadwal Layanan</h3>
+          <div class="row"><span>Senin – Kamis</span><span>09.00 – 16.00</span></div>
+          <div class="row"><span>Jum'at</span><span>09.00 – 11.30</span></div>
+          <div class="row"><span>Sabtu – Minggu</span><span>Tutup</span></div>
+          <div class="row"><span>WhatsApp</span><span style="color:var(--gold)">0823-2691-5609</span></div>
+        </div>
+        <div class="kontak-card">
+          <h3 style="margin-bottom:12px">Kontak & Alamat</h3>
+          <div class="line">
+            <i data-lucide="map-pin"></i>
+            <div>
+              <div class="k">Kantor Satlantas</div>
+              <div class="v">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen</div>
+            </div>
+          </div>
+          <div class="line">
+            <i data-lucide="phone"></i>
+            <div>
+              <div class="k">WhatsApp</div>
+              <div class="v"><a href="https://wa.me/6282326915609" target="_blank" rel="noopener">+62 823-2691-5609</a></div>
+            </div>
+          </div>
+          <div class="line">
+            <i data-lucide="instagram"></i>
+            <div>
+              <div class="k">Instagram</div>
+              <div class="v"><a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener">@satlantasres_kebumen</a></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{# ========== LOKASI SAMSAT ========== #}
+<section class="block" id="kontak" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="block-head">
+      <div>
+        <div class="eyebrow">Titik Layanan</div>
+        <h2>Lokasi Samsat di Kabupaten Kebumen</h2>
+      </div>
+      <a href="{{ url_for('regident_stnk') }}" class="btn btn-primary r"><i data-lucide="map" class="icon"></i> Info Samsat</a>
+    </div>
+    <div class="lokasi">
+      <div class="lok">
+        <div class="t">Samsat Induk Kebumen</div>
+        <div class="a">Jl. H.M. Sarbini, Bumirejo</div>
+        <span class="tag"><i data-lucide="clock" style="width:11px;height:11px"></i> 09.00–16.00</span>
+      </div>
+      <div class="lok">
+        <div class="t">Samsat Gombong</div>
+        <div class="a">Klapasawit, Wero, Gombong</div>
+        <span class="tag"><i data-lucide="clock" style="width:11px;height:11px"></i> 09.00–15.00</span>
+      </div>
+      <div class="lok">
+        <div class="t">Samsat Keliling</div>
+        <div class="a">Jadwal rotasi 18 kecamatan</div>
+        <span class="tag"><i data-lucide="calendar" style="width:11px;height:11px"></i> Sesuai jadwal</span>
+      </div>
+      <div class="lok">
+        <div class="t">Samsat Desa</div>
+        <div class="a">Jadwal rotasi desa terpilih</div>
+        <span class="tag"><i data-lucide="calendar" style="width:11px;height:11px"></i> Sesuai jadwal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========== FOOTER ========== #}
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo" style="gap:10px;margin-bottom:12px">
+        <img src="{{ url_for('static', filename='images/logo-samsat.png') }}" style="width:38px;height:38px" alt="Logo" />
+        <div>
+          <div class="name" style="color:#fff;font-size:15px">Satlantas Polres Kebumen</div>
+          <div class="sub" style="color:#8ea3c6">Respon Cepat, Tulus Melayani</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#8ea3c6;margin:0 0 8px 0;max-width:320px">Jl. H.M. Sarbini, Mertokondo, Bumirejo, Kec. Kebumen, Jawa Tengah.</p>
+      <div class="social-row">
+        <a href="https://www.instagram.com/satlantasres_kebumen/" target="_blank" rel="noopener"><i data-lucide="instagram" style="width:14px;height:14px"></i> Instagram</a>
+        <a href="https://web.facebook.com/profile.php?id=61582067180356" target="_blank" rel="noopener"><i data-lucide="facebook" style="width:14px;height:14px"></i> Facebook</a>
+        <a href="https://x.com/TMC_Kebumen" target="_blank" rel="noopener"><i data-lucide="twitter" style="width:14px;height:14px"></i> X</a>
+        <a href="https://www.tiktok.com/@satlantasres.kebumen" target="_blank" rel="noopener"><i data-lucide="video" style="width:14px;height:14px"></i> TikTok</a>
+      </div>
+    </div>
+    <div>
+      <h4>Layanan</h4>
+      <a href="{{ url_for('regident') }}">REGIDENT (STNK, SIM, BPKB)</a>
+      <a href="{{ url_for('gakum') }}">GAKUM (Tilang, Laka)</a>
+      <a href="{{ url_for('patwal') }}">PATWAL</a>
+      <a href="{{ url_for('kamsel') }}">KAMSEL</a>
+      <a href="{{ url_for('urmin') }}">URMIN</a>
+    </div>
+    <div>
+      <h4>Informasi</h4>
+      <a href="{{ url_for('dasarhukum') }}">Dasar Hukum</a>
+      <a href="{{ url_for('kegiatan_all') }}">Kegiatan</a>
+      <a href="{{ url_for('galery') }}">Galeri</a>
+    </div>
+    <div>
+      <h4>Partisipasi</h4>
+      <a href="{{ url_for('ikm') }}">Survei IKM</a>
+      <a href="#aduan-form">Kirim Aduan</a>
+      <a href="https://wa.me/6282326915609" target="_blank" rel="noopener">WhatsApp Admin</a>
+      <a href="{{ url_for('admin.login') }}" style="color:#ffd966">🔒 Panel Admin</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2025–2026 Polres Kebumen · Satlantas</div>
+    <div>Informasi dapat berubah sewaktu-waktu. Hubungi kantor untuk info terkini.</div>
+  </div>
+</footer>
+
+{# ========== FLOATING FEEDBACK (existing system) ========== #}
+<button id="btn-feedback" class="btn-feedback-float" title="Kirim Feedback"><i data-lucide="mail" style="width:22px;height:22px"></i></button>
+
+<div id="feedback-modal" class="feedback-modal">
+  <div class="feedback-modal-content">
+    <span id="close-modal" class="feedback-close">&times;</span>
+    <h2 style="color:var(--navy-800);margin-bottom:16px">Kirim Feedback & Saran</h2>
+    <form id="feedback-form">
+      <div class="feedback-form-group">
+        <label>Nama (Opsional)</label>
+        <input type="text" name="nama" placeholder="Nama Anda" maxlength="100">
+      </div>
+      <div class="feedback-form-group">
+        <label>Email (Opsional)</label>
+        <input type="email" name="email" placeholder="email@example.com" maxlength="100">
+      </div>
+      <div class="feedback-form-group">
+        <label>Kategori *</label>
+        <select name="kategori" required>
+          <option value="">-- Pilih Kategori --</option>
+          <option value="Saran Fitur Baru">Saran Fitur Baru</option>
+          <option value="Perbaikan Bug/Error">Perbaikan Bug/Error</option>
+          <option value="Peningkatan Tampilan">Peningkatan Tampilan</option>
+          <option value="Konten & Informasi">Konten & Informasi</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </div>
+      <div class="feedback-form-group">
+        <label>Pesan/Saran *</label>
+        <textarea name="pesan" rows="5" placeholder="Tulis saran atau feedback Anda (minimal 10 karakter)" required minlength="10" maxlength="1000"></textarea>
+      </div>
+      <div id="feedback-message" class="feedback-form-message" style="display:none"></div>
+      <button type="submit" class="feedback-submit-btn">Kirim Feedback</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+
+  // Responsive nav
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('pubNav')?.classList.toggle('open');
+  });
+
+  // WhatsApp per unit (sesuai kategori aduan)
+  const UNIT_WA = {
+    'Pelayanan STNK & Pajak':      '6287725558787',
+    'Tilang / ETLE':               '',  // segera
+    'Pengurusan SIM':              '',  // segera
+    'Perilaku Petugas':            '',  // ke admin umum
+    'Kecelakaan / Laka Lantas':    '',  // segera
+    'Lainnya':                     ''
+  };
+  const WA_ADMIN = '6282326915609';
+
+  document.getElementById('aduanForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const anon = fd.get('anon');
+    const nama = anon ? 'Anonim' : (fd.get('nama') || 'Anonim');
+    const kontak = anon ? '-' : (fd.get('kontak') || '-');
+    const kategori = fd.get('kategori') || '-';
+    const lokasi = fd.get('lokasi') || '-';
+    const uraian = fd.get('uraian') || '-';
+
+    let wa = UNIT_WA[kategori];
+    let tujuan;
+    if (wa) {
+      tujuan = 'Unit ' + kategori;
+    } else {
+      wa = WA_ADMIN;
+      tujuan = 'Admin Satlantas (nomor unit belum tersedia)';
+    }
+
+    const msg = `*ADUAN MASYARAKAT*\nTujuan: ${tujuan}\n\nNama: ${nama}\nKontak: ${kontak}\nKategori: ${kategori}\nLokasi: ${lokasi}\n\nUraian:\n${uraian}`;
+    const url = `https://wa.me/${wa}?text=${encodeURIComponent(msg)}`;
+    document.getElementById('aduanTicket').style.display = 'flex';
+    document.getElementById('aduanTicket').querySelector('div').textContent =
+      `Anda diarahkan ke WhatsApp — tujuan: ${tujuan}.`;
+    setTimeout(() => window.open(url, '_blank'), 400);
+  });
+</script>
+<script src="{{ url_for('static', filename='feedback.js') }}"></script>
+</body>
+</html>
